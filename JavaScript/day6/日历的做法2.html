@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .date{
+            width: 500px;
+            height: 500px;
+            background: #ffef9c;
+            margin: 100px auto  ;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .date span{
+            color: black;
+            font-size: 20px;
+        }
+
+        .date p{
+            width: 300px;
+            height: 300px;
+            background-color: #fff;
+            margin: 100px auto 0;
+            line-height: 300px;
+            font-size: 150px;
+        }
+    </style>
+</head>
+<body>
+<div class="date" id="date">
+    <span>12232353532</span>
+    <p></p>
+</div>
+</body>
+</html>
+<script>
+     var date=document.getElementById("date");
+     var day=new Date();
+     var arr=["星期天","星期一","星期二","星期三","星期四","星期五","星期六"]
+     date.children[1].innerHTML=day.getDate();
+     date.children[0].innerHTML=day.getYear()+"年"+day.getMonth()+"月"+(day.getDate()+1)+"日 "+arr[day.getDay()]
+
+</script>

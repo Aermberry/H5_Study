@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    <!--数组的两种声明方式-->
+//    var arr=new Array();
+//    var arr1=["zhangxueyou","liming","guofucheng","yaoming"];
+//    var arr2=new Array("zhangxueyou","liming","guofucheng","yaojingming");
+//    console.log(arr2[1]);
+//    console.log(arr1[3])
+//    arr1[4]="xiaojingqiang";
+//    console.log(arr1[4]);
+//    alert(arr1.length);
+
+    for (var a=1;a<101;a++)
+    {if(a%10==0)
+    {document.write("<image src='images/"+a+".bmp'></br>")}//true的情况下，这种处理方法，先特殊，后普通
+    else
+    {document.write("<image src='images/"+a+".bmp'>")}
+    }
+</script>

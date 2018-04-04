@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var div1=document.getElementById("div1").innerHTML;
+            var div2=document.getElementById("div2").innerHTML;
+
+            function clivk(id,text) {
+                document.getElementById(id).onclick=function () {
+                    this.nextElementSibling.innerHTML=text;
+                }
+            }
+
+            clivk("btn1",div1);//获取指定字符串
+            clivk("btn2",div1.concat(div2));//concat()，连接两个字符串
+            clivk("btn3",div1.slice(3));//截取字符串，连个变量起始变量和终点变量。起始变量包含起始点，终点变量不包含终点。
+            clivk("btn4",div1.slice(7,8));//截取字符串，连个变量起始变量和终点变量。起始变量包含起始点，终点变量不包含终点。
+            clivk("btn5",div1.slice(-1));//截取字符串，连个变量起始变量和终点变量。起始变量包含起始点，终点变量不包含终点。
+            clivk("btn6",div1.substr(3,3));//substr(),截取字符串长度，两个参数，first,用于定位开始的位置，第二个是截取长度(若没有设置第二个参数，则默认取到最后一个字符)
+            clivk("btn7",div1.substr(-1));//substr(),截取字符串长度，两个参数，first,用于定位开始的位置，第二个是截取长度(若没有设置第二个参数，则默认取到最后一个字符)，符号表示反向获取字符,存在兼容性问题，在ie8以下版本会直接返回所有字符串，所以不建议使用substr
+            clivk("btn8",div1.substr(div1.length-2,2));//substr()的兼容性写法
+            clivk("btn9",div1.substring(-1,2));//substring()等同于slice(),存在两点差异点：
+            //1.自动对参数进行比较大小 eg:substring(6,3)会自动转换为substring(3,6)
+            //2.对于负值参数，会自动转换为“0”，再对字符全部获取。
+        }
+    </script>
+</head>
+<body>
+<div id="div1">hello world!!!</div>
+<div id="div2">My name is SALMOIN.</div>
+<button id="btn1">click1</button><span></span></br>
+<button id="btn2">click2</button><span></span></br>
+<button id="btn3">click3</button><span></span></br>
+<button id="btn4">click4</button><span></span></br>
+<button id="btn5">click5</button><span></span></br>
+<button id="btn6">click6</button><span></span></br>
+<button id="btn7">click7</button><span></span></br>
+<button id="btn8">click8</button><span></span></br>
+<button id="btn9">click9</button><span></span></br>
+</body>
+</html>

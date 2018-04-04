@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {margin: 0;
+            padding: 0;}
+        ul{
+            margin: 100px ;
+            border: 1px solid #cccccc;
+            border-bottom: 0px;
+            float: left;//使父亲和儿子保持一样大小
+        }
+        li{
+            list-style: none;
+            width: 58px;
+            height: 34px;
+            float: left;
+            /*background-color: pink;*/
+            position: relative;
+        }
+        li a{
+            display: block;
+            text-align: center;
+            line-height: 34px;
+            color: black;
+            text-decoration: none;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+        }
+        li:hover a{
+            border-left: 1px solid red;
+            border-right: 1px solid red;
+            border-top: 3px solid red;
+            margin-top: -1px ;
+            line-height: 30px;
+
+        }
+           </style>
+</head>
+<body>
+<ul>
+    <li><a href="#">男装</a></li>
+    <li><a href="#">男装</a></li>
+    <li><a href="#">男装</a></li>
+    <li><a href="#">男装</a></li>
+    <li><a href="#">男装</a></li>
+
+</ul>
+</body>
+</html>

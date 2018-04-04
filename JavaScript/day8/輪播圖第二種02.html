@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0px;
+            list-style: none;
+        }
+        .box{
+            margin: 100px auto;
+            border: 1px solid #cccccc;
+            width: 520px;
+            height: 280px;
+            background-color: #ff6e66;
+            padding: 5px;
+        }
+
+        .minbox{
+            width: 520px;
+            height: 280px;
+            background-color: #ff3e84;
+            position: relative;
+            overflow: hidden;
+        }
+
+        ul{
+            width: 1000%;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        img{
+            vertical-align: top;
+        }
+       ul li{
+           float: left;
+       }
+
+        .spans{
+       display: none;
+        }
+
+        span{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            opacity:0.3;
+            color: #cccccc;
+            font-family: "黑体";
+            text-align: center;
+            font-weight: bolder;
+            background-color: #020202;
+            font-size: 30px;
+            left: 5px;
+            top:50%;
+            margin-top: -20px;
+            cursor: pointer;
+            line-height: 40px;
+        }
+
+        .right{
+            right: 5px;
+            left: auto;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="minbox">
+        <ul>
+            <li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+        </ul>
+
+        <div class="spans">
+            <span><</span>
+            <span class="right">></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var box=document.getElementById("box");
+    var minbox=box.children[0];
+    var ul=minbox.children[0];
+    var spans=minbox.children[1];
+    var lis=ul.children;
+
+    minbox.onmouseover=function () {
+        spans.style.display="block";
+    }
+
+    minbox.onmouseout=function () {
+        spans.style.display="none";
+    }
+
+    var target=0;
+
+    spans.children[0].onclick=function () {
+        target+=520;
+        if(target>0){
+            target=0;
+        }
+        an(ul,target);
+    }
+
+    spans.children[1].onclick=function () {
+        target-=520;
+        if(target<-(lis.length-1)*520){
+            target=-(lis.length-1)*520;
+        }
+        an(ul,target);
+    }
+
+    function an(obj,tar) {
+        clearInterval(obj.timer);
+        var speed=obj.offsetLeft<tar?15:-15;
+        obj.timer=setInterval(
+            function () {
+                obj.style.left=obj.offsetLeft+speed+"px";
+                var result=obj.offsetLeft-tar;
+                if(Math.abs(result)<=15)
+                {
+                    obj.style.left=tar+"px";
+                    clearInterval(obj.timer);
+                }
+            }
+        ),10
+    }
+</script>

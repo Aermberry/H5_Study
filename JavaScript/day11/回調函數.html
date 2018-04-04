@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: #ff68b4;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+<button id="btn">按鈕</button>
+</body>
+</html>
+<script>
+    var box=document.getElementById("box");
+    var btn=document.getElementById("btn");
+    btn.onclick=function () {
+        alert("11")
+        an(box,{
+            width:500,height:900,left:400
+        },function (){
+            an(box,{top:30,height:30,left:30})
+        });
+    }
+
+    function an(obj,jsion,fn) {
+//        leader=leader+(target-leader)/10
+        clearInterval(obj.timer);
+        obj.timer=setInterval(function () {
+            var flag=true;//判斷什麼時候結束定時
+            for (var k in jsion){
+                var leader=parseInt(getstyle(obj,k));
+                var step=(jsion[k]-leader)/10;
+                step=step>0?Math.ceil(step):Math.floor(step);
+                leader=leader+step;
+                obj.style[k]=leader+"px";
+                console.log(step)
+                if(leader!=jsion[k]){
+                    flag=false;
+                }
+            }
+            if (flag){
+                clearInterval(obj.timer);
+                if(fn){//如果有函數傳遞過來，定時器結束了，說明動畫結束，可以執行回調函數
+                    fn();
+                }
+            }
+
+        },30)
+    }
+
+    function getstyle(obj,arr) {
+        if (obj.currentStyle){
+          return  obj.constructor[arr];
+        }
+        else {
+          return  window.getComputedStyle(obj,null)[arr];
+        }
+    }
+</script>

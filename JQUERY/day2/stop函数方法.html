@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background: #ffad4f;
+            left: 0;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("input:eq(0)").click(
+                function () {
+                    $("div").animate({
+                        "width":"200px"
+                    },1000);
+                    $("div").animate({
+                        "height":"200px"
+                    },1000);
+                    $("div").animate({
+                        "width":"200px"
+                    },1000);
+                    $("div").animate({
+                        "height":"200px"
+                    },1000)
+                }
+            )
+
+            $("input:eq(1)").click(function () {
+                $("div").stop(false,true)
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+<input type="button" value="自定义动画">
+<input type="button" value="停止动画">
+<div></div>
+</body>
+</html>

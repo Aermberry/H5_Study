@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+你的中文名字：<input type="text" id="username">
+</body>
+</html>
+<script>
+    var username=document.getElementById("username")
+    var regexp=/^[u4e00-\u9fa5]{2,4}$/   //u4e00-\u9fa5,unicon字體庫中字體數目
+    username.onblur=function () {
+        if(regexp.test(this.value)){
+            alert("true")
+        }
+        else {
+            alert("false")
+        }
+    }
+</script>

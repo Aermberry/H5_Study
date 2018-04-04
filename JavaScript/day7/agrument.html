@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function fn() {
+//        return 3;
+        alert(arguments.callee);//argument只能应用于函数内部，argument是函数体中的一个默认创建内置对象，能对传入函数体内的参数进行类数组的保存-----argument[0],argument[1]....。
+    }
+    fn();
+//    alert(fn());//fn(),实质做了的事情是调用函数，并对结果进行返回；
+//    alert(fn);//fn，其实质是函数本身,返回函数本身。
+
+
+</script>

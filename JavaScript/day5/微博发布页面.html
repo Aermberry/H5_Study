@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        .box{
+            margin: 100px auto;
+            width: 500px;
+            border: 1px solid #cccccc;
+        }
+        .box nav{
+            width: 500px;
+            height: 50px;
+            /*border: 1px solid #cccccc;*/
+        }
+        .nav01{
+
+            width: 100px;
+            height: 50px;
+            /*border: 1px solid #00bfff;*/
+            font: 20px/50px "heiti";
+            text-align: center;
+            float: left;
+        }
+        .nave02{
+
+            /*background: #000;*/
+           float: left;
+            width: 300px;
+            height: 50px;
+            /*border: 1px solid #00bfff;*/
+            font: 20px/50px "heiti";
+            text-align: center;
+        }
+        .nave02 .l1{
+            /*background: #000;*/
+            /*border: 1px solid #00bfff;*/
+            font: 20px/25px "heiti";
+            text-align: center;
+        }
+
+        .nave02 .l2{
+            /*background: #000;*/
+
+            /*border: 1px solid #00bfff;*/
+            font: 20px/25px "heiti";
+            color: #cccccc;
+            text-align: center;
+        }
+        .nave03{
+            width: 100px;
+            height: 50px;
+            float: left;
+            font: 20px/50px "heiti";
+            text-align: center;
+        }
+        label{
+            margin-left: 35px;
+            font: 12px/30px "heiti";
+        }
+
+        textarea{
+            width: 500px;
+            height: 300px;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            margin: 50px 0px 0px 400px;
+        }
+        .foot{
+            width: 500px;
+            margin-top: 20px;
+        }
+        .foot li{
+            text-indent: 2em;
+            height: 18px;
+            border-bottom:1px dashed #666666;
+            font: 18px/18px "weiruanyahei";
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <nav>
+        <div class="nav01">微博</div>
+        <div class="nave02">
+            <ul>
+                <li class="l1">内容</li>
+                <li class="l2">salmon</li>
+            </ul></div>
+        <div class="nave03">发布</div>
+    </nav>
+    <div class="main">
+        <label for="weibo">weibo:</label>
+        <textarea name="" id="weibo" cols="30" rows="10" id="txt"></textarea>
+        <button id="btn">发布</button>
+    </div>
+    <div class="foot">
+        <ul id="ul">
+            <li>fhfhfgh</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<script>
+var btn=document.getElementById("btn");
+var  text=document.getElementById("weibo")
+btn.onclick=function () {
+    if(text.value==""){
+        alert("请输入内容")
+    }
+    else {
+        var li=document.createElement("li");
+        var ul=document.getElementById("ul");
+        var children=ul.children;
+        li.innerHTML=text.value+"<a href='javascript:;'>删除</a>";
+        ul.insertBefore(li,children[0]);
+        var  as=document.getElementsByTagName("a");
+        for (var a=0;a<as.length;a++){
+            as[a].onclick=function () {
+                ul.removeChild(this.parentNode);
+            }
+        }
+        }
+
+
+
+
+    }
+
+</script>

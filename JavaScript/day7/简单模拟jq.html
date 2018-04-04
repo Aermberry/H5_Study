@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            font: 20px/100px "微软雅黑 Light";
+        }
+
+        .test{
+            background-color: #8dffee;
+        }
+    </style>
+</head>
+<body>
+<div id="demo">1</div>
+<div>2</div>
+<div>2</div>
+<div class="test">3</div>
+<div>2</div>
+<div class="test">3</div>
+<div>2</div>
+<div>2</div>
+<div>2</div>
+<div>2</div>
+</body>
+</html>
+<script>
+    function getClassName(classname) {   // 形参
+        //  先看看浏览器支不支持
+        if(document.getElementsByClassName) {   // 如果支持这个写法
+            return document.getElementsByClassName(classname);  // 直接返回所有元素
+        }
+        // 下面的语句是ie678 执行
+        // 核心思想   把所有的标签都取过来， 然后一个一个的判断当前元素的类名是不是  classname
+        //是就留下，不是 就走开
+        // alert(11);
+        var arr = [];  //数组用来存储满足条件的 元素
+        var dom = document.getElementsByTagName("*");  // 把所有的标签都取过来 *  所有的
+        // 去过所有的标签之后， 把 每一个标签的类名 （字符串） 转换为数组 ， 只有数组才可以遍历
+        for(var i=0;i<dom.length;i++) {  // 遍历每一个标签
+            // 把每一个标签的类名 转换为数组
+            var arrName = dom[i].className.split(" "); // "demo nav test"   = ["demo","nav","test"];
+            // var arrName = ["demo","nav","test"];  // 用来存储每一个 类名的数组
+            for(var j=0;j<arrName.length;j++) {  // 遍历 arrname
+                if(arrName[j] == classname) { // 判断
+                    arr.push(dom[i]); // 把当前满足条件的元素  给 arr
+                }
+            }
+        }
+        return arr;  // 返回总的数组
+    }
+
+//    function $(str) {
+//        var s=str.charAt(0);//根据序号位置获取字符
+//        var ss=str.substr(1);//根据序号，截取字符串
+//        switch (s){
+//            case "#":
+//                return document.getElementById(ss);
+//            case ".":
+//                return getClassName(ss);
+//                break;
+//            default:
+//                return document.getElementsByTagName(str);
+//        }
+//    }
+//    $("#demo").style.backgroundColor="red";
+//    console.log($("div").length)
+
+    function $(str) {
+        var s=str.charAt(0);//获取字符串索引号为【0】的位置，charAt(),带一个参数，表示位置索引号，返回索引号位置的字母;该部分获取的是ID或类的标识符
+        var ss=str.substr(1);//获取位置索引号为【1】的位置及以后的字符串，substr(),带两个参数，参数一：代表起始位置，参数二：代表截取字符串结束位置，其中参数一必须，参数二不一定需要（不带参数二的情况下，将获取参数一及以后的所有字符）；该部分获取的是非标识符部分
+        switch (s){
+            case "#":
+                return document.getElementById(ss);//当s=="#"时，判断为id,返回非标识字符串部分
+                break;
+            case ".":
+                return getClassName(ss);//当s=="."时，判断为类，返回非标识字符串部分
+                break;
+            default:
+                return document.getElementsByTagName(str);
+        }
+    }
+
+    $("#demo").style.backgroundColor="red";
+    for(var i=0;i<$(".test").length;i++)
+    {
+        s(".test")[i].style.backgroundColor="purple"
+    }
+
+
+
+</script>

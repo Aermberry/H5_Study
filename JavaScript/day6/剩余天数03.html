@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .demo{
+            font: 30px/50px "微软雅黑 Light";
+            height: 50px;
+            margin: 10px auto;
+            border:1px solid #3E3E3E;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="demo" class="demo"></div>
+</body>
+</html>
+<script>
+    var demo=document.getElementById("demo");
+    var end=new Date("2017/10/1 00:00:00");
+    setInterval(fn,1000);
+    function fn() {
+        var date=new Date();
+        var miao=parseInt((end.getTime()-date.getTime())/1000);//总共的秒数
+        var s=miao%60//以60秒为一等份，求出xx分xx秒
+        var fen=parseInt(miao/60%60)//以60秒为一等份，求出xx分xx秒
+        var hour=parseInt(miao/3600%24)//以60秒为一等份，求出xx分xx秒
+        var day=parseInt(miao/3600/24)//以60秒为一等份，求出xx分xx秒
+
+        s=s<10? s="0"+s:s;
+        fen=fen<10? fen="0"+fen:fen;
+        hour=hour<10? hour="0"+hour:hour;
+        day=day<10? day="0"+day:day;
+
+        demo.innerHTML="还有："+day+"天"+hour+"时"+fen+"分"+s+"秒"
+    }
+
+    var en=document.createElement("div");
+    demo.parentNode.appendChild(en);
+    demo.parentNode.insertBefore(en,demo);
+</script>

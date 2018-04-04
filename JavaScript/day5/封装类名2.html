@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="gh"></div>
+<div></div>
+<div class="gh sd jk"></div>
+<div></div>
+<div class="df ss"></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>
+<script>
+//    function geteleventclass(em) {
+//        if(document.getElementsByClassName){
+//            return document.getElementsByClassName(em)
+//        }
+//
+//        else{
+//            var en=[];
+//            var fr=document.getElementsByTagName("*");
+//            for(var a=0;a<fr.length;a++){
+//                var kl=fr[a].className.split(" ")
+//                for(var j=0;j<kl.length;j++)
+//                {
+//                    if(kl[j]==em){
+//                        en.push(kl[j])
+//                    }
+//                }
+//            }
+//        }
+//    }
+//
+//    console.log(geteleventclass())
+
+    function yu(rm) {
+
+        if (document.getElementsByClassName(rm));
+        else {
+            var fg=[];//用于存储满足条件的标签对象
+            var dui=document.getElementsByTagName("*");//获取所有的标签
+            for(var a=0;a<dui.length;a++)//对所有的标签进行遍历
+            {
+               var gh=dui[a].className.split(" ")//转化带有类名的标签数组gh=[gh sd jk df ss]
+                for(var j=0;j<gh.length;j++)//遍历数组
+                {
+                    if(gh[j]==rm){//判断数组中那个字段与所寻找的数组是一样的
+                        fg.push(dui[i])//是的话，就添加。
+                    }
+                }
+            }
+        }
+    }
+</script>

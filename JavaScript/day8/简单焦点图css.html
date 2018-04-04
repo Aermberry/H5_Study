@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none; border:0;}
+.all{
+  width:500px;
+  height:200px;
+  padding:7px;
+  border:1px solid #ccc;
+  margin:100px auto;
+  position:relative;
+}
+.screen{
+	width:500px;
+	height:200px;
+	 overflow:hidden; 
+	position:relative;
+}
+.screen li{ width:500px; height:200px; overflow:hidden; float:left;}
+.screen ul{ position:absolute; left:0; top:0px; width:3000px;}
+.all ol{ position:absolute; right:10px; bottom:10px; line-height:20px; text-align:center;}
+.all ol li{ float:left; width:20px; height:20px; background:#fff; border:1px solid #ccc; margin-left:10px; cursor:pointer;}
+.all ol li.current{ background:yellow;}
+
+</style>
+<script type="text/javascript">
+window.onload=function () {
+    var box=document.getElementById("all");//獲得最大盒子
+    var ul=box.children[0].children[0];//獲取 ul
+    var ullis=ul.children;//ul li
+//    克隆節點
+    //複習：coneNode() ,當參數為true時，進行深度克隆，對克隆節點的子節點也進行克隆；
+    // 當參數為false時，只克隆當前節點，不深入克隆；
+    // ulLis[0].cloneNode(true) 克隆
+    // 追加a.appendchild(b)，將子節點b，追加到a節點的子節點中，并放置于最後。
+    ul.appendChild(ullis[0].cloneNode(true));//ul是a,ullis[0].cloneNode(true)是b，克隆ullis的第0個子節點
+//    插入ol裡面的li
+    var ol=box.children[1];//獲得ol
+    for(var i=0;i<ullis.length-1;i++){//ul裡面的li長度要減去1 因為我們克隆了一個節點
+//        創建節點li
+        var li=document.createElement("li");
+        li.innerHTML=i+1;
+//        a.appendChild(b);
+        ol.appendChild(li);
+    }
+    var olLis=ol.children;//找到ol裡面的li
+    olLis[0].className="current";
+
+//   動畫部分，遍歷小li ol
+    for(var i=0;i<olLis.length;i++){
+        olLis[i].index=i;//賦予索引號
+        olLis[i].onmouseover=function () {
+//   清除所有人
+            for (var j=0;j<olLis.length;j++){
+                olLis[j].className="";
+            }
+            this.className="current";
+            animation(ul,-this.index*ullis[0].offsetWidth)
+        }
+    }
+//定時器部分
+    var timer=null;//定時器
+    var key=0;//用來控制圖片的播放器
+    var square=0;//用來控制小方塊的
+    timer=setInterval(autoplay,1000);//每隔1s調用一次autoplay
+    function autoplay() {
+        key++;//key==1 先++
+        console.log(key);//不能超過5
+        if(key>ullis.length-1)
+        {
+            alert("停下來");
+            ul.style.left=0;
+            key=1;//因為第6張就是第一張看，我們已經播放完畢，下一次播放第二張
+            //第二張的索引號是1
+        }
+        animation(ul,-key*ullis[0].offsetWidth);
+        key=square=this.index;//鼠標經過key square 要等於 當前的索引號
+    }
+
+//    小方塊的做法
+    square++;//小方塊自加1
+    square=square>olLis.length-1?0:square;
+    ///清除所有人
+    for(var i=0;i<olLis.length;i++){
+        olLis[i].className="";
+    }
+    olLis[square].className="current";//留下當前自己的
+
+}
+
+//鼠標經過和停止定時器
+box.onmouseover=function () {
+    clearInterval(timer);
+}
+
+box.onmouseout=function () {
+    timer=setInterval(autoplay,1000);//一定這麼開
+}
+
+function animation(obj,tar) {
+    clearInterval(obj.timer);
+    var speed=obj.offsetLeft<tar?15:-15;
+    obj.timer=setInterval(
+        function () {
+            obj.style.left=obj.offsetLeft+speed+"px";
+            var result=obj.offsetLeft-tar;
+            if(Math.abs(result)<=15)
+            {
+                obj.style.left=tar+"px";
+                clearInterval(obj.timer);
+            }
+        }
+    ),10
+}
+</script>
+
+</head>
+
+<body>
+<div class="all" id='all'>
+	<div class="screen">
+        <ul id="ul">
+            <li><img src="imagess/1.jpg" width="500" height="200" /></li>
+            <li><img src="imagess/2.jpg" width="500" height="200" /></li>
+            <li><img src="imagess/3.jpg" width="500" height="200" /></li>
+            <li><img src="imagess/4.jpg" width="500" height="200" /></li>
+            <li><img src="imagess/5.jpg" width="500" height="200" /></li>
+        </ul>
+        <ol> </ol>
+    </div>
+</div>
+</body>
+</html>

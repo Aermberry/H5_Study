@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {margin: 0;padding: 0;}
+        ul{list-style: none;}
+        img {
+            vertical-align: top;
+        }
+        .w-slider {
+            width: 310px;
+            height: 265px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .slider {
+            width: 310px;
+            height: 220px;
+            overflow: hidden;
+        }
+        .slide-block {
+            width: 620px;
+            height: 220px;
+        }
+        .slide-ctrl {
+            padding-top: 10px;
+            text-align: center;
+        }
+        .slider-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .slider-ctrl-con {
+            display:inline-block;
+            width: 24px;
+            height: 24px;
+            background: url(images/icon.png) no-repeat -24px -780px;
+            margin:0 8px;
+            cursor: pointer;
+            text-indent:-2000em;
+            overflow: hidden;
+        }
+        .slider-ctrl-prev, .slider-ctrl-next {
+            position: absolute;
+            width: 30px;
+            height: 35px;
+            background: url(images/icon.png) no-repeat;
+            top: 40%;
+            margin-top:-10px;
+            cursor: pointer;
+        }
+        .slider-ctrl-prev {
+            left: 10px;
+        }
+        .slider-ctrl-next {
+            right: 10px;
+            background-position: 0 -44px;
+        }
+        .slide-ctrl span.current {
+            background-position: -24px -760px;
+        }
+    </style>
+    <script src="js/animation.js"></script>
+
+</head>
+<body>
+<div class="w-slider" id="js_slider">
+    <div class="slider">
+        <div class="slide-block">
+            <div class="slider-img"><a href="#"><img src="images/1.jpg" alt=""/></a></div>
+            <div class="slider-img"><a href="#"><img src="images/2.jpg" alt=""/></a></div>
+            <div class="slider-img"><a href="#"><img src="images/3.jpg" alt=""/></a></div>
+            <div class="slider-img"><a href="#"><img src="images/4.jpg" alt=""/></a></div>
+            <div class="slider-img"><a href="#"><img src="images/5.jpg" alt=""/></a></div>
+            <div class="slider-img"><a href="#"><img src="images/6.jpg" alt=""/></a></div>
+        </div>
+    </div>
+    <div class="slide-ctrl">
+        <span class="slider-ctrl-prev"></span>
+        <span class="slider-ctrl-next"></span>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    //獲取id
+    var js_slider=document.getElementById("js_slider");
+    var slide_block=js_slider.children[0].children[0];
+    var imgs=slide_block.children;
+    var slide_ctrl=js_slider.children[1];
+//    alert(js_slider)
+//    根據圖片動態生成小標籤
+    for (var a=0;a<imgs.length;a++){
+        var span=document.createElement("span");
+        span.className="slider-ctrl-con"
+//        標上序號
+        span.innerHTML=imgs.length-a;
+//        a.insertBefore(b,c)
+        slide_ctrl.insertBefore(span,slide_ctrl.children[1]);
+    }
+
+    var spans=slide_ctrl.children;
+    spans[1].className="slider-ctrl-con current"
+
+//    控制圖片第一張在中央，其餘在右側
+    var sliderwidth=js_slider.offsetWidth;
+//    alert(sliderwidth)
+    for (var a=1;a<imgs.length;a++){
+//        a的數數是：0,1,2，3，4,5
+//        圖片的數量是6
+//        +1，正好數數為：1，2，3，4，5，6
+        imgs[a].style.left=sliderwidth+"px"
+    }
+//    點擊三個按鈕
+    var inow=0;
+//    控制圖片移動
+    for(var a in spans){
+        spans[a].onclick=function () {
+            if(this.className=="slider-ctrl-prev"){
+//                alert(11)
+                an(imgs[inow],{left:sliderwidth});
+                --inow<0?inow=imgs.length-1:inow;
+                imgs[inow].style.left=-sliderwidth+"px"
+                an(imgs[inow],{left:0})
+                square()
+
+            }
+            else if(this.className=="slider-ctrl-next"){
+                autoplay();
+            }
+            else {
+//                alert(13)
+//                考慮三種情況：點擊的位置位於當前位置的後面；點擊的位置位於當前位置的而前方；點擊的位置與當前位置一個樣
+                var that=this.innerHTML-1
+//                -1,獲得的標籤序號和圖片序號一致，方便比較
+                if(that>inow){
+                    an(imgs[inow],{left:-sliderwidth});
+                    imgs[that].style.left=sliderwidth+"px";
+                }
+
+                else if(that<inow){
+                    an(imgs[inow],{left:sliderwidth});
+                    imgs[that].style.left=-sliderwidth+"px";
+                }
+                inow=that;
+                an(imgs[inow],{left:0});
+                square()
+            }
+        }
+        //    小方塊替換樣式
+        function square() {
+            for (var a=1;a<spans.length-1;a++){
+//                排他思想
+                spans[a].className="slider-ctrl-con"
+            }
+            spans[inow+1].className="slider-ctrl-con current"
+        }
+
+    }
+
+//    自動化
+    var timer=null;
+
+    timer=setInterval(autoplay,2000)
+    function autoplay() {
+//        alert(12)
+//                先移動當前的向前
+//                再將當前的而後一張，移動到當前位置的後面
+//                再慢慢移動出來到當前位置
+        an(imgs[inow],{left:-sliderwidth});
+//                inow++;
+//                console.log(inow)
+//                if(inow>imgs.length-1){
+//                    inow=0;
+//                }
+//                三元寫法
+        ++inow>imgs.length-1?inow=0:inow;
+        imgs[inow].style.left=sliderwidth+"px"
+        an(imgs[inow],{left:0})
+        square()
+    }
+
+    js_slider.onmouseover=function () {
+        clearInterval(timer);
+    }
+
+    js_slider.onmouseout=function () {
+        timer=setInterval(autoplay,2000)
+    }
+
+</script>

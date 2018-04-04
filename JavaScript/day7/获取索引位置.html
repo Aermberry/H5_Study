@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+</head>
+<body>
+请输入完整字符：<input type="text" id="all"> 索引字符：<input type="text" id="index">
+<button id="btn1">索引1</button>
+<button id="btn2">索引2</button>
+<div id="div1"></div>
+</body>
+</html>
+<script>
+    function $(id) {
+       return document.getElementById(id);
+    }
+
+    $("btn1").onclick=function () {
+        $("div1").innerHTML=$("all").value.indexOf($("index").value)
+    }
+    $("btn2").onclick=function () {
+        $("div1").innerHTML=$("all").value.lastIndexOf($("index").value)
+    }
+</script>

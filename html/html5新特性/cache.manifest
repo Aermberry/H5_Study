@@ -1,0 +1,13 @@
+CACHE MANIFEST
+
+#version 1.0.0
+
+CACHE:
+     001.jpg
+     cache.manifest
+     06.1-storage.html
+     script.js
+     style.css
+
+NETWORK：
+  *

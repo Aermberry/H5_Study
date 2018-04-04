@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .one{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="fr">
+    <div>1</div>
+    <div id="one" class="df ff">2</div>
+    <div class="dd">3</div>
+    <div class="ff">4</div>
+    <div>5</div>
+</div>
+</body>
+</html>
+<script>
+        var one=document.getElementById("one");
+        var first=one.nextElementSibling||one.nextSibling;//兼容式写法，谷歌浏览器能识别上述两个命令，ie8以下能识别nextsibling
+        first.style.backgroundColor="purple";
+
+        var father=document.getElementById("fr");
+        var first=father.firstElementChild||father.firstChild;
+        var  last=father.lastElementChild||father.lastChild;
+        first.style.backgroundColor="green";
+        last.style.backgroundColor="pink";
+
+        function fg(en) {
+            if(document.getElementsByClassName){
+                return document.getElementsByClassName(en)
+            }
+            else {
+                var fi=[];
+                var ff=document.getElementsByTagName("*");
+                for(var a=0;a<ff.length;a++)
+                {
+                    var gg=ff[a].className.split(" ");
+                    for (var b=0;b<gg.length;b++)
+                    {
+                        if(gg[b]==en){
+                            fi.push(ff[a]);
+                        }
+                    }
+                }
+                return fi;
+
+            }
+
+        }
+    console.log(fg("dd").length);
+</script>

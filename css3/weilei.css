@@ -1,0 +1,71 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #F7F7F7;
+}
+
+ul {
+	width: 560px;
+	padding: 0;
+	margin: 100px auto;
+	margin: 100px auto;
+	list-style: none;
+	border-right: 1px solid #ccc;
+	border-bottm: 1px solid #ccc;
+	overflow: hidden;
+}
+
+li {
+	width: 79px;
+	height: 80px;
+	text-align: center;
+	line-height: 80px;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	background-color: #fff;
+	font-size: 24px;
+	font-size: 24px;
+	font-weight: bold;
+	color: #333;
+	float: left;
+}
+
+li:first-child {
+			color: red;
+		}
+
+/*
+ *E:first-child选择符，
+ *E必须是它的兄弟元素中的第一个元素，
+ *换言之，E必须是父元素的第一个子元素。
+ *与之类似的伪类还有E:last-child，
+ *只不过情况正好相反，需要它是最后一个子元素。
+ */
+
+ li:last-child {
+ 	color: red;
+ }
+
+ li:nth-child() {
+ 	color: red;
+ }
+
+ /*匹配第n个元素，
+即E可以是body的子元素
+该选择符允许使用一个乘法因子(n)来作为换算方式，
+比如我们想选中所有的偶数子元素E，
+那么选择符可以写成：E:nth-child(2n)
+使用E:nth-child(n)实现奇偶：
+：
+odd：奇数,
+even：偶数*/
+
+li:nth-child(7n-1) {
+color: green;
+}
+
+li:nth-last-child(1) {
+	color: pink;
+}
+
+li:

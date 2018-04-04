@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function getLevelBtnVal(btn) {
+            var p=btn.parentNode
+            var chirlden=p.childNodes
+//            遍历元素
+            for (var i=0;i<chirlden.length;i++){
+//                判断不是当前的子节点，但却是同类子节点
+                if(chirlden[i]!=btn&&chirlden[i].nodeType==btn.nodeType){
+                    alert(chirlden[i].value);
+                }
+            }
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<p>
+    <!--定义同级元素-->
+    <input type="button" value="获取同级按钮的value01" onclick="getLevelBtnVal(this)">
+    <input type="button" value="获取同级按钮的value02" onclick="getLevelBtnVal(this)">
+</p>
+</body>
+</html>
+
+<!--通过this来，指定函数的调用者-->

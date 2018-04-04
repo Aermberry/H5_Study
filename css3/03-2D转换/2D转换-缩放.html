@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		.scale {
+			margin: 0px auto;
+			width: 200px;
+			height: 200px;
+			background-color: green;
+			/*transform:rotate(45deg) translate(100px,10px);*/
+			/*transition:all .5s ;*/
+			/*position:absolute;*/
+			/*left:50%;*/
+			/*top:20px;*/
+			transform:translate(0,0);
+			/*相对于初始位置进行移动*/
+		}
+
+		.scale:hover {
+			/*transform:scale(0.75,1.5);*/
+			/*大小缩放
+			/*transform:translate(400px,300px);*/
+			/*移动位移，需要配合position属性使用*/
+			/*transform:rotate(-45deg);*/
+		}
+	</style>
+</head>
+<body>
+	<div class="scale"></div>
+</body>
+</html>

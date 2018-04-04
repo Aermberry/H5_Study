@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页内拖拽操作</title>
+	<style type="text/css" media="screen">
+		p{
+			border: 1px solid #c0c0c0;
+		}
+
+			 #target {
+      height: 200px;
+      border: 5px dashed #c0c0c0;
+      text-align: center;
+      line-height: 200px;
+      font-size: 50px;
+      color: #c0c0c0;
+
+		.over{
+			box-shadow: 0 0 20px #c0c0c0 inset;
+			 border-color:#999 !import;
+		}
+	</style>
+</head>
+<body>
+	<p draggable='true' >拽我啊！拽我啊！</p>
+	<br>
+	<img src="../001.jpg" alt="" draggable='false'>
+	<a href="www.sina.com.cn">新浪</a>
+	<br>
+	<div id="target">
+		将元素拖到这来
+	</div>
+	<script type="text/javascript">
+		// dom元素中，img和a标签都默认可以拽动，其他元素需要添加draggle属性才能拽动
+		var currentDragElement;
+		var p= document.querySelector('p');
+		p.addEventListener('dragstart',function (e) {
+			/* body... */
+			// 拖放开始触发
+			currentDragElement=this;
+			this.style.borderColor = 'red';
+		});
+		p.addEventListener('dragend', function (e) {
+			/* body... */
+			this.style.borderColor = '#c0c0c0';
+		});
+
+		// 设置target上有元素经过时的样式
+		var target=document.querySelector('#target');
+		target.addEventListener('dragenter', function (e) {
+			/* body... */
+			// 元素进入当前区域触发
+			// console.log('有人来了');
+			this.classList.add('over');
+		});
+
+		target.addEventListener('dragleave',function (e) {
+			/* body... */
+			this.classList.remove('over');
+		});
+
+		//如果想要drop触发一定要dragover阻止系统默认事件
+		target.addEventListener('dragover',function (e) {
+			/* body... */
+			e.preventDefault();
+			e.stopPropagation();
+		});
+		// 注册目标元素的放事件
+		target.addEventListener('drop',function (e) {
+			/* body... */
+			// 当有元素扔到当前target上时触发
+			console.log(e);
+			// 
+			this.appendChild(currentDragElement);
+		})
+
+		p.addEventListener('draend',function (e) {
+			/* body... */
+			this.style.borderColor = '#c0c0c0';
+		});
+
+		target.addEventListener('dragenter',function (e) {
+			/* body... */
+			this.classList.add('over');
+		})
+
+		target.addEventListener('dragover', function (e) {
+			/* body... */
+			e.preventDefault();
+			e.stopPropagation();
+		})
+	</script>
+</body>
+</html>

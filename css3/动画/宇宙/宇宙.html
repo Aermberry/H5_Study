@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		html,body {
+			height: 100%;
+		}
+		body{
+			overflow:hidden;
+			background-image: url(./bg.jpg);
+		}
+
+		ul{
+			width: 600px;
+			height: 600px;
+			position: relative;
+			margin: 40px auto;
+			background-color: yellow;
+		}
+
+		ul li {
+			border:2px solid #A4A4A4;
+			position: absolute;
+			top: 50%;
+			left:50%;
+			/*background-color: #fff;*/
+			width: 500px;
+			height: 500px;
+			border-radius:50%;
+			transform:translate(-50%,-50%);
+		}
+
+		ul li span {
+			width: 12px;
+			height: 12px;
+			display: block;
+			position: absolute;
+			background-color: red;
+			left:0;
+			border-radius: 50%;
+		}
+
+		ul li:nth-child(1) {
+			width: 60px;
+			height: 60px;
+			border:none;
+			background-color: #F1161F;
+			background-image: radial-gradient(30px at center center,##C60303,#CECBCB);
+			box-shadow: 0 0 80px 20px #FFB65E;
+		}
+		ul li:nth-child(2) {
+			width: 120px;
+			height: 120px;
+		}
+		ul li:nth-child(2) span {
+			background-color: white;
+			left:80px;
+			top:0;
+		}
+
+		ul li:nth-child(3) {
+			width: 180px;
+			height: 180px; 
+		}
+		ul li:nth-child(3) span {
+			background-color:#01D0FB;
+			left:47px;
+			top: 0;
+		}
+
+		ul li:nth-child(4) {
+			width: 240px;
+			height: 240px;
+		}
+
+		ul li:nth-child(4) span {
+			background-color: green;
+			left:211px;
+			top:43px;
+		}
+
+		ul li:nth-child(4) > span span{
+			background-color: #11AFBF;
+			width: 6px;
+			height: 6px;
+			left:60px;
+		}
+
+
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li><span></span></li>
+		<li><span></span></li>
+		<li><span><span></span></span></li>
+		<li><span></span></li>
+		<li><span></span></li>
+		<li><span><span></span></span></li>
+		<li><span></span></li>
+		<li><span></span></li>
+		<li><span></span></li>
+	</ul>
+</body>
+</html>

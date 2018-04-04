@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json的遍歷方法</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    var jsion={
+        width:500,
+        height:5000,
+        top:560
+    }
+
+    var arr=["fg","dd","ff"]
+    for (var k in arr){
+        console.log(k);
+        console.log(arr[k])
+    }
+    for (var k in jsion){
+        console.log(k);
+//        遍歷屬性
+        console.log(jsion[k]);
+//        遍歷屬性值
+    }
+</script>

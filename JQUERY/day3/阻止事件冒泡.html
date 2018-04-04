@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(window).load(function ( ) {
+//            阻止冒泡事件
+//            $("div").on("click","input",function (e) {
+//                alert("我是内容");
+//                e.stopPropagation();
+//            })
+
+            $("#j_btnClick").click(function (e) {
+                alert("我是内容")
+                e.stopPropagation();
+            })
+
+//            给div绑定单击事件
+            $("div").on("click",function () {
+                alert("阻止事件冒泡");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <input type="button" value="按钮" id="j_btnClick">
+    </div>
+
+</body>
+</html>

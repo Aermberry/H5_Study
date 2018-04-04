@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            margin: 0px auto;
+            margin-top: 50px;
+            width: 500px;
+            height: 30px;
+        }
+
+        .inpt{
+           height: 30px;
+            border: 5px solid #3782c5;
+            border-radius: 10px;
+            padding-left: 10px;
+            box-shadow:inset 0px 0px 1px 2px #666666;
+            position: absolute;
+            font: 12px/20px "microsoft yahei";
+        }
+
+        .lat{
+            position: relative;
+            top: 10px;
+            left: 25px;
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="box">
+    <input type="text" id="inp" class="inpt">
+    <labe  id="la" class="lat" for="inp">Hello world</labe>
+</div>
+</body>
+</html>
+
+<script>
+    function re(a) {
+        return document.getElementById(a);
+    }
+
+
+    function avoid() {
+        if(re("inp").value=="")
+        {
+            re("la").style.display="block";
+        }
+        else {
+            re("la").style.display="none";
+        }
+    }
+        re("inp").oninput=function () {
+        avoid();
+    }
+    re("inp").focus();
+</script>

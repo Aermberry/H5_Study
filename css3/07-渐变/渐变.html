@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+	*{
+		margin:0;
+		padding: 0;
+	}
+
+	div {
+			width:1000px;
+			height: 100px;
+			border: 10px solid #ccc;
+			margin:100px auto;
+		}
+
+		body {
+			background-color: #333;
+		}
+
+		div:nth-child(1) {
+			background-image: linear-gradient(red,yellow);
+			/*前后两个颜色点代表其实颜色到终点颜色（起，终）*/
+		}
+		div:nth-child(2) {
+			background-image: linear-gradient(red,red 50%,yellow 50%,yellow);
+			/*指定的同一位置的不同颜色点，为分界点*/
+		}
+
+		div:nth-child(3) {
+			background-image: linear-gradient(to right,red,red 25%,yellow 25%,yellow 50%,green 50%,green 75% ,pink 75%,pink);
+			/*to+预设方向关键字，指定线性渐变的方向*/
+		}
+
+		div:nth-child(4) {
+			background-color: yellow;
+			background-image: linear-gradient(to top right,red,red 25%,transparent 25%,transparent 50%,red 50%,red 75%,transparent 75%,transparent);
+			background-position: 60px,0;
+			/*background-size: contain;*/
+			background-size: 500px,500px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

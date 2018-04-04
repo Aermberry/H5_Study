@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select {
+            width: 200px;
+            background-color: teal;
+            height: 200px;
+            font-size: 20px;
+        }
+        .btn-box {
+            width: 30px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            //向右添加所有
+            $("#btn-sel-all").click(function () {
+//                获取所有的内部元素
+              var html=$("#src-city")[0].innerHTML
+                console.log(html);
+//              添加到右边的select里面去
+                $("#src-city")[0].innerHTML+=html;
+//                清空左边的内容
+                $("#src-city")[0].innerHTML="";
+            })
+//            左边添加所有
+            $("#btn-sel-none").click(function () {
+//                获取所有内部元素
+                var html=$("#tar-city")[0].innerHTML
+                console.log(html);
+//                添加到左边的sele
+                $("#src-city")[0].innerHTML+=html;
+//                清空右边的内容
+                $("#tar-city")[0].innerHTML=""
+
+//                向右边添加选择的项
+                $("#btn-sel").click(function () {
+//                    获取到左边select选中的内容
+//                    var $sel=$("#src-city").children(":selected");
+//                    console.log($sel)
+                    var sel=$("#src-city").children(":selected")[0];
+                    var selouthtml=sel.outerHTML
+                    $("#tar-city")[0].innerHTML+=selouthtml;
+//                   把左边选中的删除掉
+                    $("#src-city")[0].removeChild(sel);
+                })
+
+//                向左边添加选择的项
+                $("#btn-back").click(function () {
+//
+                    var sel=$("tar-city").children(":selected")[0];
+                    var selouthtml=sel.outerHTML;
+                    $("#src-city")[0].innerHTML +=selouthtml;
+                    $("#tar-city")[0].removeChild(sel);
+                })
+
+            })
+        })
+    </script>
+</head>
+<body>
+<h1>城市选择：</h1>
+<select id="src-city" name="src-city" multiple>
+    <option value="1">北京</option>
+    <option value="2">上海</option>
+    <option value="3">深圳</option>
+    <option value="4">广州</option>
+    <option value="5">西红柿</option>
+</select>
+<div class="btn-box">
+    <button id="btn-sel-all"> &gt;&gt; </button>
+    <button id="btn-sel-none"> &lt;&lt; </button>
+    <button id="btn-sel"> &gt;</button>
+    <button id="btn-back"> &lt; </button>
+</div>
+<select id="tar-city" name="tar-city" multiple>
+
+</select>
+<h1></h1>
+</body>
+</html>

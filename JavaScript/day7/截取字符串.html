@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var div1=document.getElementById("div1").innerHTML;
+            var div2=document.getElementById("div2").innerHTML;
+
+            function slice3(id,text) {
+                document.getElementById(id).onclick=function () {
+                    this.nextElementSibling.innerHTML=text;
+                }
+            }
+
+            slice3("btn2",div1.slice(3))//如果没有设置终点位置，则从开始位置，直到字符结束为止。
+            slice3("btn3",div1.slice(3,4))//如果设置终点位置，则从开始位置，直到终点位置结束为止（不包含终点位置在内）。
+            slice3("btn4",div1.slice(-1))//取负值，则对字符串进行反向取值。从右边往左便边逐一取
+        }
+    </script>
+</head>
+<body>
+<!--slice，截取字符串 ，两个参数，起始位置和终点位置-->
+<div id="div1">my name is andy!</div>
+<div id="div2">what's your name</div>
+<button id="btn1">concat</button><span></span><br>
+<button id="btn2">slice(3)</button><span></span><br>
+<button id="btn3">slice(4)</button><span></span><br>
+<button id="btn4">slice(5)</button><span></span><br>
+</body>
+</html>

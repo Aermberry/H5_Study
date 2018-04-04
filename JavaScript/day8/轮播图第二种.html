@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        img{
+            vertical-align: top;
+        }
+
+        .box{
+            margin: 100px auto;
+            border: 1px solid #cccccc;
+            background-color: #ffb148;
+            width: 520px;
+            height: 280px;
+            padding: 5px;
+        }
+        
+        .minbox{
+            width: 520px;
+            height: 280px;
+            background-color: #b5ffa5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        ul{
+            width: 10000%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        ul li{
+            float: left;
+        }
+
+        .spans{
+            display: none;
+        }
+        .spans span{
+            margin-top: -50px;
+            background-color: #000000;
+            opacity: 0.2;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #cccccc;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            color: #cccccc;
+            font-size: 100px;
+            text-align: center;
+            font-family: "黑体";
+            font-weight: bolder;
+            line-height: 100px;
+            cursor: pointer;
+        }
+
+        .spans .right{
+            right: 5px;
+            left: auto;
+        }
+        
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="minbox">
+        <ul>
+            <li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+        </ul>
+        <div class="spans">
+            <span class="left"><</span>
+            <span class="right">></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var box=document.getElementById("box");
+    var minbox=box.children[0];
+//    alert(minbox);
+    var ul=minbox.children[0];
+    var lis=ul.children;
+    var spans=minbox.children[1];
+//alert(spans)
+    box.onmouseover=function () {
+      spans.style.display="block"//当鼠标停靠在box时，就显示spans
+    }
+
+    box.onmouseout=function () {
+        spans.style.display="none";//当鼠标离开box时，就隐藏spans
+    }
+
+    var target=0;
+    spans.children[0].onclick=function () {
+//        alert(10)
+        target+=520;
+        if(target>0){
+            target=0;
+        }
+        console.log(target);
+        an(ul,target);
+
+    }
+    spans.children[1].onclick=function () {
+//        alert(11)
+        target-=520;
+        if(target<-(lis.length-1)*520)
+        {
+            target=-(lis.length-1)*520;
+        }
+        console.log(target)
+        an(ul,target);
+
+    }
+
+    function an(obj,tar) {
+        clearInterval(obj.timer)//清除定时器，清除上一次仍在运动中的定时器
+        var speed=obj.offsetLeft<tar?15:-15;//三目运算符，判断obj的当前位置是否在tar的位置处，是的话就以15的速度正向移动，否则就以-15的速度反向移动
+        obj.timer=setInterval(function () {//object.index,自定义属性，只有object的数据类型才能具有自定义属性
+            obj.style.left=obj.offsetLeft+speed+"px";//offsetleft用于测定子元素与父元素的左侧距离，返回的 数据类型是数值num,只读;style.left,既可读也可写，返回的数据类型是string，除了数字外还带有单位，去除文字字符的方法是parseInt("25px")==25,parsetInt（）用于取整"25",在javascript中"25"等价于25
+            var result=obj.offsetLeft-tar;//用于计算当前obj的位置与tar的差距，当为0时，即为重合。
+            if(Math.abs(result)<=15){//为什么是设置为15，因为obj每次移动的单位距离为15，而代码是由上至下读取的，当result为0时，实质obj已经超过了tar的位置，因此要 result取值为0，而offleft与tar重合时，是不可能的，会发生左右抖动的现象
+                obj.style.left=tar+"px";//默认设置位置到tar的位置
+                clearInterval(obj.timer);//清除定时器，相当时间轴的最后一个关键帧，在此定位结束。
+            }
+        },10)
+    }
+</script>

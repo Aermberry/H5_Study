@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        .box{
+            margin: 10px auto;
+            width: 500px;
+            overflow: hidden;
+            border: 1px solid darkgoldenrod;
+            border-bottom: 30px solid #666666;
+        }
+        nav{
+            width: 500px;
+            height: 50px;
+            border: 1px solid darkcyan;
+        }
+        textarea{
+            border:1px solid #666666;
+            width: 500px;
+            height: 400px;
+        }
+        #btn{
+            margin-left: 400px;
+            width: 80px;
+            height: 50px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+        nav #left{
+            font: 20px/50px "微软雅黑 Light";
+            text-align: center;
+            height: 50px;
+            /*border: 1px solid #666666;*/
+            float: left;
+            width: 100px;
+        }
+        nav #middle{
+            text-align: center;
+            font: 20px/50px "微软雅黑 Light";
+            height: 50px;
+            /*border: 1px solid #666666;*/
+            float: left;
+            width: 300px;
+        }
+        nav #right{
+            text-align: center;
+            font: 20px/50px "微软雅黑 Light";
+            height: 50px;
+            /*border: 1px solid #666666;*/
+            width: 100px;
+            float: right;
+        }
+        nav li{
+            height: 25px;
+            font:20px/25px "微软雅黑 Light";
+        }
+
+        #middle ul>li:last-child{
+            color:#cccccc;
+        }
+        .main>ul>li{
+            border-bottom:1px dashed #666666;
+            font: 20px/22px "微软雅黑 Light";
+            text-indent: 2em;
+            list-style: circle;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <nav>
+        <div id="left">WEIBO</div>
+        <div id="middle">
+            <ul>
+                <li>内容</li>
+                <li>SALMON</li>
+            </ul>
+        </div>
+        <div id="right">
+            发布
+        </div></nav>
+    <div class="main">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <ul>
+        </ul>
+        <button id="btn">发布</button>
+
+    </div>
+</div>
+</body>
+</html>
+<script>
+var btn=document.getElementById("btn");
+var text=btn.parentNode.firstElementChild||btn.parentNode.firstChild
+btn.onclick=function () {
+    if(text.value==""){
+        alert("please write down your con")
+    }
+    else {
+        var  li=document.createElement("li");//创建li标签元素
+        li.innerHTML=text.value+"<a href='javascript:;'>删除</a>";
+        var  ul=btn.previousElementSibling||btn.previousSibling;//获取btn的上一个兄弟节点
+        var  lis=ul.children;//获取UL下的孩子节点
+        ul.insertBefore(li,lis[0]);//将li元素插入到ul（确定插入对象范围）中的lis[0]前面。lis[0],lis数组中的第0个位置。
+        var as=document.getElementsByTagName("a");
+        text.value="";
+        for (var a=0;a<as.length;a++){
+            as[a].onclick=function () {
+                ul.removeChild(this.parentNode);
+//                ul.removeChild(ul.children[0]);
+
+            }
+        }
+    }
+
+}
+</script>

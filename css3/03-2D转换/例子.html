@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box {
+			width: 400px;
+			height: 400px;
+			margin: 50px auto;
+			transition: all 1s;
+		}
+
+		img {
+			width: 100%;
+			/*根据父级决定自己的宽度*/
+		}
+
+		.box:hover {
+			transform: translate(50px, 50px) rotate(360deg) scale(0.75);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="./images/dfc.gif" alt="">
+	</div>
+</body>
+</html>

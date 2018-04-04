@@ -1,0 +1,19 @@
+.rside .form-group{
+    margin: 10px 0;
+    width: 765px;
+    height: 37px;
+}
+.form-group label{
+    width: 153px;
+    height: 21px;
+    float: left;
+}
+.form-group p{
+    float: left;
+    width: 573.75px;
+    height: 37px;
+}
+.form-group input{
+    float: left;
+    margin-bottom: 10px;
+}

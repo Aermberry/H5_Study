@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="one" id="one">
+    <div class="two" id="two">
+        <div class="three" id="three"></div>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+    var three=document.getElementById("three");
+    alert(three.offsetParent.tagName)//返回带有postion属性的父级标签名
+    alert(three.parentNode.id);
+</script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//    push()，给数组后面追加新元素，并返回新数组长度
+//    定义数组的方法：var a=[];
+//                  var a=new arr();
+    var su=["a","v","s"];
+    console.log(su.length);
+    su.push(5);
+    console.log(su);
+    console.log(su.length);
+    console.log(su.push("g","d","ddf"));//追加多个元素 [].push("a","d");
+    console.log(su);
+
+//    unshift(),给数组前面追加新元素，并返回新数组长度
+    var du=new Array();
+    du=["df","fg"];
+    console.log(du);
+    du.unshift("dsf","fd");
+    console.log(du);
+    console.log(du.unshift("sd","fff"));
+    console.log(du);
+
+//    pop(),可将数组的最后一个元素删除，（）内没有参数，返回值：删除掉的元素
+var df=["gf","dsf","dd","sf"];
+console.log(df);
+console.log(df.pop());
+console.log(df);
+
+//    shift(),可将数组中最前的一个元素删除，（）内没有参数，返回值：删除掉的元素
+    var fg=new Array("FF","FGF","FFS");
+console.log(fg);
+console.log(fg.shift());
+console.log(fg);
+
+//数组.concat(数组)
+    var gg=df.concat(fg);
+    console.log(gg)
+
+    var ff=fg.concat(df);
+    console.log(ff);
+    //concat(),用于连接两个数组，而返回的是一个独立的数组副本，并不改变原来两个数组的组成。
+//    两个数组的连接具有先后顺序，调用者排在数组前，被调用者排在后
+
+//    join() 用于使数组变成字符串，（）内定义字符串“分隔符”
+    var vat=["d","f","gh"];
+    var sd=vat.join("-");
+    console.log(sd);
+    console.log(vat.join("+"));
+//    split（）
+
+    var hh="fdf ff dff";
+    console.log(hh.split(" "));
+</script>

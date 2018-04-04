@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .pic{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="pic" id="pic"><img src="images/img.jpg" alt=""></div>
+</body>
+</html>
+<script src="SCROLL.js" type="text/javascript"></script>
+<script>
+    var pic=document.getElementById("pic")
+    var timer=null,leaderx=0,leadery=0,tarx=0,tary=0;
+    document.onclick=function (event) {
+        //event事件對象，是對事件onclick的事件對象話實例
+
+        var event=event||window.event
+//        間寫化：evt||event
+//        event在普通瀏覽中是可以隨意命名的，但在ie678中值接受window.event的寫法
+//        定義頁面中的x,y的定位獲取
+        var  pagex=event.pageX||event.clientX+scroll().left;
+        var  pagey=event.pageY||event.clientY+scroll().top;
+//        pagex:獲取當前整個頁面的x值
+//        clientx:獲取的是當前可視範圍的值
+//        兼容式寫法，在ie678中，沒有page的寫化，pagex=對當前位置的獲取+滾動超出當前範圍的值
+        tarx=pagex-pic.offsetWidth/2;
+        tary=pagey-pic.offsetHeight/2;
+               clearInterval(timer)
+        timer=setInterval(function () {
+//            緩動動畫：leader=leader+(tar-leader)/10
+//            x
+            var stepx=(tarx-leaderx)/10;
+//            單步
+            stepx=stepx>0?Math.ceil(stepx):Math.floor(stepx);
+//            取極值
+            leaderx=leaderx+stepx;
+//            y
+            var  stepy=(tary-leadery)/10;
+            stepy=stepy>0?Math.ceil(stepy):Math.floor(stepy);
+            leadery=leadery+stepy;
+
+            pic.style.left=leaderx+"px"
+            pic.style.top=leadery+"px"
+
+        },10)
+    }
+
+</script>

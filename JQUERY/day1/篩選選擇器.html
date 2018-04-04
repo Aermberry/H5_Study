@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+//          後代選擇器  find(),查找後代中指定的元素
+//            $("#j_divItem").find("p")
+
+            // 将jQuery对象转换成DOM对象 然后 调用 DOM对象的onclick 事件
+            $("#j_btnFind")[0].onclick=function () {
+                $("#j_divItem").find("p").css({"color":"red"})
+            }
+
+//            children只能選擇到父級元素下，指定的子級元素
+            $("#j_btnChildren")[0].onclick = function () {
+                $("#j_divItem").children("p").css("color", "red");
+            }
+
+//
+            $("#j_btnParent")[0].onclick=function () {
+                $("#j_pItem").parent("div").css("color","pink")
+                $("#j_pItem").parents("div").css("font-size","50px")
+            }
+
+        })
+    </script>
+
+</head>
+<body>
+<input type="button" value="find" id="j_btnFind"/>
+<input type="button" value="children" id="j_btnChildren"/>
+<input type="button" value="parent" id="j_btnParent"/>
+<div id="j_divItem">
+    <div>
+        我是子div
+        <p id="j_pItem">我是div内部p元素</p>
+    </div>
+    <p>我是div外部的p元素</p>
+
+
+</div>
+</body>
+</html>

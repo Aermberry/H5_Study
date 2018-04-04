@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 100px;
+            background: orange;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+//        $(function () {
+//          var h= $("img").height();
+//          console.log(h);
+//
+//        })
+
+//        window.onload=function () {
+//            var  h=$("img").height();
+//            console.log(h)
+//        }
+
+        $(window).load(function () {//注意这里的而方法是load不是onload
+//            获取图片的高度
+            var h=$("img").height();
+            console.log(h);
+
+//            给div设置高度
+//            $("div).height("400px);//字符串
+            $("div").height(400);
+
+//            设置宽度
+            $("div").width(400);
+
+//            获取宽度
+            console.log($("div").width());
+
+        })
+
+    </script>
+</head>
+<body>
+<img src="images/30239448_30239448_1388712778890_mthumb.jpg" height="532" width="800"/></body>
+<div></div>
+</html>

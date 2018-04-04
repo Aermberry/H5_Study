@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            background-color: #ffad4f;
+
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+<button class="btn" id="btn">按鈕</button>
+</body>
+</html>
+<script>
+    var box=document.getElementById("box");
+    var btn=document.getElementById("btn");
+
+    btn.onclick=function () {
+        alert(11);
+        animate(box,{width:500,height:800,left:500,opacity:30},function () {
+            animate(box,{left:300,width:300,height:300,opacity:100})
+        })
+    }
+
+    function animate(obj,jsion,fn) {
+        clearInterval(obj.timer);
+        obj.timer=setInterval(function () {
+            var flag=true;
+            for(var k in jsion){
+                var leader=0;
+                if(k=="opacity"){
+                    leader=Math.round(getity(obj,k)*100)||100
+                }
+                else {
+                    leader=parseInt(getity(obj,k))||0
+                }
+                var step=(jsion[k]-leader)/10
+                step=step>0?Math.ceil(step):Math.floor(step);
+                leader=step+leader;
+                if(k=="opacity"){
+                    obj.style.opacity=leader/100;
+                    obj.style.filter="alpha(opacity="+leader+")";
+                }
+                else {
+                    obj.style[k]=leader+"px"
+                }
+
+                if(leader!=jsion[k]){
+                    flag=false;
+                }
+            }
+            if(flag){
+                clearInterval(obj.timer);
+                if(fn){fn()}
+            }
+        },30)
+    }
+
+    function getity(obj,arr) {
+        if(obj.currentStyle){
+          return  obj.currentStyle[arr];
+        }
+        else {
+          return  window.getComputedStyle(obj,null)[arr];
+        }
+    }
+</script>

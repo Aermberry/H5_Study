@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左右焦点轮播图</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        .box{
+            margin: 100px auto;
+            width: 520px;
+            height: 280px;
+            border: 1px solid #cccccc;
+            background-color: #fffd57;
+            padding: 5px;
+        }
+       .box .minbox{
+           width: 520px;
+           height: 280px;
+           background-color: #a3ff68;
+           position: relative;
+           overflow: hidden;
+        }
+
+        img{
+            vertical-align: top;
+        }
+
+        ul{
+            width: 1000%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        ul li{
+            float: left;
+        }
+
+        .minbox .square{
+            /*background-color: #ff8f2f;*/
+            display: none;
+        }
+
+        span{
+            width:40px;
+            height:40px;
+            position:absolute;
+            left:5px;
+            top:50%;
+            margin-top:-20px;
+            cursor:pointer;
+            line-height:40px;
+            text-align:center;
+            font-weight:bold;
+            font-family:'黑体';
+            font-size:30px;
+            color:#fff;
+            background-color: rgba(0,0,0,0.3);
+        /*rgba写法其中最后的a代表透明度(opacity)*/
+            border:1px solid #fff;
+        }
+
+        .right{
+            right:5px;
+            left:auto;//通过自动设置值auto自动，获得右手边的自动对齐
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="minbox" >
+        <ul>
+            <li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+        </ul>
+        <div class="square">
+            <span class="left"><</span>
+            <span class="right" id="right">></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var box=document.getElementById("box");
+    var minbox=box.children[0];
+    var ul=minbox.children[0];
+    var square=minbox.children[1];
+    var lis=ul.children;
+
+    box.onmouseover=function () {
+        square.style.display="block";
+    }
+
+    box.onmouseout=function () {
+        square.style.display="none";
+    }
+    var target=0;
+    square.children[0].onclick=function () {
+//        alert(10);
+        target+=520;
+        target=target>0?0:target;
+        console.log(target);
+        an(ul,target);
+        }
+
+
+
+    square.children[1].onclick=function () {
+//        alert(11);
+        target-=520;
+        if(target<-(lis.length-1)*520){
+            target=-(lis.length-1)*520;
+        }
+        console.log(target);
+        an(ul,target);
+    }
+
+    function an(obj,tar) {
+        clearInterval(obj.timer);
+        var speed=obj.offsetLeft<tar?8:-8;
+        obj.timer=setInterval(function () {
+            obj.style.left=obj.offsetLeft+speed+"px";
+            var result=obj.offsetLeft-tar;
+            if(Math.abs(result)<=8){
+                obj.style.left=tar+"px";
+                clearInterval(obj.timer)
+            }
+        },30)
+    }
+
+</script>

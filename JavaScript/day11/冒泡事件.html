@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">按鈕</button>
+</body>
+</html>
+<script>
+    var btn=document.getElementById("btn")
+    btn.onclick=function (event) {
+        alert("hello world")
+//        阻止冒泡事件
+        var event=event||window.event;
+        if(event && event.stopPropagation)
+//            檢測是否存在event,當前瀏覽器是否支持event.stopPropagation
+//w3c瀏覽器
+        {
+            event.stopPropagation();
+        }
+        else {
+            event.cancelBubble=true;//ie678
+        }
+    }
+
+    document.onclick=function () {
+        alert(
+            "god bye"
+        )
+    }
+
+//    冒泡事件，dom的層級關係，子元素觸發事件時，會使父元素的事件也會被觸發
+//    ie6:div>body>html>document
+//    其他瀏覽器：div>body>html>document>window
+</script>

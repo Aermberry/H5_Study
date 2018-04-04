@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function addFav() {
+            if(window.external.AddFavorite){
+                window.external.AddFavorite('./单击加速收藏夹.html','Javascript300实例')
+            }
+            else {
+                window.sidebar.addPanel('Javascript300实例','http://www.baidu.com',"");
+            }
+        }
+
+    </script>
+</head>
+<body style="text-align: center">
+<a href="javascript:addFav()">单击加入收藏夹</a>
+</body>
+</html>

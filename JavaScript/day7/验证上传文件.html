@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" name="" id="file"><span></span>
+<!--文件域-->
+</body>
+</html>
+<script>
+function $(id) {
+    return document.getElementById(id);
+}
+
+$("file").onchange=function () {
+    var path=this.value;
+    var pathid=path.substr(path.lastIndexOf(".")).toUpperCase();
+//    alert(path);
+    if(pathid==".JPEG"||pathid==".JPG"||pathid==".PNG"){
+        this.nextElementSibling.innerHTML="格式正确";
+    }
+    else {
+        this.nextElementSibling.innerHTML="格式不正确";
+    }
+}
+</script>

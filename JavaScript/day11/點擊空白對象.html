@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+
+        #mask{
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+            filter: alpha(opacity=40);
+        /*//ie中透明度的寫法----filter*/
+        /*相当于CSS3 opacity 透明，而filter属性是IE特有的，它还有很多其它滤镜效果，
+        而filter: alpha(opacity=0); 兼容IE8及以下的IE浏览器， 而在支持CSS3 opacity的浏览器中，可以 opacity:0;*/
+        background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        #show{
+            width: 300px;
+            height: 300px;
+            background-color: #fff;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin: -150px 0 0 -150px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<a href="javascript:;" class="register">註冊</a>
+<a href="javascript:;" id="login">登錄</a>
+<div id="mask"></div>
+<div id="show"></div>
+</body>
+</html>
+<script>
+    function $(id) {return document.getElementById(id);}
+    var login = document.getElementById("login");
+    login.onclick = function(event) {
+        $("mask").style.display = "block";
+        $("show").style.display = "block";
+        document.body.style.overflow = "hidden"  // 隐藏当前屏幕的滚动条
+        //  阻止冒泡
+        var event = event || window.event;
+        if(event && event.stopPropagation) {
+            event.stopPropagation();
+        }
+        else {
+            event.cancelBubble = true;
+        }
+    }
+    document.onclick = function(event) {
+        var event = event || window.event;
+//         alert(event.target.id)
+//        返回被点击的对象 de id
+        // alert(event.srcElement.id)   // ie 6 7 8
+        var targetId = event.target ? event.target.id : event.srcElement.id;
+        if(targetId != "show") {  // 如果不是那个盒子 就隐藏
+            $("mask").style.display = "none";
+            $("show").style.display = "none";
+            document.body.style.overflow = "visible";
+            // overflow:  hidden   visible   auto   scroll
+        }
+    }
+
+</script>

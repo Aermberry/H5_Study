@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 200px;
+            background: pink;
+            margin-bottom: 20px;
+            font-size: 30px;
+            display: none;
+        }
+
+        input{
+            width: 158px;
+            height: 40px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+    </style>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //獲取按鈕id
+            $("#demo").click(function () {
+                $("div").show().html("我是內容");
+            })
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="按鈕" id="demo">
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

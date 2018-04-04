@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//    <!--事件對象event,這個事件對象只有事件才有，什麼是事件：onmouseover,onmouseout。。。。。onload(谷歌瀏覽器 圖片 不支持12px以下的字體)
+//    普通瀏覽器支持event；
+////    ie6,7,8支持window.event-->
+    document.onclick=function (event) {
+//        onclick 為事件
+        var event=event||window.event;
+//        在標準瀏覽器中event名可隨意命名，ie8以下必須為event
+        alert("你的x坐標是："+event.clientX+"y坐標是："+event.clientY)
+    }
+
+//    clientX clientY 可見區域，只指當前的窗口區域
+    document.onclick=function (event) {
+        var event=event||window.event;
+//        兼容式寫法，ie6,7,8只認windown.event
+        alert("你的x坐標是:"+event.clientX+"y坐標是："+event.clientY)
+//        顯示的是當前窗口的點擊鼠標位置的實際窗口大小
+        alert("你的x坐標是:"+event.pageX+"y坐標是："+event.pageY)
+//        顯示的是整頁的窗口大小，看右側的滑動欄
+//        但ie678對pagex和pagey不兼容
+//        兼容式寫法：
+//        var x=event.pageY||event.clientY+document.documentElement.scrollTop;
+//        var y=event.pageX||event.clientX+document.documentElement.scrollLeft;
+
+        alert("你的x坐標是:"+event.screenX+"y坐標是："+event.screenY)
+//        顯示的整個顯示器的大小坐標定位
+
+    }
+</script>

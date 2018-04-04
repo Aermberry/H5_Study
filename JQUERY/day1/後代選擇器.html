@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        //後代選擇器“空格”
+//空格
+//        選擇指定元素所有的後代元素(兒子、孫子、子孫後代)
+        $(function () {
+//            後代選擇器
+            $("#j_ulItem li").css("color","green");
+//            子代選擇器(">",選擇指定元素所有的直接子元素（兒子）)
+            $("#j_ulItem-1>li").css("color", "red");
+//緊鄰選擇器
+//            +
+            $("#j_liItem+li").css("color","blue")
+//            兄弟選擇器
+//            ~
+//            選擇指定元素後面所有的兄弟元素（後面的所有兄弟元素）
+            $("#j_liItem~li").css("color","black");
+        })
+
+    </script>
+</head>
+<body>
+<ul id="j_ulItem">
+    <li>我是li的内容</li>
+    <li>我是li的内容</li>
+    <li>我是li的内容
+        <ul>
+            <li>我是子li的内容</li>
+            <li>我是子li的内容</li>
+            <li>我是子li的内容</li>
+        </ul>
+    </li>
+    <li id="j_liItem">我是li的内容</li>
+    <li>我是li的内容1111</li>
+    <li>我是li的内容</li>
+    <li>我是li的内容</li>
+    <li>我是li的内容</li>
+    <li>我是li的内容</li>
+    <li>我是li的内容</li>
+</ul>
+<ul id="j_ulItem-1">
+    <li>我是li的内容</li>
+    <li>我是li的内容</li>
+    <li>我是li的内容</li>
+    <li>我是li的内容
+        <ul>
+            <li>我是子li的内容</li>
+            <li>我是子li的内容</li>
+            <li>我是子li的内容</li>
+        </ul>
+    </li>
+    <li>我是li的内容</li>
+    <li>我是li的内容</li>
+    <li>我是li的内容</li>
+    <li>我是li的内容</li>
+    <li>我是li的内容</li>
+    <li>我是li的内容</li>
+</ul>
+
+</body>
+</html>

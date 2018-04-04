@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function initMouse() {
+//            通过标签名得到目标dom,如果是全网则这里可以用body
+            var pDom=document.getElementsByTagName("p")[0];
+//            修改样式的鼠标指针形状，pointer为手的形状
+            pDom.style.cursor='pointer'
+        }
+    </script>
+</head>
+<body style="text-align: center" onload="initMouse()">
+<!--定义-快区域-->
+<p style="margin: 5px auto;width: 200px;height: 200px;background: gray">
+    把鼠标移动到该区域
+</p>
+</body>
+</html>

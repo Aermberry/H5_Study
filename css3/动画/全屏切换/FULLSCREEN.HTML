@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		html,body {
+			height: 100%;
+		}
+
+		body {
+			background-image: linear-gradient(to bottom,#B30000,#FAECB0);
+		}
+
+		ul:nth-child(2) {
+			z-index: 5;
+			width: 100%;
+			height: 120px;
+			position: absolute;
+			bottom:100px;
+			text-align: center;
+			/*background-color: white;*/
+		}
+
+		.text li{
+			display:inline-block;
+			width: 120px;
+			height: 100%;
+			background-color: green;
+			margin:0 100px;
+			border-radius: 800px/500px;
+			background-image: radial-gradient(50px at center center,#C92828 0%,#C92828 20%,transparent 20%,transparent 40%,yellow 40%,yellow 60%,transparent 60%,transparent 80%,#7C05AE);
+		}
+
+		.text li a{
+			width: 100%;
+			height: 100%;
+			line-height: 120px;
+			font-size: 60px;
+			color:white;
+			text-shadow: 0px 2px #7C02CB,0px 4px #C50202,0px 6px #BEFB75;
+			 		}
+
+			 		ul[data-pic] {
+			 			width: 100%;
+			 			height: 100%;
+			 			background-color: rgba(255,255,255,0.6);
+			 			position: relative;
+			 		}
+
+			 		ul:first-child li {
+			 			position:absolute;
+			 			top: 0;
+			 			left: 0;
+			 			/*background-color: red;*/
+			 			width: 100%;
+			 			height: 100%;
+			 			background-color: white;
+			 			background-image:
+			 			/*radial-gradient(500px 500px at top left,red,#F3C7FF),*/
+			 			/*预设值：circle，ellipse,closest-sider,closest-corner,farthest-corner,farthest-side*/
+			 			/*radial-gradient(circle at center center, #0186F4,#027AD6 50%,#0572A8),*/
+			 			/*radial-gradient(farthest-side at top right, #f00, #ff0, #080, transparent),
+				radial-gradient(60px at top left, #f00, #ff0, #080);*/
+				url("./images/bg1.jpg");
+
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				z-index: 3;
+			 		}
+
+			 		ul:first-child li:nth-child(2) {
+			 			z-index: 2;
+			 			background-image: url(./images/bg2.jpg);
+			 		}
+
+			 		ul:first-child li:nth-child(3) {
+			 			z-index: 1;
+			 			background-image: url(./images/bg3.jpg);
+			 		}
+
+                     #bg01:target {
+                     	z-index: 4;
+                     	transition: all .5s;
+                     	animation: sky .5s ease-in-out;
+                     }
+                     #bg01:not(:target){
+                     	z-index: 3;
+                     }
+
+                     #bg02:target {
+                     	z-index:4;
+                     	transition: all .5s;
+                     	animation: walk .5s ease-in-out;
+                     }
+
+                     #bg02:not(:target) {
+                     	z-index:2;
+                     }
+
+                     #bg03:target {
+                     	z-index:4;
+                     	transition: all .5s;
+                     	animation:show .5s ease-in-out;
+                     }
+
+                     #bg03:not(:target) {
+                     	z-index:1;
+       
+                     }
+
+                     @keyframes show{
+                     	from{
+                     		transform:scale(0);
+                     	}
+
+                     	to {
+                     		transform:scale(1);
+                     	}
+                     }
+
+                     @keyframes walk{
+                     	from{
+                     		width: 0;
+                     	}
+                     	to{
+                     		width: 100%;
+                     	}
+                     }
+
+                     @keyframes sky {
+                     	from{
+                     		opacity: 0;
+                     		transform:scale(0);
+                     	}
+
+                     	50% {
+                     		transform:scale(0.5);
+                     	}
+                     	80% {
+                     		transform:scale(0.3);
+                     	}
+                     	to {
+                     		transform:scale(1);
+                     		opacity:1;
+                     	}
+                     }
+
+
+
+
+
+	</style>
+</head>
+<body>
+	<ul class="pic" data-pic>
+		<li id="bg01" class="img"></li>
+		<li id="bg02" class="img"></li>
+		<li id="bg03" class="img"></li>
+	</ul>
+	<ul class="text">
+		<li>
+			<a href="#bg01">1</a>
+		</li>
+		<li>
+			<a href="#bg02">2</a>
+		</li>
+		<li>
+			<a href="#bg03">3</a>
+		</li>
+	</ul>
+</body>
+</html>

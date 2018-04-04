@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scrolltop</title>
+    <style>
+        body{
+            height: 5000px;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    window.onscroll=function () {
+        document.title=window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop||0;
+    }
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页存储</title>
+</head>
+<body>
+	<textarea id="txt_editor" cols="80" rows="10"></textarea>
+	<button id="btn_set">存储到浏览器本地</button>
+	<button id="btn_get">获取</button>
+	<button >hahha</button>
+	<script>
+		var btn_set=document.querySelector('#btn_set');
+		var btn_get=document.querySelector('#btn_get');
+		var text_editor=document.querySelector('#txt_editor')
+
+		// 注册点击事件
+		btn_set.addEventListener('click', function(e){
+			var value=text_editor.value;		
+			// 存起来
+			// 在H5在window对象多了一个localStorage属性（本地存储），可以用于操作本地存储
+			if(window.localStorage)
+				// 判断浏览器是否支持本地存储locaStorage
+				// localStorage['a111']=value;
+				// h5中对localSorage的专用API
+				localStorage.setItem(['a555'], value)
+				//setItem(['键'，值])
+			
+		});
+
+		btn_get.addEventListener('click', function(e){
+			if (window.localStorage) {
+				// 判断是否支持本地存储功能
+				// txt_editor.value=localStorage['a111'];
+				localStorage.getItem(['a555'])
+			}
+		})
+	</script>
+</body>
+</html>

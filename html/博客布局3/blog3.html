@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BLOG3</title>
+    <link rel="stylesheet" href="restest.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="aside.css">
+    <link rel="stylesheet" href="rside.css">
+    <style>
+        header{
+            background: #ffffff;
+            margin: 0px auto;
+        }
+        main{
+            margin:0px auto;
+            background: #efefef;
+            width: 1100px;
+            height: 650px ;
+        }
+        .lside{
+            background: #efefef;
+            width: 275px;
+            height: 368px;
+            float: left;
+        }
+        .rside{
+            background: #efefef;
+            width: 805px;
+            height: 400px;
+            float: right;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        footer{
+            height: 65px;
+            background:rgb(34,34,34);
+            margin: 0 auto;
+            color: #FAFAFA;
+            clear: both;
+            text-align: center;
+            padding: 20px 0px;
+            box-sizing: border-box;
+            font:17px/22px '微软雅黑','黑体',sans-serif ;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>BLOG后台管理界面</h1>
+</header>
+<main>
+    <div class="lside" >
+        <aside>
+            <h4>栏目管理</h4>
+            <ul>
+                <li><a href="">栏目列表</a></li>
+                <li><a href="">添加栏目</a></li>
+            </ul>
+        </aside>
+        <aside>
+            <h4>文章管理</h4>
+            <ul>
+                <li><a href="">文章列表</a></li>
+                <li><a href="">发布文章</a></li>
+            </ul>
+        </aside>
+        <aside><h4>个人中心</h4>
+            <ul>
+                <li><a href="">修改密码</a></li>
+                <li><a href="">退出登录</a></li>
+            </ul></aside>
+    </div>
+    <div class="rside">
+        <form action="">
+            <div class="form-group">
+                <lable>标题：</lable>
+                <p><input type="text"></p>
+                </div>
+            <div class="form-group">
+                <lable>栏目：</lable>
+                <p><select name="cat_id">
+                    <option value="">人生</option>
+                    <option value="">哲学</option>
+                    <option value="">技术</option>
+                </select></p>
+                </div>
+            <div class="form-group">
+                <lable>内容：</lable>
+                <p><textarea name="content" id="" cols="30" rows="10"></textarea></p>
+            </div>
+            <div class="form-group">
+                <lable>标签：</lable>
+                <p><input type="text" name="tags"></p>
+            </div>
+            <div class="form-group">
+                <p>
+                    <button type="submit">提交</button>
+                </p>
+
+            </div>
+        </form>
+    </div>
+</main>
+<footer>
+    Copyright © 2015 · GeneratePress · WordPress
+</footer>
+</body>
+</html>

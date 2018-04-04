@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 110px;
+            height: 100px;
+            background-color: #ff2d1f;
+        }
+    </style>
+</head>
+<body>
+ <div style="left: 100px;"></div>
+</body>
+</html>
+<script>
+    var div=document.getElementsByTagName("div")[0];
+    console.log(div.style.width)
+    console.log(div.style.left)
+    console.log(getstyle(div,"width"));
+    console.log(getstyle(div,"height "));
+//   這種方法只能取到行內式的值
+//    console.log(div.currentStyle.width)
+//    ie專屬
+//    console.log(window.getComputedStyle(div,null).width)
+//    W3C
+//    window.getComputedStyle(元素，偽元素)
+//    一般情況下沒有偽元素，我們用null來替代  ：：befor
+
+
+//    兼容性寫法
+    function getstyle(obj,attr) {
+        if(obj.currentStyle){
+            return obj.currentStyle[attr];
+        }
+
+        else {
+            return window.getComputedStyle(obj,null)[attr];
+        }
+    }
+
+    function getstyle(obj,attr) {
+        if(obj.currentStyle)
+        {
+            return obj.currentStyle[attr]
+        }
+        else{
+            return window.getComputedStyle(obj,null)[attr];
+        }
+    }
+
+    function getstyle(obj,attr) {
+        if(obj.currentStyle){
+//            IE寫法
+            return obj.currentStyle[attr];
+        }
+
+        else {
+//            w3c寫法
+            return window.getComputedStyle(obj,null)[attr];
+        }
+    }
+
+</script>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function alertframes() {
+//            使用top变量得到顶层的父框架，这里指的是window
+            var topframe=top;
+            alert(topframe.document.body.innerHTML)
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<!--定义框架-->
+<iframe id="frame1"></iframe>
+<iframe id="frame2"></iframe>
+<input type="button" value="用top操作顶部的框架" onclick="alertframes()">
+</body>
+</html>

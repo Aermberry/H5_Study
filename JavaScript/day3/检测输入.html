@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>检测输入</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            outline: none;
+            border: 0px;
+
+        }
+        .box{
+            width: 250px;
+            height: 40px;
+            margin: 100px auto;
+            border: 1px solid #f0872e;
+            position: relative;
+
+        }
+        #txt{
+            width: 244px;
+            height: 40px;
+            padding-left: 6px ;}
+        #text{
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: #cccccc;
+            font-size:18px;
+        }
+
+     </style>
+</head>
+<body>
+<div id="box" class="box" >
+    <input type="text" id="txt">
+    <lable id="text">hello world</lable>
+</div>
+</body>
+</html>
+<script>
+    function fn(id) {
+        return document.getElementById(id);
+    }
+
+    function inp() {
+        if(fn("txt").value=="")
+        {
+            fn("text").style.display="block";
+        }
+        else
+        {
+            fn("text").style.display="none";
+        }
+    }
+
+    fn("txt").oninput=function () {
+        inp();
+    }
+</script>

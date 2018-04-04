@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div class="hd">
+    <button>全选</button>
+    <button>取消</button>
+    <button>反选</button>
+</div>
+<ul class="bd">
+    <li><labe for="">hello world</labe><input type="checkbox" id="s01"></li>
+    <li><labe for="">hello world</labe><input type="checkbox" id="s02"></li>
+    <li><labe for="">hello world</labe><input type="checkbox" id="s03"></li>
+    <li><labe for="">hello world</labe><input type="checkbox" id="s04"></li>
+    <li><labe for="">hello world</labe><input type="checkbox" id="s05"></li>
+    <li><labe for="">hello world</labe><input type="checkbox" id="s06"></li>
+    <li><labe for="">hello world</labe><input type="checkbox" id="s07"></li>
+    <li><labe for="">hello world</labe><input type="checkbox" id="s08"></li>
+    <li><labe for="">hello world</labe><input type="checkbox" id="s09"></li>
+    <li><labe for="">hello world</labe><input type="checkbox" id="s10"></li>
+</ul>
+</body>
+</html>
+
+<script>
+    var ab=document.getElementsByTagName("button");
+    var ad=document.getElementsByTagName("input");
+
+    var le=ad.length;
+    function se(a) {
+        for (var b=0;b<le;b++){
+            ad[b].checked=a;
+        }
+    }
+    ab[0].onclick=function () {
+        se(true);
+    }
+
+    ab[1].onclick=function () {
+        se(false)
+    }
+
+    ab[2].onclick=function () {
+      for(var a=0;a<le;a++)
+      {
+          ad[a].checked==true?ad[a].checked=false:ad[a].checked=true;
+      }
+    }
+
+
+</script>

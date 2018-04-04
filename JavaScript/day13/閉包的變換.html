@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function fn() {}   //定義函數體
+    fn()函數
+    fn
+    fn(){}()
+
+    var btns=document.getElementsByTagName("button");
+//    for (var a=0;a<btns.length;a++){
+//        btns[a].onclick=outfun(a);
+//        function outfun(a) {
+//            return function() {
+//                alert(a);
+//            }
+//        }
+//    }
+
+    for (var a=0;a<btns.length;a++){
+        btns[a].onclick=function outfun(a){
+return function () {
+    alert(a);
+}
+        }(a)
+    }
+
+</script>

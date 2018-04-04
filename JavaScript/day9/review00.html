@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img{vertical-align: top}
+        #main{
+            width: 1000px;
+            margin-top: 10px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div id="top"><img src="images/top.png"></div>
+<div id="nav"><img src="images/nav.png"></div>
+<div id="main"><img src="images/main.png"></div>
+</body>
+</html>
+<script src="my.js" type="text/javascript"></script>
+<script>
+    var nav=document.getElementById("nav")
+    var val=document.getElementById.offsetHeight("top")
+
+    window.onscroll=function () {
+        //用於檢測滾動事件
+        if(scroll().top>=val){
+            alert("stop")
+        }
+
+    }
+</script>

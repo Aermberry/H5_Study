@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: #a8ff46;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+<button id="btn">按鈕</button>
+</body>
+</html>
+<script>
+    var btn=document.getElementById("btn");
+    var box=document.getElementById("box");
+
+    btn.onclick=function () {
+//        alert(11)
+        an(box,{width:800,height:55555,left:1000,opacity:30},function () {
+            an(box,{
+                width:500,height:800,left:500
+            })
+        })
+
+    }
+
+    function an(obj,jsion,fn) {
+        clearInterval(obj.timer)
+
+         obj.timer=setInterval(function () {
+             var flag=true;
+             for (var k in jsion){
+//                 獲取初始值leader
+                 var leader=0;
+                 if (k=="opacity"){
+                     leader=Math.round(getstyle(obj,k)*100)||100;
+                 }
+                 else {
+                     leader=parseInt(getstyle(obj,k))||0;
+//去單位，getstyle獲取的值是字段帶單位
+                 }
+//                 計算單步步幅
+                 var step=(jsion[k]-leader)/10;
+//                 保持穩定，防止倒退
+                 step=step>0?Math.ceil(step):Math.floor(step);
+                 leader=leader+step;
+                 //leader的取值
+                 if(k=="opacity"){
+                     obj.style.opacity=leader/100;
+                     obj.style.filter="alpha(opacity="+leader+")";
+                 }
+                 else {
+                     obj.style[k]=leader+"px";
+                 }
+                 if(jsion[k]!=leader){
+                     flag=false;
+                 }
+             }
+             if(flag){
+                 clearInterval(obj.timer)
+                 if(fn){
+                     fn();
+                 }
+             }
+         },30)
+
+
+
+
+    }
+    function getstyle(obj,arr) {
+        if(obj.currentStyle){
+          return  obj.currentStyle[arr];
+        }
+        else {
+          return  window.getComputedStyle(obj,null)[arr]
+        }
+    }
+
+</script>

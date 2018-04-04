@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+</html>
+<script>
+    var demo=document.getElementById("demo");
+    var enddate=new Date("2017/10/1 00:00:00");
+    setInterval(fn,1000);
+    function fn() {
+        var date=new Date();
+        var yu=parseInt((enddate.getTime()-date.getTime())/1000);//剩余的总秒数
+        var s=yu%60;//秒数
+        var fen=parseInt(yu/60%60);//分数
+        var hour=parseInt(yu/3600%24);//小时
+        var day=parseInt(yu/3600/24);//天数
+
+        s=s<10? "0"+s:s;//三元运算符；
+        hour=hour<10? "0"+hour:hour;//
+        fen=fen<10? "0"+fen:fen;//
+        day=day<10? "0"+day:day;//
+
+        demo.innerHTML="剩余时间："+day+"天"+hour+"小时"+fen+"分钟"+s+"秒";
+    }
+</script>

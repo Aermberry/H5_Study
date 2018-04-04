@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="demo">
+    <div>1</div>
+    <div id="fg">2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <buttom id="btn"></buttom>
+</div>
+</body>
+</html>
+<script>
+    var df=document.getElementById("demo");
+    var nodes=df.childNodes;
+    var fg=document.getElementById("fg")
+    alert(nodes.length);//chrom中会将代码中的转折行也计入转接点中
+    for(var a=0;a<nodes.length;a++){
+        if(nodes[a].nodeType==1){
+            nodes[a].style.backgroundColor="red"
+        }
+
+    }
+
+    var dd=document.createElement("div");
+    df.appendChild(dd);
+    dd.innerHTML="hahah";
+    dd.style.backgroundColor="blue"
+
+    var btn=document.getElementById("demo")
+    btn.onclick=function () {
+        var br=document.createElement("li");
+//        dd.appendChild(br);
+        br.style.backgroundColor="yellow"
+        df.insertBefore(br,fg)
+    }
+</script>

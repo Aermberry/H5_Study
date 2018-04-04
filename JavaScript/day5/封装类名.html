@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="en"></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div class="en"></div>
+<div></div>
+<div></div>
+<div></div>
+<div class="en"></div></body>
+</html>
+<script>
+    function ec(ty) {
+        if(document.getElementsByClassName)
+        {return document.getElementsByClassName(ty)}
+        else {
+            var eb=[];
+            var yu=document.getElementsByTagName("*") ;
+            for(var a=0;a<yu.length;a++){
+               if(yu[a].className== className) {
+                   eb.push(yu[a]);
+               }
+
+            }
+            return eb;
+        }
+    }
+console.log(ec ("en").length)
+//    这个方法只能取单一的类名的
+</script>

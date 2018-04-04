@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function alterFrames() {
+            var f=window.frames
+            alert(f.length)
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<!--定义框架-->
+<iframe src="" frameborder="0" id="frame1">
+</iframe>
+<iframe src="" frameborder="0" id="frame2"></iframe>
+<br>
+<input type="button" value="一共有多少个框架" onclick="alterFrames()">
+</body>
+</html>

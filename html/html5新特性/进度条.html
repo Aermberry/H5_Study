@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video id="video" src="./fun.mp4" controls></video>
+<div>
+    <progress id="progress" value="0" min="0" max="100" style="width:500px"></progress>
+    <span>00:00</span>/
+    <span>02:44</span>
+</div>
+<div>
+    <button id="btn_play" >播放</button>
+    <button id="btn_pause" >暂停</button>
+    <button id="btn_muted">静音</button>
+    <input id="volume" type="range" name="" id="" min="0" max="1" step="0.1" value="1">
+    <button id="btn_fullscreen">全屏</button>
+    <button id="btn_speed_up">加速</button>
+    <button id="btn_speed_down">减速</button>
+    <button id="btn_forward">前进5秒</button>
+    <button id="btn_back">后退5s</button>
+</div>
+<!-- 1 隐藏contral-->
+<!-- 2 加上控制元素-->
+<!-- 3 点击事件分别实现不同效果 -->
+
+<!-- progress :进度条
+value:标注进度条的进度值
+min:标注进度的最少值
+max:标注进度的最大值-->
+<script>
+    var video=document.getElementById('video')
+    var btn_play=document.getElementById('btn_play');
+    //    注册点击事件addEventListener
+    //    addEventListener 将事件属性的on去掉作为第一个参数传入
+    btn_play.addEventListener('click',function () {
+        video.play();
+        btn_play.disabled=true;
+        btn_pause.disabled=false;
+    });
+    var btn_pause=document.getElementById('btn_pause');
+    //        注册点击事件addEventListener
+    //        addEventListener 将事件属性的on去掉作为第一个参数传入
+    btn_pause.addEventListener('click',function () {
+        video.pause();
+        btn_play.disabled=false;
+        btn_pause.disabled=true;
+    });
+    //    静音
+    var btn_muted=document.getElementById('btn_muted')
+    btn_muted.addEventListener('click',function () {
+        video.muted=!video.muted
+//        if(video.muted)
+//        {
+//            btn_muted.innerHTML="取消静音"
+//        }
+//        else {
+//            btn_muted.innerHTML="静音"
+//        }
+//三元运算符写法
+        btn_muted.innerHTML=video.muted?'取消静音':'静音';
+    })
+    //    rang
+    var volume=document.getElementById("volume")
+    //    alert(volume)
+    volume.addEventListener('change',function (e) {
+//        获取当前的音量
+        video.volume=volume.value
+    })
+
+//    加速
+    var btn_speed_up=document.getElementById('btn_speed_up')
+//    添加事件监听
+    btn_speed_up.addEventListener('click',function () {
+//        每一次点击都增加0.1的速度
+        video.playbackRate +=0.1
+    })
+
+//    减速
+    var btn_speed_down=document.getElementById("btn_speed_down")
+//    添加事件监听
+    btn_speed_down.addEventListener('click',function () {
+        video.playbackRate -=0.1
+    });
+//    前进5秒
+    var btn_forward=document.getElementById('btn_forward');
+    btn_forward.addEventListener('click',function (e) {
+        video.currentTime +=5;
+    })
+//    后退5秒
+    var btn_back=document.getElementById('btn_back');
+    btn_back.addEventListener('click',function (e) {
+        video.currentTime -=5;
+    })
+//注册视频播放状态变化事件
+    var progress=document.getElementById('progress')
+    video.addEventListener('timeupdate',function () {
+        progress.value=(video.currentTime/video.duration)*100;
+    })
+//全屏
+
+    function fullScreen(els) {
+        if(els.webkitRequestFullScreen){
+            els.webkitRequestFullScreen()
+        }
+        else if(els.requestFullScreen){
+            els.requestFullScreen()
+        }
+        else if(els.mozRequestFullScreen)
+        {
+            els.mozRequestFullScreen()
+        }
+        else if(els.oRequestFullScreen){
+            els.oRequestFullScreen()
+        }
+        else if(els.msRequestFullScreen){
+            els.msRequestFullScreen()
+        }
+    }
+    var btn_fullscreen=document.getElementById('btn_fullscreen')
+    btn_fullscreen.addEventListener('click',function () {
+        //video.webkitRequestFullScreen();
+        fullScreen(video);
+//fullScreen(document.body)
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function modifAction() {
+//            获取表单
+            var f=document.forms[0]
+//            获取控件
+            var text=f.newurl.value
+            f.action=text
+            alert("动态地址："+f.action)
+
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<!--定义表单-->
+<form action="" method="post">
+    请选择提交：
+    <input type="text" name="newurl">
+    <br>
+    <input type="button" value="修改提交Action" onclick="modifAction()">
+</form>
+</body>
+</html>

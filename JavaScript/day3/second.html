@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hu</title>
+    <style>
+
+        .box{
+            width: 260px;
+            height: 40px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .int{
+            width: 254px;
+            height: 30px;
+            padding-left: 6px;
+        }
+
+        .le{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #cccccc;
+            cursor: text;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <input type="text" class="int" id="int">
+    <lable id="le" class="le" for="int">hello world</lable>
+</div>
+</body>
+</html>
+<script>
+    function fn(a) {
+        return document.getElementById(a);
+    }
+
+    function search() {
+        if(fn("int").value=="")
+        {
+            fn("le").style.display="block";
+        }
+        else {
+            fn("le").style.display="none";
+        }
+    }
+    fn("int").oninput=function () {
+        search();
+    }
+    fn("int").focus();
+</script>

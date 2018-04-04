@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 50px;
+            width: 50px;
+            background: #ffad4f;
+            position: absolute;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("#btn01").click(function () {
+                $("div").animate({
+                    "width":"200px"
+                },1000);
+
+                $("div").animate({
+                    "height":"200px"
+                },1000)
+                $("div").animate({
+                    "left":"800px"
+                },1000)
+
+            })
+
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn01">
+<div></div>
+</body>
+</html>

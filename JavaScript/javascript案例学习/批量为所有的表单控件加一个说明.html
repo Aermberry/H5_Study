@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+       function batchComment() {
+           //获取表单
+           var f=document.forms[0];
+           var chriden=f.childNodes;//获取子节点
+           var newarr=[]; //创建新的数组存储空间
+           var j=0;//
+
+           //遍历
+           for(var a=0;a<chriden.length;a++){
+               //当前元素
+               var current=chriden[a];
+               newarr[j++]=current;//将当前元素放进数组中
+               if(current.tagName=='INPUT'||current.tagName=='SELECT'){
+                   var createtextnode=document.createTextNode('此项必填');
+                   newarr[j++]=createtextnode;
+               }
+
+           }
+
+           f.innerHTML=''//清空所有表单的内容
+           for (var a=0;a<newarr.length;a++){
+               f.appendChild=newarr[a]
+           }
+
+       }
+    </script>
+</head>
+<body style="text-align: center">
+<!--定义表单-->
+<form action="">
+    文本框：<input type="text" name="myText">
+    <br>
+    单选框：<input type="radio" name="myRadio" value="1">
+    <input type="radio" name="myRadio" value="2">
+    <br>
+    下拉列表：
+    <select name="mySelect">
+        <option value="">==请选择==</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
+    <br>
+    <input type="button" value="批量说明" onclick="batchComment()">
+</form>
+</body>
+</html>

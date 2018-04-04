@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SetTime</title>
+    <style>
+        .mmo{
+            width: 200px;
+            height: 500px;
+            background-color: #ffec44;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            text-align: center;
+            font: 50px/500px "微软雅黑";
+        }
+    </style>
+</head>
+<body>
+<!--setTIme 才是真正意义的定时炸弹就结束-->
+<!--setInterval(fn,1000) 每隔1秒就执行一次 fn你函数
+    setTimeout(fn,1000) 1秒钟之后，去执行一次fn函数，就over了。一次性的-->
+<div class="mmo" id="mmo">1</div>
+</body>
+</html>
+<script>
+//    setTimeout(function () {
+//        alert("BOOM!!!")
+//    },1000)
+    setTimeout(function () {
+       var bb=document.getElementsByClassName("mmo");
+       bb[0].style.display="none";
+    },3000)
+</script>

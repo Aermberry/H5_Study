@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+	<style>
+		li {
+			list-style: none;
+		}
+		li:nth-child(2n) {
+		margin: 10px;
+			background-color: #C0C0C0;
+			font: 20px bolder "黑体" ;
+			line-height: 48px;
+		}
+		
+		li:hover:before {
+			content: "wo zai zhe li!!! ";
+			font: 20px bolder "黑体" ;
+			line-height: 48px;
+			background-color: #ED2327;
+		}
+		
+		li:first-letter {
+			float:left;font-size:40px;font-weight:bold;line-height:1;
+		}
+/*
+			li:first-letter {
+			float:left;font-size:40px;font-weight:bold;line-height:1;
+		}
+*/
+/*		语法：E:first-letter/E::first-letter { sRules }
+		说明：设置对象内的第一个字符的样式。*/
+	</style>
+</head>
+<ul>
+	<li>只要有决心，万事皆有可能</li>
+	<li class="list">世上无难事，只怕有心人</li>
+	<li>As long as the effort of deep strokes fell great oaks</li>
+	<li>只要功夫深，铁杵磨成针</li>
+	<li>深いストロークの努力が大きな樫の落ちた限り</li>
+</ul>
+<body>
+</body>
+</html>

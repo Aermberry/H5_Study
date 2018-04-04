@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{list-style: none}
+        *{margin:0; padding:0;}
+        div{
+            width: 1150px;
+            height: 400px;
+            margin:50px auto;
+            border:1px solid red;
+            overflow: hidden;
+        }
+        div li {
+            width: 240px;
+            height: 400px;
+            float: left;
+        }
+        div ul {
+            width: 1300px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+ var box=document.getElementsByTagName("div")[0];
+ var lis=box.children[0].children;
+
+ for (var a=0;a<lis.length;a++){
+     lis[a].style.backgroundImage="url(images/"+(a+1)+".jpg)"
+     lis[a].onmouseover=function () {
+         for (var a=0;a<lis.length;a++)
+         {
+             an(lis[a],{width:100})
+         }
+
+         an(this,{width:800});
+     }
+
+     lis[a].onmouseout=function () {
+         for (var a=0;a<lis.length;a++){
+             an(lis[a],{width:100});
+         }
+     } }
+
+    function an(obj,jsion) {
+     clearInterval(obj.timer)
+     obj.timer=setInterval(function () {
+         var flag=true;
+         for (var k in jsion){
+             var leader=parseInt(getstyle(obj,k));
+             var step=(jsion[k]-leader)/10
+             step=step>0?Math.ceil(step):Math.floor(step);
+             leader=leader+step;
+             obj.style[k]=leader+"px"
+             if(jsion[k]!=leader){
+                 flag=false;
+             }
+         }
+
+         if(flag){
+             clearInterval(obj.timer)
+             fn()
+         }
+     },30)
+
+    }
+
+    function getstyle(obj,strr) {
+     if(obj.currentStyle){
+       return  obj.currentStyle[strr]
+     }
+
+     else {
+       return  window.getComputedStyle(obj,null)[strr]
+     }
+
+    }
+</script>

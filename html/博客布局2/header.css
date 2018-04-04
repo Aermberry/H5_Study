@@ -1,0 +1,12 @@
+header h1{
+    font:45px/56px '微软雅黑','黑体',sans-serif ;
+}
+header h1,header h4{
+    width: 1100px;
+    margin: 0px auto;
+}
+header h4{
+    color: rgb(153,153,153);
+    font: 19px/20px '新宋体','宋体',serif;
+}
+

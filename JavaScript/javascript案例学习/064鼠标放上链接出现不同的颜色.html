@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //定义链接的mousemover事件
+        function defineLinkColor() {
+//            获得网页里的所有链接的DOM
+            var linkDOMs=document.getElementsByTagName("a");
+//            遍历所有的链接DOM
+            for (var i=0;i<linkDOMs.length;i++){
+//                为每一个链接的mousemover定义事件回调
+                linkDOMs[i].onmouseover=function () {
+                    this.style.color='red'//为当前的链接改变颜色样式
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="defindlinecolor()">
+<!--定义链接-->
+<p align="center">
+    <a href="#">链接*￥</a>
+    <a href="#">链接*￥</a>
+</p>
+</body>
+</html>

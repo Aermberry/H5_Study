@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" name="" id="file"><span></span>
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    $("file").onchange=function () {
+        var path=this.value;//获取文件路径
+        var subth=path.substr(path.lastIndexOf(".")).toUpperCase();
+
+//        path.lastIndexOf(".")获取path的“.”的位置号
+//        substr(),对位置号设置为起始位置，进行获取字符串
+//        toUpperCase()，对字符串转化为大写。
+//        alert(subth);
+        if(subth==".JPG"||subth==".JPEG"||subth==".PNG")
+        {
+          this.nextElementSibling.innerHTML="格式正确"
+        }
+        else {
+            this.nextElementSibling.innerHTML="格式不正确"
+        }
+    }
+</script>

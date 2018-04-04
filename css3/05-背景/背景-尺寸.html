@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+
+		.pic {
+			width: 600px;
+			height: 400px;
+			background-color: red;
+			margin:50px auto;
+			border:10px solid #ccc;
+			background-image: url(IMG/2.jpg);
+			background-repeat: no-repeat;
+			/*background-size: cover;*/
+			/*将背景等比例缩放到完全覆盖容器，有可能超出容器*/
+			background-size: contain;
+			/*将背景图像等比缩放到宽度或高度与容器的宽度或高度相等，背景图像始终被包含在容器内。*/
+			}
+			
+	</style>
+</head>
+<body>
+	<div class="pic"></div>
+</body>
+</html>

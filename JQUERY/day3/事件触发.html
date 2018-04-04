@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            background: #ffd98c;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(window).load(function () {
+//            $("div").on("click",function () {
+//                alert("这是div的单击事件");
+//            });
+
+//            单击按钮 触发div的单击事件
+            $("#j_btnTrigger").on("click",function () {
+//                $("div").trigger("click");
+//                $("#j_btnSub").trigger("click")
+//               只触发事件，不触发默认行为
+                $("#j_btnSub").triggerHandler("click")
+
+            })
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="出发后面按钮的单击事件" id="j_btnTrigger">
+<div>
+    <form action="">
+        <input type="submit" id="j_btnSub">
+    </form>
+</div>
+</body>
+</html>

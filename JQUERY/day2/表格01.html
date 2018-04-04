@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .wrap{
+            width: 410px;
+            margin: 100px auto 0;
+        }
+
+        table{
+            border-collapse: collapse ;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+        }
+
+        th,td{
+            border: 1px solid #c0c0c0;
+            padding: 10px;
+        }
+
+        th{
+            background-color: #0099cc;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td{
+            font: 14px "微软雅黑";
+        }
+
+        td a.get{
+            text-decoration: none;
+        }
+        tbody tr{
+            background-color: #f0f0f0ff;
+        }
+
+        tbody tr:hover{
+            cursor: pointer;
+            background-color: #faa78e;
+        }
+        .form-item{
+            height: 100%;
+            position: relative;
+            padding-left:100px ;
+            padding-right: 100px;
+            margin-bottom: 34px;
+            line-height: 36px;
+            background: #b9ff52;
+        }
+
+        .form-item>.lb{
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            width: 100px;
+            text-align: right;
+        }
+        .form-item>.txt{
+            width: 300px;
+            height: 32px;
+        }
+        .mask{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity:0.15 ;
+            display: none;
+        }
+
+        .form-add{
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            margin-left: -197px;
+            padding-bottom: 20px;
+            background: #d8ff3d;
+            display: none;
+        }
+
+        .form-add-title{
+            background-color: #f7f7f7;
+            border-width: 1px 1px 0 1px;
+            border-bottom:0;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .form-add-title span{
+            width: auto;
+            height: 18px;
+            font-size: 16px;
+            font-family: 宋体;
+            font-weight: bold;
+            color: rgb(102,102,102);
+            text-indent: 12px;
+            padding: 8px 0px 10px;
+            margin-right: 10px;
+            display: block;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .form-add-title div{
+            width: 16px;
+            height: 20px;
+            position: absolute;
+            right: 10px;
+            top: 6px;
+            font-size: 30px;
+            line-height: 16px;
+            cursor: pointer;
+        }
+
+        .form-submit{
+            text-align: center;
+        }
+
+        .form-submit input{
+            width: 170px;
+            height: 32px;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+
+        $(function () {
+//            alert(11)
+            var $cbAll=$("#j_cbAll")
+            var $tb=$("#j_tb")
+            var $tdcb=$tb.find(":checkbox")
+            console.log($tdcb.length)
+
+//            全选按钮功能
+            $("#j_cbAll").click(function () {
+//                alert(11)
+                if($(this).prop("checked")===true){
+                    $tdcb.prop("checked",true);
+                }
+                else {
+                    $tdcb.prop("checked",false)
+                }
+            })
+             //tb多选按钮
+            $("#j_tb").click(function () {
+                $("#j_tb").find(":checkbox:checked").length===$tdcb.length?
+                    $cbAll.prop("checked",true):
+                    $cbAll.prop("checked",false)
+                console.log($tdcb.length)
+                console.log($("#j_tb").find(":checkbox:checked").length)
+            })
+
+//            get神技消失
+            $(".get").click(function () {
+                $(this).parent("td").parent("tr").remove();
+            })
+
+            $("#j_btn01").click(function () {
+//                alert(11)
+                var checked=$("#j_tb").find(":checkbox:checked").length;
+                if(checked<=0){
+                    alert("请输入神技")
+                }
+                $("#j_tb").find(":checkbox:checked").parent("td").parent("tr").remove()
+                $("#j_cbAll").prop("checked",false)
+            })
+
+//            添加面板
+            $("#j_btn02").click(function () {
+//                alert(11)
+                $(".mask").show();
+                $(".form-add").show()
+            })
+
+//            插入数据
+            $("#j_btnAdd").click(function () {
+//                获取数据
+                var lessonnanme=$("#j_txtLesson").val();
+                var BelSch=$("#j_txtBelSch").val();
+                var trhtml= "<tr>"
+                +"<td><input type='checkbox'></td>"
+                   +" <td>"+lessonnanme+"</td>"
+                    +"<td>"+BelSch+"</td>"
+                +"<td><a href='javascript:;' class='get'>GET</a></td>"
+                "</tr>"
+
+//                应用数据
+                $("#j_tb").append(trhtml);
+                $(".mask").hide();
+                $(".form-add").hide()
+
+            })
+
+//            关闭面板
+            $("#j_hideFormAdd").click(function () {
+//                alert(11)
+                $(".mask").hide();
+                $(".form-add").hide()
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <div>
+        <input type="button"  value="GET选中" id="j_btn01">
+        <input type="button"  value="添加数据" id="j_btn02">
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th><input type="checkbox" id="j_cbAll"></th>
+            <th>课程名称</th>
+            <th>所属学院</th>
+            <th>已学会</th>
+        </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>JavaScript</td>
+            <td>传智播客—前端与移动开发学院</td>
+            <td><a href="javascript:;" class="get">GET</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>CSS</td>
+            <td>传智播客—前端与移动开发学院</td>
+            <td><a href="javascript:;" class="get">GET</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>Html</td>
+            <td>传智播客—前端与移动开发学院</td>
+            <td><a href="javascript:;" class="get">GET</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>jQuery</td>
+            <td>传智播客—前端与移动开发学院</td>
+            <td><a href="javascript:;" class="get">GET</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div id="j_mask" class="mask"></div>
+    <div id="j_formAdd" class="form-add">
+        <div class="form-add-title">
+            <span>添加数据</span>
+            <div id="j_hideFormAdd">x</div>
+        </div>
+        <div class="form-item">
+            <label class="lb" for="j_txtLesson">课程名称：</label>
+            <input class="txt" type="text" id="j_txtLesson" placeholder="请输入课程名称">
+        </div>
+
+        <div class="form-item">
+            <label class="lb" for="j_txtBelSch">所属学院：</label>
+            <input type="text" class="txt" id="j_txtBelSch" value="传智播客-前端与移动开发学院">
+        </div>
+        <div class="form-submit">
+            <input type="button" value="添加" id="j_btnAdd">
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background-color: #E1E1E1;
+		}
+
+		.box {
+			background-color: red;
+			width: 200px;
+			height: 200px;
+			margin: 100px auto;
+			perspective:1000px;
+			transform-style:preserve-3d;
+			/*background-color: ;*/
+			text-align: center;
+			/*font-size:45px;
+			line-height: 200px;
+			font-family: "黑体";*/
+			font:45px/200px "黑体";
+			/*size/hight-line 都要带单位*/
+			transform:
+			rotateX(-45deg)
+			rotateY(45deg);
+			position:relative;
+		}
+
+		.front,.back,.left,.right,.top,.bottom {
+			position:absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			right: 0;
+			opacity:0.5;
+		}
+
+		.front {
+			background-color: pink;
+			transform:
+			translateZ(100px);
+		}
+		.left {
+			background-color: green;
+			transform:
+			rotateY(90deg)
+			translateZ(-100px);
+		}
+
+		.right{
+			background-color: red;
+			transform:
+			rotateX(-90deg)
+			translateZ(-100px)
+			;
+		}
+
+		.top {
+			background-color: blue;
+			transform:
+			rotateX(90deg)
+			translateZ(100px);
+		}
+
+		.bottom {
+			background-color: yellow;
+			transform:
+			rotateX(-90deg)
+			translateZ(100px);
+		}
+		.back {
+			background-color: purple;
+			transform:translateZ(-100px);
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="front">front</div>
+		<div class="back">back</div>
+		<div class="left">left</div>
+		<div class="right">right</div>
+		<div class="top">top</div>
+		<div class="bottom">bottom</div>
+	</div>
+</body>
+</html>

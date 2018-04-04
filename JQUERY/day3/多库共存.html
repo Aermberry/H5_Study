@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data的使用</title>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(window).load(function () {
+           $("li").on("mouseenter",function () {
+               var isload=$(this).data("isload");
+               if(isload===0){
+                   $(this).append("<p>这是动态数据</p>")
+                   $(this).data("isload","1")
+               }
+           })
+        })
+    </script>
+</head>
+<body>
+<ul>
+    <li data-isload="0">菜单1</li>
+    <li data-isload="0">菜单2</li>
+    <li data-isload="0">菜单3</li>
+</ul>
+</body>
+</html>

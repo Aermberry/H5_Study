@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function init() {
+            if(top==self){
+                alert("本网页只只能在框架内载入");
+//                覆盖原有的网页内容，改为提示内容
+                document.body.innerHTML='<h2>本网页只能在框架内载入</h2>'
+                window.close();
+            }
+        }
+    </script>
+</head>
+<body style="text-align: center" onload="init()">
+网页内容....
+</body>
+</html>

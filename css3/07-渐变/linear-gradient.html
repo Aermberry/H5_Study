@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+
+	body{
+		margin: 0;
+		padding: 0;
+		background-color: #F7F7F7F7;
+	}
+		div {
+			width: 500px;
+			height: 100px;
+			margin: 100px auto;
+			border: 10px solid #ddd;
+		}
+/*语法：渐变方向（角度，预设值），颜色点（<color>位置（percentage|length））*/
+		.test {
+			background: linear-gradient(#fff,#333);
+		}
+		/*默认方向渐变从上到下*/
+		.test2 {background: linear-gradient(#000,#f00 50%,#090);}
+		/**/
+		.test3 {
+			background: linear-gradient(0deg,#000,#f00 50%,#090);
+			/*从上往下为0deg方向与初始值方向成180度相反，顺时针旋转为正，逆时针旋转为负*/
+		}
+		.test4{
+			background: linear-gradient(45deg,#000,#f00 50%,#090);
+		}
+
+		.test5 {
+			background: linear-gradient(to top right, #000, #f00 50%, #090);
+		}
+		/*角度方向渐变*/
+
+		.liner:nth-child(1) {
+			width: 1000px;
+			height: 100px;
+			margin: 20px auto;
+			/*background-image: linear-gradient(to right,yellow,green);*/
+			/*background-image: linear-gradient(45deg,yellow,green);*/
+			/*background-image:linear-gradient(to right,yellow,pink 15%,red 45%,green) ;*/
+			background-image: linear-gradient(to right,yellow 25%,green 25%,green 50%,blue 50%,blue 75%,red 75%,red 100%);
+			/*起始色，终止色*/
+
+
+		}
+
+		.liner:nth-child(2) {
+				width: 1000px;
+				height: 100px;
+				margin:20px auto;
+				background-color: yellow;
+				background-image: linear-gradient(135deg,green 25%,transparent 25%,transparent 25%,transparent 50%,green 50%,green 75%,transparent 75%,transparent 100%);
+				background-size: 100px 100px;
+				/*background-repeat: no-repeat;*/
+				background-position: 60px 0;
+
+			}
+	</style>
+</head>
+<body>
+	<div class="liner"></div>
+	<div class="liner"></div>
+<div class="test"></div>
+<div class="test2"></div>
+<div class="test3"></div>
+<div class="test4"></div>
+<div class="test5"></div>
+</body>
+</html>

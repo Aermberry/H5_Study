@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function checkAll(c) {
+            //获取所有的复选框
+            var f=document.forms[0];
+            var myname=f.myname
+//            另一种写法
+//            var arr=document.getElementsByTagName('myname')
+            if(c){
+                for (var i=0;i<myname.length;i++){
+                    myname[i].checked=true;
+                }            }
+                else {
+                for (var i=0;i<myname.length;i++){
+                    myname[i].checked=false
+                }
+            }
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<!--定义表单-->
+<form action="">
+    你的兴趣：<br>
+    <input type="checkbox" name="myall" onclick="checkAll(this.checked)">
+    全选<br>
+    <br>
+    <input type="checkbox" name="myname">全选&nbsp;&nbsp;
+    <input type="checkbox" name="myname">全选&nbsp;&nbsp;
+    <input type="checkbox" name="myname">全选
+</form>
+</body>
+</html>

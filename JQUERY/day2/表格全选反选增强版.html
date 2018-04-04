@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.11.1.js"></script>
+    <link rel="stylesheet" href="checkDemo.css">
+    <script>
+        $(function () {
+            //        全选功能，当全选选框被选上时，，各行的选框都被选上，否侧都不被选上
+//        获取目标
+            var $j_cbAll=$("#j_cbAll")
+            var $tb=$("#j_tb")
+            var $cbs=$tb.find(":checkbox");
+
+//        勾选$j_cbAll时触发事件
+            $j_cbAll.click(function () {
+//            全选
+                if($(this).prop()===true){
+//                全选框被选中时
+                    $cbs.prop("checked",true)
+                }
+                else {
+//                不被选中时
+                    $cbs.prop("checked",false)
+                }
+            })
+
+//            范围选择其obj.find(":mark")
+        })
+
+    </script>
+    <!--<script src="checkDOM.js"></script>-->
+</head>
+<body>
+<div class="wrap">
+    <div>
+        <input type="button" value="GET选中" id="j_btnDelSel"/>
+        <input type="button" value="添加数据" id="j_btnAddData"/>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th><input type="checkbox" id="j_cbAll" /></th>
+            <th>课程名称</th>
+            <th>所属学院</th>
+            <th>已学会</th>
+        </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>JavaScript</td>
+            <td>传智播客-前端与移动开发学院</td>
+            <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>css</td>
+            <td>传智播客-前端与移动开发学院</td>
+            <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>html</td>
+            <td>传智播客-前端与移动开发学院</td>
+            <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>jQuery</td>
+            <td>传智播客-前端与移动开发学院</td>
+            <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="j_mask" class="mask"></div>
+<div id="j_formAdd" class="form-add">
+    <div class="form-add-title">
+        <span>添加数据</span>
+        <div id="j_hideFormAdd">x</div>
+    </div>
+    <div class="form-item">
+        <label class="lb" for="j_txtLesson">课程名称：</label>
+        <input class="txt" type="text" id="j_txtLesson" placeholder="请输入课程名称">
+    </div>
+    <div class="form-item">
+        <label class="lb" for="j_txtBelSch">所属学院：</label>
+        <input class="txt" type="text" id="j_txtBelSch" value="传智播客-前端与移动开发学院">
+    </div>
+    <div class="form-submit">
+        <input type="button" value="添加" id="j_btnAdd">
+    </div>
+</div>
+
+</body>
+</html>

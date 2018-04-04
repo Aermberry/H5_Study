@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+
+            background: url("images/chun1.jpg") no-repeat top center;
+        }
+    </style>
+</head>
+<body>
+<select name="ki" id="select">
+    <option value="1">wowowom</option>
+    <option value="2">ggghghh</option>
+    <option value="3">vbbfbbn</option>
+    <option value="4">eexcvcv</option>
+</select>
+</body>
+</html>
+<script>
+    var select=document.getElementById("select");
+    select.onchange=function () {
+        switch(this.value){
+            case "1"://从表单取过来的值是字符型
+                document.body.style.backgroundImage=" url(images/chun1.jpg)";
+            break;
+            case "2":document.body.style.backgroundImage="url(images/dong1.jpg)";
+            break;
+            case "3":document.body.style.backgroundImage="url(images/qiu1.jpg)";
+            break;
+            case "4":document.body.style.backgroundImage="url(images/xia1.jpg)";
+            break;
+            default:document.body.style.backgroundImage="";
+        }
+    }
+</script>

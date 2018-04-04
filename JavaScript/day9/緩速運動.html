@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #ff9a3c;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button>定積分</button>
+<p></p>
+<div id="square"></div>
+</body>
+</html>
+
+<script>
+    var square=document.getElementById("square");
+    var  btn=document.getElementsByTagName("button")[0];
+
+    console.log(btn);
+    btn.onclick=function () {
+//        alert("hello")
+        var timer=null;//定義定時器的名字
+        var  tar=500;/
+        timer=setInterval(
+            function () {
+//                leader=leader+(leader-tar)/10,理解其實質是將路徑分成10分，分別對其進行微積分
+                var step=(tar-square.offsetLeft)/10;
+//                計算當前的步長
+                step=step>0?Math.ceil(step):Math.floor(step);
+//                由於取積分是對路徑的真實的大小的無窮劃分逼近真實值，所以是近似值為了取得真實值對正值去最大值，負值去最小值
+                square.style.left=square.offsetLeft+step+"px"
+            },50
+        )
+
+
+    }
+
+</script>

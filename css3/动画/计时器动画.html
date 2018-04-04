@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		div:nth-child(1) {
+			padding:20px 0;
+			font-size:80px;
+			line-height: 1;
+			font-family: "黑体";
+			text-align: center;
+			color:red;
+		}
+
+		div[alt] {
+			width: 200px;
+			height: 200px;
+			background-color: green;
+			position: absolute;
+			left: 50%;
+			top:50%;
+			transform:translate(-50%,-50%);
+
+			transition:all .5s ease-in-out;
+			animation:box 10s ease-in-out 2s infinite normal forwards;
+		}
+
+		@keyframes box{
+			from {
+				width:300px;
+				height: 10px;
+				transform:rotateZ(0);
+				opacity: 0.5;
+				background-color:red;
+			}
+
+			20% {
+				transform:rotateZ(360deg) skew(30deg,30deg);
+				opacity: 0.8;
+			}
+			50% {
+				background-image: linear-gradient(to bottom,red,yellow);
+			}
+			to {
+				width:200px;
+				height: 200px;
+			}
+		}
+	</style>
+
+	<script type="text/javascript">
+		window.onload=function(){
+			// css选择器
+			var timer=document.querySelector("#text");
+			var end=0;
+			console.log(timer);
+			setInterval(function(){
+				if(end>=10) return;
+				// 函数体内用return，循环才用break
+				timer.innerHTML=++end;
+			},1000)
+					}
+	</script>
+</head>
+<body>
+	<div id="text" class="box_number" >0</div>
+	<div class="box_box" alt=""></div>
+</body>
+</html>

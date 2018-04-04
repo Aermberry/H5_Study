@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .header{
+            background: #ff0000;
+            height: 100px;
+        }
+        .main{
+            width: 1100px;
+            background: blue;
+            margin:0px auto;
+        }
+        .lside{
+            height: 580px;
+            width: 800px;
+            background: orange;
+            float: left;
+        }
+        .rside{
+            height: 580px;
+            width: 270px;
+            background: gray;
+            float: right;
+        }
+        .clear{
+            height: 0px;
+            background: green;
+            clear: both;
+        }
+    </style>
+    <!--标准刘和浮动流当父元素main的height为0 时，子元素lside 和rside的高度由子元素的而高度支撑起来，当子元素浮动来时，
+    main父元素的高度失去支撑就不能被显示，通过创建clear类的方法清除浮动，使main父元素获得支撑-->
+</head>
+<body>
+<div class="header"></div>
+<div class="main">
+        <div class="lside"></div>
+        <div class="rside"></div>
+        <div class="clear"></div>
+</div>
+<div class="footer"></div>
+
+</body>
+</html>

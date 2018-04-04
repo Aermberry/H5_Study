@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #father{
+            margin: 100px;
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            position: relative;
+        }
+
+        #son{
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<!--
+offsetleft返回距离上级盒子（带有定位）左边的位置
+如果父级都没有定位则以body为准
+offsetleft从父亲的padding开始算，父亲的border不算-->
+<div id="father">
+    <div id="son"></div>
+</div>
+</body>
+</html>
+<script>
+    var son=document.getElementById("son")
+    console.log(son.offsetLeft)
+    console.log(son.offsetTop)
+//    offsetLeft和offsetTop,主要适用于子级对上级元素带position属性的位置测量，其测量范围从padding计算起
+</script>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * { padding: 0; margin: 0; }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+        }
+
+        th,td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+    <script>
+        // 模拟从后台拿到的数据
+        var data = [{
+            name: "传智播客",
+            url: "http://www.itcast.cn",
+            type: "IT最强培训机构"
+        },{
+            name: "黑马程序员",
+            url: "http://www.itheima.com",
+            type: "大学生IT培训机构"
+        },{
+            name: "传智前端学院",
+            url: "http://web.itcast.cn",
+            type: "前端的黄埔军校"
+        }];
+
+        $(function () {
+            // 给按钮绑定单击事件
+            $("#j_btnGetData").click(function () {
+                // 接受html内容，接受tr td内容，放到tbody里面去
+                var tbHtml = "";
+                // 获取数据，然后处理之后放到我们的table里面去
+                for(var i = 0; i < data.length; i++) {
+                    tbHtml += "<tr>";
+                    tbHtml +=     "<td>" + data[i].name + "</td>";
+                    tbHtml +=     "<td>" + data[i].url + "</td>";
+                    tbHtml +=     "<td>" + data[i].type + "</td>";
+                    tbHtml += "</tr>";
+                }
+
+                // 目的：把jQuery获取到的按钮对象（jQuery对象），转换成DOM对象
+                // ，才能调用 innerHTML 这个方法
+                $("#j_tbData")[0].innerHTML = tbHtml;
+                //$("#j_tbData").html(tbHtml);
+            });
+
+            /*var $tbData = [document.getElementById("j_tbData")];
+            $tbData[0].onclick = function () {
+
+            }*/
+        });
+
+    </script>
+    <script src="../jquery-1.11.1.js"></script>
+
+</head>
+<body>
+<input type="button" value="获取数据" id="j_btnGetData"/>
+<table>
+    <thead>
+    <tr>
+        <th>标题</th>
+        <th>地址</th>
+        <th>说明</th>
+    </tr>
+    </thead>
+    <tbody id="j_tbData">
+    <!--<tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>-->
+    </tbody>
+</table>
+
+</body>
+</html>

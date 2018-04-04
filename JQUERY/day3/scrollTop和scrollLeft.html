@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+
+        div{
+            height: 400px;
+            width: 400px;
+            background: pink;
+            overflow: scroll;
+        }
+
+        div p{
+            height: 800px;
+            width: 800px;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            //设置scrollTop
+//            $("body").scrollTop(100)
+            $("input:eq(0)").click(function () {
+                $("div").scrollTop(100)
+            });
+
+//            获取scrollTop
+            $("input:eq(1)").click(function () {
+                console.log($("div").scrollTop());
+            })
+
+//            设置scrollleft
+            $("input:eq(2)").click(function () {
+                $("div").scrollLeft(100)
+            });
+//            获取scrollleft
+            $("input:eq(3)").click(function () {
+                console.log($("div").scrollLeft());
+            })
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="设置scrollTop">
+<input type="button" value="设置scrollTop">
+
+<input type="button" value="设置scrollLeft">
+<input type="button" value="设置scrollLeft">
+<div>
+    <p></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,ol{list-style:none}
+        .box {
+            width: 730px;
+            height: 454px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .circle {
+            position: absolute;
+            left: 50%;
+            margin-left:-50px;
+            bottom:10px;
+        }
+        .circle span {
+            float: left;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: pink;
+            text-align: center;
+            line-height: 18px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+                var slide = document.getElementById("slide");   // 最大的盒子
+                var lis = slide.children[0].getElementsByTagName("li");
+               // alert(lis.length);
+               // a.appendChild(b)   a 父亲  b 儿子
+                var ul = slide.children[1];  // 父亲
+                for(var i=0;i<lis.length;i++) {  // 有几个li 生成几个span
+                    var span = document.createElement("span");
+                    span.innerHTML = i+1;  // 索引号 是  0-5  里面的数 1-6
+                    ul.appendChild(span);
+                }
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="slide">
+    <div class="slider">
+        <ul>
+            <li><img src="images/11.jpg" alt=""/></li>
+            <li><img src="images/22.jpg" alt=""/></li>
+            <li><img src="images/33.jpg" alt=""/></li>
+            <li><img src="images/44.jpg" alt=""/></li>
+            <li><img src="images/55.jpg" alt=""/></li>
+            <li><img src="images/66.jpg" alt=""/></li>
+
+        </ul>
+    </div>
+    <div class="circle">
+
+    </div>
+</div>
+</body>
+</html>

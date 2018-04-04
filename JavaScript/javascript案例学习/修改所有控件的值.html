@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function modifyValues() {
+            var f=document.forms[0]//获取所有form，取第一个
+            var mytext=f.mytext//form通过name属性获取控件
+            var str=''
+            var element=f.elements//通过elements获取form下所有的控件
+            str +=mytext.tagName+':'+mytext.value
+            alert(str)
+
+            for (var i=0;i<element.length;i++){
+                var current=element[i]
+                current.value=2
+            }
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<!--定义表单-->
+<form action="">
+    文本框：<input type="text" name="mytext">
+    下拉列表：<select name="myselect" id="" >
+    <option value="">==请选择==</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+</select>
+    <br>
+    <input type="button" value="修改控件的值" onclick="modifyValues()">
+</form>
+</body>
+</html>

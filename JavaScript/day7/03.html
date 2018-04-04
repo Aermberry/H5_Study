@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="demon"></div>
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var num=5;
+    dah();
+    function dah() {
+        $("demon").innerHTML="<a href='http://www.itcast.cn'>本页面将在"+num+"秒后自动跳转</a>";
+        num--;
+        if (num>=0){
+            setTimeout(arguments.callee,1000)
+        }
+        else {
+            window.location.href="http://www.itcast.cn";//
+        }
+    }
+</script>

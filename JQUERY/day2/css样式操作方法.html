@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .liItem {
+            font-size: 40px;
+            background: pink;
+            color: red;
+            margin-bottom: 10px;
+        }
+        .liItem1 {
+            color: #000;
+            font-size: 12px;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            //给所有的li元素设置liItem样式
+            //注意：参数不带（.）
+//            增加样式 addcss
+//            $("li").addClass("liItem").addClass("liItem1")
+//            删除所有的类样式
+//            $("#j_btnRemoveClass").click(function () {
+//                $("li").removeClass("liItem");//删除特定的样式
+//                $("li").removeClass()    删去所有的类
+//            })
+
+//            切换类的样式效果
+            $("#j_btnTonggleClass").click(function () {
+//                if($("li").hasClass("liItem")){
+//                    $("li").removeClass("liItem")
+//                }
+//
+//                else {
+//                    $("li").addClass("liItem")
+//                }
+// 切换指定样式
+                $("li").toggleClass("liItem");
+            })
+
+
+//
+
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="删除类" id="j_btnRemoveClass">
+<input type="button" value="切换类" id="j_btnTonggleClass">
+<ul>
+    <li>我是li元素1</li>
+    <li>我是li元素2</li>
+    <li>我是li元素3</li>
+    <li>我是li元素4</li>
+    <li>我是li元素5</li>
+    <li>我是li元素6</li>
+    <li>我是li元素7</li>
+    <li>我是li元素8</li>
+</ul>
+</body>
+</html>

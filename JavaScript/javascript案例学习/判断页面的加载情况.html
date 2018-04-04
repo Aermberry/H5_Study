@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function MyLoad() {
+            alert("网页加载完毕")
+        }
+
+        window.onload=MyLoad
+
+        document.onreadystatechange=myPageload;
+//        document.onreadystatechange,监听页面的加载状态（readyState）变化
+        function myPageload() {
+            if(document.readystate=="complete"){
+                alert('文档加载完毕')
+            }
+        }
+    </script>
+</head>
+<body style="text-align: center">
+
+</body>
+</html>

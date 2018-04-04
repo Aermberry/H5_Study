@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .ch{
+            width: 50px;
+            height: 50px;
+            position:absolute;
+            left: 100px;
+        }
+
+        .fa{
+            position:relative ;
+        }
+    </style>
+</head>
+<script>
+    window.onload=function () {
+        var fa=document.getElementById("fa")
+        var ch=fa.firstElementChild||fa.firstChild;
+        var la=fa.lastElementChild||fa.lastChild;
+        ch.style.backgroundColor="pink";
+        la.style.backgroundColor="red";
+        var df=ch.nextElementSibling||ch.nextSibling;
+        df.style.backgroundColor="green"
+        ch.onclick=function () {
+            ch.parentNode.style.display="none"
+        }
+
+        function serach(ef) {
+            if(document.getElementsByClassName){
+                return document.getElementsByClassName(ef);
+            }
+            else {
+                function er(en) {
+                    var fg=[];
+                    var df=document.getElementsByTagName("*")
+                    for(var a=0;a<df.length;a++){
+                        var dd=df[a].className.split(" ")
+                        for(var dg=0;dg<dd.length;dg++){
+                            if (dd[dg]==ef){
+                                fg.push(df[a]);
+                            }
+                        }
+                    }
+                    return  fg;
+                }
+                er();
+
+            }
+
+        }
+    }
+
+</script>
+<body>
+<div id="fa" class="fa">
+    <div id="ch" class="ch">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+</div>
+</body>
+</html>

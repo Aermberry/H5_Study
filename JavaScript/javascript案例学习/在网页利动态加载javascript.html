@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function loadjs() {
+            var theHead=document.getElementsByTagName('head')[0];
+            var myscript=document.createElement('script');
+            myscript.src='./myjs.js';
+            myscript.type='text/javascript';
+            myscript.defer=true;
+            theHead.appendChild(myscript);
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<input type="button"  value="动态加载JS" onclick="loadjs()">
+</body>
+</html>

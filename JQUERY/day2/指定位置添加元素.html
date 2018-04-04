@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            height: 200px;
+            background: pink;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+//            动态创建元素并追加到页面中去
+            $("#j_btnCreateEel").click(function () {
+//                创建标签对象
+                var $div=$("<div>我是div</div>");
+//               第一种引用标签对象
+                $("body").append($div);
+//                第二种直接引用标签内容
+                $("body").append("<div>我是标签</div>")
+//                第三种传递“我要到哪去”
+                $("<div>我是标签01</div>").appendTo("body")
+            })
+
+//            在后面添加元素（同级）
+            $("#j_btnAfter").click(function () {
+                $("div").after("<div>woshia</div>")
+            })
+
+//            在前面添加元素（同级）
+            $("#j_btnBefore").click(function () {
+                $("div").before("<div>wododo</div>")
+            })
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="动态创建元素并追加到页面中去" id="j_btnCreateEel"/>
+<input type="button" value="在后面添加元素（同级）" id="j_btnAfter"/>
+<input type="button" value="在前面添加元素（同级）" id="j_btnBefore"/>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            position: absolute;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            background-color: #69ff35;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">開始</button>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    var btn=document.getElementById("btn");
+    var box=document.getElementById("box")
+    btn.onclick=function () {
+        animation("box","left",500  )
+    }
+    function animation(obj,attr,target) {
+//        第一個參數 動的對象
+//        第二個參數 attr 動得那個屬性
+//        第三個參數 動多少 目標位置
+// 動多少
+        clearInterval(obj.timer)
+        obj.timer=setInterval(function () {
+//            leader=leader+(target-leader)/10
+//            計算步長
+//            target 目標位置 leader不清楚，我們不知道用戶改哪個屬性
+//            检测用戶給我們了什麼屬性，我們就用這個屬性的值來計算
+//            我们怎么知道用户给我们的属性，我们怎么又能得到屬性的值呢？
+//            var leader=obj.style[attr];他只能得到行內式
+            var leader=parseInt(getstyle(obj,attr));
+//            取過來的是帶有單位的25px
+//            去掉px的方法 parseInt（25px） 25
+//            alert(leader)
+            var  step=(target-leader)/10;
+            step=step>0?Math.ceil(step):Math.floor(step);
+            leader=leader+step;
+            obj.style.left=leader+"px";
+            if(leader==target){
+                clearInterval(obj.timer)
+            }
+        },30)
+    }
+
+    function getstyle(obj,attr) {
+        if (obj.currentStyle){
+//            如果支持，返回改屬性的值
+//            return  obj,current.left    只能得到行內式的
+//            return   obj.currentStyle["left"];//正確的寫法，但是left是傳進來的
+            return obj.currentStyle[attr];
+        }
+        else
+        {
+            return window.getComputedStyle(obj,null)[attr];
+        }
+    }
+</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select {
+            width: 200px;
+            background-color: teal;
+            height: 200px;
+            font-size: 20px;
+        }
+        .btn-box {
+            width: 30px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("#btn-sel-all").click(
+                function () {
+                    var  ops=$("#src-city")[0].innerHTML;
+//              innerhtml能获取调用对象里的所有内容
+                    $("#tar-city")[0].innerHTML+=ops;
+                    $("#src-city")[0].innerHTML=""
+                }
+            )
+
+            $("#btn-sel-none").click(function () {
+                var ops=$("#tar-city")[0].innerHTML;
+
+                $("#src-city")[0].innerHTML+=ops;
+                $("#tar-city")[0].innerHTML=""
+            })
+
+//            单选右
+            $("#btn-sel").click(function () {
+               var sel=$("#src-city").children(":selected")[0];
+               var out=sel.outerHTML;
+               $("#tar-city")[0].innerHTML +=out;
+               $("#src-city")[0].removeChild(sel);
+
+            })
+
+//            单机左
+            $("#btn-back").click(function () {
+                var sel=$("#tar-city").children(":selected")[0];
+                var  out=sel.outerHTML;
+                $("#src-city")[0].innerHTML+=out;
+                $("#tar-city")[0].removeChild(sel);
+
+            })
+        })
+    </script>
+</head>
+<body>
+<h1>城市选择：</h1>
+<select id="src-city" name="src-city" multiple>
+    <option value="1">北京</option>
+    <option value="2">上海</option>
+    <option value="3">深圳</option>
+    <option value="4">广州</option>
+    <option value="5">西红柿</option>
+</select>
+<div class="btn-box">
+    <button id="btn-sel-all"> &gt;&gt; </button>
+    <button id="btn-sel-none"> &lt;&lt; </button>
+    <button id="btn-sel"> &gt;</button>
+    <button id="btn-back"> &lt; </button>
+</div>
+<select id="tar-city" name="tar-city" multiple>
+</select>
+<h1></h1>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+        
+        ul{
+            width: 100%;
+            height: 100%;
+        }
+        ul li{
+            width: 100%;
+            height: 100%;
+        }
+
+        ol{
+            position: fixed;
+           left: 10px;
+            top: 50px;
+        }
+        ol li{
+            width: 40px;
+            height: 40px;
+            border: 1px solid #cccccc;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+
+        span{
+            width: 40px;
+            height: 40px;
+            border: 1px solid #cccccc;
+            position: absolute;
+            bottom: -1000px;
+            right: 30px;
+            display: none;
+            background-color: #fff;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+    <script src="my.js" type="text/javascript"></script>
+    <script>
+        window.onload=function () {
+            var ullis=$("ul").children;
+            var ollis=$("ol").children;
+            console.log(ullis)
+            var color=["red","yellow","blue","green","pink"]
+
+            for (var a=0;a<ullis.length;a++){
+//          遍歷數組
+                ullis[a].style.backgroundColor=color[a];
+                ollis[a].style.backgroundColor=color[a];
+//          每個數組按照序號填涂上顏色
+                ollis[a].index=a;
+//         標上序號
+                var timer=null;
+                var leader=0;
+                var  tar=0;
+                ollis[a].onclick=function () {
+                    tar=ullis[this.index].offsetTop
+                    clearInterval(timer);
+                    timer=setInterval(function () {
+//                  leader=leader+(tar-leader)/10
+                        var step=(tar-leader)/10
+//                  計算單步步長
+                        step=step>0?Math.ceil(step):Math.floor(step);
+                        leader=leader+step
+                        window.scrollTo(0,leader);
+                        if(leader==tar){
+                            clearInterval(timer)
+                        }
+//                  scrollto，移動屏幕到指定的坐標
+
+                    },30)
+                }
+            }
+
+            var leaderr=0;
+
+            window.onscroll=function () {
+                scroll().top>0?show("span"):hide("span")
+            }
+
+            $("span").onclick=function () {
+                leaderr=scroll().top
+                timer=null;
+                clearInterval(timer)
+                timer=setInterval(function () {
+                    var step=(tar-leaderr)/10;
+                    step=step>0?Math.ceil(step):Math.floor(step);
+                    leader=leaderr+tar;
+                    window.scrollTo(0,leaderr)
+                    if(tar==leaderr){
+                        clearInterval(timer)
+                    }
+                },30)
+
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+<ul id="ul">
+    <li>首頁</li>
+    <li>關注</li>
+    <li>動態</li>
+    <li>風格</li>
+    <li>作品</li>
+</ul>
+<ol id="ol">
+    <li>首頁</li>
+    <li>關注</li>
+    <li>動態</li>
+    <li>風格</li>
+    <li>作品</li>
+</ol>
+
+<span id="span">回去</span>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            margin: 100px auto;
+            width: 500px;
+            height: 200px;
+            border: 1px solid #cccccc;
+            background-color: #ffb53a;
+            padding: 5px;
+        }
+        .minbox{
+            width: 500px;
+            height: 200px;
+            background-color: #f3ff5b;
+            position: relative;
+            overflow: hidden;
+        }
+
+        img{
+            vertical-align: top;
+        }
+
+        ul{
+            width: 1000%;
+            position: absolute;
+             top: 0;
+            left: 0;
+        }
+
+        ul li{
+            float: left;
+        }
+
+        .spans{
+            /*display: none;*/
+        }
+
+        span{
+            width: 40px;
+            height: 40px;
+            background-color: #020202;
+            font-size: 30px;
+            font-weight: bolder;
+            font-family: "黑体";
+            line-height: 40px;
+            position: absolute;
+            top: 50px;
+            left: 5px;
+            margin-top: 20px;
+            border: 1px solid #8b8b8b;
+            opacity: 0.3;
+            color: #cccccc;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .right{
+            left: auto;
+            right: 5px;
+        }
+
+        ol{
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+        }
+
+        ol li{
+            float: left;
+            background-color: #fff;
+            border: 1px solid #cccccc;
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            font-family: "黑体";
+            font-size: 20px;
+            line-height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        ol .current{
+            border-color: #ffb53a;
+            background-color: #ffe929;
+        }
+
+    </style>
+
+    <script>
+        window.onload=function () {
+            var  box=document.getElementById("box");
+            var minbox=box.children[0];
+            var ul=minbox.children[0];
+            var ol=minbox.children[1];
+            var spans=minbox.children[2];
+            var ullis=ul.children;
+            var ollis=ol.children;
+
+//            克隆
+            ul.appendChild(ullis[0].cloneNode(true));
+
+//            原生js小标题
+
+            for (var a=0;a<ullis.length-1;a++){
+                var  li=document.createElement("li");
+                li.innerHTML=1+a;
+                ol.appendChild(li);
+            }
+
+            ollis[0].className="current"
+
+//            小标题动画
+            for (var  a=0;a<ollis.length;a++){
+                ollis[a].index=a;
+                ollis[a].onclick=function () {
+                    for (var a=0;a<ollis.length;a++){
+                        ollis[a].className=""
+                    }
+                    this.className="current"
+                    animation(ul,-this.index*ullis[0].offsetWidth);
+                    key=square=this.index;
+                }
+            }
+
+//            autoplay
+            var timer=null;
+            var key=0;
+            var square=0;
+
+            timer=setInterval(autoplay,1000);
+            function autoplay() {
+                key++;
+                if(key>ullis.length-1){
+                    ul.style.left=0+"px"
+                    key=1;
+                }
+                console.log(key)
+                animation(ul,-key*ullis[0].offsetWidth)
+
+                square++;
+
+                square=square>ollis.length-1?0:square;
+
+                for(var a=0;a<ollis.length;a++){
+                    ollis[a].className="";
+                }
+
+                ollis[square].className="current";
+            }
+
+
+//            进入
+            minbox.onmouseover=function () {
+                clearInterval(timer);
+            }
+
+//            离开
+            minbox.onmouseout=function () {
+                timer=setInterval(autoplay,1000);
+            }
+
+//           左
+            var target=0;
+            spans.children[0].onclick=function () {
+                target+=500;
+                if(target>0){
+                    target=0
+                }
+                animation(ul,target);
+            }
+
+            spans.children[1].onclick=function () {
+                target-=500;
+                if (target<-(ullis.length-1)*ullis[0].offsetWidth){
+                    target=-(ullis.length-1)*ullis[0].offsetWidth;
+                }
+
+                animation(ul,target)
+            }
+
+
+
+//            封装动画
+            function animation(obj,tar) {
+                clearInterval(obj.timer);
+                var speed=obj.offsetLeft<tar?15:-15;
+                obj.timer=setInterval(function () {
+                    obj.style.left=obj.offsetLeft+speed+"px";
+                    var result=obj.offsetLeft-tar;
+                    if(Math.abs(result)<=15){
+                        obj.style.left=tar+"px";
+                        clearInterval(obj.timer);
+                    }
+                },10)
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="minbox">
+        <ul>
+            <li><a href="#"><img src="imagess/1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/5.jpg" alt=""></a></li>
+        </ul>
+        <ol>
+
+        </ol>
+        <div class="spans">
+            <span><</span>
+            <span class="right">></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

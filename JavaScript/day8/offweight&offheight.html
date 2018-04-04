@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: auto;
+            border: 1px solid ;
+        }
+        p{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            padding-left: 50px;
+            border: 5px solid rebeccapurple ;
+        }
+    </style>
+</head>
+<body>
+<!--
+
+offset 偏移的意思 检测盒子的大小和位置
+offstWidth offsetHight
+js 自动检测 我们目标元素的宽度和高度
+
+我们布局的时候，有许多的盒子不方便给宽度和高度的，但是我们又需要知道他们的宽度和高度，所以可以用这个来实践。
+
+
+-->
+
+<div>
+    哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗
+    哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗
+    哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗
+    哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗
+    哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗
+    哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗
+    哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗
+    哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗
+    哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗
+    哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗哈罗
+</div>
+<p></p>
+</body>
+</html>
+<script>
+    var df=document.getElementsByTagName("div")[0];
+    console.log(df.offsetHeight)//offsetHeight能检测出盒子的高度
+    var pp=document.getElementsByTagName("p")[0];
+    console.log(pp.offsetHeight);
+    console.log(pp.offsetWidth);//offsetHeight和offsetWeight相当于一把尺子能把盒子的实际大小量出，盒子的实际大小:
+//     THE FINAL WIDTH=the center width+the padding width+the border width;
+//     THE FINAL HIGHT=the center hight+the padding height+the border hight;
+
+</script>

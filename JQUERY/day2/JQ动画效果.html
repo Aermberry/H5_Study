@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            display: none;
+            height: 200px;
+            width: 400px;
+            background: pink;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+           $("#j_btnShow").click(function () {
+
+//               出现
+//               $("div").show()//不添加参数，直接出现
+//               $("div").show(1000)//添加参数，缓动动画
+//               $("div").show(fast)//添加参数，缓动动画,三个默认参数fast,normal,slow
+               $("div").show(1000,function () {
+                   alert("大碗")
+               })
+           })
+
+//            消失
+            $("#j_btnHide").click(function () {
+//                $("div").hide()
+                //不添加参数，消失
+//                $("div").hide(1000)
+//                添加参数
+                $("div").hide(1000,function () {
+                    alert("111")
+                });
+            })
+
+//           一进一出
+            $("#j_btnToggle").click(function () {
+//                手动设置
+//                $("div").show(1000,function () {
+//                    $("div").hide(1000)
+//                })
+                $("div").toggle(1000)
+            })
+
+//            让div淡进来
+            $("#j_btnFadeIn").click(function () {
+                $("div").fadeIn(2000);
+            })
+
+//            让div淡出去
+            $("#j_btnFadeOut").click(function () {
+                $("div").fadeOut(2000)
+            })
+
+//            让div淡入淡出切换
+            $("#j_btnFadeToggle").click(function () {
+                $("div").fadeToggle();
+            })
+
+//            让div淡入到某个指定的不透明值
+            $("#j_btnFadeTo").click(function () {
+//                第一个参数表示动画执行时长
+//                第二个参数表示不透明度
+                $("div").fadeTo(1000,0.5)
+            })
+//            让DIV滑动展示
+            $("#j_btnSlideDown").click(function () {
+                $("div").slideDown();
+            })
+
+//            让div滑动隐藏
+            $("#j_btnSlideUp").click(function () {
+                $("div").slideUp();
+            })
+
+//            自动展示隐藏
+            $("#j_btnSlideToggle").click(function () {
+                $("div").slideToggle()
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+<input type="button" value="show()" id="j_btnShow"/>
+<input type="button" value="hide()" id="j_btnHide"/>
+<input type="button" value="toggle()" id="j_btnToggle"/>
+<input type="button" value="fadeIn()" id="j_btnFadeIn"/>
+<input type="button" value="fadeOut()" id="j_btnFadeOut"/>
+<input type="button" value="fadeToggle()" id="j_btnFadeToggle"/>
+<input type="button" value="fadeTo()" id="j_btnFadeTo"/>
+<input type="button" value="slideDown()" id="j_btnSlideDown"/>
+<input type="button" value="slideUp()" id="j_btnSlideUp"/>
+<input type="button" value="slideToggle()" id="j_btnSlideToggle"/>
+<div>
+</div>
+</body>
+</html>

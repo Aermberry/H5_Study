@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .fg{
+            background: #B61D1D;
+        }
+    </style>
+</head>
+<body>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+</body>
+</html>
+
+<script>
+
+//    var byn=document.getElementsByTagName("button");
+//
+//    for (var a=0;a<byn.length;a++){
+//        byn[a].onclick=function () {
+//            for (var b=0;b<byn.length;b++)
+//            {
+//                byn[b].className="";
+//            }
+//
+//            console.log(this)
+//        }
+//    }
+
+    var rt=document.getElementsByTagName("button")
+    for(var a=0;a<rt.length;a++)
+    {
+        rt[a].onclick=function () {
+            for(var b=0;b<rt.length;b++)
+            {
+                rt[b].className=""
+            }
+
+            this.className="fg"
+        }
+    }
+</script>

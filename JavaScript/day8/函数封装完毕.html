@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">开始01</button>
+<button id="btn2">开始02</button>
+<div class="box"></div>
+</body>
+</html>
+<script>
+    var  btn1=document.getElementById("btn1");
+    var  btn2=document.getElementById("btn2");
+    var   box=document.getElementsByClassName("box")[0];
+//基本封装
+    function an(obj,tar) {
+        //有2个参数 第一个 对象谁做动画 第二个 距离到哪里
+        //如果offsetLeft大于了target目标位置就应该反方向
+        var speed=obj.offsetLeft<tar?10:-10;
+        obj.timer=setInterval(function () {
+            var result=tar-obj.offsetLeft;//他们的值等于0说明完全相等
+            obj.style.left=obj.offsetLeft+speed+"px";
+            if(Math.abs(result)<=10){//判断定时器停止的时间
+                clearInterval(obj.timer);
+                obj.style.left=tar+"px";
+            }
+            console.log(obj.offsetLeft)
+        },30)
+    }
+
+    btn1.onclick=function () {
+        an(box,600);
+    }
+
+
+    btn2.onclick=function () {
+        an(box,700);
+    }
+</script>

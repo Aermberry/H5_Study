@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    <!--封裝函數對象-->
+//    function person(name,age) {
+//        var obj={};
+//        obj.name=name;
+//        obj.age=age;
+//        obj.showName=function () {
+//            alert("我的名字是"+obj.name);
+//        }
+//        obj.showAge=function () {
+//            alert("我的名字是"+obj.age)
+//        }
+//        return obj;//一定要返回對象
+//    }
+//
+//    var xiaomi=person("列的話",18)
+//    xiaomi.showname();
+//    var dami=person("借雞生蛋",15)
+//    dami.showname();
+
+    function person(name,age) {
+        var obj={};
+        obj.name=name;
+        obj.age=age;
+        obj.showName=function () {
+            alert("我的名字是"+obj.name)
+        }
+        obj.showage=function(){
+            alert("我的年齡："+obj.age)
+        }
+
+        return obj//返回對象，創建新對象時，就會繼承這個對象
+    }
+
+    var jk=person("jk",15)
+    jk.showName();
+    jk.showage();
+
+    function person1(name,age) {
+        var obj1={};
+        obj1.name=name;
+        obj1.age=age;
+        obj1.showName=function () {
+            alert(obj1.name)
+        }
+        obj1.showAge=function () {
+            alert(obj1.age)
+        }
+        return obj1;
+    }
+
+    var  gh=person1("ghj",888888);
+    gh.showName();
+    gh.showAge()
+</script>

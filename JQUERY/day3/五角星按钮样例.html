@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * { padding: 0; margin: 0; }
+        .comment {
+            font-size: 40px;
+            color: teal;
+        }
+        .comment li {
+            float: left;
+        }
+        ul { list-style: none;}
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            var wjx_none = '☆', wjx_sel  = '★';
+
+            $(".comment").on("mouseenter","li",function () {
+              $(this).text(wjx_sel).prevAll().text(wjx_sel)
+                  .end()
+                  .nextAll().text(wjx_none)
+          })
+
+            $(".comment").on("mouseleave",function () {
+                $(".comment li").text(wjx_none);
+
+                $(".comment li.clicked").text(wjx_sel).prevAll().text(wjx_sel)
+                    .end()
+                    .nextAll().text(wjx_none)
+            })
+
+            $(".comment").on("click","li",function () {
+                $(this).addClass("clicked").siblings().removeClass();
+            })
+        })
+    </script>
+
+</head>
+<body>
+<ul class="comment">
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+</ul>
+
+</body>
+</html>

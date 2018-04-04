@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="header1">sdsdsd</h1>
+<div class="comnee">dsdsdsd</div>
+<ul class="list">
+    <li class="s1">item01</li>
+    <li>item02</li>
+    <li>item03</li>
+    <li>item04</li>
+    <li>item05</li>
+    <li>item05</li>
+    <li>item06</li>
+    <li>item074</li>
+    <li>item0563</li>
+    <li>item022</li>
+</ul>
+
+</body>
+<script>
+    var header=document.querySelector('#header1')
+//    alert(header)
+    var item=document.querySelector("ul.list>li.s1")
+//    alert(item)
+     var items=document.querySelectorAll('ul.list>li')
+    alert(items)
+    for (var a=0;a<items.length;a++){
+      items.index=a;
+        console.log(items.index)
+
+
+    }
+</script>
+</html>

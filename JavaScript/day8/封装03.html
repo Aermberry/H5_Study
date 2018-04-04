@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">开始01</button>
+<button id="btn2">开始02</button>
+<div class="box"></div>
+</body>
+</html>
+<script>
+    var  btn1=document.getElementById("btn1");
+    var  btn2=document.getElementById("btn2");
+    var   box=document.getElementsByClassName("box")[0];
+
+    function an(obj,tar) {
+        obj.timer=setInterval(function () {   //自定义属性，只有数据类型为对象的元素才能有自定义属性；在定义obj变量时，其传递的是<div clsaa="box">对象
+            obj.style.left=obj.offsetLeft+10+"px";
+            if(obj.offsetLeft>=tar){
+                clearInterval(obj.timer);
+            }
+        },30)
+    }
+
+    btn1.onclick=function () {
+        an(box,600);
+    }
+
+
+    btn2.onclick=function () {
+        an(box,700);
+    }
+</script>

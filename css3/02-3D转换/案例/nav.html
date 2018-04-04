@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		html,body{
+			height: 100%;
+		}
+		body{
+			background-color: #AAAAAA;
+		}
+
+		.nav{
+			width: 1000px;
+			margin: 100px auto;
+			background-color: red;
+			/*transform-style:preserve-3d;*/
+			/*transform:rotateX(30deg) rotateY(30deg) translateY(30px);*/
+			
+		}
+
+		li{
+			width: 140px;
+			height: 40px;
+			float: left;
+			position: relative;
+			text-align:center;
+			transition:all .5s;
+			transform-style:preserve-3d;
+			transform-origin:top center;
+		
+
+		}
+
+		li span{
+			line-height: 40px;
+			font-family: "黑体";
+			font-size: 22px;
+			text-align: center;
+			border: 1px solid #070707;
+			position: absolute;
+			width: 100%;
+			height: 100%;	
+		}
+
+		li span:nth-child(2) {
+			background-color: #84F1F9;
+			transform-origin:top center; 
+			transform:rotateX(-90deg);
+			
+		}
+		li span:nth-child(1){
+			background-color: yellow;
+			backface-visibility:hidden; 
+		}
+
+		li:hover {
+			transform:rotateX(90deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<li>
+			<span>web浏览器</span>
+			<span>我在这里</span>
+		</li>
+		<li>
+			<span>web浏览器</span>
+			<span>我在这里</span>
+		</li>
+		<li>
+			<span>web浏览器</span>
+			<span>我在这里</span>
+		</li>
+		<li>
+			<span>web浏览器</span>
+			<span>我在这里</span>
+		</li>
+		<li>
+			<span>web浏览器</span>
+			<span>我在这里</span>
+		</li>
+		<li>
+			<span>web浏览器</span>
+			<span>我在这里</span>
+		</li>
+	</div>
+</body>
+</html>

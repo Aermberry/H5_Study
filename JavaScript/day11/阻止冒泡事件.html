@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">冒泡</button>
+</body>
+</html>
+<script>
+    <!--存在冒泡機制-->
+//    子級元素觸發事件會帶動父級元素事件觸發
+    function $(id) {
+        return document.getElementById(id)
+    }
+    $("btn").onclick=function (event) {
+        alert("hell world")
+
+//        停止冒泡事件的兼容性寫法
+        var event=event||window.event
+        if (event&&event.stopPropagation){
+            event.stopPropagation();//w3c標準
+//            停止冒泡機制
+        }
+        else {
+            event.cancelBubble=true;//ie標準
+//            停止冒泡
+        }
+    }
+
+    document.onclick=function () {
+        alert("good bye")
+    }
+</script>

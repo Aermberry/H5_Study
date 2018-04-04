@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        /*ul{*/
+            /*list-style: none;*/
+        /*}*/
+        /*.box{*/
+            /*width: 490px;*/
+            /*height: 170px;*/
+            /*border: 1px solid #cccccc;*/
+            /*margin: 100px auto;*/
+            /*padding: 5px;*/
+            /*position: relative;*/
+        /*}*/
+        /*.box ul{*/
+            /*position: absolute;*/
+            /*right: 10px;*/
+            /*bottom: 10px;*/
+        /*}*/
+        /*.box ul li{*/
+            /*float: left;*/
+            /*width: 18px;*/
+            /*height: 18px;*/
+            /*background: #f4f4f4;*/
+            /*margin-right: 5px;*/
+            /*text-align: center;*/
+            /*line-height: 18px;*/
+            /*border-radius: 50%;*/
+            /*cursor: pointer;*/
+            /*border: 1px solid black;*/
+        /*}*/
+        /*.box{*/
+            /*width: 490px;*/
+            /*height: 170px;*/
+            /*margin:100px auto;*/
+            /*border: 1px solid #cccccc;*/
+            /*padding: 5px;*/
+            /*position: relative;*/
+        /*}*/
+        /*.box ul{*/
+            /*list-style:none;*/
+            /*position: absolute;*/
+            /*right: 10px;*/
+            /*bottom: 10px;*/
+        /*}*/
+        /*.box ul li{*/
+            /*float: left;*/
+            /*width: 18px;*/
+            /*height: 18px;*/
+            /*background: #f4f4f4;*/
+            /*margin-right: 5px;*/
+            /*text-align: center;*/
+            /*line-height:18px;*/
+            /*border: 1px solid #cccccc;*/
+            /*border-radius:50%;*/
+            /*cursor: pointer;*/
+        /*}*/
+        .box{
+            width: 490px;
+            height: 170px;
+            margin: 100px auto;
+            border: 1px solid #666666;
+            padding: 5px;
+            position: relative;
+        }
+        .box ul{
+            list-style: none;
+            position: absolute;
+            bottom: 5px;
+            right: 15px;
+        }
+        ul li {
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin-right: 5px;
+            background: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius:50% ;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+<!--<div class="box">-->
+    <!--<img src="images/01.jpg" alt="" id="pic">-->
+    <!--<ul>-->
+        <!--<li id="a1">1</li>-->
+        <!--<li id="a2">2</li>-->
+        <!--<li id="a3">3</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--<div class="box">-->
+    <!--<img src="images/01.jpg" id="pic">-->
+    <!--<ul>-->
+    <!--<li id="one">1</li>-->
+    <!--<li id="two">2</li>-->
+    <!--<li id="three">3</li>-->
+<!--</ul>-->
+<!--</div>-->
+<div class="box">
+    <img src="images/01.jpg" alt="" id="pic">
+    <ul>
+        <li id="a1">1</li>
+        <li id="a2">2</li>
+        <li id="a3">3</li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    var pic=document.getElementById("pic");
+    var a1=document.getElementById("a1");
+    var a2=document.getElementById("a2");
+    var a3=document.getElementById("a3");
+    a1.onclick=function () {
+        pic.src="images/01.jpg"
+    }
+    a2.onclick=function () {
+        pic.src="images/02.jpg"
+    }
+    a3.onclick=function () {
+        pic.src="images/03.jpg"
+    }
+//    var pic=document.getElementById("pic");
+//    var two=document.getElementById("two");
+//    two.onclick=function () {
+//        pic.src="images/02.jpg"
+//
+//    }
+//    var pic=document.getElementById("pic");
+//    var a2=document.getElementById("a2");
+//    var a1=document.getElementById("a1");
+//    var a3=document.getElementById("a3")
+//    a1.onclick=function () {
+//        pic.src="images/01.jpg"
+//    }
+//    a2.onclick=function () {
+//        pic.src="images/02.jpg"
+//    }
+//    a3.onclick=function () {
+//        pic.src="images/03.jpg"
+//    }
+
+</script>

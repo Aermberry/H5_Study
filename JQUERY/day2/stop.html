@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 50px;
+            width: 50px;
+            background: pink;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("input:eq(0)").click(function () {
+                $("div").animate({
+                    "width":"200px"
+                },1000);
+//width
+                $("div").animate({
+                    "height":"200px"
+                },1000);
+//height
+                $("div").animate({
+                    "width":"50px"
+                },1000)
+                $("div").animate(
+                    {"height":"50px"},1000
+                );
+            })
+
+            $("input:eq(1)").click(function () {
+                $("div").stop(true,false)
+//                stop(stopall,gotoend)
+//                第一个参数表示是否清空所有的后续动画
+//                第二个参数表示是否立即执行完正在当前执行的动画
+            })
+        })
+
+    </script>
+</head>
+<body>
+<input type="button" value="自定义动画"/>
+<input type="button" value="停止动画"/>
+<div></div>
+</body>
+</html>

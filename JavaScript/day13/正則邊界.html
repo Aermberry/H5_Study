@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    console.log("邊界")
+    console.log(/^sdsffs$/.test("ddd"))
+    console.log(/^sdsffs$/.test("sdsffs"))
+    console.log("---------*--------")
+    console.log(/^a*$/.test("aaa"))
+    console.log(/^a*$/.test("aafa"))
+    console.log(/^abg*$/.test("ab"))
+    console.log(/^abg*$/.test("abg"))
+    console.log(/^abg*$/.test("bg"))
+    console.log(/^abg*$/.test("abbg"))
+    console.log(/^abg*$/.test("abggg"))
+//    *表示所帶字母可重複，eg:^abg*$---重複的是g而已
+//為甚么輸入bg,abbg等情況錯誤呢，原因在“^”,“^”定義了ab為邊界，必須固有，而“g”可以無限重複
+//貪婪*(>=0)
+    console.log("------+------")
+    console.log(/^a+$/.test(""))
+    console.log(/^a+$/.test("a"))
+//懶惰+，保證至少有一次(>=1)
+    console.log("------?------" )
+    console.log(/^a?$/.test(""))
+    console.log(/^a?$/.test("a"))
+    console.log(/^a?$/.test("aaa"))
+//?允許輸入的是和預設相同的，或者不輸入
+//   佔有“？”，重複了零次或一次（0||1)
+    console.log("------{n}------");
+    console.log(/^a{3}$/.test("aaa"))
+    console.log(/^a{3}$/.test("aa"))
+    console.log(/^[0-9]{6}$/.test("123456"))
+//    第一個[]是得到0-9 10個數中的任意一個，後面的{6}可以重複6次，即規定可以輸入的數字範圍為6個數字
+//    n代表可以重複的次數
+    console.log("------{n,}------");//表示>=n
+    console.log(/^[0-9]{6,}$/.test("123456000"))
+    console.log(/^[0-9]{6,}$/.test("123456"))
+    console.log(/^[0-9]{6,}$/.test("123"))
+//    {6,}，規定輸入的數字位數必須>=6位
+    console.log("------{n,m}------");//表示取值範圍是在n和m之間，即>=n和<=m之間
+
+</script>

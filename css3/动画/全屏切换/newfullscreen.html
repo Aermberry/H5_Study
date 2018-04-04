@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		html,body {
+			height: 100%;
+		}
+
+		body {
+
+			background-image: linear-gradient(to bottom,#BB0808,#FF8E8E);
+		}
+
+		.pic{
+			position: relative;
+			width: 100%;
+			height: 100%;
+			background-color: #D673F1;
+			overflow: hidden;
+		}
+
+		.pic li {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			transition: all 3s ease-in-out;
+		}
+
+		li:first-child {
+			z-index: 3;
+			background-image: url(./images/bg1.jpg);
+		}
+
+		li:nth-child(2) {
+			z-index: 2;
+			background-image: url(./images/bg2.jpg);
+		}
+
+
+		li:nth-child(3) {
+			z-index: 1;
+			background-image: url(./images/bg3.jpg);
+		}
+
+		#bg01:target {
+			z-index: 5;
+			animation:gl 2s ease-in-out; 
+		}
+
+		#bg01:not(:target){
+			z-index:3;
+		}
+
+		#bg02:target {
+			z-index: 5;
+			animation:look 3s ease-in-out;
+		}
+
+		#bg02:not(:target){
+			z-index:2;
+		}
+
+		#bg03:target {
+			z-index: 5;
+			animation:car 3s ease-in-out;
+		}
+
+		#bg03:not(:target){
+			z-index:1;
+
+		}
+
+		@keyframes gl{
+				from{
+				transform:scale(0);
+			}
+
+			50%{
+				transform:scale(0.5);
+			}
+
+			to {
+				transform:scale(1);
+			}
+		}
+
+		@keyframes look{
+			from{
+				transform:scale(0);
+			}
+
+			50%{
+				transform:scale(0.5);
+			}
+
+			to {
+				transform:scale(1);
+			}
+		}
+
+		@keyframes car{
+			from{
+				opacity:0;
+				width: 0;
+				transform:scale(0) rotate(0deg);
+			}
+
+			to {
+				opacity:1;
+				width: 100px;
+				transform:scale(1) rotate(360deg);
+			}
+		}
+
+		.icon {
+			z-index: 10;
+			text-align:center;
+			width: 100%;
+			height: 120px;
+			/*background-color: green;*/
+			position: absolute;
+			bottom:100px;
+		}
+		.icon li {
+			background-image: radial-gradient(farthest-corner at center center,transparent,transparent 20%,#04EED9 20%,#04EED9 40%,transparent 40%,transparent 60%,#04EED9 60%,#04EED9 80%,transparent 80%,transparent);
+			box-shadow:0 0 10px 10px #FFFFFF,2px 2px 10px 10px #84F9F1 ;
+			border-radius: 120px/60px;
+			text-align: center;
+			display:inline-block;
+			height: 100%;
+			width: 120px;
+			margin: 0 100px;
+			background-color: yellow;
+		}
+
+		.icon li a{
+			color:#000;
+			line-height: 120px;
+			width: 100%;
+			height: 100%;
+			display:block;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<ul class="pic">
+		<li id="bg01" class="img"></li>
+		<li id="bg02" class="img"></li>
+		<li id="bg03" class="img"></li>
+	</ul>
+	<ul class="icon">
+		<li><a href="#bg01">1</a></li>
+		<li><a href="#bg02">2</a></li>
+		<li><a href="#bg03">3</a></li>
+	</ul>
+</body>
+</html>

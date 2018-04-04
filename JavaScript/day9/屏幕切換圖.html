@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+        ul{
+            width: 100%;
+            height: 100%;
+        }
+        ul li{
+            width: 100%;
+            height: 100%;
+        }
+
+        ol{
+            position: fixed;
+            top: 100px;
+            left: 50px;
+        }
+        ol li{
+            width: 50px;
+            height: 50px;
+            border: 1px solid #cccccc;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul">
+    <li>首頁</li>
+    <li>關注</li>
+    <li>動態</li>
+    <li>風格</li>
+    <li>作品</li>
+</ul>
+<ol id="ol">
+    <li>首頁</li>
+    <li>關注</li>
+    <li>動態</li>
+    <li>風格</li>
+    <li>作品</li>
+</ol>
+</body>
+</html>
+
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    var ullis=$("ul").children;
+    var ollis=$("ol").children;
+    var  color=["green","red","yellow","blue","pink"]
+//    console.log(ullis)
+    for (var a=0;a<ullis.length;a++){
+        ullis[a].style.backgroundColor=color[a];
+        ollis[a].style.backgroundColor=color[a];
+        ollis[a].index=a;//標誌序號
+        var timer=null,leader=0;
+        ollis[a].onclick=function () {
+            clearInterval(timer)
+            tar=ullis[this.index].offsetTop;
+            timer=setInterval(function () {
+                var step=(tar-leader)/10;
+                step=step>0?Math.ceil(step):Math.floor(step);
+                leader=leader+step ;
+                window.scrollTo(0,leader)
+//                scrollto动的是窗口
+            if(leader==tar){
+                    clearInterval(timer)
+            }
+            },30)
+
+        }
+
+
+    }
+</script>

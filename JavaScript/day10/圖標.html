@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .pic{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="pic" id="pic"><img src="images/img.jpg" alt=""></div>
+</body>
+</html>
+
+<script src="SCROLL.js" TYPE="text/javascript"></script>
+<script>
+var pic=document.getElementById("pic")
+//alert(pic)
+var timer=null,leaderx=0,leadery=0,tarx=0,tary=0;
+    document.onclick=function (event) {
+    var  event=event||window.event
+//        兼容式寫法，ie678只可以window.evevt寫
+        var pagex=event.pageX||scroll().left+event.clientX;
+    var pagey=event.pageY||scroll().top+event.clientY;
+//    兼容式寫法，ie678中不支持page的寫法
+
+//        緩動動畫
+//        leader=leader+(tar-leader)10
+
+        tarx=pagex-pic.offsetWidth/2;
+        tary=pagey-pic.offsetHeight/2;
+        clearInterval(timer)
+        timer=setInterval(function () {
+            //        x的寫法
+            var stepx=(tarx-leaderx)/10
+            stepx=stepx>0?Math.ceil(stepx):Math.floor(stepx)
+            leaderx=leaderx+stepx
+
+//            y的寫法
+            var  stepy=(tary-leadery)/10
+            stepy=stepy>0?Math.ceil(stepy):Math.floor(stepy)
+            leadery=leadery+stepy
+
+            pic.style.left=leaderx+"px";
+            pic.style.top=leadery+"px";
+        },10)
+
+    }
+</script>

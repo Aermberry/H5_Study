@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .box{
+        width: 300px;
+        height: 400px;
+        background: palegoldenrod;
+        margin: 100px auto;
+    }
+    .body li{
+        height: 265px;
+        display: none;
+    }
+    .current {
+        background: palegreen;
+    }
+    .body .show{
+        display: block;
+    }
+</style>
+<body>
+<div class="box" id="one">
+    <div class="head">
+        <button class="current">哈哈</button>
+        <button>方法</button>
+        <button>规划</button>
+        <button>儿童</button>
+        <button>微软</button>
+    </div>
+    <div class="body">
+        <ul>
+            <li class="show">是否覆盖</li>
+            <li>十分尴尬</li>
+            <li>是否覆盖</li>
+            <li>说法三个</li>
+            <li>实施规划</li>
+        </ul>
+    </div>
+</div>
+<div class="box" id="two">
+    <div class="head">
+        <button class="current">哈哈</button>
+        <button>方法</button>
+        <button>规划</button>
+        <button>儿童</button>
+        <button>微软</button>
+    </div>
+    <div class="body">
+        <ul>
+            <li class="show">是否覆盖</li>
+            <li>十分尴尬</li>
+            <li>是否覆盖</li>
+            <li>说法三个</li>
+            <li>实施规划</li>
+        </ul>
+    </div>
+</div>
+<div class="box" id="three">
+    <div class="head">
+        <button class="current">哈哈</button>
+        <button>方法</button>
+        <button>规划</button>
+        <button>儿童</button>
+        <button>微软</button>
+    </div>
+    <div class="body">
+        <ul>
+            <li class="show">是否覆盖</li>
+            <li>十分尴尬</li>
+            <li>是否覆盖</li>
+            <li>说法三个</li>
+            <li>实施规划</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    function id(rt) {
+        var id=document.getElementById(rt);
+        var btn=id.getElementsByTagName("button");
+        var lit=id.getElementsByTagName("li");
+        //    alert(lit.length)
+        for(var a=0;a<btn.length;a++){
+            btn[a].index=a;
+            btn[a].onclick=function () {
+                for(var a=0;a<btn.length;a++){
+                    btn[a].className="";
+                    lit[a].className="";
+                }
+                this.className="current";
+                lit[this.index].className="show";
+            }
+        }
+    }
+    id("one");
+    id("three");
+    id("two")
+
+
+</script>

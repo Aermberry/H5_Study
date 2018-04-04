@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        .box{
+            width: 620px;
+            border:  1px solid #666666;
+            margin: 100px auto;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            overflow: hidden;
+        }
+        nav{
+            width: 600px;
+            height: 60px;
+            /*background: #00bfff;*/
+        }
+        nav #left{
+            width: 50px;
+            height: 60px;
+            text-align: center;
+            font: 20px/50px "heiti";
+            padding:0px 2px ;
+            /*background: #ffef9c;*/
+            float: left;
+        }
+        nav #middle{
+            width: 492px;
+            height: 60px;
+            float: left;
+            /*background: #9eff23;*/
+            text-align: center;
+        }
+        nav #middle #li01{
+            margin-top: 2px;
+            font: 22px/25px "heiti";
+            padding-top: 5px;
+        }
+        nav #middle #li02{
+            padding-top: 5px;
+            padding-bottom: 5px;
+            color: #666666;
+        }
+        nav #right{
+            text-align: center;
+            font: 20px/50px "heiti";
+        }
+        label{
+            float: left;
+        }
+        textarea{
+            float: left;
+            width: 500px;
+            height: 400px;
+        }
+
+        button{
+            border: 1px solid;
+            height: 40px;
+            width: 80px;
+            font: 20px/25px "heiti";
+            margin-top: 20px;
+            margin-left: 500px;
+            float: right;
+
+        }
+
+        #ul{
+            float: left;
+            margin-left: 70px;
+        }
+        #ul li{
+            height: 35px;
+            border-bottom: 1px dashed #cccccc;
+            line-height: 35px;
+            /*background: #000;*/
+        }
+
+        #ul li a{
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <nav>
+        <div id="left">取消</div>
+        <div>
+            <ul id="middle">
+                <li id="li01">发布微博</li>
+                <li id="li02">Salmon</li>
+            </ul></div>
+        <div id="right">发布</div></nav>
+    <label > 微博发布：</label>
+   <textarea name="" id="text" cols="30" rows="10"></textarea>
+    <button id="btn">发布</button>
+    <ul id="ul">
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    var text=document.getElementById("text")
+    var btn=text.parentNode.lastElementChild.previousElementSibling||text.parentNode.lastChild.previousSibling;
+    btn.onclick=function () {
+        if(text.value==""){
+            alert("请输入内容")
+        }
+        else {
+            var ne=document.createElement("li");
+            ne.innerHTML=text.value+"<a href='javascript:;'>删除</a>";
+            text.parentNode.lastElementChild.appendChild(ne)||text.parentNode.lastChild.appendChild(ne);
+            text.value="";
+            var ul=document.getElementById("ul")
+            var lis=ul.children;
+            ul.insertBefore(ne,lis[0]);
+            var as=ul.getElementsByTagName("a")
+            for(var a=0;a<as.length;a++){
+                as[a].onclick=function () {
+                    ul.removeChild(this.parentNode)
+                }
+            }
+        }
+    }
+</script>

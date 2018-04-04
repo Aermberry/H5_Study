@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<!--new的作用-->
+<script>
+function Peson(name,age) {//構造函數   就是一個普通函數，但內部使用了this，所以能使用實例
+//    var obj={};
+    this.age=age;
+    this.name=name;
+    this.showAge=function () {
+        alert(this.age)
+    }
+    this.showName=function () {
+        alert(this.name)
+    }
+}
+
+var jk=new peson("回家",187);
+jk.showAge();
+jk.showName();
+</script>

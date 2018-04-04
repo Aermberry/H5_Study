@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<!-- 所有的文件API都是基于文件域（确保用户选择该文件） -->
+	<input type="file" name="" id="input_file" multiple="multiple" style="display: none">
+	<input type="button" name="" id="btn" value="选择文件">
+    <ul id="ulcontent"></ul>
+	<!-- 文件API默认可以拿到的属性：文件名 文件大小 文件最后修改时间 文件类型 -->
+	<script type="text/javascript">
+		// 获取DOM对象
+		var  input_file=document.querySelector('#input_file');
+		var  btn=document.querySelector('#btn');
+		var  ulcontent=document.querySelector('#ulcontent');
+
+		// 添加事件监听器
+		// 通过btn打开查询input_file
+		btn.addEventListener('click',function(){
+			input_file.click();
+		});
+
+		input_file.addEventListener('change',function(){
+			// 文件选择域的文件发生变化时触发；
+			// 清除一下上一次的文件
+			for(var a=0;a<input_file.files.length;a++){
+				var file=input_file.files[a];
+				var li=document.createElement('li');
+				li.innerHTML=file.name+';'+(file.size/1024/1024)+'mb;'+file.lastModifiedDate.toLocaleDateString()+''+file.lastModifiedDate.toLocaleTimeString();
+				ulcontent.appendChild(li);
+			}
+		});
+	</script>
+</body>
+</html>

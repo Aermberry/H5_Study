@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+//            實現一個各行變色的效果
+//            奇數行選擇器:odd
+            $("li:odd").css("background","pink");
+//            偶數選擇器:even
+            $("li:even").css("background","green");
+
+//        :eq(index) index是從零開始（索引號）
+//            選擇索引號為index的元素
+            $("li:eq(4)").css("font-size","30px");
+
+//            :gt(index)
+//            選擇索引號大於index的元素
+            $("li:gt(5)").css("font-size","50px");
+//            :header 標題選擇器(對h1到h6)
+            $(":header").css("color","gray");
+        })
+    </script>
+</head>
+<body>
+<h1>我是h1</h1>
+<h1>我是h1</h1>
+<ul>
+    <li>我是li元素</li>
+    <li>我是li元素</li>
+    <li>我是li元素</li>
+    <li>我是li元素</li>
+    <li>我是li元素</li>
+    <li>我是li元素</li>
+    <li>我是li元素</li>
+    <li>我是li元素</li>
+    <li>我是li元素</li>
+    <li>我是li元素</li>
+    <li>我是li元素</li>
+    <li>我是li元素</li>
+</ul>
+</body>
+</html>

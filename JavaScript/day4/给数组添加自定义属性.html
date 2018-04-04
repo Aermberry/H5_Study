@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .ghj{
+            background: #000;
+        }
+        .fg{
+            border: 1px solid ;
+            border-radius: 5px;
+            font: 30px/22px "方正舒体";
+        }
+    </style>
+</head>
+<body>
+<p><button class="fg">按钮</button></p>
+<p><button class="fg">按钮</button></p>
+<p><button class="fg">按钮</button></p>
+<p><button class="fg">按钮</button></p>
+<p><button class="fg">按钮</button></p>
+</body>
+</html>
+
+<script>
+    var gh=document.getElementsByTagName("button")
+    for(var a=0;a<gh.length;a++){
+//        gh[a].index=a;
+        gh[a].onclick=function () {
+            alert(a)
+            alert(gh[a])
+            for(var a=0;a<gh.length;a++){
+                gh[a].className="fg"
+            }
+            this.className="ghj"
+//            alert(this.index)
+        }
+
+    }
+
+//    难理解点：for 过后，a的值保持不变，为退出循环值；而导致gh[a]未定义值的错误；
+//            this,指向的是当前的点击对象gh[a]
+</script>

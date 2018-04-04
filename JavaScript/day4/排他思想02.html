@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .car{
+            background: #1dacbe;
+        }
+    </style>
+</head>
+<body>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+<button>按钮</button>
+</body>
+</html>
+
+<script>
+    var sui=document.getElementsByTagName("button");
+
+    for(var a=0;a<sui.length;a++){
+        sui[a].onclick=function () {
+            for(var b=0;b<sui.length;b++){
+                sui[b].className=""
+            }
+            this.className="car"
+            console.log(this)
+        }
+    }
+</script>

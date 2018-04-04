@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">开始</button>
+<button id="btn2">结束</button><br>
+<div id="box"></div>
+</body>
+</html>
+
+<script>
+    var btn1=document.getElementById("btn1")
+    var btn2=document.getElementById("btn2")
+    var box=document.getElementById("box")
+
+    btn1.onclick=function () {
+        animation(box,400);
+    }
+
+
+
+    btn2.onclick=function () {
+        animation(box,800);
+    }
+
+    function animation(obj,tar) {
+      obj.timer=setInterval(function () {
+            obj.style.left=obj.offsetLeft+10+"px";
+          if(obj.offsetLeft>=tar){
+                clearInterval(obj.timer);
+          }
+        },30)
+    }
+</script>

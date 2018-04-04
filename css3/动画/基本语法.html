@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		html,body {
+			height: 100%;
+		}
+		body {
+
+			background-color: red;
+
+		}
+
+		img {
+			display: block;
+			width:100%;
+		}
+
+		.box {
+			width: 400px;
+			margin: 100px auto;
+			/*动画名称*/
+			animation-name: rotate;
+			/*动画持续时间*/
+			animation-duration: 10s;
+			/*动画时间曲线过渡类型：ease, linear, ease-in, ease-out, ease-in-out, initial（初始）, inherit（继承）*/
+			animation-timing-function:ease-in-out;
+			/*动画时间延迟*/
+			animation-delay: 2s;
+			/*定义循环次数(自定义次数不带单位)，预设值：
+			infinite - the animation repeats forever
+
+            initial - sets the iteration count to the default value
+
+            inherit - inherits the value from the parent*/
+			animation-iteration-count: infinite;
+			/*定义动画的运动方式,时间轴的运行方式*/
+			/*预设值：normal,reverse(相反，倒退100%—>0%)，alternate（交替0->100%,100%->0）,alternate-reverse(100%->0,0->100%)*/
+			animation-direction:alternate;
+			/*控制动画时间点开始帧和最后一帧以外的状态是否为与初始帧或最后一帧状态一致*/
+			/*预设值：forwards，backwards both normal*/
+			animation-fill-mode:backwards;
+			/*需要结合hover使用*/
+			/*Animation-play-state：pause;*/
+		}
+/*设置关键帧*/
+		@keyframes rotate {
+			/*初始状态*/
+			/*可以为from*/
+			0% {
+				transform:rotateZ(0);
+			}
+			/*最终状态*/
+			/*可以为to*/
+			100% {
+				transform:rotateZ(360deg);
+			}
+
+
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="./images/fengche.png" alt="">
+	</div>
+</body>
+</html>

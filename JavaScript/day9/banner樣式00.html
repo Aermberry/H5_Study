@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        body{
+            background-color: #020202;
+        }
+        .box{
+            margin: 100px auto;
+            border-radius: 10px;
+            width: 800px;
+            height: 42px;
+            border: 1px solid #cccccc;
+            background: url("images/rss.png") no-repeat center right #ffffff;
+            position: relative;
+        }
+
+        ul{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        ul li{
+            float: left;
+            width: 83px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            padding-left: 10px;
+            border-right:1px solid #cccccc;
+            cursor: pointer;
+        }
+
+        span{
+            margin-left: 8px;
+            position: absolute;
+            display: block;
+            width: 83px;
+            height: 42px;
+            background: url("images/cloud.gif") no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <span></span>
+    <ul>
+        <li>上海校區</li>
+        <li>上海校區</li>
+        <li>上海校區</li>
+        <li>上海校區</li>
+        <li>上海校區</li>
+        <li>上海校區</li>
+        <li>上海校區</li>
+        <li>上海校區</li>
+    </ul>
+</div>
+</body>
+</html>
+
+<script>
+    var lis=document.getElementsByTagName("li");
+    var span=document.getElementsByTagName("span")[0];
+    var current=0;
+
+    for (var a=0;a<lis.length;a++){
+        lis[a].index=a;
+        lis[a].onmouseover=function () {
+//                span.style.left=this.offsetLeft+"px"
+            an(span,this.offsetLeft);
+
+            lis[a].onmouseout=function () {
+                an(span,current);
+            }
+
+            lis[a].onclick=function () {
+                current=this.offsetLeft;
+                an(span,current);
+            }
+            }
+    }
+
+    function an(obj,tar) {
+        clearInterval(obj.timer)
+        obj.timer=setInterval(function () {
+            var speed=(tar-obj.offsetLeft)/10;
+            speed=speed>0?Math.ceil(speed):Math.floor(speed);
+            obj.style.left=obj.offsetLeft+speed+"px";
+            if(obj.offsetLeft==tar){
+                clearInterval(obj.timer)
+            }
+        },30)
+    }
+</script>

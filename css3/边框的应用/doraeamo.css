@@ -1,0 +1,291 @@
+.wrapper
+{
+    margin: 50px 0 0 500px;
+
+    background-color: yellow;
+}
+
+.doraemon
+{
+    position: relative;
+}
+
+.doraemon .head
+{
+    position: relative;
+
+    width: 320px;
+    height: 300px;
+
+    border: 2px solid #555;
+    border-radius: 150px;
+    background: #07bbee;
+    background: -webkit-radial-gradient(right top,#fff 10%,#07bbee 20%,#10a6ce 75%,#000);
+    background:    -moz-radial-gradient(right top,#fff 10%,#07bbee 20%,#10a6ce 75%,#000);
+    background:     -ms-radial-gradient(right top,#fff 10%,#07bbee 20%,#10a6ce 75%,#000);
+    box-shadow: -5px 10px 15px rgba(0,0,0,.45);
+}
+
+/*脸部*/
+.doraemon .face
+{
+    position: relative;
+    /*让所有脸部元素可自由定位*/
+    z-index: 2;
+
+    background-color: #fff;
+    /*脸在头部背景上面*/
+}
+
+/*白色脸底*/
+.doraemon .face .white
+{
+    position: absolute;
+    /*进行绝对定位*/
+    top: 75px;
+    left: 25px;
+
+    width: 265px;
+    /*设置高度*/
+    height: 195px;
+
+    border-radius: 150px;
+    background: -webkit-radial-gradient(right top,
+    #fff 75%,
+    #eee 80%,
+    #999 90%,
+    #444);
+    background:    -moz-radial-gradient(right top,
+    #fff 75%,
+    #eee 80%,
+    #999 90%,
+    #444);
+    background:     -ms-radial-gradient(right top,
+    #fff 75%,
+    #eee 80%,
+    #999 90%,
+    #444);
+    background-color: #fff;
+    /*此放射渐变也是使脸的左下角暗一些，看上去更真实*/
+    background-image: radial-gradient(at right top,
+    #fff 75%,
+    #eee 80%,
+    #999 90%,
+    #444);
+}
+
+/*鼻子*/
+.doraemon .face .nose
+{
+    position: absolute;
+    z-index: 3;
+    top: 110px;
+    left: 140px;
+
+    width: 30px;
+    height: 30px;
+
+    border: 2px solid #000;
+    border-radius: 15px;
+    background: #c93300;
+}
+
+/*鼻子上的高光*/
+.doraemon .face .nose .light
+{
+    width: 10px;
+    height: 10px;
+
+    border-radius: 5px;
+    box-shadow: 19px 8px 5px #fff;
+    /*通过阴影实现高光*/
+}
+
+/*鼻子下的线*/
+.doraemon .face .nose_line
+{
+    position: absolute;
+    z-index: 3;
+    top: 143px;
+    left: 155px;
+
+    width: 3px;
+    height: 100px;
+
+    background: #333;
+}
+
+/*嘴巴*/
+.doraemon .face .mouth
+{
+    position: absolute;
+    top: -160px;
+    left: 45px;
+
+    width: 220px;
+    height: 400px;
+    /*通过底边框加上圆角模拟微笑嘴巴*/
+
+    border-bottom: 3px solid #333;
+    border-radius: 120px;
+}
+
+/*眼睛*/
+.doraemon .eyes
+{
+    position: relative;
+    z-index: 3; /*眼睛在白色脸底下面*/
+}
+
+
+/*眼睛共同的样式*/
+.doraemon .eyes .eye
+{
+    position: absolute;
+    top: 40px;
+
+    width: 72px;
+    height: 82px;
+
+    border: 2px solid #000;
+    border-radius: 35px 35px;
+    background: #fff;
+}  /*眼珠*/
+
+.doraemon .eyes .eye .black
+{
+    position: absolute;
+    top: 40px;
+
+    width: 14px;
+    height: 14px;
+
+    border-radius: 7px;
+    background: #000;
+}
+
+
+.doraemon .eyes .left
+{
+    left: 82px;
+}
+
+
+.doraemon .eyes .right
+{
+    left: 156px;
+}
+
+.doraemon .eyes .eye .bleft
+{
+    left: 50px;
+}
+
+.doraemon  .eyes .eye .bright
+{
+    left: 7px;
+}
+
+/*胡须背景，主要用于挡住嘴巴的一部分，不要显得太长*/
+.doraemon .whiskers
+{
+    position: absolute;
+    z-index: 2;
+    top: 120px;
+    left: 45px;
+
+    width: 220px;
+    height: 80px;
+
+    border-radius: 15px;
+    background: #fff;
+}
+/*在鼻子和眼睛的下面*/
+
+/*所有胡子的公用样式*/
+.doraemon .whiskers .whisker
+{
+    position: absolute;
+    z-index: 2;
+
+    width: 60px;
+    height: 2px;
+
+    background: #333;
+}
+
+/*右上胡子*/
+.doraemon .whiskers .rTop
+{
+    top: 25px;
+    left: 165px;
+}
+/*右中胡子*/
+.doraemon .whiskers .rMiddle
+{
+    top: 45px;
+    left: 167px;
+}
+/*右下的胡子*/
+.doraemon .whiskers .rBottom
+{
+    top: 65px;
+    left: 165px;
+}
+
+/*左上胡子*/
+.doraemon .whiskers .lTop
+{
+    top: 25px;
+    left: 0;
+}
+
+/*左中胡子*/
+.doraemon .whiskers .lMiddle
+{
+    top: 45px;
+    left: -2px;
+}
+
+/*左下胡子*/
+.doraemon .whiskers .lBottom
+{
+    top: 65px;
+    left: 0 ;
+}
+
+/*胡子旋转角度*/
+.doraemon .whiskers .r160
+{
+    -webkit-transform: rotate(180deg);
+       -moz-transform: rotate(160deg);
+        -ms-transform: rotate(160deg);
+         -o-transform: rotate(160deg);
+            transform: rotate(160deg);
+}
+
+.doraemon .whiskers .r20
+{
+    -webkit-transform: rotate(200deg);
+       -moz-transform: rotate(200deg);
+        -ms-transform: rotate(200deg);
+         -o-transform: rotate(200deg);
+            transform: rotate(200deg);
+}
+
+/*围脖*/
+ .doraemon .choker {
+                            width: 230px;
+                                height: 20px;
+                                background: #c40;
+                                /*线性渐变 让围巾看上去更自然*/
+                                background: -webkit-gradient(linear,left top,left bottom,from(#c40),to(#800400));
+                                background: -moz-linear-gradient(center top,#c40,#800400);
+                                background: -ms-linear-gradient(center top,#c40,#800400);
+                     border: 2px solid #000;
+                        border-radius: 10px;
+                        position: relative;
+                        top: -40px;
+                        left: 45px;
+                        z-index: 4;
+                    }

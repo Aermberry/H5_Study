@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #cccccc;
+
+        }
+    </style>
+</head>
+<body>
+<div>123</div>
+<div>123</div>
+<div>123</div>
+<div>123</div>
+<div>123</div>
+</body>
+</html>
+<script>
+    var en=["pink","red","green","yellow","orange"];
+    var rt=document.getElementsByTagName("div");
+    for(var a=0;a<rt.length;a++){
+        rt[a].style.backgroundColor=en[a]
+    }
+</script>

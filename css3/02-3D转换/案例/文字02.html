@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	html,body {
+		height: 100%
+	}
+
+	body{
+		background-color: #F7F7F7;
+	}
+
+	.box {
+		/*background-color: red;*/
+		color: #A1F100;
+		margin-top:100px;
+		font-size: 100px;
+		text-align: center;
+		transform-style: preserve-3d;
+		perspective:600px;
+	}
+
+	.box span{
+		position:relative;
+		display: inline-block;
+	}
+
+	.box span::before,
+	.box span::after {
+		content: attr(data-text);
+		position: absolute;
+		top: 0;
+		left:0;
+		transition: all,.5s;
+		transform-origin:left center;
+	}
+
+	.box span::before {
+		z-index: 3;
+		color: #fff;
+		transform:rotateY(-15deg);
+	}
+
+	.box span::after {
+		z-index: 2;
+		color: #ccc;
+		opacity: 0.6;
+	}
+
+	.box:hover span::before {
+		transform:skew(0,15deg) rotateY(-30deg);
+	}
+	.box:hover span::after {
+		transform:skew(0,15deg);
+	}
+	</style>
+</head>
+<body>
+<div class="box">
+	<span data-text="我">我</span>
+	<span data-text="在">在</span>
+	<span data-text="这">这</span>
+	<span data-text="里">里</span>
+</div>
+</body>
+</html>

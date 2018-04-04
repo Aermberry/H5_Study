@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            display: none;
+            background: #b6ffa7;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("#j_btnShow").click(function () {
+//                $("div").show()
+//                $("div").show(1000)
+                $("div").show(1000,function () {
+                    alert("haha")
+                })
+            })
+
+            $("#j_btnHide").click(function () {
+//                $("div").hide();
+//                $("div").hide(1000);
+                $("div").hide(1000,function () {
+                    alert("动画捯饬")
+                });
+            })
+
+//            自动缓动动画
+            $("#j_btnToggle").click(function () {
+//                $("div").show(1000,function () {
+//                    $("div").hide(1000)
+//                })
+                $("div").toggle(1000)
+            })
+
+//            淡入动画
+            $("#j_btnFadeIn").click(function () {
+                $("div").fadeIn()//淡入
+            })
+            $("#j_btnFadeOut").click(function () {
+                $("div").fadeOut()//淡出
+            })
+//            自动淡入淡出
+            $("#j_btnFadeToggle").click(function () {
+                $("div").fadeToggle(10000)
+            })
+//            指定动画时间和透明度
+            $("#j_btnFadeTo").click(function () {
+                $("div").fadeTo(1000,0.5,function () {
+                    $("div").fadeTo(1000,0)
+                })
+            })
+
+//            滑动动画
+            $("#j_btnSlideDown").click(function () {
+                $("div").slideDown(1000);
+            })
+
+            $("#j_btnSlideUp").click(function () {
+                $("div").slideUp(1000)
+            })
+            $("#j_btnSlideToggle").click(function () {
+                $("div").slideToggle(1000)
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="show()" id="j_btnShow"/>
+<input type="button" value="hide()" id="j_btnHide"/>
+<input type="button" value="toggle()" id="j_btnToggle"/>
+<input type="button" value="fadeIn()" id="j_btnFadeIn"/>
+<input type="button" value="fadeOut()" id="j_btnFadeOut"/>
+<input type="button" value="fadeToggle()" id="j_btnFadeToggle"/>
+<input type="button" value="fadeTo()" id="j_btnFadeTo"/>
+<input type="button" value="slideDown()" id="j_btnSlideDown"/>
+<input type="button" value="slideUp()" id="j_btnSlideUp"/>
+<input type="button" value="slideToggle()" id="j_btnSlideToggle"/>
+<div></div>
+</body>
+</html>

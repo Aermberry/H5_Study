@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function referFrame2() {
+            var frames=window.frames//获取window下的frame数组
+            var frame1=frames[0]//父框架
+            var subframe=frame1.frames//获取子框架数组
+            var frame2=subframe[0]
+            alert(frame2.document)
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<!--定义框架-->
+<iframe id="frame1" src="subFrame.html"></iframe>
+<br>
+<input type="button" value="引用frame2框架" onclick="referFrame2()">
+</body>
+</html>
+<!--以下是“subFrame.html”的代码-->
+<!--DOCTYPE html-->
+<html>
+<head>
+    <title>子框架</title>
+    <meta http-equiv="Content-Type" content="text/html";charser="UTF-8">
+</head>
+<body style="text-align: center">
+<!--定义框架-->
+<iframe id="frame2"></iframe>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            height: 200px;
+            width: 200px;
+            background: #ddceff;
+            position: static;
+        }
+        p{
+            position: absolute;
+            top: 100px;
+            left: 200px;
+            color: gray;
+
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(window).load(function () {
+//            获取坐标值 offset()
+//            注意：设置top和left值的时候，值为数字类型
+            $("div").offset({
+                left:100,
+                top:100
+            })
+
+//            获取坐标值 offset()
+            var  obj=$("div").offset();
+            console.log(obj);
+            console.log("left:"+obj.left+"px,top:"+obj.top+"px")
+
+//            position()
+//            相对于最近的那个具有定位的父元素
+//            只能获取不能设置
+            console.log($("p").position())
+        })
+
+//        offset():可以设置值也可以获取值
+//        当设置值时，需要使用到joson, 同时会对被调用元素改变postion属性的变化，但postiton被设置值时除（static）外都保持不变
+//        postion():只能获取值，最近的父级元素
+
+    </script>
+</head>
+<body>
+<div>
+    <p>我是一个p元素</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 500px;
+            background: palegreen;
+            margin: 100px auto;
+        }
+        .btn{
+            background: #fdff95;
+        }
+        .body li{
+            height: 30px;
+            display: none;
+        }
+        .body .lid{
+            background:lightcyan;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="head">
+        <button class="btn">do you do 1</button>
+        <button>do you do 2</button>
+        <button>do you do 3</button>
+        <button>do you do 4</button>
+        <button>do you do 5</button>
+    </div>
+    <div class="body">
+        <ul>
+            <li class="lid">qw01</li>
+            <li>qw02</li>
+            <li>qw03</li>
+            <li>qw04</li>
+            <li>qw05</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var btns=document.getElementsByTagName("button");
+    var lis=document.getElementsByTagName("li");
+    for(var a=0;a<btns.length;a++){
+        btns[a].index=a;
+        btns[a].onclick=function () {
+            for(var a=0;a<btns.length;a++){
+                btns[a].className="";
+                lis[a].className="";
+            }
+            this.className="btn";
+            lis[this.index].className="lid"
+        }
+    }
+</script>

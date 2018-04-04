@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+        position: absolute;
+        bottom: 50px;
+        right: 10px;
+        display:none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<span id="pic"><img src="images/Top.jpg" alt=""></span>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+<p>笑看風雲</p>
+</body>
+</html>
+<script src="my.js"></script>
+<script>
+var span=document.getElementById("pic");
+var timer=null,leader=0,tar=0;
+window.onscroll=function () {
+    var rocket=scroll().top>0?show("pic"):hide("pic");
+    leader=scroll().top;
+}
+span.onclick=function () {
+    clearInterval(timer)
+//        leader=leader+(tar-leader);
+    timer=setInterval(function () {
+        var step=(tar-leader)/10;
+        step=step>0?Math.ceil(step):Math.floor(step);
+        leader=leader+step;
+        window.scrollTo(0,leader);
+        console.log(leader);
+        if (scroll().top==0){
+            clearInterval(timer)
+        }
+    },30)
+}
+</script>

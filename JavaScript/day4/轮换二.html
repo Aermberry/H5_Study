@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            margin: 100px auto;
+            width: 500px;
+            height: 500px;
+            background: orangered;
+        }
+        /*.body li{*/
+             /*height: 500px;*/
+             /*display: none;*/
+         /*}*/
+
+        .df{
+            background: palegreen;
+        }
+        .body .er{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="head">
+        <button class="df">adjasdsa</button>
+        <button>adjasdsa</button>
+        <button>adjasdsa</button>
+        <button>adjasdsa</button>
+        <button>adjasdsa</button>
+    </div>
+    <div class="body">
+        <ul>
+            <li class="er">dfdrww</li>
+            <li>dfdr</li>
+            <li>dfde</li>
+            <li>dfdfd</li>
+            <li>dfdsv</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var cf=document.getElementsByTagName("button")
+    var er=document.getElementsByTagName("li")
+
+    for(var a=0;a<cf.length;a++){
+        cf[a].index=a;
+        cf[a].onclick=function () {
+            for(var a=0;a<cf.length;a++){
+                cf[a].className="";
+                er[a].className="";
+            }
+            cf[this.index].className="df";
+            er[this.index].className="er";
+        }
+    }
+</script>

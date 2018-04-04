@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 500px;
+            border: 1px solid #3E3E3E;
+            background-color: #a9f8ff;
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>
+<script src="SCROLL.js" type="text/javascript"></script>
+<script>
+    var box=document.getElementsByClassName("box")[0];
+//    alert(box)
+    box.onmousemove=function (event) {
+        var event=event||window.event
+        var pagex=event.pageX||event.clientX+scroll().left;
+        var pagey=event.pageY||event.clientY+scroll().top;
+
+        var x=pagex-box.offsetLeft;
+        var y=pagey-box.offsetTop;
+        box.innerHTML="x的坐標："+x+"px;"+" y的坐標："+y+" px"
+    }
+</script>

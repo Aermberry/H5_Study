@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function morewidth() {
+//            获取顶部网页的frameset对象
+            var frameset=top.document.getElementById("left_right");
+            frameset.cols="300,*";
+        }
+//        变窄
+        function lessWidth() {
+//            获取顶部网页的frameset对像
+            var frameset=top.document.getElementById("left_right");
+            frameset.cols="100,*"
+        }
+    </script>
+</head>
+<body>
+<h2>右边框架</h2>
+<input type="button" value="变宽" onclick="moreWidth()">
+<input type="button" value="变窄" onclick="lesswidth()">
+</body>
+</html>

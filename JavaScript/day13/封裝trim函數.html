@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="txt">
+</body>
+</html>
+<script>
+    <!--replace-->
+//    global 全局
+    var txt="today is a fine day!";
+    console.log(txt.replace(/today/,"tomorrow"));
+    var txt1="today is a fine day!today is a fine day!";
+    console.log(txt1.replace(/today/g,"tomorrow"))
+//    默認情況下只進行正則表達式的局部替換，第一個
+//    global 全局 //g ，替換全局的
+
+    var txt2="JavaScript is a fine";
+    console.log(txt2.replace(/javascript/i,"javascript"));
+    //i表示不區分大小寫模式，在確定匹配時忽略模式和字符串的大小寫；
+
+
+//    封裝自己的trim函數
+    function trim(str) {
+        str.replace(/^\s+|\s+$/g,"");
+//        ^表示開頭，\s 空格，+一次或多次
+//        | 或
+//        $表示結尾，
+
+    }
+
+    var txt=document.getElementById("txt");
+    txt.onblur=function () {
+        if (trim(this.value=="")){
+            alert("null");
+        }
+
+    }
+</script>

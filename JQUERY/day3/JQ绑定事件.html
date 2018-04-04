@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            background: #cbffaf;
+            display: none;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(window).load(function () {
+//            $("#j_btnClick").bind("click.namespace",function () {
+//                $("div").show(10000);
+//            })
+//
+//            $("#j_btnClick").bind("mouseenter.namespace",function () {
+//                $("div").show(10000);
+//            })
+////接除绑定
+//            $("#j_btnClick00").bind("click",function () {
+//                $("#j_btnClick").unbind("click");
+//                $("#j_btnClick").unbind("mouseenter");
+//                $("#j_btnClick").unbind(".namespace");
+//            })
+
+//            delgate 代理/委托
+//            第一个参数表示：选择器（给哪个子元素绑定事件）
+//            第二个参数表示：事件类型
+//            第三个参数表示：回调
+            $("p").delegate("input","click",function () {
+                alert($(this).val())
+            })
+
+//            动态给p元素添加子元素
+            $("p").append("<input type='button' value='创建元素'/>")
+        })
+    </script>
+</head>
+<body>
+<p>
+    <input type="button" value="绑定按钮" id="j_btnClick">
+    <input type="button" value="解绑按钮" id="j_btnClick00">
+    <input type="button" value="动态创建元素" id="j_btnClick01">
+</p>
+
+<div></div>
+</body>
+</html>

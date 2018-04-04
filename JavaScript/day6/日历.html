@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            text-underline: none;
+            list-style: none;
+        }
+        .box{
+            width: 500px;
+            height: 500px;
+            border: 1px solid #666666;
+            margin: 20px auto;
+            text-align: center;
+            background: #ffef9c;
+        }
+
+        .head{
+            margin: 50px 0px;
+        }
+
+        .body{
+            background: #72ffa9;
+            margin: 0px auto;
+            font: 120px/300px "微软雅黑 Light";
+            margin-top: 50px;
+            /*border: 1px solid #666666;*/
+            height: 300px;
+            width: 300px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="head"></div>
+    <div class="body"></div>
+</div>
+</body>
+</html>
+<script>
+    var box=document.getElementById("box");
+    var day=new Date();
+    var tu=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+    box.children[0].innerHTML=day.getFullYear()+"年"+day.getMonth()+"月"+day.getDate()+"日 "+tu[day.getDay()];
+    box.children[1].innerHTML=day.getDate();
+</script>

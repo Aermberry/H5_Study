@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="text">
+<button id="btn">search</button>
+</body>
+</html>
+<script>
+//    switch(1+3){
+//        case 1:
+//            alert("1");
+//            break;
+//        case 2:
+//            alert("2");
+//            break;
+//        case 3:
+//           alert("3");
+//           break;
+//        case 4:
+//            alert("4");
+//            break;
+//        case 5:
+//            alert("5");
+//            break;
+//        default:
+//            alert("no more");
+//
+//    }
+var text=document.getElementById("text");
+var btn=document.getElementById("btn");
+
+btn.onclick=function () {
+    switch(text.value){
+        case "大白菜":
+            alert("大白菜三毛钱");
+            break;
+        case "菠萝":
+            alert("菠萝六毛钱");
+            break;
+        case "苹果":
+            alert("苹果");
+            break;
+        default:alert("no more");
+    }
+}
+</script>

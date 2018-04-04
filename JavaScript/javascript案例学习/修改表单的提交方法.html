@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function modfyMethod() {
+//            获取form
+            var f=document.forms[0]
+//            通过name属性获取form中的指定控件
+            var myMethod=f.myMethod.value
+            f.method=myMethod
+            alert("表单的当前提交方法：" +myMethod)
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<!--定义表单-->
+<form action="" method="post">
+    请选择提交方法：
+    <select name="myMethod" id="">
+        <option value="">请选择</option>
+        <option value="get">get</option>
+        <option value="post">post</option>
+    </select>
+    <br>
+    <input type="button" value="修改提交方法" onclick="modfyMethod()">
+</form>
+</body>
+</html>

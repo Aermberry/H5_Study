@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02.1</title>
+    <style>
+        .box{
+            margin: 100px auto;
+            width: 500px;
+            height: 60px;
+            /*background: #000;*/
+        }
+        .sp{
+            width: 120px;
+            height:22px;
+            border: 1px solid #aabbcc;
+            display: inline-block;
+            font: 12px/22px "microsoft yahei";
+            /*12px字体大小，后面22px是行高,行高指的是两直线间的距离*/
+            background:#cccccc;
+            padding-left: 20px;
+        }
+        .wrong{
+            border: 1px solid #666666;
+            background:url("images/wrong.png") no-repeat #1dacbe 3px center;
+        }
+        .right{
+            border: 1px solid #ff89f2;
+            background:url("images/right.png") no-repeat #f0872e 3px center;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <label for="int" claa="la">语文成绩：</label>
+    <input type="text" id="int">
+    <span class="sp" id="sp">请输入成绩...</span>
+</div>
+</body>
+</html>
+<script>
+    function fn(id) {
+        return document.getElementById(id);
+    }
+    function pi() {
+        if(fn("int").value=="")
+        {
+            fn("sp").className="sp wrong";
+            fn("sp").innerHTML="请输入内容";
+
+        }
+
+        else if (isNaN(fn("int").value)){
+         fn("sp").className="sp wrong";
+         fn("sp").innerHTML="请输入合法数字"
+        }
+        else if(fn("int").value>150||fn("int")<0){
+            fn("sp").className="sp wrong"
+            fn("sp").innerHTML="请输入0到100的数字"
+        }
+        else {
+            fn("sp").className="sp right";
+            fn("sp").innerHTML="输入正确";
+        }
+    }
+
+    fn("int").focus();
+    fn("int").onblur=function () {
+        pi();
+    }
+</script>

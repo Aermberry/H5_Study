@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            var $j_cbAll=$("#j_cbAll")
+//            获取所有去全选checkbox:JQuery对象
+//            j_cbAll=$j_cbAll[0]
+//            获取全选checkbox:DOM对象
+            $tb=$("j_tb")
+//            获取tbody
+            $cbs=$tb.find(":checkbox");
+//            获取tbody中所有的复选框
+//            cbsLen=$cbs.length;
+//            获取复选框的长度
+//            给全选checkbox绑定单击事件：处理所有选项的checkbox选中状态
+            $j_cbAll.click(function () {
+//                重新获取所有的checkbox
+                $cbs=$tb.find(":checkbox");
+//                全选
+                if($(this).prop("checked")===true){
+//                    设置复选框被选中
+                    $cbs.prop("checked",true)
+//                    prop(属性，属性值)
+//                    情况一：当该方法用于返回属性值时，则返回第一个匹配元素的值。
+//                    情况二：当该方法用于设置属性值时，则为匹配元素集合设置一个或多个属性/值对。
+                }
+                else {
+//                    设置复选框不被选中
+                    $cbs.prop("check",false)
+                }
+            })
+
+//            给所有tbody中的checkbox元素绑定click事件
+            $cbs.click(function () {
+//            TODO：    动态绑定事件
+//            重新获取这个body里面的备选中checkbox
+                $cbs=$tb.find(":checkbox");
+//                获取所有被选中的checkbox的个数
+                $tb.find(":checkbox:cheecked").length===$cbs.length?$j_cbAll.prop("checked",true):$j_cbAll.prop("checked",false);
+            });
+
+//            get神技
+            $("#j_btnDelSel").click(function () {
+//             选择到当前这个a标签的父元素td 在获取到父元素tr 让tr自己remove
+                $(this).parent("td").parent("tr").remove();
+            })
+
+//            get选中
+            $("#j_btnDelSel").click(function () {
+//                获取到备选中的checkbox的个数
+                var checkedLen=$tb.find(":checkbox:checked").length;
+                if(checkedLen<=0){
+                    alert("请选择要get的神技");
+                    return;
+                }
+
+//                选择到所有的被选中的checkbox
+                $tb.find(":checkbox:cheecked").parent("td").parent("tr").remove();
+//
+               $j_cbAll.prop("checked",false);
+            });
+
+//            添加按钮展示 添加 表单层
+            $("#j_btnAddData").click(function () {
+                $("#j_mask").show();
+                $("#j_formAdd").show();
+            })
+
+//            添加数据功能 belong
+            $("#j_btnAdd").click(function () {
+//                获取到课程的值
+//                var lessonValue=$("#j_txtLesson")[0].value;
+                var  lessonValue=$("#j_txtBelSch").value;
+//                获取所属学院的值
+//                var belSch=$("#j_txtBelSch)[0].value;
+                var  belSch=$("#j_txtBelSch").val();
+
+                var trHtml="<tr>"
+                +"<td><input type='checkbox'>" +
+                    "</td>"
+                +"<td>"+lessonValue+"</td>>"
+                +"<td>"+belSch+"</td>"
+                +"<td><a href='javascript:;' class='get'></a></td>"
+
+            })
+        })
+
+    </script>
+    <link rel="stylesheet" href="checkDemo.css">
+    <script src="checkDOM.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <div>
+        <input type="button" value="GET选中" id="j_btnDelSel"/>
+        <input type="button" value="添加数据" id="j_btnAddData"/>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th><input type="checkbox" id="j_cbAll" /></th>
+            <th>课程名称</th>
+            <th>所属学院</th>
+            <th>已学会</th>
+        </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>JavaScript</td>
+            <td>传智播客-前端与移动开发学院</td>
+            <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>css</td>
+            <td>传智播客-前端与移动开发学院</td>
+            <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>html</td>
+            <td>传智播客-前端与移动开发学院</td>
+            <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"/></td>
+            <td>jQuery</td>
+            <td>传智播客-前端与移动开发学院</td>
+            <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="j_mask" class="mask"></div>
+<div id="j_formAdd" class="form-add">
+    <div class="form-add-title">
+        <span>添加数据</span>
+        <div id="j_hideFormAdd">x</div>
+    </div>
+    <div class="form-item">
+        <label class="lb" for="j_txtLesson">课程名称：</label>
+        <input class="txt" type="text" id="j_txtLesson" placeholder="请输入课程名称">
+    </div>
+    <div class="form-item">
+        <label class="lb" for="j_txtBelSch">所属学院：</label>
+        <input class="txt" type="text" id="j_txtBelSch" value="传智播客-前端与移动开发学院">
+    </div>
+    <div class="form-submit">
+        <input type="button" value="添加" id="j_btnAdd">
+    </div>
+</div>
+</body>
+</html>

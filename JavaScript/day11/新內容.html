@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    <!--innerwidth-->
+//    innerwidth ,可視區域，ie9++識別
+//    function client() {
+//        if(window.innerWidth!=null){
+//            return{
+//                width:window.innerWidth,
+//                height:window.innerHeight
+//            }
+//        }
+//        else if (document.compatMode=="CSS1Compat"){
+//    compat:兼容性的意思
+//    document.compatMode属性
+//    document.compatMode用来判断当前浏览器采用的渲染方式。
+//    BackCompat：标准兼容模式关闭。浏览器宽度:document.body.clientWidth；
+//
+//    CSS1Compat：标准兼容模式开启。 浏览器宽度:document.documentElement.clientWidth。
+//    历史原因:
+//
+//        当早期的浏览器Netscape 4和Explorer 4对css进行解析时，并未遵守W3C标准，这时的解析方式就被我们称之为quirks mode(怪异模式),但随着W3C的标准越来越重要，众多的浏览器开始依照W3C标准解析CSS，仿照W3C标准解析CSS的模式我们叫做strict mode(严格模式)
+    //            return{
+//                width:document.documentElement.clientWidth,
+//                height:document.documentElement.clientHeight
+//            }
+//            return{
+//                width:document.body.clientWidth,
+//                height:document.body.clientHeight
+//            }
+//        }
+//    }
+//
+//    var demo=document.getElementById("demo")
+//    demo.innerHTML=client().width
+//    innerWidth 可視區域
+//    function client() {
+//        if(window.innerWidth!=null){
+//           return{
+////               ie9的浏览器
+//               top:window.innerHeight,
+//               left: window.innerWidth
+//           }
+//        }
+//        else if(document.compatMode=="CSS1Compat"){
+//            return{
+////                标准浏览器
+//                top:document.documentElement.clientHeight,
+//                left:document.documentElement.clientWidth
+//            }
+//        }
+//        return{
+////            怪异浏览器
+//            top:document.body.clientHeight,
+//            left:document.body.clientWidth
+//        }
+//    }
+
+function client() {
+    if(window.innerWidth!=null){
+        return{
+            top:window.innerHeight,
+            left:window.innerWidth
+        }
+    }
+
+    else if(document.compatMode=="CSS1Compat"){
+        return{
+            top:document.documentElement.clientHeight,
+            left:document.documentElement.clientWidth
+        }
+        return{
+            top:document.body.clientHeight,
+            left:document.body.clientWidth
+        }
+    }
+}
+</script>

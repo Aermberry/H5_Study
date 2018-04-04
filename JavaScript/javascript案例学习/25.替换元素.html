@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        <!--替换元素内容-->
+        function replaceContent() {
+//            得到的元素DOM
+            var myDom=document.getElementById("myDom")
+//            使用innerhtml直接替换
+            myDom.innerHTML="<span>一句话</span>&nbsp;<a href=\\\"#\\\">一个链接</a>"
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<p>
+    <input type="button" value="替换内容" onclick="replaceContent()">
+</p>
+<!--定义元素-->
+<p id="myDom">
+    <a href="#">一个链接</a>&nbsp;<span>一句话</span>
+    <!--&nbsp:a none-braking space（不会被打断的空白） 空格的意思-->
+</p>
+</body>
+</html>

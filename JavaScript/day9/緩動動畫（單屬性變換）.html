@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>緩動動畫框架單屬性</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        div{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            background-color: #ff3b2b;
+        }
+
+    </style>
+</head>
+<body>
+
+<button id="btn">開始</button>
+<div class="box" id="box"></div>
+</body>
+</html>
+
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    $("btn").onclick=function () {
+//        alert("11")
+        an(box,"width",5000);
+    }
+
+    function an(obj,arrent,target) {
+//  leader=leader+(target-leader)/10
+        clearInterval(obj.timer);
+        obj.timer=setInterval(function () {
+            var leader=parseInt(getStyle(obj,arrent));
+//            parseInt去掉帶單位的，轉為數據類型
+            var step=(target-leader)/10
+//            計算單步步幅，判斷行走方向
+            step=step>0?Math.ceil(step):Math.floor(step);
+//            取整，避免抖動現象
+            leader=leader+step;
+            obj.style[arrent]=leader+"px"
+            if(target==leader){
+                clearInterval(obj.timer)
+            }
+
+        },30)
+    }
+
+
+
+    function getStyle(obj,arrent) {
+        if (obj.currentStyle){
+//            IE標準
+           return obj.currentStyle[arrent];
+        }
+
+        else {
+
+//            w3c標準
+            return window.getComputedStyle(obj,null)[arrent];
+        }
+    }
+</script>

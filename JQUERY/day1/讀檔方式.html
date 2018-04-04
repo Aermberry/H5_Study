@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+//        $(document).ready(function () {
+//
+//        })
+//
+//        $(function () {
+//            事件源.事件(function () {
+//                事件處理函數
+//            })
+//        })
+//        jQuery的事件觸發器
+        $("#demo").click(function () {
+
+        });
+//        jquery的對象
+        var $demo=$("demo");
+
+//        DEMO對象
+        var demo=document.getElementById("demo");
+        console.log(demo);
+
+//        jQuery對象轉換為DOM對象
+//        方式一
+        $("#demo")[0].onclick=function () {
+            alert("我是從jquery對象轉換來的Dom對象")
+        }
+
+//        方式二
+        $("#demo").get(0).onclick=function () {
+            alert("我是從jqueary對象轉換來的DOM對象")
+        }
+
+//        DOM對象轉換成jquery對象
+        var demo=document.getElementById("demo");
+        $(demo).click(function () {
+            alert("我是從dOM對象轉換過來的")
+        })
+
+//        觸發事件（了解）
+        document
+    </script>
+    <script src="../jquery-1.11.1.js"></script>
+</head>
+<body>
+<input type="button" value="按钮" id="demo"/>
+</body>
+</html>

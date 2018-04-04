@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        img{
+            vertical-align: top;//去除
+        }
+        ul{
+            list-style: none;
+        }
+        .box{
+            width: 490px;
+            height: 170px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        .inner{
+            width: 490px;
+            height: 170px;
+            background-color: pink;
+            position: relative;
+            overflow: hidden;
+        }
+        .inner ul{
+            width: 1000%;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .inner ul li
+        {
+            /*display: inline-block;*/
+            float: left;
+        }
+
+        .square{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .square span{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #cccccc;
+            background-color: #fff;
+            text-align: center;
+            line-height: 16px;
+            margin: 0 3px;
+            cursor: pointer;
+        } 
+        
+        .square span.current
+        {
+            background-color: #ffa41e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="inner">
+        <ul>
+            <li><a href="#"><img src="images/01.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/02.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/03.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/04.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/05.jpg" alt=""></a></li>
+        </ul>
+        <div class="square">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var box=document.getElementById("box");//大盒子
+    var inner=box.children[0];//获得inner
+    var ul=inner.children[0];
+    var spans=inner.children[1].children;//得到了所有的span
+    var scrollWidth = inner.offsetWidth;  // 得到 490
+    //    alert(spans.length);
+    for (var i=0;i<spans.length;i++){
+        spans[i].index=i;
+        spans[i].onmouseover=function () {
+            for (var j=0;j<spans.length;j++)
+            {
+                spans[j].className="";//清除已有的classname的样式
+            }
+            this.className="current";
+            an(ul,-this.index*scrollWidth)
+        }
+    }
+
+    function an(obj,tar) {
+        clearInterval(obj.timer);//这里的清除定时器视为了清除上一轮正在进行的定时器，而再开始新一轮的定时器循环。
+        var speed=obj.offsetLeft<tar?15:-15;//判断当前滑块的移动方向
+        obj.timer=setInterval(function () {
+            var result=tar-obj.offsetLeft//判断当前滑块是否在tar值那里
+            obj.style.left=obj.offsetLeft+speed+"px";//滑块移动
+            if(Math.abs(result)<=15){
+                obj.style.left=tar+"px";
+                clearInterval(obj.timer);//这里的清除定时器是为了告诉滑块到底什么地方就不继续循环了。
+            }
+            console.log(obj.offsetLeft);
+        },10)
+    }
+</script>

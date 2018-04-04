@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+
+  .box{
+      margin: 100px auto;
+      width: 500px;
+      height: 200px;
+      border: 1px solid #cccccc;
+      padding: 5px;
+      background-color: #ffb9c7;
+  }
+
+    .minbox{
+        width: 500px;
+        height: 200px;
+        background-color: #a4ff7c;
+        position: relative;
+        overflow: hidden;
+    }
+
+    img{
+        vertical-align: top;
+    }
+
+    ul{
+        width: 1000%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    ul li{
+        float: left;
+    }
+
+    .spans{
+        /*display: none;*/
+    }
+    span{
+        width: 40px;
+        height: 40px;
+        background-color: #020202;
+        border: 1px solid #cccccc;
+        font-size: 30px;
+        font-family: "黑体";
+        font-weight: bolder;
+        line-height: 40px;
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        opacity: 0.3;
+        color: #ffffff;
+        text-align: center;
+        margin-top: -20px;
+        cursor: pointer;
+    }
+
+    .right{
+        left: auto;
+        right: 5px;
+    }
+
+    ol{
+        position: absolute;
+        bottom: 5px;
+        right: 8px;
+    }
+
+    ol li{
+        text-align: center;
+        margin-left: 10px;
+        float: left;
+        background-color: #ffffff;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #ffb9c7;
+        line-height: 20px;
+        font-family: "黑体";
+        font-weight: bolder;
+        /*border-radius: 50%;*/
+        color: #020202;
+        cursor: pointer;
+        transition: width 0.3s;
+    }
+
+    ol .current{
+        border-color: #ff688c;
+        background-color: #ffa0b9;
+        width: 50px;
+
+
+    }
+
+</style>
+<script>
+window.onload=function () {
+    var box=document.getElementById("box");
+    var minbox=box.children[0];
+    var ul=minbox.children[0];
+    var ol=minbox.children[1];
+    var spans=minbox.children[2];
+    var ullis=ul.children;
+    var ollis=ol.children;
+
+//    克隆节点,追加节点
+//    a.cloneNode(),a为克隆节点，当参数为true时，深度克隆，包括子节点；当参数为false时，只有父节点；
+//    a.appendChild(b),a为被插入的对象，b为插入对象
+//    插入节点a.insertBefore(b,c),a为被插入对象，b为插入对象，c为参照对象，插入到c节点的前面，当缺少c节点的参数时，默认插入到a中的最后位置
+    ul.appendChild(ullis[0].cloneNode(true));
+//    js原生小标题
+    for(var a=0;a<ullis.length-1;a++){//遍历图片，根据图片生成小标题数
+        var li=document.createElement("li");
+        ol.appendChild(li);//追加小标题
+        li.innerHTML=a+1;//插入数字
+    }
+    ollis[0].className="current";
+
+//小标题动画
+    for (var a=0;a<ollis.length;a++){
+        ollis[a].index=a;
+        ollis[a].onclick=function () {
+            for (var a=0;a<ollis.length;a++){
+                ollis[a].className=""
+            }
+            this.className="current";
+            animation(ul,-this.index*minbox.offsetWidth);
+            key=square=this.index;
+        }
+    }
+
+//    自动播放动画
+var  timer=null;
+//    动画定时器
+    var key=0;
+//    图片控制器
+    var square=0;
+//    标题控制器
+    timer=setInterval(autoplay,1000);
+    function autoplay() {
+        key++;
+        if(key>ullis.length-1){
+            ul.style.left=0+"px";
+            key=1;
+        }
+        console.log(key);
+        animation(ul,-key*ullis[0].offsetWidth);
+
+        square++;
+        square=square>ollis.length-1?0:square;
+
+        for (var a=0;a<ollis.length;a++){
+            ollis[a].className=""
+        }
+        ollis[square].className="current";
+    }
+
+    minbox.onmouseover=function () {
+        clearInterval(timer);
+    }
+
+    minbox.onmouseout=function () {
+        timer=setInterval(autoplay,1000)
+    }
+
+//    左右移动
+    var target=0;
+    spans.children[0].onclick=function () {
+        target+=500;
+        if(target>0){
+            target=0
+        }
+        animation(ul,target)
+    }
+
+    spans.children[1].onclick=function () {
+        target-=500;
+        if(target<-(ullis.length-2)*500){
+            target=-(ullis.length-2)*500;
+        }
+        animation(ul,target);
+    }
+
+
+
+//    封装动画animation
+    function animation(obj,tar) {
+        clearInterval(obj.timer)
+        var speed=obj.offsetLeft<tar?15:-15;
+//        三元运算符,判断obj的运动方向和速度
+        obj.timer=setInterval(function () {
+            obj.style.left=obj.offsetLeft+speed+"px";
+            var result=obj.offsetLeft-tar;//判断是否到达tar
+            if(Math.abs(result)<=15){
+                obj.style.left=tar+"px"
+//                消除抖动现象
+                clearInterval(obj.timer);
+            }
+        },10)
+
+    }
+
+
+
+
+
+
+
+}
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="minbox">
+        <ul>
+            <li><a href="#"><img src="imagess/1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/5.jpg" alt=""></a></li>
+        </ul>
+        <ol>
+        </ol>
+        <div class="spans">
+            <span><</span>
+            <span class="right">></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

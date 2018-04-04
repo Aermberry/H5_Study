@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    body {
+        background: #ccc;
+    }
+
+    label {
+        width: 40px;
+        display: inline-block;
+    }
+
+    .container {
+        margin: 100px auto;
+        width: 400px;
+        padding: 50px;
+        line-height: 40px;
+        border: 1px solid #999;
+        background: #efefef;
+    }
+
+    span {
+        margin-left: 30px;
+        font-size: 12px;
+        padding:2px 20px 0;
+        color: #ccc;
+    }
+
+    .wrong {
+
+        color: red;
+        background: url(images/error.png) no-repeat;
+
+    }
+
+    .right {
+        color: green;
+        background: url(images/right.png) no-repeat;
+    }
+
+    .pwd {
+        width: 220px;
+        height: 20px;
+        background: url("images/strong.jpg") no-repeat;
+    }
+    .str1{
+        background-position: 0 -20px;
+    }
+    .str2{
+        background-position: 0 -40px;
+    }
+    .str3{
+        background-position: 0 -60px;
+    }
+    .str4{
+        background-position: 0 -80px;
+    }
+</style>
+<body>
+<div class="container">
+    <label>QQ</label><input type="text" id="inp1"><span>输入正确的QQ号码</span><br>
+    <label>手机</label><input type="text" id="inp2"><span>输入13位手机号码</span><br>
+    <label>邮箱</label><input type="text" id="inp3"><span>输入正确邮箱</span><br>
+    <label>座机</label><input type="text" id="inp4"><span>输入您的座机</span><br>
+    <label>账号</label><input type="text" id="inp5"><span>亲输入您的账号</span><br>
+    <label>密码</label><input type="text" id="inp6"><span>请输入您的密码</span><br>
+    <div id="password" class="pwd"></div>
+</div>
+</body>
+</html>
+<script>
+    <!--獲取id函數-->
+    function $(id) {
+        return document.getElementById(id);
+
+    }
+
+//    chang函數 驗證表單
+    function chang(id,fn) {
+        $(id).onblur=fn;   //fn 函數的意思
+    }
+
+//    設置文字函數
+    function setText(obj,txt) {
+        obj.nextSibling.innerHTML=txt;
+    }
+
+//    設置 類名函數
+    function setClassName(obj,classname) {
+        obj.nextSibling.className=classname;
+    }
+
+//    驗證QQ號碼
+//我們的QQ號碼  從1 開始的  10000
+    chang("inp1",function () {
+        if(/^1[1-9][0-9]{4,}$/.test(this.value)){
+//            alert(11)
+            setText(this,"輸入爭取")
+            setClassName(this,"right")
+        }
+        else{
+            setText(this,"sorry")
+            setClassName(this,"wrong")
+//            alert(12)
+        }
+    })
+</script>

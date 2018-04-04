@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+</html>
+<script>
+    var demo=document.getElementById("demo");
+    var endtime=new  Date("2017/10/1 00:00:00");
+    setInterval(fn,1000);
+    function fn() {
+        var now=new Date();
+        var miao=parseInt((endtime.getTime()-now.getTime())/1000);//秒数
+        var s=miao%60;//将秒数以60秒为一份，取余。
+        var fen=parseInt(miao/60%60)//分钟数
+        var hour=parseInt(miao/3600%24)//时钟数
+        var day=parseInt(miao/3600/24)//天数
+
+        day<10? day="0"+day:day;//三元运算符写法，其实质是if（else），但可读性不如if(else),优势在于代码十分简洁；
+        hour<10? hour="0"+hour:hour;
+        fen<10? fen="0"+fen:fen;
+        s<10? s="0"+s:s;
+
+        demo.innerHTML="剩下的时间："+day+"天"+hour+"小时"+fen+"分"+s+"秒";
+
+    }
+
+</script>

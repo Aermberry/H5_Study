@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background:url("images/chun1.jpg") no-repeat top center;
+        }
+    </style>
+</head>
+<body>
+<select name="" id="dr">
+    <option value="pp">PP</option>
+    <option value="er">ER</option>
+    <option value="fg">FG</option>
+    <option value="gh">GH</option>
+    </select>
+
+</body>
+</html>
+<script>
+    var select=document.getElementById("dr");
+
+    select.onchange=function () {
+        switch(this.value){
+            case "pp":
+                document.body.style.backgroundImage="url(images/chun1.jpg)";
+                break;
+            case "er":
+                document.body.style.backgroundImage="url(images/dong1.jpg)";
+                break;
+            case "fg":
+                document.body.style.backgroundImage="url(images/qiu1.jpg)";
+                break;
+            case "gh":
+                document.body.style.backgroundImage="url(images/xia1.jpg)";
+                break;
+        }
+    }
+
+
+</script>

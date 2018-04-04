@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function showorhide() {
+//            获取元素
+            var mgIMG=document.getElementById("mgIMG");
+//            当前显示的样式
+            var display=mgIMG.style.display;
+            if(display !='none'){    //判断当前的样式
+                mgIMG.style.display='none'//设为隐藏
+            }
+            else {
+                mgIMG.style.display='' //取消隐藏
+            }
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<input type="button" value="隐藏或显示" onclick="showorhide()">
+<br>
+<img id="mgIMG" src="./09.jpg" width="200" height="100" alt="">
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .dgh{
+            background: #cccccc!important;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><span>股票行情</span><span>123.45</span><span>4578</span><span>附件是浪费</span></li>
+    <li><span>股票行情</span><span>123.45</span><span>4578</span><span>附件是浪费</span></li>
+    <li><span>股票行情</span><span>123.45</span><span>4578</span><span>附件是浪费</span></li>
+    <li><span>股票行情</span><span>123.45</span><span>4578</span><span>附件是浪费</span></li>
+    <li><span>股票行情</span><span>123.45</span><span>4578</span><span>附件是浪费</span></li>
+    <li><span>股票行情</span><span>123.45</span><span>4578</span><span>附件是浪费</span></li>
+    <li><span>股票行情</span><span>123.45</span><span>4578</span><span>附件是浪费</span></li>
+    <li><span>股票行情</span><span>123.45</span><span>4578</span><span>附件是浪费</span></li>
+    <li><span>股票行情</span><span>123.45</span><span>4578</span><span>附件是浪费</span></li>
+    <li><span>股票行情</span><span>123.45</span><span>4578</span><span>附件是浪费</span></li>
+</ul>
+
+</body>
+</html>
+<script>
+    var df=document.getElementsByTagName("li");
+    var rd=df.length;
+    for(var a=0;a<rd;a++)
+    {
+        if(a%2!=0){
+            df[a].style.backgroundColor="pink"
+        }
+
+        df[a].onmouseover=function () {
+            this.className="dgh";
+        }
+
+        df[a].onmouseout=function () {
+            this.className="";
+        }
+    }
+</script>

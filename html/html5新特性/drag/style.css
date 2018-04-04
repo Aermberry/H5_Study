@@ -1,0 +1,18 @@
+p {
+	border: 1px solid #c0c0c0
+}
+/*p标签*/
+
+#target {
+	height: 200px;
+	border: 5px dashed #c0c0c0;
+	text-align:center;
+	line-height: 200px;
+	font-size: 50px;
+	color:#c0c0c0;
+}
+
+.over{
+	box-shadow: 0 0 200px #c0c0c0 inset;
+	border-color: #999 !important;
+}

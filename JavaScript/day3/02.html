@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .box{
+            margin: 100px auto;
+            width: 500px;
+            height: 30px;
+        }
+        .re{
+            width: 140px;
+            height: 22px;
+            border: 1px solid #ccc;
+            background: #eee;
+            display: inline-block;
+            font:12px/22px "microsoft yahei";
+            padding-left: 25px;
+            color: #abc;
+        }
+        .wrong{
+            border: 1px solid #00bfff;
+            background: url("images/wrong.png") no-repeat #1dacbe 5px center;
+            color: red;
+        }
+        .right{
+            border: 1px solid #7eff39 ;
+            background:url("images/right.png") no-repeat #f0872e 5px center;
+            color: #3782c5;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <labe for="int">语文：</labe>
+<input type="text" id="int" class="int">
+    <span id="result" class="re">请输入成绩</span>
+</div>
+</body>
+</html>
+<script>
+    function fn(id) {
+       return document.getElementById(id);
+    }
+    function fm() {
+        if(fn("int").value=="")
+        {
+            fn("result").className="re wrong";
+            fn("result").innerHTML="请输入内容...";
+        }
+        else if(isNaN(fn("int").value))
+        {
+            fn("result").className="re wrong";
+            fn("result").innerHTML="请输入合法数字";
+        }
+        else if(fn("int")>150||fn("int")<0)
+        {
+            fn("result").className="re wrong";
+            fn("result").innerHTML="请输入0到100的数字";
+        }
+        else {
+            fn("result").className="re right";
+            fn("result").innerHTML="恭喜输入正确";
+        }
+    }
+    fn("int").focus();
+    fn("int").onblur=function () {
+        fm();
+    }
+</script>

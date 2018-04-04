@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="ipt" value="">
+<button id="btn">查询</button>
+</body>
+</html>
+<script>
+    function fn(a) {
+        return document.getElementById(a);
+    }
+
+    fn("btn").onclick=function () {
+        var val =fn("ipt").value;
+        if (val=="hello word")
+        {
+            alert("hello");
+        }
+        else {
+            alert("gaga");
+        }
+    }
+//    var ipt=document.getElementById("ipt");
+//    var btn=document.getElementById("btn");
+//
+//    function fn() {
+//        if(ipt.value=="hello word")
+//        {
+//            alert("hello");
+//        }
+//        else {
+//            alert("gaga");
+//        }
+//    }
+//
+//    btn.onclick=function () {
+//        fn();
+//    }
+</script>

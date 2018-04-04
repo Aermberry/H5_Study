@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始</button>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    var btn=document.getElementById("btn")
+    var box=document.getElementById("box")
+    btn.onclick=function () {
+        animation(box,{width:50,height:500,left:8000});
+    }
+
+    function animation(obj,jsion) {
+//        leader=leader+(target-leader)/10
+        clearInterval(obj.timer)
+        obj.timer=setInterval(
+            function () {
+                var flag=true;//用來判斷是否停止計時器
+                for (var k in jsion){
+//                    leader=leader+(target-leader)/10
+                    var leader=parseInt(getstyle(obj,k));
+                    var step=(jsion[k]-leader)/10;
+                    step=step>0?Math.ceil(step):Math.floor(step);
+                    leader=leader+step;
+                    obj.style[k]=leader+"px";
+                    if(leader!=jsion[k]){//只要三個屬性有一個沒有到達，我就取反
+                        flag=false;
+                    }
+                }
+                console.log(flag)
+                if(flag){
+                    clearInterval(obj.timer);
+                }
+            },30
+        )
+
+        function getstyle(obj,attr){
+            if (obj.currentStyle){
+                return obj.currentStyle[attr];
+            }
+
+            else {
+                return window.getComputedStyle(obj,null)[attr];
+            }
+        }
+
+    }
+</script>

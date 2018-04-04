@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        font: 20px/100px "微软雅黑 Light";
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="demo">1</div>
+<div>2</div>
+<div>2</div>
+<div class="test">3</div>
+<div>2</div>
+<div class="test">3</div>
+<div>2</div>
+<div>2</div>
+<div>2</div>
+<div>2</div>
+</body>
+</html>
+<script>
+    function getClassName(classname) {   // 形参
+        //  先看看浏览器支不支持
+        if(document.getElementsByClassName) {   // 如果支持这个写法
+            return document.getElementsByClassName(classname);  // 直接返回所有元素
+        }
+        // 下面的语句是ie678 执行
+        // 核心思想   把所有的标签都取过来， 然后一个一个的判断当前元素的类名是不是  classname
+        //是就留下，不是 就走开
+        // alert(11);
+        var arr = [];  //数组用来存储满足条件的 元素
+        var dom = document.getElementsByTagName("*");  // 把所有的标签都取过来 *  所有的
+        // 去过所有的标签之后， 把 每一个标签的类名 （字符串） 转换为数组 ， 只有数组才可以遍历
+        for(var i=0;i<dom.length;i++) {  // 遍历每一个标签
+            // 把每一个标签的类名 转换为数组
+            var arrName = dom[i].className.split(" "); // "demo nav test"   = ["demo","nav","test"];
+            // var arrName = ["demo","nav","test"];  // 用来存储每一个 类名的数组
+            for(var j=0;j<arrName.length;j++) {  // 遍历 arrname
+                if(arrName[j] == classname) { // 判断
+                    arr.push(dom[i]); // 把当前满足条件的元素  给 arr
+                }
+            }
+        }
+        return arr;  // 返回总的数组
+    }
+
+    function $(str) {
+        var s=str.charAt(0);
+        var ss=str.substr(1);
+
+        switch (s){
+            case "#":
+                return document.getElementById(ss);
+                break;
+            case ".":
+                return getClassName(ss);
+                break;
+            default:
+                return document.getElementsByTagName(string);
+        }
+    }
+    $("#demo").style.backgroundColor="red"
+</script>

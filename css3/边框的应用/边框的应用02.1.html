@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+	<style>
+		body {
+			background-color: #9C9C9C;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.box {
+			width: 600px;
+			height: 400px;
+			margin: 80px auto;
+			background-color: #FFFFFF;
+		}
+		
+		.andriod {
+			width: 400px;
+			height: 400px;
+			padding-top: 40px;
+			margin: 0 auto;
+			position: relative;
+/*			background-color: aqua;*/
+		
+		}
+		
+/*		头部*/
+		.head {
+			width: 220px;
+			height: 100px;
+			margin: 0 auto 10px;
+			background-color: #CAF95E;
+			position: relative;
+			border-radius: 100px 100px 0 0;
+			box-shadow: 1px 1px 2px #c0c0c0;
+		}
+		
+		.head::before,
+		.head::after {
+			content: '';
+			position: absolute;
+			background-color: #FFFFFF;
+			width: 30px;
+			height: 30px;
+			border-radius: 50px;
+			top: 40px;
+			box-shadow: 1px 1px 2px #c0c0c0;
+		}
+		
+		.head::before {
+			left: 50px;
+		}
+		
+		.head::after {
+			right: 50px;
+		}
+		.body {
+			width: 220px;
+			height: 180px;
+			margin: 0 auto;
+			border-radius: 0 0 10px 10px;
+			background-color: rgba(202,249,94,1.00);
+			box-shadow: 1px 1px 2px #c0c0c0;
+			position: relative;
+		}
+		
+		.body::before,
+		.body::after {
+			content:'';
+			width: 50px;
+			height: 80px;
+			background-color: rgba(202,249,94,1.00);
+			border-radius: 0 0 25px 25px;
+			position: absolute;
+			bottom: -80px;
+			box-shadow: 1px 1px 2px #c0c0c0;
+			padding-bottom: 0px;
+		}
+		
+		.body::before {
+			left: 40px;
+		}
+		
+		.body::after {
+			right: 40px;
+		}
+		
+		.arms {
+			width: 340px;
+			height: 150px;
+			position: absolute;
+			top: 150px;
+		}
+		
+		.arms::before,
+		.arms::after {
+			content: '';
+			display: block;
+			width: 50px;
+			height: 150px;
+			background-color: rgba(202,249,94,1.00);
+			border-radius: 25px;
+			position: absolute;
+			box-shadow: 1px 1px 2px #c0c0c0;
+		}
+		
+		.arms::before {
+			left:30px;
+		}
+		
+		.arms::after {
+			right:-30px;
+		}
+	</style>
+</head>
+<div class="box">
+	<div class="andriod">
+	<div class="head"></div>
+	<div class="body"></div>
+	<div class="arms"></div>
+	</div>
+	</div>
+<body>
+</body>
+</html>

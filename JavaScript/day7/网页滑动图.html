@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .xiaomi{
+            width: 640px;
+            height: 400px;
+            position: relative;
+            margin: 100px auto;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+        
+        .xiaomi span{
+            width:100%;
+            height: 200px;
+            position: absolute;
+            /*background-color: #27f8ff;*/
+            left: 0px;
+            cursor: pointer;
+        }
+
+        .up{
+            top: 0px;
+        }
+
+        .down{
+            bottom: 0px;
+        }
+
+        .pic{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+
+
+        
+    </style>
+</head>
+<body>
+<div class="xiaomi" id="xiaomi">
+    <img src="image/2013.jpg" alt="" id="pic" class="pic">
+    <span id="up" class="up"></span>
+    <span id="down" class="down"></span>
+</div>
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+//    var pic=document.getElementById("pic");
+    var num=0;//声明变量num定义图片的移动方向和每次移动步数
+    var timer=null//声明变量timeri变量为计时器的容器，初始化为null
+    $("up").onmouseover=function () {
+        clearInterval(timer);//由于触发事件后，定时器便持续启动到图片拉动到底部为止，若二次触发事件便会二次触发定时器
+        timer=setInterval(function () {
+            num-=3;//每次触发事件，向上移动3个步数
+            if(num<-3908){
+                clearInterval(timer);//clearInter(定时器名称)，确保图片能在滑动到底部时停止，不再滑动
+            }
+            else{
+                $("pic").style.top=num+"px";
+            }
+        },30)
+    }
+
+    $("down").onmouseover=function () {
+        clearInterval(timer);//由于触发事件后，定时器便持续启动到图片拉动到底部为止，若二次触发事件便会二次触发定时器
+        timer=setInterval(function () {
+            num++;//每次触发事件，向上移动3个步数
+            if(num>=0){
+                clearInterval(timer);//clearInter(定时器名称)，确保图片能在滑动到底部时停止，不再滑动
+            }
+            else{
+                $("pic").style.top=num+"px";
+            }
+        },30)
+    }
+
+    $("down").parentNode.onmouseout=function () {
+        clearInterval(timer);
+    }
+
+
+</script>

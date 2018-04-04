@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/and.js"></script>
+    <link rel="stylesheet" href="css.css">
+    <script>
+        window.onload=function () {
+            var wrap=document.getElementById("wrap")
+            var slide=wrap.children[0];
+            var lis=slide.children[0].children;
+            var arrow=slide.children[1];
+            var span=arrow.children
+//鼠標進入時顯示
+
+//            json配置單
+            var json=[
+                {
+                    width:400,
+                top:20,
+                left:50,
+                opacity:20,
+                z:2},
+                {
+                width:600,
+                top:70,
+                left:0,
+                opacity:80,
+                z:3
+            },
+                {
+                    width:800,
+                    top:100,
+                    left:200,
+                    opacity:100,
+                    z:4
+                },
+                {
+                    width:600,
+                    top:70,
+                    left:600,
+                    opacity:80,
+                    z:3
+                },
+                { width:400,
+                    top:20,
+                    left:750,
+                    opacity:20,
+                    z:2}]
+
+            var flag=true;//用於節限制，相當於定時器中的清除定時器
+            wrap.onmouseover=function () {
+                animate(arrow,{opacity:100})
+            }
+
+            wrap.onmouseout=function () {
+                animate(arrow,{opacity:0})
+            }
+//            點擊兩個按鍵
+
+            move();
+
+
+            for (var a in span){
+                span[a].onclick=function () {
+                    if(this.className=="prev"){
+//                        alert(11)
+                        if(flag==true){
+                            move(true)
+                            flag=false//限制用戶二次點擊動畫按鈕
+                        }
+
+                    }
+                    else {
+//                        alert(12)
+                        if(flag==true){
+                            move(false)
+                            flag=false
+                        }
+
+                    }
+                }
+            }
+//每次點擊先對json先進行次序輪換，然後再遍歷
+            function move(x) {
+//                move在頁面打開時先調用了一次，此時x為undefined，則不用對json進行重排序
+                if(x!=undefined){
+                    if (true){
+                        json.unshift(json.pop())
+                    }
+                    else {
+                        json.push(json.shift())
+                    }
+                }
+
+//                width:400,
+//                    top:20,
+//                    left:750,
+//                    opacity:20,
+//                    z:2
+//                遍歷json數組
+                for (var a=0;a<lis.length;a++){
+                    animate(lis[a],{
+                        width:json[a].width,
+                        top:json[a].top,
+                        left:json[a].left,
+                        opacity:json[a].opacity,
+                        zIndex:json[a].z
+                    },function () {
+                        flag=true;
+                    })
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <div class="slide" id="slide">
+        <ul>
+            <li><a href="#"><img src="images/slidepic1.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/slidepic2.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/slidepic3.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/slidepic4.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/slidepic5.jpg" alt=""/></a></li>
+        </ul>
+        <div class="arrow" id="arrow">
+            <a href="javascript:;" class="prev"></a>
+            <a href="javascript:;" class="next"></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: #ff5733;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+<button id="btn">開始</button>
+</body>
+</html>
+<script>
+    var btn=document.getElementById("btn");
+    var box=document.getElementById("box");
+
+    btn.onclick=function () {
+//        alert(11);
+        an(box,{
+            width:500,height:8000,left:500
+        })
+    }
+
+    function an(obj,jsion) {
+//        leader=leader+(target-leader)/10
+            clearInterval(obj.timer);
+            obj.timer=setInterval(function () {
+                var flag=true;
+//                判斷定時器什麼時候停止
+                for (var k in jsion){
+                var leader=parseInt(getstyle(obj,k));
+                var step=(jsion[k]-leader)/10;
+                step=step>0?Math.ceil(step):Math.floor(step);
+                leader=leader+step;
+                obj.style[k]=leader+"px";
+             if(leader!=jsion[k]){
+                 flag=false;
+             }
+                }
+
+                if(flag){
+                    clearInterval(obj.timer);
+                }
+//             等齊人才走
+            },30)
+    }
+
+    function getstyle(obj,arr) {
+        if(obj.currentStyle){
+           return obj.currentStyle[arr];
+        }
+        else {
+          return  window.getComputedStyle(obj,null)[arr]
+        }
+    }
+</script>

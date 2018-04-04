@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		background-color: #ECECEC
+	}
+	.music-box {
+		perspective:300px;
+		position:absolute;
+		/*位置移动的默认中心点在左上角*/
+		top: 50%;
+		left:50%;
+		width: 200px;
+		height: 200px;
+		/*padding:50px;*/
+		border:1px solid #F7F7F7;
+		/*background-color:red;*/
+		transform:translate(-50%,-50%);
+		/*transform的默认原点位置在元素体的中心*/
+	}
+
+	.music-box::before,
+	.music-box::after {
+		content: "";
+		width: 100%;
+		/*根据父级元素的实际宽*/
+		height: 100%;
+		/*根据父级元素的实际高*/
+		border:1px solid #B5B3B3;
+		position:absolute;
+		top: 0;
+		left:0;
+		/*position：absoult，脱离标准流，独立浮动，默认成为块状元素*/
+		border-radius: 50%;
+	}
+
+	.music-box::before {
+		
+		transform:rotate(90deg);
+		background:url(../images/musicb.jpg);
+	}
+
+	.music-box::after {
+		transform-origin:center bottom;
+		background:url(../images/musict.jpg);
+		transition:all 1s;
+	}
+
+	.music-box:hover::after{
+		transform:rotateX(180deg);
+		
+	}
+	</style>
+</head>
+<body>
+	<div class="music-box"></div>
+</body>
+</html>

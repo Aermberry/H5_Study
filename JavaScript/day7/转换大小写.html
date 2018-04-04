@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+请输入：<input type="text" id="txt">
+<button id="btn">发布</button>
+<h1 id="h">输入</h1>
+<span id="small">输入</span>
+
+</body>
+</html>
+<script>
+     var pi=3.141592653
+    console.log(pi.toFixed(2));
+     //保留两位小数，后面小数会进行四舍五入。
+    function $(id) {
+        return document.getElementById(id);
+    }
+    $("btn").onclick=function () {
+        $("h").innerHTML=$("txt").value.toUpperCase();//toUpperCase()方法不带参数，默认转换为大写
+        $("small").innerHTML=$("txt").value.toLowerCase();//toLowerCase()方法不带有参数，默认转换为小写。
+    }
+
+</script>

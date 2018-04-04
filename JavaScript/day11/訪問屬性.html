@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div style="top: 30px"></div>
+<!--//行內樣式寫法-->
+</body>
+</html>
+<script>
+    var  div=document.getElementsByTagName("div")[0];
+    console.log(div.style.width);
+//    傳遞參數不方便
+    console.log(div.style["top"]);//top 帶引號 我們可以設置參數
+
+    fn();
+    function fn(attr) {
+        console.style[attr];
+    }
+
+//    更便宜傳遞參數
+</script>

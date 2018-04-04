@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #ff2940;
+            position: absolute;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">开始</button>
+<button id="btn2">再开始</button>
+<div class="box" id="box"></div>
+</body>
+</html>
+<script>
+    var box=document.getElementById("box");
+    var btn1=document.getElementById("btn1");
+    var btn2=document.getElementById("btn2");
+
+    function arn(obj,tar) {
+        var speed=obj.offsetLeft<tar?10:-10;//三元运算符写法，判断当前obj的位置与目标位置的距离进行移动
+        obj.timer=setInterval(     //自定义属性，自定义属性只有是对象类型数据才能具有
+          function () {           //定时器的使用方法setInterval(fn(方法名)/function（）{}/"fun()")
+             var result=obj.offsetLeft-tar//检测当前位置与目的的距离，决定定时器的关闭时间
+              obj.style.left=obj.offsetLeft+speed+"px";
+              if(Math.abs(result)<=10){//
+                  clearInterval(obj.timer)//
+                  obj.style.left=tar+"px";
+              }
+              console.log(obj.offsetLeft)
+          }
+        ),30}
+    btn1.onclick=function () {
+        arn(box,400);
+    }
+
+    btn2.onclick=function () {
+        arn(box,600);
+    }
+</script>

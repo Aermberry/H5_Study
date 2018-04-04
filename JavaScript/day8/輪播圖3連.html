@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        .box{
+            width: 500px;
+            height: 200px;
+            border: 1px solid #cccccc;
+            margin: 100px auto;
+            background-color: #ff8f2f;
+            padding: 5px;
+        }
+
+        .minbox{
+            width: 500px;
+            height: 200px;
+            background-color: #ffed59;
+            position: relative;
+            overflow: hidden;
+        }
+
+        img{
+            vertical-align: top;
+        }
+
+        ul{
+            width: 1000%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        ul li{
+            float: left;
+        }
+
+        .spans{
+            display: none;
+        }
+
+        span{
+            width: 60px;
+            height: 60px;
+            font-size: 60px;
+            font-weight: bolder;
+            font-family: "黑体";
+            border: 1px solid #cccccc;
+            background-color: #020202;
+            opacity: 0.3;
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            color: #cccccc;
+            text-align: center;
+            line-height: 60px;
+            margin-top: -30px;
+        }
+
+        .right{
+            left: auto;
+            right: 5px;
+        }
+
+        .minbox ol{
+            position:absolute;
+            right:10px;
+            bottom:10px;
+            line-height:20px;
+            text-align:center;
+        }
+
+        .minbox ol li{
+           float: left;
+           width:20px;
+           height:20px;
+           background:#fff;
+           border:1px solid #ccc;
+           margin-left:10px;
+           cursor:pointer;
+       }
+
+        .current{
+            border-color:#8dffee!important;
+            background-color: #ffe237!important;
+            color: #000000!important;
+            }
+
+        /*替换样式时要注意权重问题：标签为1，class为10 ，ID为100，行内为1000，!important能将权限提高到无穷大
+        !important的用法是在样式的后面添加*/
+
+    </style>
+
+    <script>
+        window.onload=function () {
+            var box=document.getElementById("box");
+            var minbox=box.children[0];
+            var ul=minbox.children[0];
+            var lis=ul.children;
+            var spans=minbox.children[2];
+            ul.appendChild(lis[0].cloneNode(true));
+//            a.appendChild(b),追加节点，ul为啊，b为lis[0],在a中追加节点b，默认添加到最后。
+//            a.cloneNode(),值为true或fals,a为克隆对象，当为true时，对对象进行深度克隆，包括其子节点，false时，对对象进行浅度克隆，只克隆父节点。
+//      a.insertBefore(b,c),插入节点，a为被插入对象，b为插入对象，c为出入对像的邻近对象，若没有c，默认插入到a中的最后面。
+//            console.log(spans)
+//创建小标题
+            var ol=minbox.children[1];
+            for (var a=0;a<lis.length-1;a++){
+                //            遍历图片数，根据图片的数量，对小标题数进行创建
+                var li=document.createElement("li");
+//                a.createElement() 创建标签元素，注意标签要加""
+                li.innerHTML=a+1;
+//在li中插入数字，innerHTML,能对标签元素的文本你内容进行插入和获取
+                ol.appendChild(li);
+                var ol=minbox.children[1];
+                var olli=ol.children;
+                olli[0].className="current";
+            }
+
+// 小标题动画
+            for(var a=0;a<olli.length;a++){
+                olli[a].index=a;//自定义属性，赋予小标题序列号
+                olli[a].onclick=function () {
+                    for(var b=0;b<olli.length;b++){
+                        olli[b].className="";
+//清除当前的所有样式
+                    }
+                    this.className="current";
+//                    this,指定当前指定的小标题，并赋予样式"current"
+                    animation(ul,-this.index*minbox.offsetWidth);
+//                    alert(minbox.offsetWidth);
+//                    console.log(minbox.offsetWidth)
+//a.offsetWidth 用于测定盒子的真实宽度=width+padding+border
+                    key=square=this.index;
+                }
+            }
+
+//            自动播放动画
+
+            var time=null;
+            var key=0;//用于控制图片播放器
+            var square=0;//用于控制小标题
+
+            time=setInterval(autoplay,1000)
+
+            function autoplay() {
+                key++;
+                if(key>lis.length-1){
+                    ul.style.left=0+"px"
+                    key=1;
+                }
+                animation(ul,-key*lis[0].offsetWidth)
+
+//                小方块标题
+                square++;
+                console.log(square)
+                square=square>olli.length-1?0:square;
+                for(var a=0;a<olli.length;a++){
+                    olli[a].className="";
+                }
+                olli[square].className="current";
+            }
+
+//            鼠标经过和停止定时器
+            box.onmouseover=function () {
+                clearInterval(time);
+            }
+
+            box.onmouseout=function () {
+                time=setInterval(autoplay,1000)
+            }
+
+//            图片滑动动画封装
+            function animation(obj,tar) {
+                    clearInterval(obj.timer);
+                    var speed=ul.offsetLeft<tar?15:-15;
+                    obj.timer=setInterval(
+                        function () {
+                            obj.style.left=obj.offsetLeft+speed+"px";
+                            var result=obj.offsetLeft-tar;
+                            if(Math.abs(result)<=15){
+                                obj.style.left=tar+"px";
+                                clearInterval(obj.timer);
+                            }
+                        }
+                        ,10)
+            }
+
+
+            minbox.onmouseover=function () {
+                spans.style.display="block"
+            }
+
+            minbox.onmouseout=function () {
+                spans.style.display="none"
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="minbox">
+        <ul>
+            <li><a href="#"><img src="imagess/1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/5.jpg" alt=""></a></li>
+        </ul>
+        <ol></ol>
+        <div class="spans">
+            <span><</span>
+            <span class="right">></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box{
+            width: 600px;
+            height: 200px;
+            border: 1px solid #cccccc;
+            background-color: #ff8a54;
+            padding: 5px;
+            margin: 100px auto;
+        }
+
+        .minbox{
+            width: 600px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        img{
+            vertical-align: top;
+        }
+
+        ul{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 1000%;
+        }
+
+        ul li{
+            float: left;
+        }
+    </style>
+
+    <script>
+        window.onload=function () {
+            var box=document.getElementById("box");
+            var minbox=box.children[0];
+            var ul=minbox.children[0];
+            var ullis=ul.children;
+            var timer=null;
+            var key=0;
+
+            ul.appendChild(ullis[0].cloneNode(true));
+            ul.appendChild(ullis[1].cloneNode(true));
+            timer=setInterval(auto,20);
+            function auto() {
+                key--;
+           key=key<=-1200?0:key;
+           ul.style.left=key+"px";
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="minbox">
+        <ul>
+            <li><a href="#"><img src="imagess/01.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/02.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/03.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/04.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/05.jpg" alt=""></a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function deleteChilds() {
+//            获取父节点
+            var ul=document.getElementsByTagName("ul")[0]
+            if(ul.hasChildNodes()){
+                var arr=[]   //定义新数组，为储蓄器
+                var len=ul.childNodes.length
+//            遍历数组
+                for(var i=0;i<len;i++){
+//                将当前的子节点存储在新的数组里
+                    arr[i]=ul.childNodes[0];
+//                清除ul上的当前子节点
+                    ul.removeChild(ul.childNodes[0]);
+                }
+//            倒叙遍历
+                for(var i=len-1;i>=0;i--){
+                    ul.appendChild(arr[i]);
+                }
+            }
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<ul>
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+    <li>item4</li>
+</ul>
+<br>
+<input type="button" onclick="deleteChilds()" value="倒排序子元素">
+</body>
+</html>

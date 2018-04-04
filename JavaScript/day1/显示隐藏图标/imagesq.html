@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Images</title>
+    <style>
+        /*#btn{*/
+            /*width: 50px;*/
+            /*height: 30px;*/
+
+        /*}*/
+        /*#a1{*/
+            /*margin: 0px auto;*/
+            /*background: #00bfff;*/
+            /*width: 500px;*/
+            /*height: 500px;*/
+            /*display: none;*/
+        /*}*/
+        /*#a3{*/
+            /*text-align: center;*/
+            /*height: 200px;*/
+            /*width: 200px;*/
+            /*margin: 0 auto;*/
+            /*background: #000;*/
+        /*}*/
+        .gui{
+            height: 50px;
+            background: rgba(255,255,255,0.3);
+            text-align: center;
+        }
+        .gui a1{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<!--<button id="btn"></button>-->
+<!--<div id="a1"></div>-->
+<!--<div id="a3">-->
+    <!--<img src="images/jd1.png" alt="" id="a2">-->
+<!--</div>-->
+<div class="gui">
+    <img src="images/jd1.png" alt="" id="a1">
+</div>
+</body>
+</html>
+<script>
+//    var btn=document.getElementById("btn");
+//    var a1=document.getElementById("a1");
+//    var a2=document.getElementById("a2");
+//    btn.onmouseover=function () {
+//        a1.style.display="block";
+//    }
+//    btn.onmouseout=function () {
+//        a1.style.display="none";
+//    }
+//    a2.onmouseover=function () {
+//        a2.src="images/jd2.png";
+//    }
+//    a2.onmouseout=function () {
+//        a2.src="images/jd1.png";
+//    }
+    var a1=document.getElementById("a1");
+    a1.onmouseover=function () {
+      a1.src="images/jd2.png";
+    }
+    a1.onmouseout=function () {
+        a1.src="images/jd1.png";
+    }
+</script>

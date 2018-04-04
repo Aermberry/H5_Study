@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始</button>
+<div id="box"></div>
+</body>
+</html>
+<script>
+    var btn=document.getElementById("btn")
+    var box=document.getElementById("box")
+    btn.onclick=function () {
+        animation(box,{width:50,height:500,left:800,opacity:30,zIndex:4});
+    }
+    function animation(obj,jsion,fn) {
+//        leader=leader+(target-leader)/10
+        clearInterval(obj.timer)
+        obj.timer=setInterval(
+            function () {
+                var flag=true;//用來判斷是否停止計時器
+                for (var k in jsion){
+//                    leader=leader+(target-leader)/10
+                    var leader=0;
+//                    leader賦值部分
+                    if (k=="opacity"){
+                        leader=Math.round(getstyle(obj,k)*100)||100 ;
+//                        如果沒有opacity 默認當1看 1*100=100
+//                        取過來的值是小數，但是小數不利於計算機計算，所以乘以100 得30 來計算
+                    }
+                    else {
+                        leader=parseInt(getstyle(obj,k))||0;
+//他本身有單位 ，所以要去掉，默認的默認是0
+                    }
+
+                    var step=(jsion[k]-leader)/10;
+                    step=step>0?Math.ceil(step):Math.floor(step);
+                    leader=leader+step;
+                    if(k=="opacity"){
+//                        記住我們的透明是不加單位的，不加px
+                        obj.style.opacity=leader/100;
+//                        opacity:0.4;
+//                        filter:alpha(opacity=40);
+                        obj.style.filter="alpha(opacity="+leader+")";
+                    }
+                    else {
+                        obj.style[k]=leader+"px";//其他的要單位
+                    }
+                    if(leader!=jsion[k]){//只要三個屬性有一個沒有到達，我就取反
+                        flag=false;
+                    }
+                }
+                console.log(flag)
+                if(flag){
+                    clearInterval(obj.timer);
+                    if(fn){
+                        fn();
+                    }
+                }
+            },30
+        )
+
+        function getstyle(obj,attr){
+            if (obj.currentStyle){
+                return obj.currentStyle[attr];
+            }
+
+            else {
+                return window.getComputedStyle(obj,null)[attr];
+            }
+        }
+
+    }
+</script>

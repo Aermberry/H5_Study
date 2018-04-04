@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+    </style>
+
+    <script>
+        window.onload=function () {
+            function scroll() {//定scrolls函數
+                if(window.pageYOffset!=null){
+//                    判斷條件滾動頭部是否不為空
+//                    是不要為空的話
+//                    因為window.pageYOffsetmorenmo
+                    return{
+                        top:window.pageYOffset,
+                        left:window.pageXOffset
+                    }
+                }
+
+                else if(document.compatMode==="CSS1Compat"){
+//                    compatMode用於檢測；瀏覽器頁面有沒有聲明DTD，DTD的聲明與否決定了瀏覽器的渲染模式，所以表現在瀏覽器的兼容性問題上
+                    return{
+                        left:document.documentElement.scrollLeft,
+                        top:document.documentElement.scrollTop
+                    }
+                }
+
+                return{
+                    top:document.body.scrollTop,
+                    left:document.body.scrollLeft
+                }
+//                return的josion寫法將內容，將屬性寫到return里
+            }
+            window.onscroll=function () {
+//                window.onscroll用於檢測滾動事件
+                document.title=scroll().top
+//                docment.title 標題顯示
+//                scroll().top
+//                jsoin的用法，直接調用top屬性
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

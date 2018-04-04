@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        <!--获取DOM的文字内容-->
+        function getDomText() {
+//            获取链接的Dom
+            var myLink=document.getElementById("myLink");
+//            获取span的dom
+            var mySpan=document.getElementById("mySpan");
+            var str='';
+            str +=myLink.innerHTML;
+            str +=mySpan.innerHTML;
+            alert("两个DOM的内容是："+str);
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<p>
+    <!--定义有id属性的元素-->
+    <a  id="mgLink" href="#">链接</a>
+    <span id="mySpan">文字</span>
+    <br>
+    <input type="button" value="获取" onclick="getDomText();">
+</p>
+</body>
+</html>

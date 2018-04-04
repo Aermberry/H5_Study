@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>color2</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+
+        }
+    </style>
+</head>
+<body>
+<div>123</div>
+<div>123</div>
+<div>123</div>
+<div>123</div>
+<div>123</div>
+</body>
+</html>
+<script>
+    var rg=["pink","green","yellow","gray","blue"]
+    var em=document.getElementsByTagName("div");
+    var le=em.length;
+    for(var a=0;a<le;a++)
+    {
+        em[a].style.backgroundColor=rg[a];
+
+    }
+</script>

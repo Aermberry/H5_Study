@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//    var regexp=new RegExp(/\d/);//\d表示數字
+//    console.log(regexp.test("addc"));
+//    console.log(regexp.test("123456"))
+//
+//    var regexp1=/\d/;
+//    console.log(regexp1.test("你好嗎"))
+//    console.log(regexp1.test(123456))
+//    console.log(/\d/.test(1355))
+
+
+    var regexp=new RegExp(/\d/); ///\d/ 表示數字
+    console.log(regexp.test("123456"))
+    var regecd=/\d/;
+    console.log(regecd.test("sdffff"))
+    console.log(/\d/.test("1232525"))
+
+//    預定義類字符
+///\D/---剛好與數字類取反
+    console.log(/\d/.test(123456));
+    console.log(/\D/.test("*（"));
+//    簡單類
+//    console.log()
+//1.test()內的內容必須具有與//內相同的內容
+//    console.log(/string/.test("string"))
+//    console.log(/string/.test("string122"))
+//    console.log(/string/.test("ddstring122"))
+//2.test()內的內容必須具有與//內的任意一個或以上的 字母
+    console.log(/[string]/.test("t1s8r"))
+//範圍類
+//    [^]括號內“^”代表取反
+//    [a-z],"-"代表取a到z的任意值
+//    組合類
+//    [a-zA-Z0-9],代表組合取值範圍
+</script>

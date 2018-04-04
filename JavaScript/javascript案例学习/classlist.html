@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="a1 a2">1222</div>
+</body>
+<script>
+var div=document.querySelector('div.a1')
+    div.classList.add('class3','class6')
+div.classList.remove('a2')
+//toggle.判断是否存在class4，不存在就添加，存在就删除
+div.classList.toggle('class4')
+//toggle,添加参数时，false为默认删除；true 为默认添加
+div.classList.toggle('class6',false)
+//contain,判断是否存在类名，返回true,存在
+var sd=div.classList.contains('class1')
+    console.log(div.classList)
+    console.log(sd)
+    console.log(div.classList.item(1))
+var i=div.classList
+    console.log(div.classList.toggle('a1',i<10))
+</script>
+</html>

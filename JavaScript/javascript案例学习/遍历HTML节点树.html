@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function getDomtree() {
+            alert(text(document.body));
+        }
+        function text(elem) {
+            var t="";
+//            获取该节点的所有节点
+            var elemelem=elem.childNodes;
+
+//            遍历所有节点
+            for (var i=0;i<elemelem.length;i++){
+//                当前节点
+                var e=elemelem[i];
+//                文本、注释节点不被遍历，并判断其是否为直接父节点
+                if(e.parentNode==elem&&e.nodeType==1){
+                    t +=e.tagName +'';
+//                    循环子节点
+                    if(e.childNodes.length>0){
+//                        如果子节点只有一个文本子节点，则跳过
+                        if(e.childNodes.length==1){
+                            var fe=e.childNodes[0];
+                            if(fe.nodeType==3)//是否为文本子节点
+                            continue;
+                            t +='\n\t';
+                            t +=text(e);
+                        }
+                    }
+                }
+            }
+            return t;
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<p>
+    <a id="myLink" href="#">链接</a>
+    <br>
+    <input type="button" value="遍历文档树" onclick="getDomtree()">
+</p>
+
+</body>
+</html>

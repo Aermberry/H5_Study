@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin-bottom: 5px;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div id="hd">
+    <button class="btn01">全选</button>
+    <button class="btn02">取消</button>
+    <button class="btn03">反选</button>
+</div>
+<div id="bd">
+    <ul>
+        <li>选项<input type="checkbox"></li>
+        <li>选项<input type="checkbox"></li>
+        <li>选项<input type="checkbox"></li>
+        <li>选项<input type="checkbox"></li>
+        <li>选项<input type="checkbox"></li>
+        <li>选项<input type="checkbox"></li>
+        <li>选项<input type="checkbox"></li>
+        <li>选项<input type="checkbox"></li>
+        <li>选项<input type="checkbox"></li>
+        <li>选项<input type="checkbox"></li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+//    var btns=document.getElementsByTagName("button");
+//    var inputs=document.getElementsByTagName("input");
+//
+//    btns[0].onclick=function () {
+//        for(var a=0;a<inputs.length;a++){
+//            inputs[a].checked=true;
+//        }
+//
+//
+//        btns[1].onclick=function () {
+//            for(var a=0;a<inputs.length;a++)
+//            {
+//                if(inputs[a].checked==true)
+//                {
+//                    inputs[a].checked=false;
+//                }
+//            }
+//        }
+//
+//        btns[2].onclick=function () {
+//            for(var a=0;a<inputs.length;a++)
+//            {
+//                if(inputs[a].checked==true)
+//                {
+//                    inputs[a].checked=false
+//                }
+//                else {
+//                    inputs[a].checked=true
+//                }
+//            }
+//        }
+//    }
+
+
+
+//    写法优化
+    var btn=document.getElementsByTagName("button");
+    var inputs=document.getElementsByTagName("input");
+
+    function checked(a) {
+        for (var b=0;b<inputs.length;b++)
+        {
+            inputs[b].checked=a;
+        }
+    }
+
+    btn[0].onclick=function () {
+        checked(true);
+    }
+    btn[1].onclick=function () {
+        checked(false);
+    }
+    btn[2].onclick=function () {
+        for (var c=0;c<inputs.length;c++){
+            inputs[c].checked==true?inputs[c].checked=false:inputs[c].checked=true;
+        }
+    }
+</script>

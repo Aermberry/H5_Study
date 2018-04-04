@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+</html>
+<script>
+    var demo=document.getElementById("demo");
+    var num=5;
+    index();
+    function index() {
+        demo.innerHTML="<a href='http://www.itcast.cn'>本页面将在"+num+"秒钟后跳转</a>";
+        num--;
+        if(num>=0){
+            setTimeout(index,1000)//利用setTimeout（）,进行定时器递归
+        }
+        else {
+            window.location.href="http://www.itcast.cn";//js自动跳转网页
+        }
+    }
+</script>

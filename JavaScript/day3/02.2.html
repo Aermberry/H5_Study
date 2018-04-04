@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 300px;
+            margin: 100px auto;
+        }
+        .ap{
+            width: 100px;
+            height: 20px;
+            /*background: #000;*/
+            display:inline-block;
+            font: 10px/20px "microsoft yahei";
+            border: 1px solid #cccccc;
+            padding-left: 20px;
+            color: black;
+        }
+        .wrong{
+            border: 1px solid #cccccc;
+            background: url("images/wrong.png") no-repeat #ff8c87 3px center;
+            color: #7eff39;
+        }
+
+        .right{
+            border: 1px solid #cccccc;
+            background: url("images/right.png") no-repeat #8eb3b2 3px center;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <label >语文成绩：</label>
+    <input type="text" id="text" class="text">
+    <span id="ap" class="ap">请输入内容...</span>
+</div>
+</body>
+</html>
+<script>
+    function fn(id) {
+        return document.getElementById(id);
+    }
+    function re() {
+        if (fn("text").value=="")
+        {
+            fn("ap").className="ap wrong"
+            fn("ap").innerHTML="请输入内容..."
+        }
+        else if(isNaN(fn("text").value))
+        {
+            fn("ap").className="ap wrong"
+            fn("ap").innerHTML="请输入数字..."
+        }
+        else if(fn("text")>150||fn("text")<0)
+        {
+            fn("ap").className="ap wrong"
+            fn("ap").innerHTML="请输入0-100的数字"
+        }
+        else{
+            fn("ap").className="ap right"
+            fn("ap").innerHTML="输入正确"
+        }
+    }
+    fn("text").focus();
+    fn("text").onblur=function () {
+        re();
+    }
+</script>

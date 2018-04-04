@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .clock{
+            width: 600px;
+            height: 600px;
+            margin: 100px auto;
+            background: url("images/clock.jpg") no-repeat;
+            position: relative;
+        }
+
+        .clock div{
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background:url("images/hour.png") no-repeat center center;
+
+        }
+        
+        #m{
+            background-image: url("images/minute.png");
+
+        }
+        
+        #s{
+            background-image: url("images/second.png");
+
+        }
+        
+    </style>
+</head>
+<body>
+<div class="clock">
+    <div id="h"></div>
+    <div id="m"></div>
+    <div id="s"></div>
+</div>
+</body>
+</html>
+<script>
+    var hh=document.getElementById("h");
+    var mm=document.getElementById("m");
+    var ss=document.getElementById("s");
+
+    setInterval(clock,1000);
+    function clock() {
+        var ms=new Date();
+        var mss=ms.getMilliseconds()/1000;//获取当前秒数
+        console.log(mss);
+        var s=ms.getSeconds()+mss;
+        console.log(s);
+        var m=ms.getMinutes()+s/60;
+        console.log(m);
+        var h=ms.getHours()%12+m/60;
+        console.log(h);
+
+        ss.style.WebkitTransform="rotate("+s*6+"deg)";
+        mm.style.WebkitTransform="rotate("+m*6+"deg)";
+        hh.style.WebkitTransform="rotate("+h*30+"deg)";
+    }
+
+
+
+</script>

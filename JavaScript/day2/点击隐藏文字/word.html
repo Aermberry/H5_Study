@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>word</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            border: 0px;
+            outline: none;
+        }
+
+        .btn ,.text{
+        float: left;
+        }
+
+        .box{
+            width: 258px;
+            height: 40px;
+            background: #ff89f2;
+            margin: 50px auto;
+        }
+
+        input{
+            background: url("images/left.jpg") no-repeat;
+            width: 210px;
+            height: 40px;
+            padding-left: 6px;
+            color: #ccc;
+        }
+
+        button{
+            background: url("images/right.jpg") no-repeat;
+            width: 42px;
+            height: 40px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box" class="box">
+    <input type="text" id="text" class="text" value="请输入...">
+    <button id="btn" class="btn" ></button>
+</div>
+</body>
+</html>
+<script>
+    var text=document.getElementById("text");
+    function fn(a) {
+        return document.getElementById(a);
+    }
+
+    function search() {
+        if (fn("text").value=="hello word")
+        {
+            alert("hello word");
+        }
+        else{
+            alert("nice to meet you!!!")
+        }
+    }
+    
+text.onfocus=function () {
+    if (text.value=="请输入...")
+    {
+        text.value="";
+        text.style.color="#333";
+    }
+    else {
+//        text.onblur=function () {
+//            alert("ddd")
+//        }
+    }
+}
+    fn("btn").onclick=function () {
+        search();
+    }
+</script>

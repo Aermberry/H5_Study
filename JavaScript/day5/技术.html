@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--<script>-->
+    <!--window.onload=function () {-->
+        <!--var  ch01=document.getElementById("ch01");-->
+        <!--var  ch02=document.getElementById("ch02");-->
+        <!--var fa=document.getElementById("fa");-->
+        <!--var ch01=fa.firstElementChild||fa.firstChild;-->
+        <!--ch01.style.backgroundColor="red"-->
+        <!--var ch05=fa.lastElementChild||fa.lastChild;-->
+        <!--ch05.style.backgroundColor="green";-->
+        <!--ch01.onclick=function () {-->
+            <!--ch01.parentNode.style.display="none"-->
+        <!--}-->
+        <!--var ff=document.createElement("div")-->
+        <!--ff.innerHTML="hahahah"-->
+        <!--ff.style.backgroundColor="purple"-->
+<!--//        fa.appendChild(ff);-->
+        <!--fa.insertBefore(ff,ch02)-->
+
+    <!--}-->
+<!--</script>-->
+<body>
+<div id="fa">
+    <div id="ch01">1</div>
+    <div id="ch02">2</div>
+    <div id="ch03">3</div>
+    <div>4</div>
+    <div id="ch05">5</div>
+    <button id="btn">dffff</button>
+</div>
+</body>
+</html>
+<script>
+    var btn=document.getElementById("btn")
+    var dd=[];
+    var fa=document.getElementById("fa")
+    var ch02=document.getElementById("ch02")
+    var ch03=document.getElementById("ch03")
+    var ch05=document.getElementById("ch05")
+    var ch=fa.childNodes
+//    alert(ch.length);
+    for (var a=0;a<ch.length;a++)
+    {
+        if(ch[a].nodeType==1){
+            dd.push(ch[a]);
+        }
+    }
+//
+//    alert(dd.length);
+//
+//    alert(fa.children.length)
+
+   var ch01=fa.firstElementChild||fa.firstChild
+    ch01.style.backgroundColor="red"
+    var la=fa.lastElementChild||fa.lastChild
+    la.style.backgroundColor="blue"
+
+
+    var gg=document.createElement("div");
+    fa.appendChild(gg);
+    gg.innerHTML="ddddddd"
+    gg.style.backgroundColor="green"
+
+    var ss=document.createElement("div")
+    fa.insertBefore(ss,ch01);
+    ss.innerHTML="fdfdf";
+    ss.style.backgroundColor="pink"
+    var dd=ch02.nextElementSibling||ch02.nextSibling
+    dd.style.backgroundColor="purple"
+
+    var sc=ch05.previousElementSibling||ch05.previousSibling;
+    sc.style.backgroundColor="gray"
+
+    btn.onclick=function () {
+        var kk=document.createElement("li")
+        fa.appendChild(kk);
+        kk.style.backgroundColor="yellow"
+    }
+
+
+
+</script>

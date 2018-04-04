@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>緩動框架寫法</title>
+    <style>
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: #ffc339;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+
+        }
+    </style>
+</head>
+<body>
+<button id="btn">開始</button>
+<div class="box" id="box"></div>
+</body>
+</html>
+<script>
+    var btn=document.getElementById("btn");
+    var box=document.getElementById("box");
+
+    btn.onclick=function () {
+        ab(box,"height",5000);
+    }
+
+    function ab(obj,arrent,target) {
+//        leader=leader+(target-leader)/10;
+        clearInterval(obj.timer);
+        obj.timer=setInterval(function () {
+            var leader=parseInt(getStyle(obj,arrent))
+//            getStyle返回的數值帶單位“px"是字符不能用於直接計算
+//            parseint去掉單位，獲得數值數據類型
+            var step=(target-leader)/10
+//            計算單步的步幅
+           step=step>0?Math.ceil(step):Math.floor(step);
+            leader=leader+step;
+            obj.style[arrent]=leader+"px"
+            if (leader==target){
+                clearInterval(obj.timer);
+            }
+        },30)
+    }
+
+
+
+function getStyle(obj,arrent) {
+    if(obj.currentStyle){
+      return  obj.currentStyle[arrent];
+//        IE的寫法
+    }
+    else {
+//        w3c的寫法
+     return   window.getComputedStyle(obj,null)[arrent]
+    }
+}
+</script>

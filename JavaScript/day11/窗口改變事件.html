@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    </style>
+
+</head>
+<body>
+</body>
+</html>
+<script>
+    window.onload=function () {
+        function client() {
+//               兼容式寫法
+//                ie的寫法
+            if(window.innerWidth!=null){
+                return{
+                    height:window.innerHeight,
+                    weight:window.innerWidth
+                }
+            }
+//                標準瀏覽器的寫法
+            else if(document.compatMode=="CSS1Compat"){
+                return{
+                    height:document.documentElement.clientHeight,
+                    weight:document.documentElement.clientWidth
+                }
+            }
+
+            else {
+                return{
+                    height:document.body.clientHeight,
+                    weight:document.body.clientWidth
+                }
+            }
+        }
+
+        changcolor();
+        function changcolor() {
+            if(client().weight>960){
+                document.body.style.backgroundColor="red"
+            }
+            else if(client().weight>500){
+                document.body.style.backgroundColor="yellow"
+            }
+
+            else {
+                document.body.style.backgroundColor="pink"
+            }
+        }
+        window.onresize=changcolor;
+    }
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="box" style="position: absolute;left: 100px;"></div>
+</body>
+</html>
+<script>
+    var box=document.getElementById("box");
+    console.log(box.offsetLeft);
+    console.log(box.style.left);
+</script>
+<!--
+offsetleft 与style.left的区别，本质上两者返回的数据类型不同：
+offsetleft return（数据类型）
+style.left return（字符串），因此可以带有单位
+由于数据类型的不同，对其数据处理的方式不同的额，string不能直接进行数字上的加减处理，必须对其intparent(),取整处理去掉单位，在JavaScript中数据类型字符串的数字 string "数字"和数据类型 num 数字是等价的，都默认为数字
+从作用上看，offsetleft 是一把尺子，对子级元素到块级元素之间的距离进行测量（父级元素必须时带有position）;
+style.left是对元素块自身进行一定的移动处理；
+-->

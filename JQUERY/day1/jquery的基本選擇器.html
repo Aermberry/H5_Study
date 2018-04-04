@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #j_liItem {
+            background: #000;
+        }
+        .liItem {
+            background: pink;
+            /*font-size: 30px;*/
+        }
+        #j_btnSetCss, #j_liItem {
+
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        //文檔加載優先
+        $(function () {
+//            獲取id為j_liTtem的元素
+//            id選擇器
+//            #id
+//           選擇id為指定值的元素
+            $("#j_liItem").click(function () {
+                alert("我是通過id選擇器選擇出來的")
+            });
+
+//            類選擇器
+//            .className
+            $(".liItem").click(function () {
+                alert("我是類選擇器")
+            })
+//            標籤選擇器
+            $("li").css("background","red");
+            $("li").css("margin-bottom","10px");
+            $("li").css({
+                "background-color": "pink",
+                "margin-bottom": "10px"
+                "height":"10px"
+            })
+//          *  通配符選擇器
+            $("*").css("color","blue");
+
+//            ,并集選擇器
+//            選擇li和input
+            $("li.red").css("font-size","30px");
+
+//            交集選擇器
+//            選擇li具有red類的li
+            $("li.red").css("font-size","50px");
+        })
+    </script>
+</head>
+<body>
+<ul>
+    <li>我是内容1</li>
+    <li class="liItem red">我是内容2</li>
+    <li>我是内容3</li>
+    <li id="j_liItem">我是内容4</li>
+    <li>我是内容5</li>
+    <li class="liItem">我是内容6</li>
+    <li>我是内容7</li>
+    <li class="liItem">我是内容8</li>
+</ul>
+
+<input type="button" value="设置样式" id="j_btnSetCss"/>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+</body>
+</html>

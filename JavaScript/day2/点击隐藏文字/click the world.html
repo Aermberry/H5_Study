@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>click the word</title>
+    <style>
+        *{
+            border: 0px;
+            margin: 0px;
+            padding: 0px;
+            outline: none;
+        }
+        .box{
+            width: 258px;
+            height: 40px;
+            margin: 100px auto;
+            background: #000;
+        }
+
+        .ipt{
+            background: url("images/left.jpg") no-repeat;
+            width: 210px;
+            height: 40px;
+            padding-left: 6px;
+            color: #ccc;
+        }
+
+        .btn{
+            background: url("images/right.jpg") no-repeat;
+            width: 42px;
+            height: 40px;
+        }
+
+        .btn,.ipt{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="box">
+    <input type="text" class="ipt" id="ipt" value="请输入...">
+    <button class="btn" id="btn"></button>
+</div>
+</body>
+</html>
+<script>
+    function fn(id) {
+        return document.getElementById(id);
+    }//自动获取id号
+
+    function click() {
+        if (fn("ipt").value=="hello world")
+        {
+            alert("hello world!!!")
+        }
+
+    }
+
+    fn("btn").onclick=function () {
+click()
+    }//调用按钮
+
+    function ipt() {
+        if (fn("ipt").value=="请输入...")
+        {
+            fn("ipt").value="";
+            fn("ipt").style.color="#333";
+        }
+        else {
+            fn("ipt").select();
+        }
+    }
+
+    function ipn() {
+        if(fn("ipt").value=="")
+        {
+            fn("ipt").value="请输入..."
+            fn("ipt").style.color="#ccc";
+        }
+    }
+
+    fn("ipt").onfocus=function () {
+        ipt();
+    }
+
+    fn("ipt").onblur=function () {
+        ipn();
+    }
+
+    function dd() {
+        console.log(
+            "25"+10-3
+        )
+    }
+
+    dd();
+</script>

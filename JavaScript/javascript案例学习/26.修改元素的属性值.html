@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        <!--修改元素的属性值-->
+        function modifWH() {
+//            获取元素
+            var myIMG=document.getElementById("myImg")
+            myIMG.width=300
+            myIMG.height=150
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<p>
+    <input type="button" value="修改属性值" onclick="modifWH()">
+</p>
+<!--定义图片元素-->
+<img id="myImg" src="./09.jpg" width="200" height="100">
+</body>
+</html>

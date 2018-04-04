@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            background: #cbffaf;
+            display: none;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(window).load(function () {
+//            动态给P元素添加子元素
+            $("#j_btnClick01").click(function () {
+                $("p").append("<input type='button' value='动态创建'>")
+            });
+
+////            使用on的方式绑定事件
+//            $("p").on("click","input",function () {
+//                alert($(this).val());
+//            })
+
+//            给自己绑定事件
+            $("p").on("click",function () {
+                alert($(this).html());
+            })
+
+//            off解绑事件
+            $("#j_btnClick02").on("click",function () {
+//                $("P").off("click");
+
+                $("p").off("click");
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+<p>
+    <input type="button" value="绑定按钮" id="j_btnClick">
+    <input type="button" value="解绑按钮" id="j_btnClick00">
+    <input type="button" value="动态创建元素" id="j_btnClick01">
+    <input type="button" value="解绑按钮" id="j_btnClick02">
+</p>
+
+<div></div>
+</body>
+</html>

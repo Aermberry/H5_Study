@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 500px;
+            background: #ddceff;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+////            查看事件对象
+//            $("input").on("click",function (e) {
+//                console.log(e);
+//            })
+
+            $("div").on("click",function (e) {
+                console.log(e);
+            })
+
+            $("#j_btnSub").click(function (e) {
+                e.preventDefault()
+            })
+
+            $("a").click(function (e) {
+                e.preventDefault()
+            })
+        })
+    </script>
+</head>
+<body>
+<div>
+    <input type="button" value="事件对象">
+</div>
+<a href="web.itcast.cn">创智</a>
+<form action="">
+    <input type="submit" value="提交" id="j_btnSub"/>
+</form>
+</body>
+</html>

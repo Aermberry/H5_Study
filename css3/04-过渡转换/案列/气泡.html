@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;
+			padding: 0;}
+
+			.rectange{
+				margin:30px auto;
+				width: 400px;
+				height: 150px;
+				border-radius:10px;
+				border: 2px solid #ccc;
+				background: url(./images/paopao.png) left bottom no-repeat,
+						url(./images/paopao.png) right top no-repeat;
+				background-color: #A8EEFD;
+				/*背景色必须在后面*/
+				transition: all 1s;
+				box-shadow: 2px 1px  2px #4E4E4E;
+			}
+
+			.rectange:hover {
+				background-position: left top,right bottom;
+			}
+			/*控制两张图片*/
+	</style>
+</head>
+<body>
+	<div class="rectange"></div>
+</body>
+</html>

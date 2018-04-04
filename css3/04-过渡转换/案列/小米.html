@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html,body {
+			height: 100%;
+		}
+
+		body {
+			background-color: #f7f7f7;
+		}
+		.items {
+			border:2px solid #f7f7f7;
+			/*padding-top: 100px;*/
+			margin:80px auto;
+			width: 1250px;
+			height: 320px;
+			padding-left: 20px;
+			background-color: red;
+		}
+
+		.items .item{
+			margin-right: 20px;
+			width: 230px;
+			height: 300px;
+			text-align: center;
+			background-color: yellow;
+			position: relative;
+			float: left;
+			display: inline-block;
+			/*overflow: hidden;*/
+			top: 0;
+			transition: all .5s;
+			/*margin:0 10px;*/
+		}
+
+		.pic {
+			margin-top: 30px;
+		}
+
+		.dev {
+			position:absolute;
+			bottom: -100px;
+			width: 100%;
+			height: 100px;
+			background-color: green;
+			transition: all .5s;
+		}
+
+		.item:hover {
+			top:-5px;
+			box-shadow: 0 0 15px #aaa;
+		}
+
+		.item:hover .dev {
+			bottom: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="items">
+		<div class="item"><img src="images/1.jpg" alt=""></div>
+		<div class="item">
+			<div class="pic">
+				<img src="images/2.jpg" alt="">
+			</div>
+		    <div class="dev"></div>
+	    </div>
+		<div class="item">
+			<div class="pic">
+				<img src="images/3.jpg" alt="">
+			</div>
+		    <div class="dev"></div>
+		</div>
+		<div class="item">
+			<div class="pic"><img src="images/4.jpg" alt=""></div>
+		    <div class="dev"></div>
+		</div>
+		<div class="item">
+			<div class="pic"><img src="images/5.jpg" alt=""></div>
+		    <div class="dev"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+     .nav{
+         background:url("images/rss.png") center
+         right no-repeat;
+         border-radius: 10px;
+         margin: 100px auto;
+         width: 800px;
+         height: 42px;
+         background-color: #ffffff;
+         border: 1px solid #cccccc;
+         position: relative;
+     }
+
+        ul li{
+            line-height: 42px;
+            width:83px ;
+            height: 42px;
+            text-align: center;
+            float: left;
+            cursor: pointer;
+        }
+        
+        span{
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            display: block;
+            width: 83px;
+            height: 42px;
+            background: url("images/cloud.gif");
+        }
+        ul{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <span></span>
+    <ul>
+        <li>上海校區</li>
+        <li>上海校區</li>
+        <li>上海校區</li>
+        <li>上海校區</li>
+        <li>上海校區</li>
+        <li>上海校區</li>
+        <li>上海校區</li>
+        <li>上海校區</li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    var span=document.getElementsByTagName("span")[0];
+    var lis=document.getElementsByTagName("li");
+    var current=0;//存儲當點擊時的位置信息
+    for (var a=0;a<lis.length;a++){//遍歷li，獲取每一個li的序號
+        lis[a].inde=a;
+        lis[a].onmouseover=function () {
+//            span.style.left=this.offsetLeft+"px"//span的移動位置為li距離父級的位置
+            an(span,this.offsetLeft)//滑動動畫效果,指定當前li的距離即為span的滑動目標距離
+        }//這裡this.offsetLeft不能寫成current,onmouseover需要實時啟動，當為current時就會始終是點擊時的值或零
+
+        lis[a].onmouseout=function () {
+           an(span,current);//離開時，回到記錄的值
+        }
+
+        lis[a].onclick=function () {
+            current=this.offsetLeft;
+            an(span,current);//使點擊時，當前的位置與li的位置相同
+        }
+    }
+
+    function  an(obj,tar) {
+        clearInterval(obj.timer);//每一開啟動畫前先前一輪的關閉動畫
+        obj.timer=setInterval(function () {
+            var step=(tar-obj.offsetLeft)/10;//計算每一步的步長，成等差數列
+            step=step>0?Math.ceil(step):Math.floor(step);
+            obj.style.left=obj.offsetLeft+step+"px";
+            if (tar==obj.offsetLeft){
+                clearInterval(obj.timer);//停止動畫不再進行
+            }
+
+        },30)
+
+    }
+
+</script>

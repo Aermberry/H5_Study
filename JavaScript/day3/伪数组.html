@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>
+<script>
+    var sd=document.getElementsByTagName("div")//getElementsByTagName获取文档中同一类的标签名作为一个数组，这个数组伪数组
+    sd[0].style.background="pink"//sd[x]指定一个伪数组中的元素
+    var em=sd.length;
+    for(var a=0;a<em;a++)
+    {
+        sd[a].style.background="black"
+    }
+</script>

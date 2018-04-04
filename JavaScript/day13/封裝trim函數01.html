@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="txt">
+</body>
+</html>
+<script>
+//    function trim(regexp) {
+//        return regexp.replace(/^\s+|\s+$/,"");
+//    }
+//    var txt=document.getElementById("txt");
+//    txt.onblur=function () {
+//        if (trim(this.value)==""){
+//            alert("11")
+//        }
+//    }
+
+
+//    function trim(regexp) {
+//        return regexp.replace(/^\s+|\s+$/,"");
+//    }
+//
+//    var txt=document.getElementById("txt")
+//    txt.onblur=function () {
+//        if(trim(this.value)==""){
+//            alert("11")
+//        }
+//    }
+
+
+//    function trim(regexp) {
+//        return regexp.replace(/^\s|\s$/,"");
+//        前面為空格：^\s
+//        後面為空格：\s$
+//        ""
+//         +  至少有一次
+
+function trim(regexp) {
+    return regexp.replace(/^\s+|\s+$/,"");
+}
+
+var txt=document.getElementById("txt")
+    txt.onblur=function () {
+        if(trim(this.value)==""){
+            alert(11)
+        }
+    }
+</script>

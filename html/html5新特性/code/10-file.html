@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="file" name="" id="input_file">
+	<textarea name="" id="result"></textarea>
+	<script type="text/javascript">
+		// 获取dom
+		var input_file=document.querySelector('#input_file');
+		var result=document.querySelector('#result')
+		// console.log(input_file);
+		// console.log(result);
+		//添加事件监听器
+		input_file.addEventListener('change', function (e){
+			var file=input_file.files[0];
+			if(file){
+				var reader=new FileReader();
+				reader.readAsText(file);//读取文本
+			reader.addEventListener('load', function (e) {
+				/* body... */
+				// console.log(e);
+				// console.log(e.target.result)
+				result.value=e.target.result;
+			});
+			}
+		});
+	</script>
+</body>
+</html>

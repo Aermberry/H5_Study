@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+        height: 3000px;
+
+    }</style>
+</head>
+<body>
+
+
+</body>
+</html>
+<script>
+    <!--scroll:滾動的意思-->
+//    window.onscroll=function () {
+//
+//    }滾動事件，用於檢測屏幕滾動。當每次滾動一次，1像素就會觸發這個事件。
+//    scrolltop 被卷去的頭部 它就是當你滾動滑輪瀏覽網頁的時候網頁隱藏在屏幕上方的距離
+//document.title=document.body.scrollTop;
+    window.onscroll=function () {
+//        滾動事件
+        console.log("頁面滾動")
+//        document.title=document.body.scrollTop;
+//        document.title=document.documentElement.scrollTop;
+//        chrom瀏覽器沒有響應
+//        document.title=window.pageYOffset
+//        兼容性寫法
+
+//        var scrolltop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+    }
+</script>

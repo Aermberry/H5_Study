@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>按鈕</button>
+<button>按鈕</button>
+<button>按鈕</button>
+<button>按鈕</button>
+<button>按鈕</button>
+<button>按鈕</button>
+<button>按鈕</button>
+<button>按鈕</button>
+</body>
+</html>
+<script>
+//    <!--閉包原理-->
+//    function fun() {
+//        var num=10;
+//        function infun() {
+//            console.log(num);
+//        }
+//
+//        return  infun;
+//    }
+//
+//    var dom=fun();
+
+
+//    var btns=document.getElementsByTagName("button");
+//    for(var a=0;a<btns.length;a++){
+//        btns[a].onclick = outFun(a);   // 闭包版本的
+//        function outFun(a){
+//            return function() {
+//                alert(a);
+//            }
+//        }
+//
+//    }
+//
+
+var btns=document.getElementsByTagName("button");
+for (var a=0;a<btns.length;a++){
+    btns[a].onclick=outfun(a);
+   function outfun(a) {
+      return function() {
+           alert(a);
+       }
+   }
+}
+//    閉包的實質就是在傳遞數據，內部函數調用外部函數數據，結果是返回經加工后的外部數據
+</script>

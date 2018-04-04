@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .df{
+            background: #000;
+            width: 30px;
+            height: 30px;
+            margin: 50px auto;
+            position: relative;
+        }
+        .gg{
+            background: #1dacbe;
+            width: 50px;
+            height: 50px;
+           position: absolute;
+            top: 35px;
+            left: -50px;
+            text-align: center;
+            font: 20px/50px "heiti";
+            cursor: pointer;
+        }
+    </style>
+</head>
+<script>
+    window.onload=function () {
+        var ff=document.getElementById("gg");
+        ff.onclick=function () {
+            ff.parentNode.style.display="none"
+    }
+
+    }
+</script>
+<body>
+<div class="df">
+    <img src="images/taobao.jpg" alt="">
+    <div id="gg" class="gg">X</div>
+</div>
+</body>
+</html>

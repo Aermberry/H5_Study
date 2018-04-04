@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        span{
+            position: absolute;
+            bottom: 100px;
+            right: 10px;
+            display: none;
+            cursor: pointer;
+        }
+    </style>
+    <script src="scroll.js"></script>
+    <script>
+        window.onload=function () {
+            <!--onscroll事件檢測滾動事件-->
+            window.onscroll=function () {
+                var rocket=scroll().top>0?show("pic"):hide("pic");
+                leader=scroll().top
+//            記錄滾動出的高度
+            }
+
+            $("pic").onclick=function () {
+                var timer=null,leader=0,tar=0;
+                clearInterval(timer)
+                timer=setInterval(function () {
+//                公式：leader=leader+(tar-leader)/10;
+                    var  step=(tar-leader)/10
+//                計算單步的步長
+                    step=step>0?Math.ceil(step):Math.floor(step);
+//                取整處理，防止每一步長出現取值小數點的現象
+                    leader=leader+step;
+                    window.scrollTo(0,leader)
+                    if (tar==leader){
+                        clearInterval(timer)
+                    }
+                },30)
+            }
+        }
+
+    </script>
+</head>
+<body>
+<span id="pic"><img src="images/Top.jpg" alt=""></span>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+<p>嘻嘻小孩嘻哈</p>
+</body>
+</html>

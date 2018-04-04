@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<!--prototype-->
+<script>
+    function Person(name,age) {//構造函數第一個字母習慣大寫
+        this.name=name;
+        this.age=age;
+    }
+
+//    構造函數的外面
+    Person.prototype.showName=function () {
+        alert("我的名字"+this.name);
+    }
+
+    Person.prototype.showAge=function (){
+        alert("我的年齡"+this.age);
+    }
+
+    var xiaomi=new Person("劉德華",18);
+    var dami=new Person("張學友",20);
+
+    xiaomi.showName();
+    alert(xiaomi.showName);
+</script>

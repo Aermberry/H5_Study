@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#j_btnclose").click(function () {
+                $("body").css("background","black");
+            })
+
+            $(".btnopen")[0].onclick=function () {
+                $("body")[0].style.background="white"
+            }
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="開燈" class="btnopen">
+<input type="button" value="關燈" id="j_btnclose">
+</body>
+</html>

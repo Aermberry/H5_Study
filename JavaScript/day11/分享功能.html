@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #test, #another {
+            width: 400px;
+            margin:50px;
+        }
+        #demo {
+            padding: 2px 10px;
+            border: 1px solid #ff5c00;
+            border-radius: 8px;
+            width: 230px;
+            position: absolute;
+            height: 30px;
+            top: 0;
+            left: 0;
+            display: none;
+            background-color: #fff;
+            padding-top: 10px;
+        }
+        #demo em {
+            position: absolute;
+            top: -5px;
+            left: 40px;
+            width: 10px;
+            height: 5px;
+            background: url(arrow.gif) no-repeat;
+        }
+    </style>
+</head>
+<body>
+<span id="demo">
+<div class="bshare-custom"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+</span>
+<div id="test">我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字</div>
+<div id="another">
+    我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字
+</div>
+</body>
+</html>
+<script src="javascript.js" type="text/javascript"></script>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    $("test").onmouseup=function (event) {
+        var event=event||window.event
+        var pagex=event.pageX||scroll().left+event.clientX;
+        var pagey=event.pageY||scroll().top+event.clientY;
+
+//        showBox($("demo"),pagex,pagey)
+        var  txt;//用來存儲選中的文字
+        if(window.getSelection){
+            txt=window.getSelection().toString();//轉換為字符串
+//        得到用戶選擇的內容
+        }
+        else {
+            txt=document.selection.createRange().text//ie678
+        }
+
+        if(txt){
+//        因為默認的是txt沒有賦值時為UNdefind（數據類型不明）或者說是為""
+            showBox($("demo"),pagex,pagey);
+        }
+    }
+
+    document.onmousedown=function (event) {
+        var event=event||window.event;
+        var targetId=event.target?event.target.id:event.srcElement.id;
+        if(targetId!="demo"){
+            $("demo").style.display="none";
+        }
+    }
+
+    function showBox(obj,mousx,mousy) {
+        obj.style.display="block";
+        obj.style.left=mousx+"px";
+        obj.style.top=mousy+"px";
+
+    }
+
+
+</script>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        .box{
+            margin: 50px auto;
+            width: 900px;
+            height: 500px;
+            border: 1px solid  grey;
+        }
+
+        .head{
+            background: rgba(255,134,233,0.5);
+            width: 900px;
+            height: 90px;
+        }
+
+        .head li{
+            display: inline-block;
+            width: 300px;
+            height: 90px;
+            float: left;
+            background: #ffc199;
+            text-align: center;
+            font: 22px/90px "微软雅黑";
+            border:1px solid gray;
+            box-sizing: border-box;
+            border-top:solid 5px salmon;
+            cursor: pointer;
+        }
+
+        .body{
+            width: 900px;
+            height: 410px;
+            background: #ff86e9;
+            overflow: hidden;
+
+        }
+        .body li{
+            width: 900px;
+            height: 410px;
+            background: #70d616;
+            display: none;
+        }
+        .head .chang{
+            border-top: 5px solid deepskyblue ;
+            background: #27f8ff;
+        }
+
+        .body .display{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="head" id="head">
+        <ul>
+            <li class="chang">main</li>
+            <li>wer</li>
+            <li>second</li>
+        </ul>
+
+</div>
+    <li class="body" id="body">
+        <ul>
+            <li class="display"><a href="#"><img src="image/004.jpg" alt="004"></a></li>
+            <li><a href="#"><img src="image/008.jpg" alt="008"></a></li>
+            <li><a href="#"><img src="image/010.jpg" alt="010"></a></li>
+        </ul>
+    </li>
+
+</div>
+</body>
+</html>
+
+<script>
+    var head=document.getElementById("head");
+    var body=document.getElementById("body");
+    var headli=head.getElementsByTagName("li");
+    var bodyli=body.getElementsByTagName("li");
+    
+    for(var i=0;i<headli.length;i++){
+        
+        headli[i].index=i;
+        headli[i].onmouseover=function () {
+           for (var a=0;a<headli.length;a++){
+               headli[a].className="";
+               bodyli[a].className="";
+           }
+           this.className="chang";
+            bodyli[this.index].className="display"
+
+        }
+        
+    }
+</script>

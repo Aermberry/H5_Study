@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .xiaomi{
+            overflow: hidden;
+            width: 512px;
+            height: 400px;
+            border: 1px solid red;
+            position: relative;
+            margin: 100px auto;
+        }
+
+        .xiaomi span{
+            width: 100%;
+            height: 200px;
+            /*background: #ff631d;*/
+            cursor: pointer;
+            position: absolute;
+            left: 0px;
+        }
+
+        #pic{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .up{
+            top: 0px;
+        }
+
+        .down{
+            bottom: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="xiaomi" id="xiaomi">
+    <img src="image/mi.png" alt="" id="pic">
+    <span id="up" class="up"></span>
+    <span id="down" class="down"></span>
+</div>
+</body>
+</html>
+<script>
+    function getClassName(classname) {   // 形参
+        //  先看看浏览器支不支持
+        if(document.getElementsByClassName) {   // 如果支持这个写法
+            return document.getElementsByClassName(classname);  // 直接返回所有元素
+        }
+        // 下面的语句是ie678 执行
+        // 核心思想   把所有的标签都取过来， 然后一个一个的判断当前元素的类名是不是  classname
+        //是就留下，不是 就走开
+        // alert(11);
+        var arr = [];  //数组用来存储满足条件的 元素
+        var dom = document.getElementsByTagName("*");  // 把所有的标签都取过来 *  所有的
+        // 去过所有的标签之后， 把 每一个标签的类名 （字符串） 转换为数组 ， 只有数组才可以遍历
+        for(var i=0;i<dom.length;i++) {  // 遍历每一个标签
+            // 把每一个标签的类名 转换为数组
+            var arrName = dom[i].className.split(" "); // "demo nav test"   = ["demo","nav","test"];
+            // var arrName = ["demo","nav","test"];  // 用来存储每一个 类名的数组
+            for(var j=0;j<arrName.length;j++) {  // 遍历 arrname
+                if(arrName[j] == classname) { // 判断
+                    arr.push(dom[i]); // 把当前满足条件的元素  给 arr
+                }
+            }
+        }
+        return arr;  // 返回总的数组
+    }
+
+    function $(str) {
+        var s=str.charAt(0);
+        var ss=str.substr(1);
+        switch (s){
+            case "#":
+                return document.getElementById(ss);
+            case ".":
+                return getClassName(ss);
+            default:
+                return document.getElementsByTagName(str);
+        }
+    }
+
+    var num=0;//移动步数，“+”&“-”代表方向
+    var timer=null;
+        $("#up").onmouseover=function () {
+            clearInterval(timer);
+            timer=setInterval(function () {
+                num-=3;//图片向上移动
+                if(num<-1070){
+                    clearInterval(timer);
+                }
+                else {
+                    $("#pic").style.top=num+"px";
+                }
+            },30)
+        }
+
+    $("#down").onmouseover=function () {
+        clearInterval(timer);
+        timer=setInterval(function () {
+            num+=3;//图片向上移动
+            if(num>=0){
+                clearInterval(arguments.callee);
+            }
+            else {
+                $("#pic").style.top=num+"px";
+            }
+        },30)
+    }
+
+    $("#up").parentNode.onmouseout=function () {
+        clearInterval(timer);
+    }
+</script>

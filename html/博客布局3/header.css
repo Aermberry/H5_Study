@@ -1,0 +1,11 @@
+header{
+    background: #f4f4f4;
+    padding: 40px 0px;
+    box-sizing: border-box;
+    height: 156px;
+}
+header h1{
+    width: 1100px;
+    margin:0 auto;
+    font: 45px/56px '微软雅黑','黑体',sans-serif;
+}

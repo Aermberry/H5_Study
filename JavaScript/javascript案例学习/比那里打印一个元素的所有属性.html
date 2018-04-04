@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历打印一个元素的所有属性</title>
+    <script>
+        function getDomValues() {
+//            获取链接的DOM
+            var myLink=document.getElementById("mgLink");
+            var str='';
+            for(var prot in myLink){
+                str +=prot +":"+myLink[prot]+"<br>"
+            }
+//            打印到网页
+            document.getElementById("valuesP").innerHTML=str;
+
+        }
+    </script>
+</head>
+<body style="text-align: center">
+<p>
+    <!--!定义连接和按钮-->
+    <a href="#" id="mgLink">链接</a>
+    <br>
+    <input type="button" value="获取链接DOM的属性" onclick="getDomValues();">
+</p>
+<!--用于放置结果的P标签-->
+<p id="valuesP" style="text-align: left"></p>
+</body>
+</html>

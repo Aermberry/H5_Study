@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../animate.css-master/animate.css">
+    <style>
+        .gh{
+            width: 200px;
+            height: 200px;
+            font: 20px  "Adobe 黑体 Std R";
+            background: #fffbea;
+            color:red;
+        }
+
+        .hj{
+            background-color: #cdff5e;
+            margin: 100px auto;
+            width: 500px;
+            height: 500px;
+            animation: bounceInDown 2s;
+        }
+
+        @keyframes bounceInDown {
+            from, 60%, 75%, 90%, to {
+                animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            }
+
+            0% {
+                opacity: 0;
+                transform: translate3d(0, -3000px, 0);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translate3d(0, 25px, 0);
+            }
+
+            75% {
+                transform: translate3d(0, -10px, 0);
+            }
+
+            90% {
+                transform: translate3d(0, 5px, 0);
+            }
+
+            to {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="animated bounceInLeft gh" id="gh">Animation</div>
+<div class="hj"></div>
+</body>
+</html>
+<!--<script>-->
+    <!--var df=document.getElementById("gh")-->
+    <!--df.className="animated bounce"-->
+<!--</script>-->

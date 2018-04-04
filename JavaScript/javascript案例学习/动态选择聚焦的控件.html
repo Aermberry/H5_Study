@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function focusIt() {
+//            获取form表单
+            var f=document.forms[0]
+//            通过name获取表单中的控件
+            var myRadio=f.myRadio//数组
+            myRadio[0].focus()
+
+        }
+        document.getElementsByName()
+    </script>
+</head>
+<body style="text-align: center">
+<!--定义表单-->
+<form action="">
+    文本框：<input type="text" name="myText">
+    <br>
+    单选框：
+    <input type="radio" name="myRadio" value="1">
+    <input type="radio" name="myRadio" value="2">
+    <br>
+    下拉列表：
+    <select name="mySelect">
+        <option value="">==请选择==</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
+    <br>
+    <input type="button" value="第一个单选框为焦点" onclick="focusIt()">
+</form>
+</body>
+</html>

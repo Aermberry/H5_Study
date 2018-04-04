@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            margin: 100px auto;
+            background-color: #ddffb3;
+            width: 900px;
+            height: 500px;
+        }
+
+        .head{
+            border: 1px solid firebrick;
+            width: 900px;
+            height: 90px;
+        }
+        .body{
+            border-bottom: 2px solid firebrick ;
+            border-left:2px solid firebrick  ;
+            border-right:2px solid firebrick ;
+            width: 900px;
+            height: 410px;
+            overflow: hidden;
+        }
+
+        .head li{
+            display: inline-block;
+            width: 300px;
+            height: 90px;
+            background-color: #fff;
+            float: left;
+            font: 30px/90px "Adobe 黑体 Std R";
+            text-align: center;
+            border: 1px solid firebrick;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .body li{
+            display: none;
+
+        }
+
+        .body .display{
+            display: block;
+        }
+
+        .head .style{
+            border-top: 5px solid #8e1f1f;
+            border-bottom: transparent;
+        }
+
+    </style>
+</head>
+<script>
+    window.onload=function () {
+        var head=document.getElementById("head");
+        var li01=head.getElementsByTagName("li");
+        var body=document.getElementById("body");
+        var li02=body.getElementsByTagName("li");
+
+        for (var a=0;a<li01.length;a++){
+//            遍历伪数组li01
+            li01[a].index=a;//设置数组的自定义属性
+            li01[a].onmouseover=function () {
+                for (var a=0;a<li01.length;a++){
+                    li01[a].className="";
+                    li02[a].className="";
+            }
+            this.className="style";
+                li02[this.index].className="display"
+
+            }
+
+        }
+    }
+</script>
+<body>
+<div class="box">
+    <div class="head" id="head">
+        <ul>
+            <li class="style">main</li>
+            <li>second</li>
+            <li>third</li>
+        </ul></div>
+    <div class="body" id="body">
+        <ul>
+            <li class="display"><a href="#"><img src="image/004.jpg" alt=""></a></li>
+            <li><a href="#"><img src="image/008.jpg" alt=""></a></li>
+            <li><a href="#"><img src="image/010.jpg" alt=""></a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

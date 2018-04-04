@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        <!--展示图片-->
+        function showAdPic() {
+            var ad=document.getElementById("ad")
+            ad.innerHTML='<img src="./09.jpg" width="300" height="200" alt="">'
+            setTimeout(function () {
+              ad.style.display='none'
+            },5000)
+        }
+
+        window.onload=showAdPic()
+    </script>
+</head>
+<body style="text-align: center">
+<!--展示图片-->
+<p>网页内容上部</p>
+<p id="ad"></p>
+<p>网页内容下不</p>
+</body>
+</html>

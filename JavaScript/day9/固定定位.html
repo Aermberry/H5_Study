@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        div{
+
+            margin: 0px auto;
+        }
+
+        img{
+            vertical-align: top;
+        }
+        .main{
+            width: 1000px;
+            margin-top: 10px;
+        }
+
+        .fix{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="top" id="top"><img src="images/top.png" alt=""></div>
+<div class="nav" id="nav"><img src="images/nav.png" alt=""></div>
+<div class="main"><img src="images/main.png" alt=""></div>
+</body>
+</html>
+<script src="my.js" type="text/javascript"></script>
+<script>
+    var nal=document.getElementById("top").offsetHeight;
+    var nav=document.getElementById("nav");
+//    onscroll事件監控滾動條滾動事件，只要頁面出面1px的滾動就會出發事件
+    window.onscroll=function () {
+        if(scroll().top>=nal)
+        {
+//            alert("hello")
+            nav.className="nav fix"//nav為默認樣式，這樣寫的話就是在nav樣式的基礎上添加fix樣式
+        }
+
+        else {
+            nav.className="nav"//去除fix的樣式
+        }
+    }
+</script>

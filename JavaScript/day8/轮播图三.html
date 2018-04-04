@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        .box{
+            margin: 100px auto;
+            width: 500px;
+            height: 200px;
+            border: 1px solid #cccccc;
+            background-color: #ff7092;
+            padding: 5px;
+        }
+        
+        .minbox{
+            width: 500px;
+            height: 200px;
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        img{
+            vertical-align: top;
+        }
+
+        ul{
+            width: 1000%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        ul li{
+            float: left;
+        }
+
+        .spans{
+            /*display: none;*/
+        }
+
+        span{
+            width: 40px;
+            height: 40px;
+            background-color: #000000;
+            opacity: 0.3;
+            border: 1px solid #cccccc;
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            margin-top: -20px;
+            font-weight: bolder;
+            font-size: 30px;
+            line-height: 40px;
+            font-family: "黑体";
+            color: #cccccc;
+            text-align: center;
+        }
+
+        .right{
+            left: auto;
+            right: 5px;
+        }
+
+        ol{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        ol li{
+            margin-left: 10px;
+            float: left;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #8b8b8b;
+            background-color: #fff;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        
+        ol .current{
+            border: 1px solid #000000;
+            background-color: #ff7092;
+        }
+    </style>
+
+    <script>
+//        window.onload,优先加载完成html文档，再读取javascript
+        window.onload=function () {
+            var box=document.getElementById("box");
+            var minbox=box.children[0];
+            var ul=minbox.children[0];
+            var lis=ul.children;
+            var ol=minbox.children[1];
+            var spans=minbox.children[2];
+            var olli=ol.children;
+
+//            克隆节点 :a.cloneNode(),true 深度克隆 ，克隆父节点和所有子节点，false 浅度克隆，只克隆父节点
+            ul.appendChild(lis[0].cloneNode(true));
+
+//           创建节点
+            for(var a=0;a<lis.length-1;a++){    //根据图片数量遍历循环创建对应的li
+                var li=document.createElement("li");
+                li.innerHTML=a+1;//要li插入文字才能显示，a从零开始
+                ol.appendChild(li);
+                olli[0].className="current"
+            }
+
+//            标签动画
+            for (var a=0;a<olli.length;a++){//遍历li，数数
+                olli[a].index=a;//自定义属性，给每一个li注上一个序列号
+                olli[a].onclick=function () {
+                    for (var a=0;a<olli.length;a++){
+                        olli[a].className="";
+                    }
+                    this.className="current";
+                    animation(ul,-this.index*minbox.offsetWidth);
+                    key=square=this.index
+                }
+            }
+
+//            自动播放
+            var timer=null;//定时控制器
+            var key=0;//图片控制
+            var square=0;//方块控制
+            timer=setInterval(autoplay,1000);
+            function autoplay() {
+                key++;
+                if(key>lis.length-1){
+                    ul.style.left=0+"px";
+                    key=1;
+                }
+                console.log(key)
+                animation(ul,-key*lis[0].offsetWidth)
+
+                square++;
+                console.log(square);
+               square=square>olli.length-1?0:square
+                for (var a=0;a<olli.length;a++){
+                   olli[a].className="";
+                }
+                olli[square].className="current";
+            }
+
+//            鼠标滑动
+            minbox.onmouseover=function () {
+                clearInterval(timer);
+            }
+
+            minbox.onmouseout=function () {
+                timer=setInterval(autoplay,1000);
+            }
+
+//            封装动画
+            function animation(obj,tar) {
+                clearInterval(obj.timer);
+                var speed=ul.offsetLeft<tar?15:-15;
+                obj.timer=setInterval(
+                    function () {
+                        obj.style.left=obj.offsetLeft+speed+"px";
+                        var result=obj.offsetLeft-tar;
+                        if(Math.abs(result)<=15){
+                            obj.style.left=tar+"px";
+                            clearInterval(obj.timer);
+                        }
+                    }
+                    ,10)
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="minbox">
+        <ul>
+            <li><a href="#"><img src="imagess/1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/4.jpg" alt=""></a></li>
+            <li><a href="#"><img src="imagess/5.jpg" alt=""></a></li>
+        </ul>
+        <ol>
+
+        </ol>
+        <div class="spans">
+            <span><</span>
+            <span class="right">></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

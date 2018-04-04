@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .hj{
+            background: #cccccc!important ;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li><span>HELLO</span>WORLD<span></span><span>!!!</span></li>
+    <li><span>HELLO</span>WORLD<span></span><span>!!!</span></li>
+    <li><span>HELLO</span>WORLD<span></span><span>!!!</span></li>
+    <li><span>HELLO</span>WORLD<span></span><span>!!!</span></li>
+    <li><span>HELLO</span>WORLD<span></span><span>!!!</span></li>
+    <li><span>HELLO</span>WORLD<span></span><span>!!!</span></li>
+    <li><span>HELLO</span>WORLD<span></span><span>!!!</span></li>
+    <li><span>HELLO</span>WORLD<span></span><span>!!!</span></li>
+    <li><span>HELLO</span>WORLD<span></span><span>!!!</span></li>
+    <li><span>HELLO</span>WORLD<span></span><span>!!!</span></li>
+</ul>
+</body>
+</html>
+<script>
+    var ca=document.getElementsByTagName("li")
+
+    for(var a=0;a<ca.length;a++){
+        if(a%2!=0){
+            ca[a].style.backgroundColor="pink"
+        }
+
+        ca[a].onmouseover=function () {
+            this.className="hj"
+        }
+        ca[a].onmouseout=function () {
+            this.className=""
+        }
+    }
+</script>

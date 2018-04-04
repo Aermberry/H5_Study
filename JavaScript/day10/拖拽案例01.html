@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽案例</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav{
+            height: 30px;
+            background: #036663;
+            border-bottom: 1px solid #336699;
+            line-height: 30px;
+            padding-left: 30px;
+        }
+
+        .nav a{
+            text-decoration: none;
+            /*下劃線*/
+            color: white;
+            font-size: 14px;
+            text-align: center;
+        }
+        .box{
+            width: 400px;
+            height: 300px;
+            border: 5px solid #eeeeee;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            box-shadow: 5px 5px 5px 5px  #ccc;
+            /*box-shadow: h-shadow(水平陰影) v-shadow(垂直陰影) blur(模糊距離) spread(陰影的尺寸) color(可選 陰影的顏色) inset(可選 將外部陰影（outset）改變為內部陰影);*/
+        }
+        
+        .box .hd{
+            background: #7c9299;
+            width: 100%;
+            /*width:100%;  设定对象的宽度占父元素100%*/
+            /*width:auto; 根据对象实际大小自适应宽度*/
+            border: 1px solid #7c9299;
+            height: 25px;
+            line-height: 25px;
+            text-align: left;
+            color: white;
+            cursor: move;
+        }
+
+        #close{
+        float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <a href="javas:;">註冊信息</a>
+</div>
+<div class="box" id="box">
+    <div class="hd">註冊信息（可以拖拽）
+        <span id="close">[關閉]</span>
+    </div>
+</div>
+</body>
+</html>
+<script src="scroll01.js" type="text/javascript"></script>
+<script>
+    var box=document.getElementById("box")
+    var hd=box.children[0];
+    tz(hd,box);
+    function tz(obj,tar) {
+        obj.onmousedown=function (event) {
+            var event=event||window.event
+            var pagex=event.pageX||event.clientX+scroll().left
+            var pagey=event.pageY||event.clientY+scroll().top
+
+//            構建hd的坐標體系
+            var x=pagex-tar.offsetLeft
+            var y=pagey-tar.offsetTop
+//            獲取鼠標在hd的坐標信息
+            document.onmousemove=function (event) {
+                var event=event||window.event
+                var pagex=event.pageX||event.clientX+scroll().left
+                var pagey=event.pageY||event.clientY+scroll().top
+                var xx=pagex-x
+                var yy=pagey-y
+                tar.style.left=xx+"px"
+                tar.style.top=yy+"px"
+            }
+        }
+        document.onmouseup=function () {
+           document.onmousemove=null
+        }
+    }
+</script>

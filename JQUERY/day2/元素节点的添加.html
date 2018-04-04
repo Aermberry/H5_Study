@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 200px;
+            background: pink;
+        }
+    </style>
+    <script src="../jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#j_btnCreateEel").click(function () {
+//                创建元素
+//                var $div=$("<div>我是div</div>");
+//                追加元素，往指定元素的子元素的最后面追加元素
+//                参数：此时参数为JQUERY对象
+//                $("body").append("$div")
+//                参数：此时参数胡为html标签字符串
+//                $("body").append("<div>woshidiv</div>")
+//                appendTo  把前面选择到的元素追加到后面选择出来的元素里面去
+                $("<div>我是div</div>").appendTo("body");
+            })
+
+//            在指定元素后面添加元素
+            $("#j_btnAfter").click(function () {
+                $("div").after("<div></div>")
+            })
+
+
+//            在指定元素前面添加元素
+            $("#j_btnBefore").click(function () {
+                $("div").before("<div>我是div</div>")
+            })
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="动态创建元素并追加到页面中去" id="j_btnCreateEel"/>
+<input type="button" value="在后面添加元素（同级）" id="j_btnAfter"/>
+<input type="button" value="在前面添加元素（同级）" id="j_btnBefore"/>
+<div></div>
+</body>
+</html>
