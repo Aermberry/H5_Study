@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function(){
+
+            /*自定义默认值的方法*/
+            function text(a,b){
+
+                var b=arguments[1]||50
+                console.log(b);
+            }
+            text(1,50000);
+        }
+
+
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .a1 {
+            background: url("./jd/img/sprites.png");
+            border: 10px solid;
+            width: 500px;
+            margin: 0 auto;
+            background-color: #c2ccd1;
+        }
+
+        .a1>div {
+
+            width: 80px;
+            height: 80px;
+            background-color: darkgreen;
+            transform: translate(-80px,0px);
+            /*position: absolute;*/
+
+        }
+
+        .a1>div:hover {
+            transform: translate(-80px,0px);
+            /*left: 30px;*/
+            /*top: 30px;*/
+        }
+
+    </style>
+</head>
+<body>
+<div class="a1">
+    <div></div>
+</div>
+
+
+</body>
+</html>

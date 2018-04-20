@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 500px;
+            height: 500px;
+            border: 1px solid;
+            margin: 20px;
+            display: flex;
+            /*设置子元素的对齐方式:(justify-content参照的是主轴)*/
+            /*左对齐*/
+            /*justify-content: flex-start;*/
+            /*右对齐*/
+            /*justify-content: flex-end;*/
+            /*居中对齐*/
+            /*justify-content:center ;*/
+            /*左右居中对齐*/
+            /*justify-content: space-between;*/
+            /*align-content:space-around ;*/
+
+            /*设置子元素的对齐方式:(justify-content参照的是侧轴)*/
+            /*往侧轴的起点对齐*/
+            /*align-items: flex-start;*/
+            /*往侧轴的终点对齐*/
+            /*align-items: flex-end;*/
+            /*子元素在侧轴的中间对齐*/
+            /*align-items: center;*/
+            /*基线对齐*/
+            /*align-items: baseline;*/
+            /*stretch为默认值，启用条件为子元素不定义高度时*/
+            -webkit-align-items:stretch;
+            align-items:stretch;
+
+        }
+
+        body>div:first-child {
+            /*子元素的排列方向 单行排列*/
+            flex-flow: row nowrap;
+        }
+
+        body>div:last-child {
+            /**/
+            flex-flow:column nowrap ;
+        }
+
+        .box>div {
+            background-color: darkgreen;
+            width: 100px;
+            /*height: 100px;*/
+            line-height: 100px;
+            border: 1px solid;
+            text-align: center;
+            /*margin: 10px;*/
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+</div>
+<div class="box">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+
+</div>
+</body>
+</html>

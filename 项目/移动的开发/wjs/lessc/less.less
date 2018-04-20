@@ -1,0 +1,134 @@
+
+  /*指定编码为"utf-8"*/
+  @charset "utf-8";
+  /*注释的区别：
+   //：不会编译在CSS文件中
+    带*的注释能被编译在CSS文件中
+    * /
+  color: #5bc0de;
+  /*怎么申明一个变量*/
+  @mainColor:#e92322;
+
+//  使用变量
+  body {
+    /*主题色*/
+    color:@mainColor;
+  }
+
+  a {
+    color: @mainColor;
+  }
+
+  /*什么是Mixin 混入*/
+  .redFont {
+    color: red;
+  } //x相当于一个类class_A
+
+  .redBorder {
+    border: 1px solid red;
+  }//相当于一个类class_B
+
+  /*红色文字和边框*/
+/*继承特性 样式混合---class*/
+  .redFontBorder {
+    .redFont();
+    .redBorder ();
+  }//相当于一个类class_C 继承于A和B
+
+  /*方法*/
+  /*.redFont(){
+    color: green;
+  }//方法的写法不会被直接编译成css
+*/
+
+  .redFont_func(){
+    color: green;
+  }//方法的写法不会被直接编译成css
+
+  .redBorder_func(){
+    border:1px solid red;
+  }
+
+  /*红色文字和边框 通过func混合*/
+  .redFontBorder-func{
+    /*.redFont();*/
+    /*调用redFont的类和方法*/
+    /*注意：方法名和类名不能重复，否则都会被引用*/
+    .redFont_func();
+    .redBorder_func();
+  }
+  /*带参数的混合*/
+  .rounded-corners (@radius:5px){
+
+  }
+
+  /*嵌套*/
+  .wjs_header {
+    line-height: 40px;
+    color: #666;
+    font-size: 12px;
+    position: relative;
+    border-bottom: 1px solid #e0e0e0;
+    z-index: 1001;
+    .wjs_app{
+      color: #666;
+      position: relative;
+      display: block;
+
+      img {
+        display: block;
+      }
+
+      /*当前的伪类写法*/
+      &:hover {
+        img {
+          display: block;
+          position: absolute;
+          top: 40px;
+          left: 50%;
+          margin-left: -60px;
+          border: 1px solid #ccc;
+          border-top:none;
+        }
+      }
+    }
+
+    a{
+      color: #666;
+    }
+
+    /*子代的写法*/
+    >.container{
+      >.row{
+        div{
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          /*'+'号选择器 */
+          &+div{
+            border-left: 1px solid #ccc;
+          }
+        }
+      }
+    }
+    .btn-register {
+      background: #E92322;
+      color: #fff;
+      padding: 3px 15px;
+    }
+  }
+  /*编译后的文件直接承载父级的类名*/
+
+  /*导入 import*/
+  @import "color";//导入less文件
+  .colorI{
+    color: @red;//通过@调用"color"文件中的样式
+
+    /*运算方法 +，-，*，/*/
+    color: @gray;//运算前
+    color: @gray*2;//运算后
+
+    /*内置函数的使用*/
+    /*eg:---darken()函数*/
+    color:darken(#333,10%);
+  }

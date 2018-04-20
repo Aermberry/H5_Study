@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        div {
+            background-color: green;
+            width: 100%;
+            height: 500px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        div>div {
+            background-color:purple;
+            width: 500px;
+            height: 500px;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+
+        window.onload=function () {
+            var div=document.querySelector('div');
+
+            //屏幕在被点击时触发
+            div.addEventListener('touchstart',function (e) {
+                // console.log('touchstart');
+                console.log(e.changedTouches);
+
+            })
+
+            //在屏幕上滑动时触发
+            div.addEventListener('touchmove',function (e) {
+                // console.log('touchmove');
+            })
+
+            //手指离开屏幕时，触发
+            div.addEventListener('touchend',function (e) {
+                // console.log('touchend');
+            })
+        }
+
+    </script>
+</head>
+<body>
+<div>
+    <div></div>
+</div>
+</body>
+</html>

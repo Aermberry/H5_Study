@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size:30px">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+        em和rem都有一个默认的初始大小  大小是多少？？？
+
+        */
+
+        div {
+            font-size: 30px;
+        }
+
+
+        .class_em{
+            /*区别：em大小是根据父类元素的font-size来设置的*/
+            font-size: 2em;
+            display: block;
+            height: 2em;
+        }
+
+        .class_rem {
+            /*
+            r root 根 页面当中 html标签才是根元素
+            rem的大小是根据html标签的font-size来设置
+            */
+            font-size: 2rem;
+            display: block;
+            height: 2em;
+        }
+
+        .class_rem01 {
+            font-size: 4rem;
+        }
+
+
+    </style>
+</head>
+<body>
+<div>
+    <span class="class_em">EM</span>
+    <span class="class_rem">REM</span>
+    <span class="class_rem01">Rem</span>
+</div>
+</body>
+</html>

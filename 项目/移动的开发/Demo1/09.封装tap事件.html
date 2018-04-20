@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 500px;
+            height: 500px;
+            background-color: deeppink;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script src="../jd/js/common.js"></script>
+<script>
+    /*
+    * 在移动端 click事件有300ms的延时
+    *为了提高用户体验，要降低响应时间
+    *touchend 响应时间要比 click快
+    * 发现 响应时间只有 几十毫秒 比click快的多
+    * 怎么样才符合 tap 事件  点击 轻触
+    * 要求 没有触发 touchmove  事件
+    *并响应速度要比click快
+    * */
+    // var div=document.querySelector('div');
+    // div.addEventListener('touchstart',function(e){
+    //     console.log('touchstart');
+    //     console.time('tap');/*记录tap这个参数现在的时间，tap事件在移动端才有效(相当于click事件)*/
+    // });
+    // div.addEventListener('touchmove',function(e){
+    //     console.log('touchmove');
+    // });
+    // div.addEventListener('touchend',function(e){
+    //     console.log('touchend');
+    //     console.timeEnd('tap');/*打印tap这个参数距离上一次的时间*/
+    // });
+    // div.addEventListener('click',function (e) {
+    //     console.log('click');
+    // })
+    var div=document.querySelector('div');
+
+    itcast.tap(div,function(e){
+    console.log(e);
+    })
+
+</script>
+</body>
+</html>

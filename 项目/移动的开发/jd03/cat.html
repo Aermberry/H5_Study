@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <style>
+        html,body {
+            height: 100%;
+            background-color: #f7f7f7;
+        }
+        .jd_topBar {
+            height: 45px;
+            background:url("./img/header-bg.png") repeat-x;
+            background-size: 1px 44px;
+            border-bottom: 1px solid #e0e0e0;
+            position: absolute;
+            width: 100%;
+        }
+
+        .jd_topBar a[class^="icon_"] {
+            width: 40px;
+            height: 44px;
+            position: absolute;
+            top:0;
+            /*background: darkolivegreen;*/
+            /*opacity: 0.2;*/
+            padding: 12px 10px;
+            background-origin: content-box;
+            background-clip: content-box;
+        }
+        
+        .jd_topBar .icon_back {
+            left: 0;
+            background-position: -20px 0;
+        }
+        
+        .jd_topBar .icon_menu {
+            right: 0;
+            background-position: -60px 0;
+        }
+
+        .jd_topBar h3 {
+            text-align: center;
+            line-height: 45px;
+            font-weight: normal;font-size: 16px;
+        }
+
+        .jd_topBar {
+            position: static;/*取消浮动定位*/
+        }
+        /*安全提示*/
+        .jd_safeTip {
+            height: 34px;
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            line-height: 34px;
+            text-align: center;
+            color: #666666;
+            font-size: 12px;
+        }
+
+        .jd_safeTip p {
+            position: relative;
+            display: inline-block;
+            padding-left: 23px;
+            /*background-color: greenyellow;*/
+        }
+
+        .jd_safeTip p:before {
+            content: '';
+            position: absolute;
+            background: url("./img/safe_icon.png") no-repeat;
+            background-size: 18px 18px;
+            width: 18px;
+            height: 18px;
+            top: 8px;
+            left: 0;
+        }
+
+        /*公用的复选框*/
+        .check_box {
+            width: 40px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .check_box .jd_check_box {
+            display: block;
+            height: 34px;
+            width: 40px;
+            padding: 7px 10px;
+            background: url("./img/shop-icon.png") no-repeat;
+            background-size:50px 100px;
+            background-position: 0 0;
+            background-origin:content-box;
+            background-clip: content-box;
+        }
+        
+        .check_box .jd_check_box[checked] {
+            background-position: -25px 0;
+        }
+        
+        /*店铺*/
+        .jd_shop {
+            border-bottom: 1px solid #e0e0e0;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 10px;
+            background: #fff;
+        }
+
+        .jd_shop .jd_shop_title{
+            height: 34px;
+            line-height: 34px;
+            position: relative;
+        }
+
+        .jd_shop .jd_shop_title .jd_shop_tit_right {
+            font-size: 12px;
+            padding-left: 40px;
+        }
+
+        .jd_shop .jd_shop_title .jd_shop_tit_right img {
+            width: 15px;
+            height: 15px;
+            float: left;
+            margin-top: 10px;
+        }
+
+        .jd_shop .jd_shop_tit .jd_shop_tit_right .shop_name {
+            float: left;
+            font-size: 15px;
+            margin-left: 5px;
+            color: #666666;
+        }
+
+        .jd_shop .jd_shop_con {
+
+        }
+
+        /*商品*/
+        .product_box {
+            height: 100px;
+            border-top: 1px solid #e0e0e0;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .product_box .product_box_right {
+            padding-left: 40px;
+        }
+
+        .product_box .product_box_right .img_box {
+            height: 80px;
+            width: 80px;
+            float: left;
+        }
+
+        .product_box .product_box_right .img_box img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .product_box .product_box_right .info_box {
+            overflow: hidden;
+            padding: 0 10px;
+        }
+
+        /*商品信息*/
+        .info_box .name {
+            width: 100%;
+            height: 30px;
+            line-height: 15px;
+            overflow: hidden;
+            display: block;
+        }
+        .info_box .price {
+            color: #d8505c;
+            font-size: 12px;
+            padding: 4px 0;
+        }
+        .info_box .option {
+
+        }
+
+        .info_box .option .change_box span{
+            float: left;
+            width: 32px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+            border: 1px solid #cccccc;
+        }
+
+        .info_box .option .change_box span:first-of-type {
+            border-top-left-radius:2px ;
+            border-bottom-left-radius: 2px;
+        }
+
+        .info_box .option .change_box span:last-of-type {
+            border-top-right-radius:2px ;
+            border-bottom-right-radius: 2px;
+        }
+
+        .info_box .option .change_box input {
+            float: left;
+            width: 32px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+            border-bottom: 1px solid #ccc;
+            border-top:1px solid #ccc ;
+        }
+
+        /*delete_box*/
+        .info_box .option .delete_box {
+            float: right;
+        }
+
+        .info_box .option .delete_box span {
+            /*background-color: greenyellow;*/
+            display: block;
+        }
+
+        .info_box .option .delete_box span:first-child {
+            background: url("./img/delete_up.png") no-repeat;
+            width: 20px;
+            height: 5px;
+            background-size: 20px 5px;
+            margin-left: -1px;
+        }
+
+        .info_box .option .delete_box span:last-child {
+            background: url("./img/delete_down.png") no-repeat;
+            width: 18px;
+            height: 18px;
+            background-size:18px 18px;
+            margin-top: -2px;
+        }
+
+        /*弹出框*/
+        .jd_win {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6) ;
+            z-index: 1000;
+            display: none;
+        }
+
+        .jd_win .jd_win_box {
+            width: 80%;
+            background-color: #fff;
+            margin: 0 auto;
+            margin-top: 200px;
+            border-radius:4px;
+            padding: 0 10px;
+        }
+
+        .jd_win .jd_win_box .text_box {
+            /*height: 75px;*/
+            text-align: center;
+            line-height: 75px;
+            font-size: 18px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .jd_win .jd_win_box .btn_box {
+            padding: 10px 0;
+        }
+
+        .jd_win .jd_win_box .btn_box a{
+            width: 45%;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            /*background: #000;*/
+            float: left;
+            border-radius: 4px;
+        }
+
+        .jd_win .jd_win_box .btn_box .cancle {
+            margin-right: 10%;
+            border: 1px solid #e0e0e0;
+        }
+
+        .jd_win .jd_win_box .btn_box .submit {
+            background: #d8505c;
+            color: #fff;
+        }
+
+        .jd_win .jd_win_box.bounceInDown {
+            animation: bounceInDown 1s;
+        }
+
+        /*bounceInDown*/
+        @keyframes bounceInDown{
+            from,
+        60%,
+        75%,
+        90%,
+        to {
+                -webkit-animation-timing-function: cubic-bezier(0.215,0.61,0.355,1);
+                animation-timing-function: cubic-bezier(0.215,0.61,0.355,1);
+            }
+
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0,-3000px,0);
+                 transform:translate3d(0,-3000px,0);
+
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: translate3d(0,25px,0);
+                transform: translate3d(0,25px,0);
+            }
+
+            75% {
+                -webkit-transform: translate3d(0,-10px,0);
+                transform: translate3d(0,-10px,0);
+            }
+
+            90% {
+                -webkit-transform: translate3d(0,5px,0);
+                transform: translate3d(0,5px,0);
+            }
+
+            to {
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+            }
+        }
+
+        @-webkit-keyframes bounceInDown {
+            from,
+            60%,
+            75%,
+            90%,
+            to {
+                -webkit-animation-timing-function: cubic-bezier(0.215,0.61,0.355,1);
+                animation-timing-function: cubic-bezier(0.215,0.61,0.355,1);
+            }
+
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0,-3000px,0);
+                transform:translate3d(0,-3000px,0);
+
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: translate3d(0,25px,0);
+                transform: translate3d(0,25px,0);
+            }
+
+            75% {
+                -webkit-transform: translate3d(0,-10px,0);
+                transform: translate3d(0,-10px,0);
+            }
+
+            90% {
+                -webkit-transform: translate3d(0,5px,0);
+                transform: translate3d(0,5px,0);
+            }
+
+            to {
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+            }
+        }
+    </style>
+</head>
+<body>
+<!--顶部通知栏-->
+<header class="jd_topBar">
+    <a href="#" class="icon_back"></a>
+        <h3>购物车</h3>
+    <a href="#" class="icon_menu"></a>
+</header>
+
+<!--安全提示-->
+<div class="jd_safeTip">
+    <p>你正在安全购物环境中，请放心购物</p>
+</div>
+<!--店铺-->
+<div class="jd_shop">
+    <div class="jd_shop_title">
+        <div class="check_box">
+            <a href="#" class="jd_check_box"></a>
+        </div>
+        <div class="jd_shop_tit_right clearfix">
+            <div class="f_left">
+                <img src="./img/buy-logo.png" alt="">
+                <span class="shop_name">京东自营</span>
+            </div>
+            <div class="f_right m_r10 mianColor">你享受满79元免运费服务
+            </div>
+        </div>
+    </div>
+    <div class="jd_shop_con">
+        <div class="product_box">
+            <div class="check_box">
+                <a href="" class="jd_check_box" checked></a>
+            </div>
+            <div class="product_box_right clearfix">
+                <a href="#" class="img_box">
+                    <img src="./img/detail01.jpg" alt="">
+                </a>
+                <div class="info_box">
+                    <a href="#" class="name">华为（HUAWETI）荣誉平板优享版 wifi 8英寸平板电脑（高通骁龙 64位四核1280*800 2G/16G  4800mAh)香槟金</a>
+                    <p class="price">&yen1000.00</p>
+                    <div class="option">
+                        <!--加减-->
+                        <div class="change_box">
+                            <span>-</span>
+                            <!--调用的是数字键盘并且没有小数点-->
+                            <input type="tel">
+                            <span>+</span>
+                        </div>
+                        <!--删除-->
+                        <div class="delete_box">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="jd_shop_con">
+        <div class="product_box">
+            <div class="check_box">
+                <a href="" class="jd_check_box" checked></a>
+            </div>
+            <div class="product_box_right clearfix">
+                <a href="#" class="img_box">
+                    <img src="./img/detail01.jpg" alt="">
+                </a>
+                <div class="info_box">
+                    <a href="#" class="name">华为（HUAWETI）荣誉平板优享版 wifi 8英寸平板电脑（高通骁龙 64位四核1280*800 2G/16G  4800mAh)香槟金</a>
+                    <p class="price">&yen1000.00</p>
+                    <div class="option">
+                        <!--加减-->
+                        <div class="change_box">
+                            <span>-</span>
+                            <!--调用的是数字键盘并且没有小数点-->
+                            <input type="tel">
+                            <span>+</span>
+                        </div>
+                        <!--删除-->
+                        <div class="delete_box">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="jd_shop_con">
+        <div class="product_box">
+            <div class="check_box">
+                <a href="" class="jd_check_box" checked></a>
+            </div>
+            <div class="product_box_right clearfix">
+                <a href="#" class="img_box">
+                    <img src="./img/detail01.jpg" alt="">
+                </a>
+                <div class="info_box">
+                    <a href="#" class="name">华为（HUAWETI）荣誉平板优享版 wifi 8英寸平板电脑（高通骁龙 64位四核1280*800 2G/16G  4800mAh)香槟金</a>
+                    <p class="price">&yen1000.00</p>
+                    <div class="option">
+                        <!--加减-->
+                        <div class="change_box">
+                            <span>-</span>
+                            <!--调用的是数字键盘并且没有小数点-->
+                            <input type="tel">
+                            <span>+</span>
+                        </div>
+                        <!--删除-->
+                        <div class="delete_box">
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹出框-->
+<div class="jd_win">
+    <div class="jd_win_box">
+        <div class="text_box">你是否确认删除该商品</div>
+        <div class="btn_box clearfix">
+            <a href="#" class="cancle">取消</a>
+            <a href="#" class="submit">确认</a>
+        </div>
+    </div>
+</div>
+<script src="./js/cat.js">
+</script>
+</body>
+</html>

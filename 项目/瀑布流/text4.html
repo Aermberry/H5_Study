@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            /*width: 500px;*/
+            /*height: 300px;*/
+            border: 1px solid;
+            /*伸缩布局*/
+            margin: 20px;
+            display:inline-flex;
+            flex-flow: row wrap;
+            align-items: flex-start;
+
+        }
+
+        .box>div{
+            min-width: 100px;
+            border: 1px solid;
+            line-height: 100px;
+            text-align: center;
+            margin: 10px;
+        }
+        /*order 控制子元素的位置顺序*/
+        .box div:nth-child(1){
+            order: 2;
+        }
+
+        .box div:nth-child(2){
+            order: 1;
+        }
+
+        .box div:nth-child(3){
+            order: 3;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .content {
+            width: 1200px;
+            margin: 0 auto;
+            background: rebeccapurple;
+            height: 1000px;
+        }
+
+        /*响应式布局 设备宽度区间划分：*/
+        /*0-768 需要在移动端的时候 显示绿色并且是100%显示*/
+        /*查询当前设备的尺寸*/
+        @media screen and (max-width: 768px){
+            /*定义此宽度区间范围的样式*/
+            .content {
+                width: 100%;
+                background: green;
+            }
+        }
+
+        /*768-992 需要在小屏幕设备下 显示黄色并且宽度为750px*/
+        @media screen and (min-width: 768px) and (max-width: 992px) {
+            /*定义我们这个区间内的样式*/
+            .content {
+                width: 750px;
+                background: yellow;
+            }
+        }
+
+        /*992-1200 需要在中等屏幕下 显示蓝色并且 宽度是970px*/
+        @media screen and (min-width: 992px) and (max-width: 1200px){
+            /*定义我们这个区间的样式*/
+            .content {
+                width: 970px;
+                background: blue;
+            }
+        }
+
+        /*1200 需要在大屏幕下 显示粉红色 宽度1170px*/
+        @media screen and (min-width: 1200px){
+            /*定义我们这个区间内的样式*/
+            .content {
+                width: 1170px;
+                background: pink;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+
+</div>
+</body>
+</html>

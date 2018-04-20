@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 500px;
+            height: 500px;
+            border:1px solid;
+            margin: 20px;
+            display: flex;
+            /*align-items*/
+            /*默认值，在宽/高没有被写死时生效,往侧轴方向延伸*/
+            /*align-content:stretch;*/
+            /*flex-start 以侧轴的起点为起点进行对齐*/
+            /*align-content: flex-start;*/
+            /*flex-end 以侧轴的终点为起点进行对齐*/
+            /*align-content:flex-end;*/
+            /*center 各行向侧轴的中间处对齐*/
+            /*align-content: center;*/
+            /*space-between 左右中心对齐*/
+            /*align-content:space-between;*/
+            /*侧轴的起始端，结尾段留出间隙*/
+            /*align-content: space-around;*/
+        }
+
+        body>div:first-child {
+            flex-flow: row wrap;
+        }
+
+        body>div:last-child {
+            flex-flow: column wrap;
+        }
+
+        .box div{
+            min-width: 100px;
+            line-height: 100px;
+            border:1px solid;
+            text-align: center;
+            margin: 10px;
+            background-color: #21e1ff;
+            box-shadow: 0 2px 5px #cccccc;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+    <div>A</div>
+    <div>B</div>
+</div>
+<div class="box">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+    <div>A</div>
+    <div>B</div>
+</div>
+</body>
+</html>

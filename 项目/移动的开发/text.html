@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            border: 20px solid red;
+        }
+        
+        .box>div {
+            width: 100px;
+            height: 100px;
+        }
+
+        .left {
+            float: right;
+            background-color: darkseagreen;
+        }
+        .middle {
+            float: left;
+              background-color: rebeccapurple;
+          }
+        .right {
+            float: right;
+            background-color: #ffea46;
+        }
+        .clearfix:before,
+        .clearfix:after {
+            display: table;
+            content: " ";
+        }
+        .clearfix:after {
+            clear: both;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="box clearfix">
+
+    <div class="left "></div>
+    <div class="middle "></div>
+    <div class="right " ></div>
+    <!--<div style="clear: both"></div>-->
+</div>
+</body>
+</html>

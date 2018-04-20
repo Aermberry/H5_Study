@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            }
+
+        .box {
+            border: 1px solid;
+            margin: 10px;
+            width: 500px;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: flex-start;
+        }
+
+        .box>div {
+            border: 1px solid;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        /*flex-basis:定义了子元素的可伸缩的基准值，当他存在时，可忽略原子元素盒子的宽度
+        当存在扩大比例属性时，扩大比例需要在这个基准上进行放大*/
+
+        .box div:nth-child(1){
+            flex-basis: 50px;
+
+        }
+
+        .box div:nth-child(2){
+            flex-basis: 200px;
+
+        }
+
+        .box div:nth-child(3){
+            flex-basis: 50px;
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+</div>
+</body>
+</html>

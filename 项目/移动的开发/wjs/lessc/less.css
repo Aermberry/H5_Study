@@ -1,0 +1,99 @@
+@charset "utf-8";
+/*指定编码为"utf-8"*/
+/*注释的区别：
+   //：不会编译在CSS文件中
+    带*的注释能被编译在CSS文件中
+    * /
+  color: #5bc0de;
+  /*怎么申明一个变量*/
+body {
+  /*主题色*/
+  color: #e92322;
+}
+a {
+  color: #e92322;
+}
+/*什么是Mixin 混入*/
+.redFont {
+  color: red;
+}
+.redBorder {
+  border: 1px solid red;
+}
+/*红色文字和边框*/
+/*继承特性 样式混合---class*/
+.redFontBorder {
+  color: red;
+  border: 1px solid red;
+}
+/*方法*/
+/*.redFont(){
+    color: green;
+  }//方法的写法不会被直接编译成css
+*/
+/*红色文字和边框 通过func混合*/
+.redFontBorder-func {
+  /*.redFont();*/
+  /*调用redFont的类和方法*/
+  /*注意：方法名和类名不能重复，否则都会被引用*/
+  color: green;
+  border: 1px solid red;
+}
+/*带参数的混合*/
+/*嵌套*/
+.wjs_header {
+  line-height: 40px;
+  color: #666;
+  font-size: 12px;
+  position: relative;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 1001;
+  /*子代的写法*/
+}
+.wjs_header .wjs_app {
+  color: #666;
+  position: relative;
+  display: block;
+  /*当前的伪类写法*/
+}
+.wjs_header .wjs_app img {
+  display: block;
+}
+.wjs_header .wjs_app:hover img {
+  display: block;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  margin-left: -60px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+.wjs_header a {
+  color: #666;
+}
+.wjs_header > .container > .row div {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  /*'+'号选择器 */
+}
+.wjs_header > .container > .row div + div {
+  border-left: 1px solid #ccc;
+}
+.wjs_header .btn-register {
+  background: #E92322;
+  color: #fff;
+  padding: 3px 15px;
+}
+/*编译后的文件直接承载父级的类名*/
+/*导入 import*/
+.colorI {
+  color: red;
+  /*运算方法 +，-，*，/*/
+  color: #333;
+  color: #666666;
+  /*内置函数的使用*/
+  /*eg:---darken()函数*/
+  color: #1a1a1a;
+}
+/*# sourceMappingURL=less.css.map */

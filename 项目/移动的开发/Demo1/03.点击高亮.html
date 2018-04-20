@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+    <title>Title</title>
+    <style>
+        body,html {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            display: block;
+            height: 100px;
+            width: 100px;
+            /*定义高亮的颜色*/
+            /*transparent 透明 清除高亮颜色*/
+            -webkit-tap-highlight-color: transparent;
+            /*-webkit-tap-highlight-color: red;*/
+
+            /*设置所有的盒子的宽度以边框开始计算*/
+            -webkit-box-sizing:border-box ;
+            /*要兼容webkit浏览器内核厂商 这种情况一般是老的移动端浏览器*/
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<!--在移动端，点击时会闪烁而过-->
+<a href="javascript:;"></a>
+</body>
+</html>
