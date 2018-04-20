@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+/*获取demo*/
+    var canvans=document.querySelector("#demo");
+
+    canvans.width=8000;
+    canvans.height=8000;
+/*取得2D渲染*/
+    var  vct=canvans.getContext("2d");//注意是小写
+
+    /*画表格*/
+/*每一个表格的大小*/
+var h=50;
+var w=50;
+
+    for (var i=0;i<=canvans.width/w;i++){
+        vct.beginPath();
+        vct.moveTo(w*i,0);
+        vct.lineTo(w*i,canvans.height);
+        vct.lineWidth=10;
+        vct.strokeStyle="red";
+        vct.stroke();
+    };
+
+    for(var j=0;j<=canvans.height/h;j++){
+        vct.beginPath();
+        vct.moveTo(0,h*j);
+        vct.lineTo(canvans.width,h*j);
+        vct.lineWidth=10;
+        vct.strokeStyle="yellow";
+        vct.stroke();
+    }
+</script>
+</body>
+</html>

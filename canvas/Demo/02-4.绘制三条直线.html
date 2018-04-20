@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+    /*
+    需求：
+    绘制三条线
+    */
+
+    /*获取对象*/
+    var canvans=document.querySelector("#demo");
+    canvans.width=800;
+    canvans.height=800;
+
+    /*获取绘制2D渲染功能*/
+    var vtc=canvans.getContext('2d');
+
+    /*描点*/
+    vtc.beginPath();//标志路径的起始，隔断与其他路径的属性的重复
+    vtc.moveTo(100,100);
+    /*划线*/
+    vtc.lineTo(200,100);
+    vtc.lineWidth=10;
+    vtc.strokeStyle="yellow";
+    vtc.stroke();
+
+    /*描点*/
+    vtc.beginPath();
+    vtc.moveTo(200,200);
+    /*划线*/
+    vtc.lineTo(300,200);
+    vtc.lineWidth=10;
+    vtc.strokeStyle="red";
+    vtc.stroke();
+
+    /*描点*/
+    vtc.beginPath();
+    vtc.moveTo(300,300);
+    vtc.lineTo(400,300);
+    vtc.lineWidth=10;
+    vtc.strokeStyle="green"
+    vtc.stroke();
+
+    /*绘制一个几何图形*/
+    vtc.beginPath();
+    vtc.moveTo(500,500);
+    vtc.lineTo(100,50);
+    vtc.lineTo(700,100);
+    // vtc.closePath();
+    vtc.lineWidth=10;
+    vtc.strokeStyle="pink";
+    vtc.fillStyle="red";
+    vtc.fill();
+    vtc.stroke();
+
+
+
+</script>
+</body>
+</html>

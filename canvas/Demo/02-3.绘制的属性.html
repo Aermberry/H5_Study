@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/core.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+    var  canvans=document.querySelector('#demo');
+
+    canvans.width=600;
+    canvans.height=600;
+
+    canvans.style.cssText="border:1px solid #e0e0e0"
+
+    /*获取2D图象渲染模式*/
+    var vtc=canvans.getContext('2d');
+
+    /*描点*/
+    vtc.moveTo(100,100);
+    vtc.lineTo(500,500);
+    vtc.lineTo(100,300);
+    /*闭合路径*/
+    vtc.closePath();//自动闭合一条曲线的首位两端,必须要紧接着lineTO()后面写，在属性之后写不生效
+    /*属性*/
+       /*描边的宽度*/
+    vtc.lineWidth=50;
+      /*填充描边颜色*/
+    vtc.strokeStyle="green";
+    vtc.stroke();
+    /*填充颜色*/
+      /*填充描边颜色*/
+    vtc.fillStyle="yellow";//这个必须在fill()前面，不然会默认填充默认色
+    vtc.fill();//填充闭合路径的内容区域颜色，默认填充黑色
+
+
+
+
+
+</script>
+</body>
+</html>

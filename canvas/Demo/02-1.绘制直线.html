@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/core.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+    /*获取demo*/
+    var canvas=document.querySelector("#demo");
+    // alert(canvas);
+
+    /*设置画板大小*/
+    canvas.width=600;
+    canvas.height=600;
+
+    /*设置样式*/
+    demo.style.cssText="border:1px solid #e0e0e0"
+
+    /*绘制直线*/
+    /*
+    * 1.获取2D渲染的模式权限*/
+    var ctx=canvas.getContext("2d");
+    /*2.开始划线
+    *  2.1 找到起始点,定义绘制的起点在哪里*/
+    ctx.moveTo(100,100);
+    /* 2.2 找到直线的终点，定义绘制的终点在哪里*/
+    ctx.lineTo(200,100);
+    /* 2.3 将线条描边出来*/
+    ctx.stroke();
+
+    /*总结：
+    *
+    * 1.要画图需要先决定好获取渲染模式
+    * 2.lineTo() 绘制的一个个点，只是数学意义上的连接各个坐标定位点
+    * 3.要将线段显示出来，必须对它进行描边着色处理*/
+</script>
+
+</body>
+</html>

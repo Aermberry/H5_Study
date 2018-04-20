@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            height: 900px;
+            width: 900px;
+        }
+    </style>
+</head>
+<body>
+<!--width,height默认值为300px，150px-->
+<canvas id="demo">
+    <!--画布-->
+    你能看到我吗？
+</canvas>
+<script>
+    <!--拿到画布对象-->
+    var canvas=document.querySelector('#demo');
+    /*取得这个对象的控制权 其实是选取渲染模式机制*/
+    /*
+    var ctx=canvas.getContext("2d");//获取2d绘图渲染模式机制
+
+    var ctx=canvas.getContext("webgl");//获取3d绘图渲染模式机制
+
+    总结：这里说明了canvas自身没有绘制能力，是通过JavaScriptAPI来实现的
+    */
+
+    canvas.style.backgroundColor="red";
+    canvas.style.border="1px solid #000"
+    /*
+    var  width=canvas.style.width
+    */
+
+    var  width=canvas.width
+    console.log(width);
+
+    /*总结： 对于width 和 height 是canvas的直接属性，不能通过style来获取*/
+</script>
+</body>
+</html>
