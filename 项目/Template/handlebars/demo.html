@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Handlebars</title>
+    <script src="./handlebars-v4.0.11.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.js">
+    </script>
+
+    <style>
+        .card{
+            font-size: 30px;
+            float: left;
+            margin: 20px;
+            background-color: pink;
+        }
+    </style>
+    <!--定义handlebars的模板头-->
+    <script id="card-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <!--//#each 遍历 this指定遍历的对象-->
+
+        <div class="card">
+        <div>姓名：{{name}}</div>
+       {{#if birth}}
+            <div>出生日期：{{birth}}</div>
+            {{/if}}
+        <div>出生地：{{home}}</div>
+        <div>职业：{{job}}</div>
+            <ul>
+                {{#each books}}
+                <!--遍历对象books-->
+                <li>{{this}}</li>
+                <!--输出遍历对象-->
+                {{/each}}
+            </ul>
+        </div>
+        {{/each}}
+        <!--注析的写法：
+
+        {{!--
+        这是handlbria的注析写法
+        --}}
+
+        -->
+</script>
+</head>
+<body>
+<div id="card">
+    <!--<div>姓名：凯文米特尼克</div>-->
+    <!--<div>出生日期：1963年8月6日</div>-->
+    <!--<div>出生地：美国洛神迹</div>-->
+    <!--<div>职业：网络安全咨询师</div>-->
+    <!--这样就把html内容写死-->
+</div>
+<script>
+
+    //javascript动态生成html：
+
+    // var data={
+    //     name:'凯尔米特尼克',
+    //     birth:'1963年8月6日',
+    //     home:'美国洛神迹',
+    //     job:'网络安全咨询师'
+    // };
+    //
+    // var str="";
+    // str +="<div>姓名："+data.name+"</div>";
+    // str +="<div>出生日期："+data.birth+"</div>";
+    // str +="<div>出生地："+data.home+"</div>";
+    // str +="<div>职业："+data.job+"</div>";
+    //
+    // $(".card").html(str);
+
+    // //缺点：不能将html代码从javscript中单独分离出来，html代码被数据隔断了（data.name）令可读性下降，拼接字符串容易出错
+
+    //handlebars模板引擎
+
+    var data=[{
+        name:'凯尔米特尼克',
+        birth:'1963年8月6日',
+        home:'美国洛神迹',
+        job:'网络安全咨询师',
+        books:['《欺骗的艺术》','《入侵的艺术》','《线上幽灵》']
+    },{
+        name:'沃兹尼亚克',
+        birth:'1950年8月11日',
+        home:'美国加利福尼亚',
+        job:'电脑工程师',
+        books:['《与苹果一起疯狂》']
+    },{
+        name:'channingbreeze',
+        home:'北京',
+        job:'全站工程师'
+    }];
+
+    var  t=$("#card-template").html();//获取模板
+    var f=Handlebars.compile(t);//使用Handlebars.compile方法将模板编译为函数function ret()
+    var h=f(data);//生成的执行函数f()接受data作为参数，用来渲染模板
+    $("#card").html(h);
+</script>
+</body>
+</html>

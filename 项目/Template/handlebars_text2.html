@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="handlebars/handlebars-v4.0.11.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.js"></script>
+    <style>
+        #card {
+            background-image: linear-gradient(to bottom,#D64BD3 ,#5bc0de 50%,#00b3ee);
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-content: flex-start;
+            border: 1px solid;
+            box-shadow: 0 5px 10px #cccccc;
+            border-radius: 10px;
+        }
+
+        .card {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            border: 1px solid;
+            box-shadow: 0 5px 5px #cccccc;
+            border-radius: 10px;
+            background-color: #21e1ff;
+        }
+
+        .card>div {
+            padding: 10px;
+            font: 20px "微软雅黑";
+        }
+
+        ul>li {
+            list-style: none;
+            font: 20px "微软雅黑";
+        }
+
+    </style>
+
+    <script id="card-template" type="text/x-handlebars-template">
+        {{#each this}}
+    <div class="card">
+        <div>{{chinese @index}}</div>
+        <div>名字:{{name}}</div>
+        {{#if birth}}
+        <div>出生日期:{{birth}}</div>
+        {{else}}
+        <div>技能:{{power}}</div>
+        {{/if}}
+        <div>出生地:{{address}}</div>
+        <div>职业:{{job}}</div>
+        <ul>
+            {{#each books}}
+            <li
+                    {{#if @first}}style="color:red;"{{/if}}
+                    {{#beyellow ../books}} style="color:yellow;"{{/beyellow}}
+            >
+            {{addone @../index}}-{{addone @index}}{{this}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+        {{/each}}
+</script>
+</head>
+<body>
+<div id="card">
+    <script>
+        var data=[
+            {
+            name:"Salmonberry",
+            birth:"1990-10-1",
+            address:"China",
+            job:"Hacker",
+                books:["Hacker","幽灵子弹","神之一手"]
+
+        },
+            {
+                name:"Salmonberry",
+                birth:"1990-10-1",
+                address:"China",
+                job:"Hacker",
+                books:["Saber","Lancer","Magic"]
+            },
+            {
+                name:"Salerry",
+                birth:"1990-10-1",
+                address:"China",
+                job:"Hacker",
+                books:["Hacha","Salmon","will"]
+            },
+            {
+                name:"berry",
+                birth:"1990-10-1",
+                address:"China",
+                job:"Hacker",
+                books:["绘画","代码","黑客"]
+            },
+            {
+                name:"Salmon",
+                power:"神之眼",
+                address:"China",
+                job:"Hacker",
+                books:["天道","自在法"]
+            },
+        ]
+
+    //    helper chinese
+        Handlebars.registerHelper("chinese",function (index) {
+            var arr=["一","二","三","四","五"];
+            return arr[index];
+        })
+
+    //    helper addone
+        Handlebars.registerHelper("addone",function (index) {
+            return index+1;
+        })
+
+    //    beyellow
+        Handlebars.registerHelper("beyellow",function (items,options) {
+            if(items&&items.length>1){
+                return options.fn(this)
+            }
+        })
+
+    //    获取模板
+        var  template=$("#card-template").html();
+        var fun=Handlebars.compile(template);
+        var h=fun(data);
+        $("#card").html(h);
+    </script>
+</div>
+</body>
+</html>

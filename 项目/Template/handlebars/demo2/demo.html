@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./handlebars-v4.0.11.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.js"></script>
+    <style>
+        .card{
+
+            font-size: 30px;
+            float: left;
+            margin: 20px;
+            background-color: #21e1ff;
+        }
+
+        .card li{
+            list-style: none;
+        }
+    </style>
+
+
+    <!--定义模板-->
+    <script id="card-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="card">
+            <div>
+                {{!--@index--}}
+                {{!--只能在#each遍历的时候生效--}}
+                {{chinese @index}}
+            </div>
+
+            <div>姓名：{{name}}</div>
+            {{#if birth}}
+            {{!--if内置block helper--}}
+            <div>出生日期：{{birth}}</div>
+            {{/if}}
+            <div>出生地：{{home}}</div>
+            <div>工作：{{job}}</div>
+            <ul>书籍：
+                {{#each books}}
+                <li
+                        {{#isfirst @index}}
+                        style="color:yellow;"
+                        {{/isfirst}}
+                {{#isgreen ../books}}
+                style="color:red;"
+                {{/isgreen}}
+                >
+                    {{addone @../index}}-{{addone @index}} {{this}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/each}}
+    </script>
+
+</head>
+<body>
+<div id="card" >
+
+</div>
+
+<script>
+    var data=[
+        {
+            name:'Salmon',
+            birth:'1990年10月1日',
+            home:'China',
+            job:'Game Hacker',
+            books:['hacker','phone','internet']
+        },
+        {
+            name:'Salmonberry',
+            birth:'1990年10月1日',
+            home:'China',
+            job:'Game Hacker',
+            books:['Linux','PHP','C#']
+        },
+        {
+            name:'Dark_Salmon',
+            home:'China',
+            job:'Game Hacker',
+            books:['javascript','Html5','css3']
+        }
+    ];
+
+    //chinese 定义helper
+Handlebars.registerHelper("chinese",function (value) {
+    //定义数组
+    var arr=['一','二','三']
+//    返回数组
+    return arr[value];
+})
+
+    //addone 定义helper
+    Handlebars.registerHelper("addone",function (value) {
+              // value++;
+              // return value;
+        return ++value;
+    })
+
+    //isfirst
+    Handlebars.registerHelper("isfirst",function (value,optinos) {
+        if(value==0)
+            return optinos.fn(this);
+    })
+
+    //isgreen
+    Handlebars.registerHelper("isgreen",function (value,options) {
+        if(value&&value.length>2){
+            return options.fn(this);
+        }
+    })
+
+    <!--获取模板-->
+    var t=$("#card-template").html();
+    //编译封装函数
+    var f=Handlebars.compile(t);
+    //写入数据到编译后的的模板函数中
+    var h=f(data);
+    $("#card").html(h);
+</script>
+
+</body>
+</html>

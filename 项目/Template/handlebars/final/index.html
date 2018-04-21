@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Handlebars</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/handlebars-v4.0.11.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    //定义handlebars-template模板
+    <script id="class-template" type="text/x-handlebars-template">
+        <ul>
+            {{#each this}}
+            <li>
+                <div class="innerbox">
+                    <img src="{{image}}" alt="{{title}}">
+                    <div class="titlediv">
+                    <span class="title">
+                        {{title}}
+                    </span>
+                     {{#equal hasnote 1}}
+                        <span class="note">
+                        (有笔记)
+                    </span>
+                        {{/equal}}
+                    </div>
+                    <div class="subtitle">
+                        {{subtitle}}
+                    </div>
+                    <div class="subtitle
+                     {{#long timespan}} long
+                     {{else}} short
+                     {{/long}}">
+                        时间：{{timespan}}
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+</head>
+<body>
+<div class="banner">
+    <h1>我的笔记本</h1>
+    <h3>你的指尖,有改变世界的力量</h3>
+</div>
+<div class="classes" id="classes">
+
+</div>
+<div class="pag" id="pag">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+</div>
+<script src="./js/script.js"></script>
+</body>
+</html>

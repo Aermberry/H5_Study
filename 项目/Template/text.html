@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="handlebars/handlebars-v4.0.11.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.js"></script>
+    <style>
+    .card {
+
+        background-color: #5fffb8;
+        font: 20px "黑体";
+        display: inline-flex;
+        flex-flow: column nowrap;
+    }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <script id="card-template" type="text/x-handlebars-template">
+        {{#each this}}
+    <div class="card">
+        {{!--@index 当前索引--}}
+        {{!--chinese 代表helper名实质是一个js函数--}}
+        <div>{{chinese @index}}</div>
+        <div>姓名:{{name}}</div>
+
+        {{!--判断当前对象是否有birth属性，有就返回，没有就返回undefind/null--}}
+        {{#if birth}}
+        <div>出生日期:{{birth}}</div>
+        {{/if}}
+        <div>出生地:{{home}}</div>
+        <div>职业:{{job}}</div>
+
+        <ul>
+            {{!--books为#each的list的遍历对象名--}}
+            {{#each books}}
+            <li  {{#if @first}}
+                 style="color: palevioletred"
+                 {{/if}}
+
+            {{#beyellow ../books}}
+            style="color: yellow;"
+            {{/beyellow}}
+            >
+
+                {{!--获取父级index  @../index--}}
+                {{addone @../index}}-{{addone @index}}{{this}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+        {{/each}}
+
+</script>
+</head>
+<body>
+<div id="box">
+</div>
+<script>
+
+    data=[{
+        name:"Salmonberry",
+        birth:"1990年10月1日",
+        address:"China",
+        job:"Hacker",
+        books:['《欺骗的艺术》','《入侵的艺术》','《线上幽灵》']
+    },{
+        name:"Salmon",
+        birth:"1990年10月1",
+        adddress:"China",
+        job:"Hacker",
+        books:['《与苹果一起疯狂》']
+    }, {
+        name: "Will",
+        birth: "1990年10月1",
+        adddress: "China",
+        job: "Hacker"
+    }   ,{
+        name:"Thony",
+        birth:"1990年10月1",
+        adddress:"China",
+        job:"Hacker"
+    }   ,{
+        name:"XXX",
+        adddress:"China",
+        job:"Hacker"
+    }]
+
+    //自定义helper
+    //chinese
+    Handlebars.registerHelper("chinese",function(index){
+        var arr=["一","二","三","四","五"];
+        return arr[index];
+    })
+
+    //addone
+    Handlebars.registerHelper("addone",function (index) {
+
+        return index+1;
+    })
+
+    //isfirst
+    // 在helper中，function接收一个hash参数options，而options有个fn方法，该方法可接收一个context参数来改变block中的上下文，返回一个类似于编译后的Handlebars模板，明确地说，就是一个字符串。
+    Handlebars.registerHelper("isfirst",function (index,options) {
+        if(index==0){
+            return options.fn(this);
+        }
+    })
+
+    //beyellow
+    Handlebars.registerHelper("beyellow",function (items,options) {
+      for(var i=0;i<items.length;i++){
+         return options.fn(this)
+      }
+    })
+
+    <!--获取模板-->
+    var template=$("#card-template").html();
+//    编译模板,封装为函数
+    var fun=Handlebars.compile(template);
+//    载入数据
+    var h=fun(data);
+//    载入文档流
+    $("#box").html(h);
+</script>
+</body>
+</html>

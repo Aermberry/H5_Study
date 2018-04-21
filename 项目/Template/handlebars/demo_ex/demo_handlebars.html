@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./handlebars-v4.0.11.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.js"></script>
+
+    <style>
+        .card {
+            font-size: 30px;
+            float: left;
+            margin: 20px;
+            background-color: pink;
+        }
+    </style>
+
+    <!--模板-->
+    <script id="card-template" type="text/x-handlebars-template">
+        <!--遍历数据 each-->
+        {{#each this}}
+    <div class="card">
+        <div>姓名：{{name}}</div>
+        <div>出生日期：{{birth}}</div>
+        <div>职业：{{home}}</div>
+        <div>职业：{{job}}</div>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+        {{/each}}
+</script>
+</head>
+<body>
+<div id="card">
+
+</div>
+
+<!--数据-->
+<script>
+    var data=[{
+        name:'Salmonberry',
+        birth:'1990年10月1日',
+        home:'中国领域',
+        job:'hacker',
+        book:['《欺骗的艺术》','《入侵的艺术》','《线上幽灵》']
+    },{
+        name:'Salmon',
+        birth:'1990年8月13',
+        home:'America',
+        job:'hacker'
+    },{
+        name:'爱恩自北仑',
+        birth:'1956年15与4',
+        home:'Japan',
+        job:'kan'
+    }]
+
+//    获取模板
+    var temple=$("#card-template").html();
+//    使用Handlebars.compile方法,根据正则表达式，将关键字提取出来，转换成可以匹配数据的函数方法（exec,提取关键字），即将模板编译为函数function ret()方便载入数据
+    var fun=Handlebars.compile(temple);
+//    生成的fun()接受数据作为参数，渲染模板
+    var htl=fun(data);
+    $("#card").html(htl);
+</script>
+</body>
+</html>
