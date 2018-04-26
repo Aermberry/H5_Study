@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+    var canvas=document.querySelector('#demo');
+    canvas.width=800;
+    canvas.height=800;
+
+    var cet=canvas.getContext('2d');
+    cet.moveTo(300,0);
+    cet.lineTo(300,600);
+    cet.stroke();
+
+    /*textAlign = "start" 文本从当前点开始*/
+    cet.beginPath();
+    cet.textAlign='start';
+    cet.font='20px 宋体';
+    cet.fillText("start",300,20);
+    //textAlign = "end" 文本从当前点开始
+    cet.beginPath();
+    cet.textAlign='end';
+    cet.font='20px 宋体';
+    cet.fillText('end',300,40);
+    //textAlign = "center" 文本从当前点开始
+    cet.beginPath();
+    cet.font='20px 宋体';
+    cet.fillText('center',300,60);
+    //textAlign = "left" 文本从当前点开始
+    cet.beginPath();
+    cet.textAlign='left';
+    cet.font='20px 宋体';
+    cet.fillText('left',300,80);
+
+    /*总结：
+    * 取值：start与left,end与right的区别
+    * start与end的渲染位置决定于浏览器的设置
+    * 当使用的是 a LTR (left to right) browser的浏览器时，对齐的方向是左边，
+    * In RTL browsers, the start value aligns right.*/
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

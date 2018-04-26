@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+
+<canvas id="demo" class="demo"></canvas>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+    /*获得demo*/
+    var canvans=document.querySelector('#demo');
+    /*设置大小*/
+    canvans.width=800;
+    canvans.height=800;
+    canvans.style.border="1px solid #000000";
+    /*设置画板的渲染模式*/
+    var vet=canvans.getContext('2d');
+    vet.moveTo(300,300);
+    /*圆弧绘制*/
+    // arc(x,y,r,sAngle,eAngle,counterclockwise)
+    vet.arc(300,300,200,90*Math.PI/180,280*Math.PI/180,false);
+    vet.closePath();
+    vet.lineWidth=10;
+    vet.strokeStyle="yellow";
+    vet.fillStyle="red";
+    vet.stroke();
+    vet.fill();
+
+    /*圆弧绘制2*/
+    // vet.beginPath();
+    vet.moveTo(500,100);
+    vet.arc(500,100,50,Math.PI*30/180,Math.PI*120/180,false)
+    vet.closePath();
+    vet.stroke();
+    vet.fill()
+
+</script>
+</body>
+</html>

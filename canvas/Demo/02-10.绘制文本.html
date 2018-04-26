@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+    var canvas=document.querySelector('#demo');
+    canvas.width=800;
+    canvas.height=800;
+
+    var demo=canvas.getContext('2d');
+    demo.font="20px 黑体";
+    demo.fillText("我在这里",100,100);//fillText("string",position);
+    demo.strokeText("我在这里",100,200);//strokeText("string",position)
+
+</script>
+</body>
+</html>

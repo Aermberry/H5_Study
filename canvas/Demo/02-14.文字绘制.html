@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+   var canvas=document.querySelector('#demo');
+   canvas.width=800;
+   canvas.height=800;
+
+   var data=[
+       {
+           "value":.4,
+           "color":"red",
+           "title":"天道"
+       }
+       ,{
+           "value":.2,
+           "color":"blue",
+           "title":"总司"
+       }
+       ,{
+          "value":.3,
+           "color":"green",
+           "title":"经验"
+       }
+       ,{
+          "value":.1,
+           "color":"#ccc",
+           "title":" 力量"
+       }
+   ]
+
+   /*获取2d画板功能*/
+  var cet=canvas.getContext('2d');
+  var clienX=canvas.width/2;
+  var clienY=canvas.height/2;
+  var beginAngle=-90;
+  var endAngle=-90;
+  var textAngel=0;
+
+  /*绘图*/
+    for(var i=0;i<data.length;i++){
+        cet.beginPath();
+        cet.moveTo(clienX,clienY);
+        endAngle+=360*data[i].value;
+        cet.arc(clienX,clienY,200,Math.PI*beginAngle/180,Math.PI*endAngle/180);
+        cet.fillStyle=data[i].color;
+        cet.fill();
+        /*h绘制文字*/
+        textAngel=beginAngle+1/2*data[i].value*360;
+        if (textAngel>90&&textAngel<270){
+            cet.textAlign="end";
+        }
+        var x=clienX+220*Math.cos(Math.PI*textAngel/180);
+        var y=clienY+220*Math.sin(Math.PI*textAngel/180);
+        cet.fillText(data[i].value*100+"%",x,y);
+        beginAngle=endAngle;
+
+        cet.beginPath();
+        cet.moveTo(clienX,clienY);
+        cet.lineTo(x,y);
+        cet.stroke();
+    }
+
+
+
+</script>
+</body>
+</html>

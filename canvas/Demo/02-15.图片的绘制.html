@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这是我自己定义的代码段</title>
+</head>
+<body>
+<img id="img" src="../img/a.jpg">
+<canvas id="demo"></canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("demo");
+    canvas.width = 600;
+    canvas.height = 600;
+    canvas.style.border = "1px solid #000000";
+    var ctx = canvas.getContext("2d");
+    var img=document.querySelector('img');
+
+    img.onload=function () {
+        ctx.drawImage(img,100,100);
+        ctx.drawImage(img,500,300,50,50)
+        ctx.drawImage(img,10,10,100,100,10,400,100,100)
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+
+<canvas id="demo" class="demo"></canvas>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+    /*获取画坂*/
+    var canvas=document.querySelector("#demo");
+
+    /*设置画板的大小*/
+    canvas.width=800;
+    canvas.height=800;
+
+    /*获取画板的渲染模式*/
+    var vet=canvas.getContext('2d');
+    /*绘制矩形*/
+    vet.rect(100,100,500,100);
+    vet.lineWidth=2;
+    vet.strokeStyle="red";
+    vet.fillStyle="yellow";
+    vet.fill();
+    vet.stroke();
+
+    /*快速创建矩形*/
+    /*描边创建*/
+    vet.strokeRect(300,300,100,100);
+    // 相当于
+    // vet.rect(300,300,100,100);
+    // vet.stroke();
+
+
+    /*填充创建*/
+    vet.fillRect(300,600,100,100)
+    // 相当于
+    // vet.rect(300,300,100,100);
+    // vet.fill();
+
+    /*清除*/
+   vet.fillRect(10,10,50,50);
+   vet.clearRect(10,10,10,10);
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+    var canvas=document.querySelector('#demo');
+    canvas.width=800;
+    canvas.height=800;
+
+    var demo=canvas.getContext('2d');
+
+    demo.moveTo(0,100);
+    demo.lineTo(canvas.width,100);
+    demo.stroke();
+
+    //textBaseline = "alphabetic" 默认，当前点所在的线与文本的基线重合
+    demo.font="20px 宋体";
+    demo.textBaseline="alphabetic";
+    demo.fillText("alphabetic",0,100);
+    //textBaseline = "top" ，当前点所在的线与文本的顶线重合
+    demo.beginPath();
+    demo.font="20px 宋体";
+    demo.textBaseline="top";
+    demo.fillText("top",100,100);
+    //textBaseline = "hanging" ，当前点所在的线与文本的顶线重合
+    demo.beginPath();
+    demo.font="20px 宋体";
+    demo.textBaseline='hanging';
+    demo.fillText('hanging',150,100);
+    //textBaseline = "middle" ，当前点所在的线与文本的顶线重合
+    demo.beginPath();
+    demo.font="20px 宋体";
+    demo.textBaseline='middle';
+    demo.fillText('middle',251,100);
+    //textBaseline = "bottom " ，当前点所在的线与文本的顶线重合
+    demo.beginPath();
+    demo.font="20px 宋体";
+    demo.textBaseline="bottom";
+    demo.fillText("bottom",320,100);
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+   var canvas=document.querySelector('#demo');
+   canvas.width=800;
+   canvas.height=800;
+
+   var ctx=canvas.getContext('2d');
+
+   ctx.moveTo(300,300);
+   ctx.textAlign="left";
+   ctx.textBaseline="bottom";
+   ctx.font="60px 黑体"
+   ctx.fillStyle='rgba(178,159,224,0.3)';
+   ctx.fillText("我在这里呢",300,300);
+   ctx.strokeStyle="rgba(178,159,224,0.3)";
+   ctx.strokeText("wozaizhe",400,100)
+</script>
+</body>
+</html>
