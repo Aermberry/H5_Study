@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf0dc815-5d9e-4547-a206-64d1d71e8ed6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Demo/02-10.绘制文本.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/02-11.垂直方向上改变文本.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/02-12.水平方向上的文字.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/02-13.综合案例.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/02-14.文字绘制.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/02-15.图片的绘制.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/02-16.会动的小人.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/02-6.绘制矩形.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/02-7.绘制圆弧.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/02-8.圆饼.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/02-9.饼状图简单写法.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo/demo_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/demo_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo/demo_style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/demo_style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Demo/demo_style.less" beforeDir="false" afterPath="$PROJECT_DIR$/Demo/demo_style.less" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,8 +52,8 @@
       <file leaf-file-name="02-16.会动的小人.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Demo/02-16.会动的小人.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+            <state relative-caret-position="600">
+              <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -110,6 +96,7 @@
         <option value="$PROJECT_DIR$/Demo/02-15.图片的绘制.html" />
         <option value="$PROJECT_DIR$/Demo/df.html" />
         <option value="$PROJECT_DIR$/Demo/02-16.会动的小人.html" />
+        <option value="$PROJECT_DIR$/Demo/text.html" />
       </list>
     </option>
   </component>
@@ -125,11 +112,11 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="772" />
-    <option name="y" value="7" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="133" />
+    <option name="y" value="9" />
     <option name="width" value="1119" />
-    <option name="height" value="1087" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -206,16 +193,18 @@
       <workItem from="1524623974747" duration="5305000" />
       <workItem from="1524661295446" duration="91000" />
       <workItem from="1524672120435" duration="1235000" />
+      <workItem from="1525248443423" duration="1164000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102118000" />
+    <option name="totallyTimeSpent" value="103282000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="772" y="7" width="1119" height="1087" extended-state="0" />
+    <frame x="133" y="9" width="1119" height="788" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22285175" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2266289" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" weight="0.32985386" />
@@ -243,6 +232,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Demo/02-16.会动的小人.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Demo/02-8.圆饼.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -573,10 +569,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Demo/df.html" />
+    <entry file="file://$PROJECT_DIR$/Demo/text.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Demo/02-16.会动的小人.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+        <state relative-caret-position="600">
+          <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
         </state>
       </provider>
     </entry>
