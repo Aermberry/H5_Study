@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        <!--第一种方法 通过json格式创建对象-->
+        var obj1={
+            "name":"追命",
+            "age":18,
+            "sayHi":function () {
+                alert("你好，美女");
+            },
+            "jieShao":function () {
+                alert("我叫"+this.name)
+            }
+        }
+
+        /*第二种方式创建方式：通过new方式创建/
+         */
+        var obj2=new Object();
+        obj2.name="追命";
+        obj2.age="19";
+        obj2.sayHi=function () {
+            alert("你好，美女。");
+        }
+        obj2.jieShao=function () {
+            alert("我叫"+this.name);
+        };
+
+        /*第三种方法：通过构造函数来创建（把对象先不创建，先给对象设置一个模板，然后通过这个模板来创建对象）
+        * 这个模板就叫做构造函数，构造函数本质上来说就是一个function（方法）*/
+
+    //    第一种表现形式：
+        function GrilFriend() {
+            this.name='刘亦菲';
+            this.age=18;
+            this.showLove=function () {
+                alert("I Love You");
+            }
+            this.jieShao=function () {
+                alert("我叫"+this.name);
+            }
+        }
+
+        var girlfriend=new GrilFriend();
+        console.log(girlfriend.name);
+        console.log(girlfriend.age);
+        girlfriend.jieShao();
+        girlfriend.showLove();
+
+    //    第三种的第二种表现形式
+        function GirlFriend(name,age) {
+            this.name=name;
+            this.age=age;
+            this.showLove=function () {
+                alert("I Love You");
+            }
+            this.jieShao=function () {
+                alert("我叫"+this.name);
+            }
+        }
+
+        var girlfriend2=new GirlFriend('菲菲',18)
+        console.log("大家好，我叫"+girlfriend2.name);
+        console.log("今年"+girlfriend2.age);
+
+    //    第三种表现方式----将形参当作一个对象来用
+        function gf(option) {
+            this.name=option.name;
+            this.age=option.age;
+            this.ShowLove=function () {
+                alert("I Love You");
+            }
+            this.jieShao=function () {
+                alert("我叫"+this.name);
+            }
+        }
+
+        var option={
+            name:'琪琪',
+            age:'18岁'
+        }
+
+        var girlfriend3=new gf(option);
+        console.log(girlfriend3.name);
+        girlfriend3.ShowLove();
+        girlfriend3.jieShao();
+
+        /*第四种表现形式*/
+        // function GirlFriend11(option) {
+        //     this.name=option.name;
+        //     this.age=option.age;
+        //     this.sex="男";
+        // }
+
+        //prototype是方法function中的一个隐藏的属性对象，因为它是对象的性质可以进行动态地添加属性
+        // GirlFriend11.prototype.sex='女';
+        // GirlFriend11.prototype.showLove=function () {
+        //     alert('I Love You');
+        // }
+        // GirlFriend11.prototype.jieShao=function () {
+        //     alert("我叫"+this.name);
+        // }
+        //
+        // var gg5=new GirlFriend11({
+        //     name:"杨紫",
+        //     age:"23"
+        // });
+        // alert(gg5.name);
+        // alert(gg5.age);
+        // alert(gg5.sex);
+        // gg5.showLove();
+        // gg5.jieShao();
+
+    /*第五种表现形式*/
+        // function GirlFriend12(option) {
+        //     this.name=option.name;
+        //     this.age=option.age;
+        //     this.sex="男";
+        // }
+        //
+        // GirlFriend12.prototype={
+        //     showLove:function () {
+        //         alert("I Love You");
+        //     },
+        //     jieShao:function () {
+        //         alert(this.name);
+        //     }
+        // }
+        //
+        // var girlfriend6=new GirlFriend12({
+        //     name:"丽丽",
+        //     age:18
+        // });
+        // alert(girlfriend6.name);
+        // alert(girlfriend6.age)
+        // girlfriend6.jieShao();
+        // girlfriend6.showLove();
+
+    //    第六种形态表现形式（最终形态）
+    //   寻找属性的过程，先在方法中寻找，没有的话，再到prototype的原型中寻找
+        function GF(option) {
+            this._init(option);
+        }
+        GF.prototype={
+            //_init：标志只在构造函数中使用
+            _init:function (option) {
+                this.name=option.name;
+                this.age=option.age;
+            },
+            showLove:function () {
+                alert("I Love You");
+            },
+            jieShao:function () {
+                alert(this.name);
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

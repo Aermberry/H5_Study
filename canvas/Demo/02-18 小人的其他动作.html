@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<input type="button" id="left" value="left">
+<input type="button" id="right" value="right">
+<input type="button" id="up" value="up">
+<input type="button" id="down" value="down">
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+ var demo=document.querySelector('#demo');
+ demo.width=600;
+ demo.height=600;
+
+ var canvas=demo.getContext('2d');
+ var speed=10;
+ var cenX=canvas.width/2;
+ var cenY=canvas.height/2;
+
+
+ var img=new Image();
+ img.url='../img/1.png';
+
+ canvas.drawImage(img,500,500);
+</script>
+</body>
+</html>

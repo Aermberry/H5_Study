@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+    var demo=document.querySelector('#demo');
+    demo.width=800;
+    demo.height=800;
+
+    var canvas=demo.getContext('2d');
+    var width=20;
+    var height=20;
+    var maxX=400;
+    var maxY=400;
+
+    for (var i=0;i<demo.width/width;i++){
+        canvas.beginPath();
+        canvas.moveTo(i*width,0);
+        canvas.lineTo(i*width,demo.height);
+        canvas.stroke();
+    }
+
+    for (var j=0;j<demo.height/height;j++){
+        canvas.beginPath();
+        canvas.moveTo(0,j*height);
+        canvas.lineTo(demo.width,j*height);
+        canvas.stroke();
+    }
+
+    var cicle={
+        x0:100,
+        y0:500
+    };
+
+//    绘制y轴
+    canvas.beginPath();
+    canvas.moveTo(cicle.x0,cicle.y0);
+    canvas.lineTo(cicle.x0,cicle.y0-maxY);
+    canvas.lineTo(100-width/2,100+height/2);
+    canvas.moveTo(100,100);
+    canvas.lineTo(100+width/2,100+height/2);
+
+    canvas.lineWidth=4;
+    canvas.strokeStyle="red";
+    canvas.stroke();
+
+//    绘制x轴
+    canvas.beginPath();
+    canvas.moveTo(cicle.x0,cicle.y0);
+    canvas.lineTo(cicle.x0+maxX,cicle.y0);
+    canvas.lineTo(cicle.x0+maxX-width/2,cicle.y0+height/2);
+    canvas.moveTo(cicle.x0+maxX,cicle.y0);
+    canvas.lineTo(cicle.x0+maxX-width/2,cicle.y0-height/2);
+
+    canvas.lineWidth=4;
+    canvas.strokeStyle="blue";
+    canvas.stroke();
+
+    /*通过给定的数据绘制折线*/
+    var data=[40,48,50,70,60,40,20,60,80,90];
+
+    /*得到每个点之间的距离*/
+    var widthX=maxX/data.length;
+
+    canvas.beginPath();
+    canvas.moveTo(cicle.x0,cicle.y0);
+    for (var i=0;i<=data.length;i++){
+        canvas.lineTo(cicle.x0+(i+1)*widthX,cicle.y0-data[i]/100*maxY);
+        //对数据进行了处理，转换到坐标系中
+        canvas.strokeStyle="black";
+        canvas.stroke();
+    }
+
+</script>
+</body>
+</html>

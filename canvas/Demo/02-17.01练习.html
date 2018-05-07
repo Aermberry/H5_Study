@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+<script>
+    var canvas=document.querySelector('#demo');
+    canvas.height=800;
+    canvas.width=800;
+    canvas.style.border='1px solid #000';
+
+    /*获得2d渲染*/
+    var ctx=canvas.getContext('2d');//注意小写
+    var width=20;
+    var height=20;
+    var maxY=400;
+    var maxX=400;
+
+    for (var i = 1;i<canvas.width/width;i++){
+        ctx.beginPath();
+        ctx.moveTo(i*width,0);
+        ctx.lineTo(i*width,canvas.height);
+        ctx.stroke();
+    }
+
+    for (var j=1;j<canvas.height/height;j++){
+        ctx.beginPath();
+        ctx.moveTo(0,j*height);
+        ctx.lineTo(canvas.width,j*height);
+        ctx.stroke();
+    }
+    var circle={x0:100,y0:500};
+
+// 绘制x轴
+    ctx.beginPath();
+    ctx.moveTo(circle.x0,circle.y0);
+    ctx.lineTo(circle.x0,circle.y0-maxY);
+    ctx.lineTo(100-width/2,100+height/2);
+    ctx.moveTo(100,100);
+    ctx.lineTo(100+width/2,100+height/2);
+
+    ctx.lineWidth=4;
+    ctx.strokeStyle='red';
+    ctx.stroke();
+
+//    绘制y轴
+    ctx.beginPath();
+    ctx.moveTo(circle.x0,circle.y0);
+    ctx.lineTo(circle.x0+maxX,circle.y0);
+    ctx.lineTo(circle.x0+maxX-width/2,circle.y0-height/2);
+    ctx.moveTo(circle.x0+maxX,circle.y0);
+    ctx.lineTo(circle.x0+maxX-width/2,circle.y0+height/2);
+
+    ctx.lineWidth=4;
+    ctx.strokeStyle="blue";
+    ctx.stroke();
+
+//    通过给定的数据绘制出折线 1000
+    var data=[40,48,50,70,60,40,20,60,80,90];
+
+//    得到每一个点之间的距离
+    var widthX=maxX/data.length;
+//    开始绘制折线
+    ctx.beginPath();
+    ctx.moveTo(circle.x0,circle.y0);
+    for (var i=0;i<=data.length;i++){
+        ctx.lineTo(circle.x0+(i+1)*widthX,circle.y0-data[i]/100*maxY);
+        ctx.stroke();
+    }
+
+</script>
+</body>
+</html>
