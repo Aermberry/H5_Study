@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./render.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script>
+    var demo=document.querySelector('#demo');
+    demo.width=600;
+    demo.height=600;
+
+    var canvas=demo.getContext('2d');
+
+    canvas.beginPath();
+    canvas.moveTo(100,0);
+    canvas.lineTo(100,600);
+    // canvas.shadowColor='green';
+    // canvas.shadowBlur=10;
+    // canvas.shadowOffsetX=-5;
+    canvas.strokeStyle='red';
+    canvas.stroke();
+
+    canvas.beginPath();
+    canvas.moveTo(100,100);
+    canvas.lineTo(300,100);
+    canvas.lineWidth=50;
+    canvas.lineCap='butt';//默认值 平直的边缘（等于没有加）
+    canvas.strokeStyle='black';
+    canvas.stroke();
+
+    canvas.beginPath();
+    canvas.moveTo(100,200);
+    canvas.lineTo(300,200);
+    canvas.lineWidth=50;
+    canvas.lineCap='round';//给直线添加圆形线帽
+    canvas.stroke();
+
+    canvas.beginPath();
+    canvas.moveTo(100,400);
+    canvas.lineTo(300,400);
+    canvas.lineWidth=50;
+    canvas.lineCap='square';//给直线添加方形线帽
+    canvas.stroke();
+
+    /*
+    * lineCap() butt(默认)/round/square*/
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

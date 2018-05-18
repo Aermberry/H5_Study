@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+       <!--this的三种模式-->
+    /*
+    * 第一种模式： 函数执行的模式
+    * */
+
+    // function add() {
+    //     x=1;
+    //     //如果在函数中定义一个变量并且没有加上var修饰，那么这个变量相当于全局变量，相当是在window下面
+    //     alert(this.x);
+    // }
+    //     add();//1
+
+    //   上面的情况相当于如下：
+    // var x=1;
+    // function add() {
+    //     alert(this.x)
+    // }
+    //
+    // add();//1
+
+    //    this的第二种模式，对象方法的调用模式
+    //     function show() {
+    //         alert(this.x);
+    //     }
+    //
+    //     var o={};
+    //     o.x=2;
+    //     o.m=show;
+    //     o.m();//this指向的对象是自己“o”x=1
+    //     var x=1;
+    //     function show() {
+    //         alert(this.x);
+    //     }
+    //     var o={};
+    //     o.x=2;
+    //     o.m=show;
+    //     o.m();//x=2
+    //     就近原则，如果局部变量中有定义x就使用局部中的，不然就用全局的x值
+
+    //    this的第三种模式：构造器的调用模式
+    //     function Cat() {
+    //         this.x=1;
+    //     }
+    //     var c=new Cat();
+    //     alert(c.x);//构造器调用模式， this指向对象c ,x=1
+
+        // 变形
+        var x=1;
+        function Cat() {
+            this.x=2;
+        }
+        var c=new Cat();
+        alert(c.x);//2
+    </script>
+</head>
+<body>
+
+</body>
+</html>

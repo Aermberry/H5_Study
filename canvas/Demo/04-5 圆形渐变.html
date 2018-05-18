@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas class="demo" id="demo"></canvas>
+<script>
+   var demo=document.querySelector('#demo');
+   demo.width=800;
+   demo.height=800;
+
+   var canvas=demo.getContext('2d');
+
+   /*创建圆渐变对象*/
+    var cjb=canvas.createRadialGradient(300,300,50,300,300,200);
+    cjb.addColorStop(0,"red");
+    cjb.addColorStop(1,"yellow");
+    canvas.fillStyle=cjb;
+    canvas.arc(300,300,200,0,2*Math.PI);
+    canvas.a
+    canvas.fill();
+
+
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

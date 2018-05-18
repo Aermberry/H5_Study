@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas class="demo" id="demo"></canvas>
+<script>
+    var demo=document.querySelector('#demo');
+    demo.width=800;
+    demo.height=800;
+
+    var canvas=demo.getContext('2d');
+
+    canvas.shadowColor='teal';
+    canvas.shadowBlur=10;
+    canvas.shadowOffsetX=10;
+    canvas.shadowOffsetY=10;
+    canvas.fillStyle='rgba(255,0,0,.9)';
+    canvas.strokeStyle='yellow';
+    canvas.lineWidth=10;
+    canvas.fillRect(100,100,100,100);
+
+    var img=new Image();
+    img.src='../img/2.png'
+
+    img.onload=function () {
+        canvas.drawImage(img,0,0,img.width,img.height,200,200,400,400)
+    }
+
+
+
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

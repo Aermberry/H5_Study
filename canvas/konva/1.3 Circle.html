@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./less/demo.less" />
+    <script src="../JS/konva.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #F0F0F0;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+<script>
+    var width=window.innerWidth;
+    var height=window.innerHeight;
+
+    var stage=new Konva.Stage({
+        container:"demo",//获取舞台
+        width:width,
+        height:height
+    });
+
+    var layer=new Konva.Layer();
+    var circle=new Konva.Circle({
+        x:stage.getWidth()/2,
+        y:stage.getHeight()/2,
+        radius:70,
+        fill:'red',
+        stroke:'black',
+        strokeWidth:4
+    });
+    //add the shaper to the layer
+    layer.add(circle);
+    stage.add(layer);
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

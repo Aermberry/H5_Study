@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./render.less" />
+</head>
+<body>
+<canvas id="demo1" class="demo1"></canvas>
+<canvas id="demo2" class="demo2"></canvas>
+<img src="" id="img">
+<script>
+ var demo1=document.querySelector('#demo1');
+ var demo2=document.querySelector('#demo2');
+
+ demo1.width=600;
+ demo1.height=600;
+
+ demo2.width=600;
+ demo2.height=600;
+
+ var cavans1=demo1.getContext('2d');
+ var cavans2=demo2.getContext('2d');
+
+ cavans1.shadowColor="gray";
+ cavans1.shadowBlur=10;
+ cavans1.shadowOffsetX=10;
+ cavans1.shadowOffsetY=10;
+ cavans1.fillStyle='red';
+ cavans1.fillRect(100,100,300,300);
+
+ cavans2.drawImage(demo1,0,0);//这里注意渲染的对象是画板本身
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

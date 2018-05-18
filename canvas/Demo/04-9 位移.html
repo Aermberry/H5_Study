@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas class="demo" id="demo"></canvas>
+<script>
+   var canvas=document.querySelector('#demo');
+   canvas.width=800;
+   canvas.height=800;
+   var demo=canvas.getContext('2d');
+   demo.strokeRect(0,0,100,100);
+   demo.translate(200,200);
+   demo.rotate(30*Math.PI/180);//是以当前画布的圆点来进行旋转的
+   demo.moveTo(0,0);
+   demo.lineTo(400,0);
+   demo.moveTo(0,0);
+   demo.lineTo(0,400);
+   demo.stroke();
+
+   demo.strokeRect(0,0,50,50);
+//   缩放的整个画板，缩放后继续绘制的图形也会被方法或缩小
+
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

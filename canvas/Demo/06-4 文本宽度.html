@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./render.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script>
+    var demo=document.querySelector('#demo');
+    demo.width=600;
+    demo.height=600;
+
+    var canvas=demo.getContext('2d');
+    canvas.font='20px 宋体';
+    canvas.fillText('ASD',100,100);
+    var text=canvas.measureText('canvas');;//返回一个对象，text的宽度的像素大小
+    console.log(text);
+
+
+
+
+
+    /*
+    * lineCap() butt(默认)/round/square*/
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

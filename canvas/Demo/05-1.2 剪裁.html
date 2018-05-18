@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script>
+    var demo=document.querySelector('#demo');
+    demo.height=800;
+    demo.width=800;
+    var canvas=demo.getContext('2d');
+
+    canvas.strokeRect(0,0,100,100);
+
+    canvas.beginPath();
+    canvas.strokeRect(150,150,300,300)
+    canvas.rect(150,150,200,200);
+    canvas.clip();
+    canvas.fillRect(150,150,100,100);
+    // clip()  显示的两组图形的重叠部分
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

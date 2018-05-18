@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script>
+    var demo=document.querySelector('#demo');
+    demo.height=800;
+    demo.width=800;
+    var canvas=demo.getContext('2d');
+
+    canvas.beginPath();
+    canvas.arc(100,100,75,0,Math.PI*2,false);
+    canvas.clip();
+    // canvas.strokeRect(0,0,75,75);
+    canvas.fillRect(0,0,100,100);
+
+//    clip() 实现原理：先先绘制除需要显示的图案出来，再在图案的基础上绘制限制范围
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Grilfriend(option) {
+            this._init(option)
+        }
+
+        Grilfriend.prototype={
+            _init:function (option) {
+                this.name=option.name;
+                this.age=option.age;
+            },
+            showLove:function () {
+                alert("I Love You");
+            },
+            jieShao:function () {
+                alert(this.name);
+            }
+        }
+
+        var gg=new Grilfriend(
+            {
+                name:"妹妹",
+                age:18
+            }
+        )
+
+        console.log(gg.name)
+        console.log(gg.age);
+        gg.jieShao();
+        gg.showLove();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./oop.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script>
+    var demo=document.querySelector('#demo');
+    var canvas=demo.getContext('2d');
+    demo.height=800;
+    demo.width=800;
+
+//    draw background
+    canvas.fillStyle="#FD0";
+    canvas.fillRect(0,0,75,75);
+    canvas.fillStyle="#620";
+    canvas.fillRect(75,0,75,75);
+    canvas.fillStyle="#09F";
+    canvas.fillRect(0,75,75,75);
+    canvas.fillStyle="#F30";
+    canvas.fillRect(75,75,75,75);
+    canvas.fillStyle="#FFF";
+    
+    canvas.globalAlpha=0.5;
+    
+    for (var i=0;i<7;i++){
+        canvas.beginPath();
+        canvas.arc(75,75,10+10*i,0,Math.PI*2,true);
+        canvas.fill()
+    }
+
+
+
+
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

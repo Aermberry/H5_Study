@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<img src="" id="img">
+<script>
+    var demo=document.querySelector('#demo');
+    demo.height=800;
+    demo.width=800;
+    var canvas=demo.getContext('2d');
+
+    canvas.fillStyle="red";
+    var x=10;
+    canvas.fillRect(x,10,50,50);
+
+   var dataURL=demo.toDataURL();
+   console.log(dataURL);
+   /*dataURL(image format,quality) image\png|jpeg|webp,1|0:
+   * dataURL的默认图片格式类型：png
+   * */
+
+
+
+    setInterval(function () {
+        // canvas.clearRect(0,0,demo.width,demo.height);
+        // demo.width=demo.width;
+        // canvas.fillStyle="red";
+        canvas.fillStyle="red";
+        x++;
+        canvas.fillRect(x,10,50,50);
+        var img=document.getElementById("img");
+        img.src=canvas.toDataURL("image/png",1);
+    },100)
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

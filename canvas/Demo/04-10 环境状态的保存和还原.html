@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas id="demo"></canvas>
+
+<script>
+    var demo=document.querySelector('#demo');
+    demo.width=800;
+    demo.height=800;
+
+    var canvans=demo.getContext('2d');
+    canvans.save();//保存当前的样式状态，当有多个save()时，就以多个栈的形式先进后出的方式一次排列
+    canvans.fillStyle='green';
+    canvans.fillRect(10,10,100,100);
+
+    canvans.restore();//释放保存的样式状态，根据栈的先进后出，将最后进的先调出， 如此类推
+    canvans.fillRect(150,75,100,100);
+
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

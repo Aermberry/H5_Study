@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./less/demo.less" />
+    <script src="https://cdn.rawgit.com/konvajs/konva/2.1.2/konva.min.js"></script>
+</head>
+<body>
+<div id="demo"></div>
+<script>
+    <!--获取舞台-->
+    var width=window.innerWidth;
+    var height=window.innerHeight;
+
+    //创建舞台对象
+    var  stage=new Konva.Stage({
+        container: 'demo',
+        width: width,
+        height: height
+    });
+
+    //创建layer对象
+    var layer=new Konva.Layer();
+
+    // 创建rect对象
+    var rect=new Konva.Rect({
+        x:50,
+        y:50,
+        width:100,
+        height:50,
+        fill:'green',
+        stroke:'black',
+        strokeWidth:4
+    });
+
+    layer.add(rect);
+    stage.add(layer);
+
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

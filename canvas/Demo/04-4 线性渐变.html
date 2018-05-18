@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas class="demo" id="demo"></canvas>
+<script>
+    var demo=document.querySelector("#demo");
+    demo.width=800;
+    demo.height=800;
+    var canvas=demo.getContext('2d');
+
+    /*创建线性渐变对象*/
+    var grd=canvas.createLinearGradient(0,0,600,0);//起点坐标（x0，y0），结束点坐标（x1,y1）,两点连线代表渐变的方向
+    grd.addColorStop(0.5,"red");//添加颜色点，将起始坐标到结束坐标的渐变距离看作1，第一个参数标明在这渐变的哪个位置上，第二个参数是颜色
+    grd.addColorStop(0.7,"green");
+    grd.addColorStop(1,"white");
+    canvas.fillStyle=grd;
+    canvas.fillRect(0,0,600,300);
+
+
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

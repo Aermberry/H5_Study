@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./demo_style.less" />
+</head>
+<body>
+<canvas class="demo" id="demo"></canvas>
+<script>
+   var canvas=document.querySelector('#demo');
+   canvas.width=800;
+   canvas.height=800;
+   var demo=canvas.getContext('2d');
+
+   var img=new Image();
+   img.src='../img/b.jpg'
+
+    img.onload=function () {
+    // createPattern(img,repeat) 方法在指定的方向内重复指定的元素
+        var Pattern=demo.createPattern(img,'repeat');
+        demo.fillStyle=Pattern;
+        demo.fillRect(0,0,400,400);
+
+
+    }
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

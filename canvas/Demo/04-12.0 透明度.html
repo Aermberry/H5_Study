@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="./oop.less" />
+</head>
+<body>
+<canvas id="demo" class="demo"></canvas>
+<script>
+    var demo=document.querySelector('#demo');
+    var canvas=demo.getContext('2d');
+    demo.height=800;
+    demo.width=800;
+    //透明度
+    canvas.globalAlpha=0.5;
+    canvas.fillStyle="red";
+    canvas.fillRect(100,100,200,100);
+
+    canvas.fillStyle="blue";
+    canvas.fillRect(150,150,200,100);
+
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+</body>
+</html>

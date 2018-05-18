@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet/less" type="text/css" href="oop.less" />
+</head>
+<body>
+<canvas class="demo" id="demo"></canvas>
+<button id="left">left</button>
+<button id="right">right</button>
+<button id="up">up</button>
+<button id="down">down</button>
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js" ></script>
+<script src="../JS/spirit.js"></script>
+<script>
+    var canvas=document.querySelector('#demo');
+    canvas.width=600;
+    canvas.height=600;
+
+    var demo=canvas.getContext('2d');
+
+    var option={
+        x:canvas.width/2,
+        y:canvas.height/2,
+        width:40,
+        height:65,
+        inCanw:40,
+        inCanh:65,
+        imgSrc:'../img/1.png',
+        speed: 10,
+        dir:0
+    }
+
+    var spirit=new Spirit(option);
+    spirit.render(demo);
+
+    var left=document.querySelector("#left")
+    var rigt=document.querySelector("#right")
+    var up=document.querySelector("#up")
+    var down=document.querySelector("#down")
+
+    left.addEventListener("click",function () {
+        spirit.direction("left");
+    })
+
+    rigt.addEventListener("click",function () {
+        spirit.direction("right");
+    })
+
+    up.addEventListener("click",function () {
+        spirit.direction("backforward");
+        console.log(spirit.direction("backforward"))
+    })
+
+    down.addEventListener("click",function () {
+        spirit.direction("frontword");
+    })
+</script>
+</body>
+</html>
