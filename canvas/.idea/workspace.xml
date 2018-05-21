@@ -2,42 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf0dc815-5d9e-4547-a206-64d1d71e8ed6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Demo/03-2 创建对象——Demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-1 js中的this指向的对象.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-10 环境状态的保存和还原.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-11 画一个面向对象的矩形.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-12.0 透明度.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-12.1 透明度.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-12.2 透明度.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-2 面向对象的小人.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-3 设置阴影.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-4 线性渐变.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-5 圆形渐变.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-6绘制背景.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-7 缩放.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-8 翻转.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/04-9 位移.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/05-1.1 剪裁.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/05-1.2 剪裁.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/06-1 将画布保存为图片.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/06-2 画布渲染画布.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/06-3 线条.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/06-4 文本宽度.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/06-5 自己封装的矩形.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/oop.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Demo/render.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JS/Rect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JS/Rect2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JS/konva.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JS/spirit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/konva/1.1 认识konva.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/konva/1.2 Rect.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/konva/1.3 Circle.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/konva/1.4 ellipse.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/konva/less/demo.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../项目/移动的开发/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../项目/移动的开发/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -60,8 +25,8 @@
       <file leaf-file-name="1.4 ellipse.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/konva/1.4 ellipse.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+            <state relative-caret-position="522">
+              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -148,11 +113,10 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="179" />
-    <option name="y" value="1" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="135" />
     <option name="width" value="1089" />
-    <option name="height" value="1005" />
+    <option name="height" value="775" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -255,16 +219,18 @@
       <workItem from="1526475482984" duration="8022000" />
       <workItem from="1526568984859" duration="6380000" />
       <workItem from="1526610984594" duration="1033000" />
+      <workItem from="1526641541281" duration="602000" />
+      <workItem from="1526741432300" duration="1991000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232637000" />
+    <option name="totallyTimeSpent" value="235230000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="179" y="1" width="1089" height="1005" extended-state="0" />
+    <frame x="135" y="0" width="1089" height="775" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.54520035" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23951538" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" weight="0.32921812" />
@@ -632,8 +598,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/konva/1.4 ellipse.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        <state relative-caret-position="522">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
         </state>
       </provider>
     </entry>
