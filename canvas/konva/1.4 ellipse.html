@@ -20,19 +20,36 @@
     var height = window.innerHeight;
 
     // create Stage
-    var stage = new Stage({
+    //Konva the first chart must be written Large
+    var stage = new Konva.Stage({
         container: "demo",
         width: width,
         height: height,
-    })
-
-    var layer = new Layer();
-
-    var ellipse=new Ellipse({
-
     });
 
+    var layer = new Konva.Layer();
 
+    var oval = new Konva.Ellipse({
+        //坐标原点
+        x: stage.getWidth() / 2,
+        y: stage.getHeight() / 2,
+        // 长轴半径和短轴半径
+        radius: {
+            x: 100,
+            y: 50
+        },
+        //填充
+        fill: 'yellow',
+        //描边
+        stroke: 'black',
+        strokeWidth: 4
+    });
+
+    //    add the shaper to the layer
+    layer.add(oval);
+
+    //    add the shaper to the stage
+    stage.add(layer);
 </script>
 </body>
 </html>
