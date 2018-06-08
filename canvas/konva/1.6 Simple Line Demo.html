@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.rawgit.com/konvajs/konva/2.1.2/konva.min.js"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f0f0f0;
+    }
+</style>
+<body>
+<div id="oo"></div>
+<script>
+    width=window.innerWidth;
+    height=window.innerHeight;
+
+    var stage=new Konva.Stage({
+        container:'oo',
+        width:width,
+        height:height
+    })
+
+    var layer=new Konva.Layer();
+    var redLine=new Konva.Line({
+        points:[5,70,140,23,250,60,300,20],
+        stroke:'red',
+        strokeWidth:15,
+        lineCap:'round',
+        lineJoin:'round',
+    });
+
+//    dashed line
+    var greenLine=new Konva.Line({
+        points:[5,70,140,233,250,60,300,20],
+        stroke:'green',
+        strokeWidth:2,
+        lineJoin:'round',
+        dash:[33,10]
+    });
+
+    var blueLine=new Konva.Line({
+        points:[5,10,140,23,250,60,300,20],
+        stroke:'blue',
+        strokeWidth:10,
+        lineCap:'round',
+        lineJoin:'round',
+        dash:[29,20,0.001,20]
+    });
+
+    redLine.move({
+        x:0,
+        y:5
+    });
+    greenLine.move({
+        x:0,
+        y:105
+    });
+    blueLine.move({
+        x:0,
+        y:105
+    });
+
+    layer.add(redLine);
+    layer.add(greenLine);
+    layer.add(blueLine);
+    stage.add(layer);
+</script>
+</body>
+</html>
