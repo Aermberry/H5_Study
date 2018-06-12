@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="378fbbde-c1e2-49da-b242-9a76d8b2ce10" name="Aphach" url="http://localhost:8080">
+        <fileTransfer port="0" mountedRoot="F:\wamp64\www" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

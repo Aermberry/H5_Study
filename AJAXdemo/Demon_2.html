@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            /*border: 1px solid;*/
+            margin: 20px;
+            display: flex;
+            flex-flow: column wrap;
+            align-content: flex-start;
+        }
+
+        .box>p {
+            font-size: 18px;
+            font-family:"黑体";
+            /*border: 1px solid;*/
+            margin: 10px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>员工查询</h2>
+    <p>
+        <label>请输入员工编号:</label>
+        <input type="text" id="keyword">
+        <button id="search">查询</button>
+    </p>
+    <p id="searchResult"></p>
+    <h2>员工新建</h2>
+    <p>
+        <label>请输入员工姓名:</label>
+        <input type="text" id="staffName">
+    </p>
+    <p>
+        <label>请输入员工编号:</label>
+        <input type="text" id="staffNumber">
+    </p>
+    <p>
+        <label>请输入员性别:</label>
+        <select name="" id="staffSex">
+            <option>男</option>
+            <option>女</option>
+        </select>
+    </p>
+    <p>
+        <label>请输入员工职位:</label>
+        <input type="text" id="staffJob">
+    </p>
+    <p>
+        <button id="save">保存</button>
+    </p>
+    <p id="createResult"></p>
+</div>
+<script>
+    <!--Ajax-->
+
+
+    document.getElementById("search").onclick=function () {
+        //    声明XHR对象
+        var request=new XMLHttpRequest();
+
+        //XMLHttpRequest 初始化建立连接http连接
+        request.open("GET","Serve.php?number="+document.getElementById("keyword").value,true)//启用GET方式的http请求，填充申请服务器地址，启用异步
+        request.send()//发送http连接服务请求
+        request.onreadystatechange=function () {
+            if(request.readyState===4){//接受反馈，判断XMLHttpRequest阶段状态是否完成
+                if(request.status===200){//接受反馈，验证服务器是否连接成功
+                    document.getElementById("searchResult").innerHTML=request.responseText;
+                }
+                else {
+                    alert("发生错误"+request.status);
+                }
+            }
+        }
+    }
+    
+    document.querySelector("#save").addEventListener("click",function () {
+        //声明XMLHttpRequest对象
+        var request=new XMLHttpRequest();
+    //    建立连接
+        request.open("POST","Serve.php?",true);
+        request.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置出传送的数据的编码方法
+        var data="name="+document.querySelector("#staffName").value+"&number="+document.querySelector("#staffNumber").value+"&sex="+document.querySelector("#staffSex").value+"&job="+document.querySelector("#staffJob").value;
+        request.send(data);
+
+        request.onreadystatechange=function () {
+            if (request.readyState===4){
+                if(request.status===200){
+                    document.querySelector("#createResult").innerHTML=request.responseText
+                }
+                else {
+                    alert("发生错误"+request.status);
+                }
+            }
+        }
+
+    })
+    
+
+</script>
+</body>
+</html>

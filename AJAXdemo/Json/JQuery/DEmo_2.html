@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+
+        div, p,button{
+            font: 20px "黑体" ;
+        }
+
+        .box {
+            box-shadow: 0 1px 8px #cccccc;
+
+            border-radius: 10px;
+            border: 1px solid;
+            margin: 20px;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: flex-start;
+        }
+        .box>.box1{
+            flex-grow: 1;
+        }
+
+        .box>.box2{
+
+            flex-grow: 2;
+        }
+        p {
+            padding: 10px 0 10px 0;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.js">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#search").on("click",function () {
+                $.ajax(
+                    {
+                        type: "GET",
+                        url:"Serve.php?number="+$("#keyword").val(),
+                        dataType:"json",
+                        success:function (data) {
+                            if(data.success){
+                                $("#searchResult").html(data.msg);
+                            }
+                            else {
+                                $("#searchResult").html("出现错误"+data.msg);
+                            }
+                        }
+                    }
+                )
+            })
+
+            $("#save").click(function () {
+                $.ajax(
+                    {
+                        type:"POST",
+                        url:"Serve.php",
+                        dataType:"json",
+                        data:{
+                            name:$("#staffName").val(),
+                            number:$("#staffNumber").val(),
+                            sex:$("#staffSex").val(),
+                            job:$("#staffJob").val(),
+                        },
+                        success:function (data) {
+                            if(data.success){
+                                $("#createResult").html(data.msg);
+                            }
+                            else {
+                                $("#createResult").html("出现错误"+data.msg);
+                            }
+                        },
+                        error:function (jqXHR) {
+                            alert("发生错误："+jqXHR.status);
+                        }
+                    }
+                )
+            })
+        })
+    </script>
+
+
+</head>
+<body>
+<div class="box">
+    <div class="box1">
+        <h2>员工查询</h2>
+        <p>
+            <label>请输入员工编号：</label>
+            <input type="text" id="keyword">
+            <button id="search">查询</button>
+        </p>
+        <p id="searchResult"></p>
+    </div>
+    <div class="box2">
+        <h2>员工新建</h2>
+        <p>
+            <label>请输入员工姓名：</label>
+            <input type="text" id="staffName">
+        </p>
+        <p>
+            <label>请输入员工编号：</label>
+            <input type="text" id="staffNumber">
+        </p>
+        <p>
+            <label>请选择员工性别：</label>
+            <select name="" id="staffSex">
+                <option>男</option>
+                <option>女</option>
+            </select>
+        </p>
+        <p>
+            <label>请输入员工职位：</label>
+            <input type="text" id="staffJob">
+        </p>
+        <p>
+            <button id="save">保存</button>
+        </p>
+        <p id="createResult"></p>
+    </div>
+
+</div>
+</body>
+</html>

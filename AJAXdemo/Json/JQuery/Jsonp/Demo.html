@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>员工查询</h1>
+<p>
+    <label>请输入员工编号：</label>
+    <input type="text" id="keyword">
+    <button id="search">查询</button>
+</p>
+
+<p id="searchResult"></p>
+
+<h1>员工新建</h1>
+
+<p>
+    <label>请输入员工姓名：</label>
+    <input type="text" id="name">
+</p>
+
+<p>
+    <label >请输入员工编号：</label>
+    <input type="text" id="number">
+</p>
+
+<p>
+    <label>请选择员工性别：</label>
+    <select name="" id="sex">
+    <option >男</option>
+    <option >女</option>
+    </select>
+</p>
+
+<p>
+    <label >请输入员工职位：</label>
+    <input type="text" id="job">
+</p>
+
+<button id="save">保存</button>
+<p id="createResult"></p>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#search").click(function () {
+            $.ajax({
+                type:"GET",
+                url:"http://127.0.0.1:8080/AJAX%20Demo/Json/JQuery/Jsonp/Serve.php?number="+$("#keyword").val(),
+                dataType:"jsonp",
+                jsonp:"callback",
+                success:function (data) {
+                    if(data.success){
+                        $("#searchResult").html(data.msg);
+                    }
+                    else {
+                        $("#searchResult").html("出现错误"+data.msg);
+                    }
+                },
+                error:function (jqXHR) {
+                    alert("发生错误："+jqXHR.status);//jqXHR是模拟原生XMLHttpRequest的对象
+                }
+            })
+        });
+
+        $("#save").click(function () {
+            $.ajax({
+                type:"POST",
+                url:"Serve.php",
+                dataType:"json",
+                data:{
+                    name:$("#name").val(),
+                    number:$("#number").val(),
+                    sex:$("#sex").val(),
+                    job:$("#job").val(),
+                },
+                success:function (data) {
+                    if(data.success){
+                        $("#createResult").html(data.msg);
+                    }
+                    else {
+                        $("#createResult").html("出现错误"+data.msg);
+                    }
+                },
+                error:function (jqXHR) {
+                    alert("发生错误："+jqXHR.status);//jqXHR是模拟原生XMLHttpRequest的对象
+                }
+            })
+        });
+    })
+
+</script>
+</body>
+</html>
