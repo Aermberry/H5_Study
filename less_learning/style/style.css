@@ -1,0 +1,88 @@
+.mycolor {
+  color: red;
+  width: 100%;
+}
+.banner {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
+}
+body {
+  color: #444;
+  background: url("../img/white-sand.png");
+}
+.myclass {
+  color: aqua;
+  font-size: 10px;
+}
+.widget {
+  color: #0ee;
+  background-color: #999;
+}
+.widget {
+  color: #efefef;
+  background-color: $color;
+}
+/* example 混合(嵌套使用) */
+/* 相当于代码块方便重复使用*/
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+#menu a {
+  color: #111;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+.post a {
+  color: red;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+#header {
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+.button {
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+#header {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+.pre {
+  text-wrap: wrap;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+}
+/* @arguments 变量 @arguments包含了所有传递进来的参数. 如果你不想单独处理每一个参数的话就可以像这样写: */
+.urt {
+  -moz-box-shadow: 2px 5px 1px #000;
+  -webkit-box-shadow: 2px 5px 1px #000;
+}
+/*
+switch用法
+模式匹配和导引表达式
+有些情况下，我们想根据传入的参数来改变混合的默认呈现
+ */
+/* 先写出可能匹配到的情况 */
+.class {
+  color: #a2a2a2;
+  display: block;
+}
+/* 这是一个class 函数（命名空间） */
+.myclass {
+  font-size: 20px;
+  color: green;
+}
+/* 变量的作用域
+ 优先级为：本地作用域大于父级作用域 */
+.myclass {
+  font-size: 20px;
+  color: green;
+}
